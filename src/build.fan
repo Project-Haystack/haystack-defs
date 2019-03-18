@@ -24,6 +24,12 @@ class Build : BuildGroup
     ]
   }
 
+  @Target { help = "Delete entire lib/ directory" }
+  Void superclean()
+  {
+    Delete(this, Env.cur.workDir + `lib/`).run
+  }
+
   @Target { help = "Update trio versions from build config" }
   Void updateVersion()
   {
