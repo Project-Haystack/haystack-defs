@@ -1,0 +1,38 @@
+//
+// Copyright (c) 2018, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   25 Dec 2018  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^angle
+is: ^marker
+doc: "Measurement of the relative difference in direction between two vectors or phasors"
+--------------------------------------------------------------------------
+def: ^apparent
+is: ^marker
+doc: "Perceived quantity"
+--------------------------------------------------------------------------
+def: ^atmospheric
+is: ^marker
+doc: "Related to the atmosphere of the earth"
+--------------------------------------------------------------------------
+def: ^current
+is: ^marker
+doc: "Movement of fluid or electricity"
+--------------------------------------------------------------------------
+def: ^magnitude
+is: ^marker
+doc: "Size or extent"
+--------------------------------------------------------------------------
+def: ^quality
+is: ^marker
+doc: "Quantity measured against standard metric"
+--------------------------------------------------------------------------
+def: ^volt
+is: ^marker
+doc: "Electrical voltage, potential difference"
+--------------------------------------------------------------------------
+

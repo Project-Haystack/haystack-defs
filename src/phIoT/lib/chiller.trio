@@ -1,0 +1,89 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^chiller
+is: ^equip
+wikipedia: `https://wikipedia.org/wiki/Chiller`
+doc: "Device to remove heat via a vapor compression or an absorption refrigeration cycle"
+--------------------------------------------------------------------------
+def: ^chiller.coolingCapacity
+--------------------------------------------------------------------------
+def: ^chiller.chillerMechanism
+--------------------------------------------------------------------------
+def: ^chiller.chillerCoolingProcess
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Sections
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^chiller.chilled-water-leaving-pipe
+doc: "Chilled water supply pipe"
+--------------------------------------------------------------------------
+def: ^chiller.chilled-water-entering-pipe
+doc: "Chilled water return pipe"
+--------------------------------------------------------------------------
+def: ^chiller.condenser-water-leaving-pipe
+doc: "Piping to the cooling towers"
+--------------------------------------------------------------------------
+def: ^chiller.condenser-water-entering-pipe
+doc: "Piping from the cooling towers"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^coolingCapacity
+is: ^number
+doc: "Measurement of a chiller ability to remove heat measured"
+prefUnit: ["tonref", "BTU/h", "kW"]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// chillerMechanism
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^chillerMechanism
+is: ^marker
+doc: "Primary mechanism of chiller"
+--------------------------------------------------------------------------
+def: ^chiller-absorption
+is: [^absorption, ^chillerMechanism]
+--------------------------------------------------------------------------
+def: ^chiller-reciprocal
+is: [^reciprocal, ^chillerMechanism]
+--------------------------------------------------------------------------
+def: ^chiller-rotaryScrew
+is: [^rotaryScrew, ^chillerMechanism]
+--------------------------------------------------------------------------
+def: ^chiller-centrifugal
+is: [^centrifugal, ^chillerMechanism]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// chillerCooling
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^chillerCoolingProcess
+is: ^cooling-process
+doc: "Processed used to remove heat from refrigerant"
+--------------------------------------------------------------------------
+def: ^chiller-airCooling
+is: [^airCooling, ^chillerCoolingProcess]
+--------------------------------------------------------------------------
+def: ^chiller-condenserCooling
+is: [^condenserCooling, ^chillerCoolingProcess]
+--------------------------------------------------------------------------
+
+

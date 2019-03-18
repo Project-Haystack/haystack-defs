@@ -1,0 +1,259 @@
+//
+// Copyright (c) 2018, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   23 Dec 2018  Brian Frank  Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Quantity
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^quantity
+is: ^marker
+doc: "Measurable property of a substance or phenomenon"
+--------------------------------------------------------------------------
+def: ^quantity.quantityOf
+--------------------------------------------------------------------------
+
+def: ^quantityOf
+is: ^symbol
+of: ^phenomenon
+doc: "Associates quantity as measurement of a phenomenon"
+--------------------------------------------------------------------------
+def: ^prefUnit
+is: ^list
+of: ^unit
+doc: "Defines a preferred unit to be used with a quantity"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Substances
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^temp
+is: ^quantity
+quantityOf: ^substance
+doc: "Temperature - measure of hot and cold"
+prefUnit: ["°C", "°F"]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Fluids
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pressure
+is: ^quantity
+quantityOf: ^fluid
+prefUnit: ["kPa", "psi"]
+doc: "Measure of force applied"
+--------------------------------------------------------------------------
+def: ^flow
+is: ^quantity
+quantityOf: ^fluid
+prefUnit: ["m³/s", "gal/min"]
+doc: "Measure of volumetric flow of fluid"
+--------------------------------------------------------------------------
+def: ^level
+is: ^quantity
+quantityOf: ^fluid
+prefUnit: ["%"]
+doc: "Fill level of a vessel containing a fluid where 0% is empty and 100% if filled"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Air
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^air-temp
+is: ^temp
+quantityOf: ^air
+doc: "Dry bulb temperature"
+--------------------------------------------------------------------------
+def: ^webBulb
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["°C", "°F"]
+doc: "Wet bulb air temperature.  Temperature which the air would have if cooled to saturation by the evaporation of water into it."
+--------------------------------------------------------------------------
+def: ^feelsLike
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["°C", "°F"]
+doc: "Apparent temperature perceived when considering humidity, wind chill, and heat index"
+--------------------------------------------------------------------------
+def: ^dewPoint
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["°C", "°F"]
+doc: "Dew point temperature at which water vapor will form dew"
+--------------------------------------------------------------------------
+def: ^humidity
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["%RH"]
+doc: "Percent relative humidity; measure of moisture in the air"
+--------------------------------------------------------------------------
+def: ^airQuality
+is: ^quantity
+quantityOf: ^air
+doc: "Measurement of contaminants in the air"
+--------------------------------------------------------------------------
+def: ^co2
+doc: "Carbon dioxide level"
+is: ^airQuality
+prefUnit: ["ppb"]
+--------------------------------------------------------------------------
+def: ^pm25
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Particulate Matter 2.5; atmospheric pollutant of fine particles with/ an aerodynamic diameter of 2.5 micrometers or less"
+--------------------------------------------------------------------------
+def: ^pm10
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Particulate Matter 10; atmospheric pollutant of fine particles with an aerodynamic diameter of 10 micrometers or less"
+--------------------------------------------------------------------------
+def: ^tvoc
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Total volatile organic compound (TVOC).  This is a general term applied to the overall total volatile organic compouns (VOCs) detected."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Weather
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^atmospheric-pressure
+is: ^pressure
+quantityOf: ^weather
+prefUnit: ["millibar", "inHg"]
+doc: "Barometric pressure exerted by the weight of the atmosphere"
+--------------------------------------------------------------------------
+def: ^cloudage
+is: ^quantity
+quantityOf: ^weather
+prefUnit: ["%"]
+doc: "Percentage of sky obscurred by clouds. This is also known as cloudiness, or cloud amount."
+--------------------------------------------------------------------------
+def: ^daytime
+is: ^quantity
+quantityOf: ^weather
+doc: "Time between sunrise and sunset"
+enum:
+  - nighttime: false indicates sun is below horizon
+  - daytime: true indicates sun is above horizon
+--------------------------------------------------------------------------
+def: ^precipitation
+is: ^quantity
+quantityOf: ^weather
+prefUnit: ["mm", "in"]
+doc: "Amount of atmospheric water vapor fallen including rain, sleet, snow, and hail"
+--------------------------------------------------------------------------
+def: ^solar-irradiance
+is: ^irradiance
+quantityOf: ^solar
+prefUnit: ["W/m²"]
+doc: "Energy received on surface of the earth from the sun"
+--------------------------------------------------------------------------
+def: ^weatherCond
+is: ^quantity
+quantityOf: ^weather
+doc: "Enumeration of weather conditions"
+enum:
+  unknown
+  clear
+  partlyCloudy
+  cloudy
+  showers
+  rain
+  thunderstorms
+  ice
+  flurries
+  snow
+--------------------------------------------------------------------------
+def: ^wind-speed
+is: ^speed
+quantityOf: ^wind
+doc: "Wind flow speed"
+--------------------------------------------------------------------------
+def: ^wind-direction
+is: ^direction
+quantityOf: ^wind
+doc: "Compass direction from which wind originates"
+--------------------------------------------------------------------------
+def: ^visibility
+is: ^quantity
+quantityOf: ^weather
+prefUnit: ["km", "mile"]
+doc: "Distance at which light can be clearly discerned"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Elec
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^elec-power
+is: ^power
+quantityOf: ^elec
+prefUnit: ["kW"]
+doc: "Electrical energy consumed per unit time"
+--------------------------------------------------------------------------
+def: ^elec-energy
+is: ^energy
+quantityOf: ^elec
+prefUnit: ["kWh"]
+doc: "Electrical energy consumed"
+--------------------------------------------------------------------------
+def: ^elec-volt
+is: ^quantity
+quantityOf: ^elec
+doc: "Electrical voltage, potential difference"
+--------------------------------------------------------------------------
+def: ^elec-current
+is: ^quantity
+quantityOf: ^elec
+doc: "Electrical current"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Generics
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^direction
+is: ^quantity
+prefUnit: ["deg"]
+doc: "Compass direction measured in degrees: North: 0° = 360°, East: 90°, South: 180°, West: 270°"
+--------------------------------------------------------------------------
+def: ^energy
+is: ^quantity
+doc: "Measure of ability to do work"
+--------------------------------------------------------------------------
+def: ^freq
+is: ^quantity
+prefUnit: ["Hz"]
+doc: "Occurrences per unit time"
+--------------------------------------------------------------------------
+def: ^irradiance
+is: ^quantity
+doc: "Energy received at a surface by area"
+--------------------------------------------------------------------------
+def: ^power
+is: ^quantity
+doc: "Energy consumed per unit time"
+--------------------------------------------------------------------------
+def: ^speed
+is: ^quantity
+prefUnit: ["km/h", "mph"]
+doc: "Distance per unit time"
+--------------------------------------------------------------------------
+
+

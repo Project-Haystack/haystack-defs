@@ -1,0 +1,49 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^boiler
+is: ^equip
+wikipedia: `https://wikipedia.org/wiki/Boiler`
+doc: "Boilers generate hot water or steam for heating"
+--------------------------------------------------------------------------
+def: ^hot-water-boiler
+is: ^boiler
+doc: "Boiler which outputs hot water"
+--------------------------------------------------------------------------
+def: ^steam-boiler
+is: ^boiler
+doc: "Boiler which outputs steam"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Boiler Common
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^boiler.boilerHeatingProcess
+doc: "Boiler heating process fuel type"
+--------------------------------------------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////
+// boilerHeatingProcess
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^boilerHeatingProcess
+is: ^heating-process
+doc: "Method used to heat water in a boiler"
+--------------------------------------------------------------------------
+def: ^boiler-gasHeating
+is: [^gasHeating, ^boilerHeatingProcess]
+--------------------------------------------------------------------------
+def: ^boiler-oilHeating
+is: [^oilHeating, ^boilerHeatingProcess]
+--------------------------------------------------------------------------
+

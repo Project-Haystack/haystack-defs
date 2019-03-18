@@ -1,0 +1,126 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    9 Jan 2018  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^absorption
+is: ^marker
+wikipedia: `https://wikipedia.org/wiki/Absorption_refrigerator`
+doc: "Cooling process using energy from heat source such as hot water"
+--------------------------------------------------------------------------
+def: ^active
+is: ^marker
+doc: "Working, operative, effective"
+--------------------------------------------------------------------------
+def: ^area
+is: ^number
+prefUnit: ["ft²", "m²"]
+doc: "Area of a shape or floor space"
+--------------------------------------------------------------------------
+def: ^barometric
+is: ^marker
+doc: "Relating atmospheric pressure"
+--------------------------------------------------------------------------
+def: ^blowdown
+is: ^marker
+doc: "Removal from container or pipe"
+--------------------------------------------------------------------------
+def: ^centrifugal
+is: ^marker
+wikipedia: `https://wikipedia.org/wiki/Centrifugal_compressor`
+doc: "Compression via a continuous flow of fluid through an impeller"
+--------------------------------------------------------------------------
+def: ^condenser
+is: ^marker
+doc: "Device or related to process of condensation"
+--------------------------------------------------------------------------
+def: ^coolingOnly
+is: ^marker
+doc: "Device without heating"
+--------------------------------------------------------------------------
+def: ^chilled
+is: ^marker
+doc: "Cooled"
+--------------------------------------------------------------------------
+def: ^cur
+is: ^marker
+doc: "Related to a current value"
+--------------------------------------------------------------------------
+def: ^domestic
+is: ^marker
+doc: "For human use"
+--------------------------------------------------------------------------
+def: ^fanPowered
+is: ^marker
+doc: "Device with a fan"
+--------------------------------------------------------------------------
+def: ^his
+is: ^marker
+doc: "Related to historization of data"
+--------------------------------------------------------------------------
+def: ^hot
+is: ^marker
+doc: "Having high degree of heat"
+--------------------------------------------------------------------------
+def: ^hvac
+is: ^marker
+wikipedia: `https://wikipedia.org/wiki/HVAC`
+doc: "Heating, ventilation, and air conditioning"
+--------------------------------------------------------------------------
+def: ^imbalance
+is: ^marker
+doc: "Lacking balance"
+--------------------------------------------------------------------------
+def: ^lighting
+is: ^marker
+wikipedia: `https://wikipedia.org/wiki/Lighting`
+doc: "Systems associated with illumination in the built environment"
+--------------------------------------------------------------------------
+def: ^makeup
+is: ^marker
+doc: "Restore soemthing missed or lost"
+--------------------------------------------------------------------------
+def: ^parallel
+is: ^marker
+doc: "Circuit with multiple paths of flow"
+--------------------------------------------------------------------------
+def: ^reactive
+is: ^marker
+doc: "Relating to reactance"
+--------------------------------------------------------------------------
+def: ^reciprocal
+is: ^marker
+wikipedia: `https://wikipedia.org/wiki/Reciprocating_compressor`
+doc: "Piston compressor driven by a crankshaft"
+--------------------------------------------------------------------------
+def: ^rotaryScrew
+is: ^marker
+wikipedia: `https://wikipedia.org/wiki/Rotary-screw_compressor`
+doc: "Rotary screw compression"
+--------------------------------------------------------------------------
+def: ^series
+is: ^marker
+doc: "Circuit with single path of flow"
+--------------------------------------------------------------------------
+def: ^thermal
+is: ^marker
+doc: "Related to energy of heat"
+--------------------------------------------------------------------------
+def: ^thd
+is: ^marker
+doc: "Total harmonic distortion"
+--------------------------------------------------------------------------
+def: ^writable
+is: ^marker
+doc: "Related to data which can written"
+--------------------------------------------------------------------------
+def: ^zone
+is: ^marker
+doc: "Related to spaces from a system perspective"
+--------------------------------------------------------------------------
+

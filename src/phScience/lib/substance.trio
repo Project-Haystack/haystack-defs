@@ -1,0 +1,55 @@
+//
+// Copyright (c) 2018, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   23 Dec 2018  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^substance
+is: ^phenomenon
+wikipedia: `https://wikipedia.org/wiki/Matter`
+doc: "Matter in one the three states solid, liquid, or gas"
+--------------------------------------------------------------------------
+def: ^solid
+is: ^substance
+wikipedia: `https://wikipedia.org/wiki/Solid`
+doc: "Substance with definite shape and volume"
+--------------------------------------------------------------------------
+def: ^fluid
+is: ^substance
+wikipedia: `https://wikipedia.org/wiki/Fluid`
+doc: "Liquid or gas"
+--------------------------------------------------------------------------
+def: ^liquid
+is: ^fluid
+wikipedia: `https://wikipedia.org/wiki/Liquid`
+doc: "Substance with definite volume but takes the shape of its container"
+--------------------------------------------------------------------------
+def: ^gas
+is: ^fluid
+wikipedia: `https://wikipedia.org/wiki/Gas`
+doc: "Substance with neither definite volume nor shape"
+--------------------------------------------------------------------------
+def: ^ice
+is: ^solid
+wikipedia: `https://wikipedia.org/wiki/Ice`
+doc: "Water in its solid form"
+--------------------------------------------------------------------------
+def: ^water
+is: ^liquid
+wikipedia: `https://wikipedia.org/wiki/Water`
+doc: "Water in its liquid form"
+--------------------------------------------------------------------------
+def: ^steam
+is: ^gas
+wikipedia: `https://wikipedia.org/wiki/Steam`
+doc: "Water in its gas form"
+--------------------------------------------------------------------------
+def: ^air
+is: ^gas
+wikipedia: `https://wikipedia.org/wiki/Atmosphere_of_Earth`
+doc: "The mixture of gases which surrounds the earth"
+--------------------------------------------------------------------------
+

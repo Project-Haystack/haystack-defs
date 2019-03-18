@@ -1,0 +1,314 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    6 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^point
+is: ^entity
+mandatory
+doc: "Data point such as a sensor or actuator"
+--------------------------------------------------------------------------
+def: ^point.equipRef
+--------------------------------------------------------------------------
+def: ^point.siteRef
+--------------------------------------------------------------------------
+def: ^point.spaceRef
+--------------------------------------------------------------------------
+def: ^point.tz
+--------------------------------------------------------------------------
+def: ^point.pointType
+--------------------------------------------------------------------------
+def: ^point.pointKind
+--------------------------------------------------------------------------
+def: ^point.enum
+--------------------------------------------------------------------------
+def: ^point.minVal
+doc: "Minimum value to allow for writes or which sensor should read."
+--------------------------------------------------------------------------
+def: ^point.maxVal
+doc: "Maximum value to allow for writes or which sensor should read."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Point Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pointKind
+is: ^str
+doc: "Point value type"
+enum:
+  - Bool: model digital points as true/false.  Bool points may
+    also define an `enum` tag for the text to use for the true/false states
+  - Number: model analog points such as temperature or pressure.
+    These points should also include the `unit` to indicate the point's
+    unit of measurement.
+  - Str: models an enumerated point with a mode such as "Off, Slow, Fast".
+    Enumeraed points should also define an `enum` tag.
+  - Coord: models a point tracking geolocation coordinates
+--------------------------------------------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////
+// Point Generics
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^p-point
+is: ^point
+p: ^phenomenon
+doc: "Point which measures or controls phenomenon 'p'"
+--------------------------------------------------------------------------
+def: ^q-point
+is: ^point
+q: ^quantity
+doc: "Point which measures or controls quantity 'q'"
+--------------------------------------------------------------------------
+def: ^p-q-point
+is: [^p-point, ^q-point]
+doc: "Point which measures or controls phenomenon 'p' and quantity 'q'"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Point Type
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pointType
+is: ^marker
+doc: "Classifies the point as a sensor, command, or setpoint"
+--------------------------------------------------------------------------
+def: ^sensor
+is: ^pointType
+doc: "Point is a sensor, input, AI/BI"
+--------------------------------------------------------------------------
+def: ^cmd
+is: ^pointType
+doc: "Point is a command, actuator, AO/BO"
+--------------------------------------------------------------------------
+def: ^sp
+is: ^pointType
+doc: "Point is a setpoint, soft point, internal control variable, schedule"
+--------------------------------------------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////
+// Cur Point Mixin
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^cur-point
+is: ^point
+mixin
+doc:
+  Point with support to report a "real-time" current value.  By real-time
+  we typically mean freshness within the order of of a few seconds or at
+  most a few minutes.  For systems with direct I/O the current value is
+  typically driven by the I/O scan rate. For overlay systems which acquire
+  data over a protocol such as BACnet or Modbus then the current value
+  is typically refreshed using polling or subscription over a network.
+--------------------------------------------------------------------------
+def: ^cur-point.curVal
+--------------------------------------------------------------------------
+def: ^cur-point.curStatus
+--------------------------------------------------------------------------
+def: ^cur-point.curErr
+--------------------------------------------------------------------------
+
+// Cur tags
+
+--------------------------------------------------------------------------
+def: ^curVal
+is: ^scalar
+transient
+doc:
+  Current value of a point.  The current value is only available when
+  the the `curStatus` is "ok" or "stale".
+--------------------------------------------------------------------------
+def: ^curStatus
+is: ^str
+transient
+doc:
+  Status of point's current value reading.  The `curVal` is only available
+  when curStatus is "ok" or "stale".  However a "stale" value should
+  be used with caution since the local system does not have a fresh value.
+  It is recommended that the `curVal` tag is removed from a point
+  when the curStatus is not "ok" nor "stale".
+enum:
+  - ok: all is okay
+  - stale: the point's curVal is not fresh data
+  - fault: a configuration or hardware problem - see `curErr`
+  - down: a communication or network problem - see `curErr`
+  - disabled: manual disable of the point or connector
+  - unknown: we don't know anything (usually boot state)
+  - remoteFault: point in remote system is fault
+  - remoteDown: point in remote system is down
+  - remoteDisabled: point in remote system is disabled
+  - remoteUnknown: point in remote system is unknown
+--------------------------------------------------------------------------
+def: ^curErr
+is: ^str
+transient
+doc: "Error description when `curStatus` indicates error condition"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// His Point Mixin
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^his-point
+is: ^point
+mixin
+doc:
+  Historized point with a history log of timestamp/value pairs.  Points
+  marked as historized indicate the system can response to queries via
+  the 'hisRead' operation to return a trend log of timestamp/value pairs.
+
+  There are typically two mechanisms for historization:
+    - the local system performs the historization by logging the
+      point's `curVal` to local storage
+    - in overlay systems a downstream device performs the historization
+      and the local system synchronizes the history data in batch on
+      a periodic basis
+--------------------------------------------------------------------------
+def: ^his-point.hisMode
+--------------------------------------------------------------------------
+def: ^his-point.hisTotalized
+--------------------------------------------------------------------------
+def: ^his-point.hisStatus
+--------------------------------------------------------------------------
+def: ^his-point.hisErr
+--------------------------------------------------------------------------
+
+// His tags
+
+--------------------------------------------------------------------------
+def: ^hisMode
+is: ^str
+doc: "Indicates the way that history data is collected for a point."
+enum:
+  - sampled: Data is sampled on a regular interval. The timestamp
+    indicates exactly when the sample was taken, and we assume linear
+    interpolation between samples.
+  - cov: Data is logged when it changes. The means the timestamp
+    indicates exactly when it changed (inclusive) and it remains that
+    value until the next sample's timestamp (exclusive).
+  - consumption: Integral data is sampled on a regular interval and
+    logged at the *end* of the interval. The timestamp indicates the
+    *end* of the interval. Therefore, the raw data is logged as
+    start *exclusive*, end *inclusive*.  This is mode is typical for
+    consumption meters.
+--------------------------------------------------------------------------
+def: ^hisTotalized
+is: ^marker
+doc:
+  Indicates values which are a continuous stream of totalization. History
+  data reads and should be normalized by computing the delta.
+--------------------------------------------------------------------------
+def: ^hisStatus
+is: ^str
+transient
+doc: "Status of point's history collection or synchronization"
+enum:
+  - ok: last sync attempt was successful
+  - fault: a configuration problem - see `hisErr`
+  - down: a communication or network problem - see `hisErr`
+  - disabled: manual disable of the point or parent connector
+  - unknown: we don't know anything (usually boot state)
+  - pending: sync has been scheduled and is waiting to running
+  - syncing: sync is currently running
+--------------------------------------------------------------------------
+def: ^hisErr
+is: ^str
+transient
+doc: "Error description when `hisStatus` indicates error condition"
+--------------------------------------------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////
+// Writable Point Mixin
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^writable-point
+is: ^point
+mixin
+doc:
+  Point with writable output using 16-level priority array.  Writable
+  points typically are a setpont or actuator command.  Haystack writable
+  points are modeled on the BACnet 16-level priority array with a
+  relinquish default which effectively acts as level 17.
+
+  The following levels have special behavior:
+   - **Level 1**: highest priority reserved for emergency overrides
+   - **Level 8**: manual override with ability to set timer to expire back to auto
+   - **Default**: implicitly acts as level 17 for relinquish default
+
+  The priority array provides for contention resolution when many different
+  control applications may be vying for control of a given point. Low level
+  applications like scheduling typically control levels 14, 15, or 16. Then
+  users can override at level 8. But a higher levels like 2 to 7 can be used
+  to trump a user override (for example a demand response energy routine
+  that requires higher priority).
+
+  The actual value to write is resolved by starting at level 1 and working down
+  to relinquish default to find the first non-null value. It is possible for
+  all levels to be null, in which case the overall write output is null (which
+  in turn may be auto/null to another system). Anytime a null value is written
+  to a priority level, we say that level has been set to auto or released (this
+  allows the next highest level to take command of the output).
+--------------------------------------------------------------------------
+def: ^writable-point.writeVal
+--------------------------------------------------------------------------
+def: ^writable-point.writeLevel
+--------------------------------------------------------------------------
+def: ^writable-point.writeStatus
+--------------------------------------------------------------------------
+def: ^writable-point.writeErr
+--------------------------------------------------------------------------
+
+// Writable tags
+
+--------------------------------------------------------------------------
+def: ^writeVal
+is: ^scalar
+transient
+doc:
+  Current desired value to write to output.  This is the current "winning"
+  value of the priority array indicated by `writeLevel`.  If this tag
+  is missing then the winning value is null/auto.
+--------------------------------------------------------------------------
+def: ^writeLevel
+is: ^number
+transient
+minVal: 1
+maxVal: 17
+doc:
+  Current priority level for `writeVal` as number between 1 and 17.
+  The value 17 indicates the relinquish default value.
+--------------------------------------------------------------------------
+def: ^writeStatus
+is: ^str
+transient
+doc: "Current status of a writable point output"
+enum:
+  - unbound: writable point is not bound to any output
+  - ok: last write was successful
+  - down: connectivity/networking problem - see `writeErr`
+  - fault: configuration or hardware error  - see `writeErr`
+  - disabled: manual disable of the point or connector
+  - unknown: we don't know anything (typically boot state)
+--------------------------------------------------------------------------
+def: ^writeErr
+is: ^str
+transient
+doc: "Error description when `writeStatus` indicates error condition"
+--------------------------------------------------------------------------
+
+

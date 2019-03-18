@@ -1,0 +1,15 @@
+# ignore files
+
+# globs in any directory
+syntax: glob
+
+# specific files
+Thumbs.db
+.DS_Store
+fan.props
+
+# Specific directories and files
+syntax: regexp
+
+# lib (compiled pods)
+^lib/

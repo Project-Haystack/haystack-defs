@@ -1,0 +1,16 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//    9 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^lib:phIoT
+doc: "Project Haystack definitions for Internet of Things"
+version: "3.9.1"
+baseUri: `https://project-haystack.org/def/phIoT/`
+includes: [^lib:ph, ^lib:phScience]
+--------------------------------------------------------------------------
+

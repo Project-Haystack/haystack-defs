@@ -1,0 +1,96 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^process
+is: ^marker
+doc: "Industrial or HVAC process"
+--------------------------------------------------------------------------
+def: ^inputs
+is: ^symbol
+of: ^phenomenon
+doc: "Input to a process, usually energy source"
+--------------------------------------------------------------------------
+def: ^outputs
+is: ^symbol
+of: ^phenomenon
+doc: "Output of a process"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Heating
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^heating
+is: ^marker
+doc: "Associated with a heating process"
+--------------------------------------------------------------------------
+def: ^heating-process
+is: ^process
+doc: "Processed used to heat a substance"
+--------------------------------------------------------------------------
+def: ^hotWaterHeating
+is: ^heating-process
+inputs: ^hot-water
+doc: "Heating using energy of hot water"
+--------------------------------------------------------------------------
+def: ^steamHeating
+is: ^heating-process
+inputs: ^steam
+doc: "Heating using energy of steam"
+--------------------------------------------------------------------------
+def: ^gasHeating
+is: ^heating-process
+inputs: ^naturalGas
+doc: "Heating by the combustion of natural gas"
+--------------------------------------------------------------------------
+def: ^oilHeating
+is: ^heating-process
+inputs: ^fuelOil
+doc: "Heating by the combustion of fuel oil"
+--------------------------------------------------------------------------
+def: ^elecHeating
+is: ^heating-process
+inputs: ^elec
+wikipedia: `https://wikipedia.org/wiki/Electric_heating`
+doc: "Heating by the conversion of electrical energy"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^cooling
+is: ^marker
+doc: "Associated with a cooling process"
+--------------------------------------------------------------------------
+def: ^cooling-process
+is: ^process
+doc: "Processed used to cool a substance"
+--------------------------------------------------------------------------
+def: ^airCooling
+is: ^cooling-process
+wikipedia: `https://wikipedia.org/wiki/Air_cooling`
+doc: "Cooling by dissipating heat into the surrounding air"
+--------------------------------------------------------------------------
+def: ^condenserCooling
+is: ^cooling-process
+doc: "Removal of heat through the process of water condensation"
+--------------------------------------------------------------------------
+def: ^dxCooling
+is: ^cooling-process
+doc: "Cooling using refrigerant vapar expansion and compression"
+--------------------------------------------------------------------------
+def: ^chilledWaterCooling
+is: ^cooling-process
+inputs: ^chilled-water
+doc: "Cooling using transfer of heat to chilled water"
+--------------------------------------------------------------------------
+

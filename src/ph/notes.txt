@@ -1,0 +1,22 @@
+
+Notes for re-modeling the ontology using the new def tree design
+
+
+- weatherStation replaces weather (subtype of site)
+- weather replaces weatherPoint
+- building new subtype of both site and space
+- space model (space, building, floor, room, zone-space)
+- new airQuality quantities pm25, pm10, tvoc
+- magnitude replaces mag (used with current and volt)
+- hisMode replaces hisInterpolate
+- elec-ac, elec-dc subtypes
+- phenomenon taxonomy
+- quantity taxonomy
+- process taxonomy
+- wikipedia hyperlinks in defs where applicable
+- temp versioning scheme 3.9.YYYYMMDD
+- daytime replaces sunrise
+
+- filetype defs
+
+

@@ -1,0 +1,38 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    9 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^meter
+is: ^equip
+doc: "Equipment to meter a substance or electricity"
+--------------------------------------------------------------------------
+def: ^elec-meter
+is: ^meter
+doc: "Electricity meter"
+--------------------------------------------------------------------------
+def: ^flow-meter
+is: ^meter
+doc: "Meter to measure flow rate and total volume of fluid"
+--------------------------------------------------------------------------
+def: ^f-flow-meter
+is: ^flow-meter
+f: ^fluid
+doc: "Meter to measure flow rate and total volume of fluid 'f'"
+--------------------------------------------------------------------------
+def: ^thermal-meter
+is: ^meter
+doc: "Meter to measure energy transfer via fluid"
+--------------------------------------------------------------------------
+def: ^f-thermal-meter
+is: ^thermal-meter
+f: ^fluid
+doc: "Meter to measure energy transfer via fluid 'f'"
+--------------------------------------------------------------------------
+
+

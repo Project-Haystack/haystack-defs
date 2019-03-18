@@ -1,0 +1,130 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    6 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^marker
+doc: "Marker labels a dict with typing information"
+--------------------------------------------------------------------------
+def: ^val
+doc: "Data value type"
+--------------------------------------------------------------------------
+def: ^scalar
+is: ^val
+doc: "Scalar is an atomic value kind"
+--------------------------------------------------------------------------
+def: ^na
+is: ^scalar
+doc: "Not available used to indicate invalid or missing data"
+--------------------------------------------------------------------------
+def: ^bool
+is: ^scalar
+doc: "Boolean value 'true' or 'false'"
+--------------------------------------------------------------------------
+def: ^number
+is: ^scalar
+doc: "Integer or floating point numbers annotated with an optional unit"
+--------------------------------------------------------------------------
+def: ^str
+is: ^scalar
+doc: "Unicode string of characters"
+--------------------------------------------------------------------------
+def: ^uri
+is: ^scalar
+doc: "Unverisal resource identifier"
+--------------------------------------------------------------------------
+def: ^ref
+is: ^scalar
+doc:
+  Reference to an entity. Ref values are ASCII strings limited to the
+  following chars: a-z, A-Z, 0-9, underbar, colon, dash, dot, or tilde.
+--------------------------------------------------------------------------
+def: ^symbol
+is: ^scalar
+doc:
+  Symbol to a def. Symbol values are ASCII strings limited to the
+  following chars: a-z, A-Z, 0-9, underbar, colon, dash, dot.
+--------------------------------------------------------------------------
+def: ^date
+is: ^scalar
+doc: "ISO 8601 date as year, month, day: '2011-06-07'"
+--------------------------------------------------------------------------
+def: ^time
+is: ^scalar
+doc: "ISO 8601 time as hour, minute, seconds: '09:51:27.354'"
+--------------------------------------------------------------------------
+def: ^dateTime
+is: ^scalar
+doc: "ISO 8601 timestamp followed by timezone identifier"
+--------------------------------------------------------------------------
+def: ^coord
+is: ^scalar
+doc: "Geographic coordinate in latitude/longitude formatted as 'C(lat,lng)'"
+--------------------------------------------------------------------------
+def: ^xstr
+is: ^scalar
+doc: "Extended string - type name and string value encoding"
+--------------------------------------------------------------------------
+def: ^list
+is: ^val
+doc: "Ordered list of zero or more values."
+--------------------------------------------------------------------------
+def: ^dict
+is: ^val
+doc: "Map of name/value tag pairs"
+--------------------------------------------------------------------------
+def: ^grid
+is: ^val
+doc: "Two dimension table of columns and rows"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Number Meta
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^int
+is: ^number
+doc: "Unitless integer number"
+--------------------------------------------------------------------------
+def: ^duration
+is: ^number
+doc: "Number with a unit of time"
+--------------------------------------------------------------------------
+def: ^maxVal
+is: ^number
+doc: "Inclusive minimum for a numeric value."
+--------------------------------------------------------------------------
+def: ^minVal
+is: ^number
+doc: "Inclusive maximum for a numeric value."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Of Meta
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^of
+is: ^ref
+of: ^def
+doc: "Value type of a collection or reference"
+--------------------------------------------------------------------------
+def: ^ref.of
+doc: "Referrent type of a ref"
+--------------------------------------------------------------------------
+def: ^list.of
+doc: "Item type of a list"
+--------------------------------------------------------------------------
+def: ^dict.of
+doc: "Value type of a homogeneous dict"
+--------------------------------------------------------------------------
+def: ^grid.of
+doc: "Dict row type of a grid"
+--------------------------------------------------------------------------
+

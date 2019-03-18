@@ -1,0 +1,85 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   25 Jan 2019  Brian Frank  Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Feature
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^filetype
+is: ^feature
+doc: "File format type definition"
+--------------------------------------------------------------------------
+def: ^filetype.mime
+--------------------------------------------------------------------------
+def: ^filetype.fileExt
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// FileType Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^mime
+is: ^str
+doc: "Mime type formatted as type/subtype"
+--------------------------------------------------------------------------
+def: ^fileExt
+is: ^str
+doc: "Filename extension such as \"csv\""
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Types
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def:       ^filetype:csv
+dis:       "CSV"
+doc:       "Comma Separated Values"
+mime:      "text/csv"
+fileExt:   "csv"
+wikipedia: `https://wikipedia.org/wiki/Comma-separated_values`
+--------------------------------------------------------------------------
+def:       ^filetype:json
+dis:       "JSON"
+doc:       "Haystack JavaScript Object Notation"
+mime:      "application/json"
+fileExt:   "json"
+wikipedia: `https://wikipedia.org/wiki/JSON`
+--------------------------------------------------------------------------
+def:       ^filetype:jsonld
+dis:       "JSON-LD"
+doc:       "JavaScript Object Notation for Linked Data"
+mime:      "application/ld+json"
+fileExt:   "jsonld"
+wikipedia: `https://wikipedia.org/wiki/JSON-LD`
+--------------------------------------------------------------------------
+def:       ^filetype:trio
+dis:       "Trio"
+doc:       "Haystack Tag Record Input Output"
+mime:      "text/trio"
+fileExt:   "trio"
+--------------------------------------------------------------------------
+def:       ^filetype:turtle
+dis:       "Turtle"
+doc:       "RDF Turtle"
+mime:      "text/turtle"
+fileExt:   "ttl"
+wikipedia: `https://wikipedia.org/wiki/Turtle_(syntax)`
+--------------------------------------------------------------------------
+def:       ^filetype:zinc
+dis:       "Zinc"
+doc:       "Haystack Zinc is Not CSV"
+mime:      "text/zinc"
+fileExt:   "zinc"
+--------------------------------------------------------------------------
+
+
+
+

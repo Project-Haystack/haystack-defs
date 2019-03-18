@@ -1,0 +1,20 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    6 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^tz
+is: ^str
+doc: "Timezone identifier from standard timezone database"
+--------------------------------------------------------------------------
+def: ^unit
+is: ^str
+doc: "Unit identifier from standard unit database"
+--------------------------------------------------------------------------
+
+
