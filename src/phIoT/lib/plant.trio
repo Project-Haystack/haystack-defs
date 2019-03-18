@@ -1,0 +1,29 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^plant
+is: ^equip
+doc: "Central plant used to generate a substance for a process"
+--------------------------------------------------------------------------
+def: ^chilled-water-plant
+is: ^plant
+outputs: ^chilled-water
+doc: "Plant used to generate chilled water for cooling"
+--------------------------------------------------------------------------
+def: ^hot-water-plant
+is: ^plant
+outputs: ^hot-water
+doc: "Plant used to generate hot water for heating"
+--------------------------------------------------------------------------
+def: ^steam-plant
+is: ^plant
+outputs: ^steam
+doc: "Plant used to generate steam for heating"
+--------------------------------------------------------------------------
+

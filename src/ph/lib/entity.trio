@@ -1,0 +1,37 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    6 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^entity
+is: ^marker
+doc: "Top-level dicts with a unique identifier"
+--------------------------------------------------------------------------
+def: ^entity.id
+--------------------------------------------------------------------------
+def: ^entity.dis
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^id
+is: ^ref
+doc:
+  Defines the unique identifier of an entity in system using a Ref value
+  type. The scope of an entity is undefined, but must be unique with a
+  given system or project. This identifier may be used by other entities
+  for cross-referencing.
+--------------------------------------------------------------------------
+def: ^dis
+is: ^str
+doc: "Display name for an entity"
+--------------------------------------------------------------------------
+

@@ -1,0 +1,25 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^tank
+is: ^equip
+wikipedia: `https://wikipedia.org/wiki/Storage_tank`
+doc: "Tank used to store a substance for temporary holding"
+--------------------------------------------------------------------------
+def: ^f-tank
+is: ^tank
+f: ^fluid
+stores: ^f
+doc: "Tank which stores fluid 'f'"
+--------------------------------------------------------------------------
+def: ^stores
+is: ^symbol
+doc: "What is stored by an equipment"
+--------------------------------------------------------------------------
+

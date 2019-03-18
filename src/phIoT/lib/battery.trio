@@ -1,0 +1,16 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^battery
+is: ^equip
+stores: ^elec
+wikipedia: `https://wikipedia.org/wiki/Electric_battery`
+doc: "Device used to store electric energy"
+--------------------------------------------------------------------------
+

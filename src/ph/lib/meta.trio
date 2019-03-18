@@ -1,0 +1,136 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    6 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^def
+is: ^symbol
+doc: "Create a new definition bound to the given symbol"
+--------------------------------------------------------------------------
+def: ^feature
+doc: "Feature namespace of definitions formatted as 'feature:name'"
+--------------------------------------------------------------------------
+def: ^enum
+is: ^str
+doc:
+  Defines an eumeration of string keys.  The range may also be applied
+  to format a Bool ordered as "false,true".  The string may be formatted
+  in one of three ways:
+   - comma separated keys on one line
+   - keys separated by a "\n" newline character
+   - markdown unordered list formatted as a series of "- key: description\n"
+--------------------------------------------------------------------------
+def: ^doc
+is: ^str
+doc:
+  Documentation in simplified flavor of markdown.  The first
+  sentence up to the period is used as the summary.
+
+  Specific formatting options:
+  pre>
+  // inline formatting
+  *italic*           // italics font
+  **bold**           // bold font
+  'code'             // code or API term
+  `point`            // hyperlink to def (code link)
+  [text]`point`      // hyperlink with explicit link text
+  ![alt]`image.png`  // image
+
+  // unordered list
+  - one
+  - two
+  - three
+
+  // ordered list; use numbers or letters
+  1. one
+  2. two
+  3. three
+  <pre
+
+  The main difference between markdown is that inline code uses single
+  ticks and hyperlinks are annotated using the backtick.  Links may be:
+    - absolute http/https URIs
+    - def symbol such as "site" or "hot-water"
+--------------------------------------------------------------------------
+def: ^includes
+is: ^list
+of: ^ref
+doc: "List of library names to include"
+--------------------------------------------------------------------------
+def: ^is
+is: ^list
+of: ^symbol
+doc: "Defines one or more supertypes of a subtyping relationship"
+--------------------------------------------------------------------------
+def: ^mandatory
+is: ^marker
+notInherited
+doc:
+  Requires that the marker be applied to dicts which use the marker's subtypes.
+  This tag is typically applied to top-level entity tags such as 'equip'.
+  For example if an instance is tagged with a subtype of 'equip' such
+  as 'tank', then the instance must also include the 'equip' tag as a
+  mandatory marker.
+--------------------------------------------------------------------------
+def: ^mixin
+is: ^marker
+doc:
+  Marker added to a def to indicate inclusive subtyping.  Defs without
+  the mixin tag have a default assumption of exclusive subtyping.
+--------------------------------------------------------------------------
+def: ^notInherited
+is: ^marker
+doc:
+  Marker applied to a def to indicate that is not inherited into
+  subtype definitions.
+--------------------------------------------------------------------------
+def: ^transient
+is: ^marker
+doc:
+  Indicates a value tag which should not be persisted.  Transient
+  values often change frequently and do not provide long term informational
+  value. Typyically they are stored only in RAM and should not be stored
+  to durable storage.
+--------------------------------------------------------------------------
+def: ^version
+is: ^str
+doc: "Version string formatted as decimal integers separated by a dot"
+--------------------------------------------------------------------------
+def: ^wikipedia
+is: ^uri
+doc: "Hyperlink to the subject's page on Wikipedia"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Library
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^lib
+is: ^feature
+doc: "Library module of symbolic definitions"
+--------------------------------------------------------------------------
+def: ^lib.doc
+--------------------------------------------------------------------------
+def: ^lib.includes
+--------------------------------------------------------------------------
+def: ^lib.version
+--------------------------------------------------------------------------
+def: ^lib.baseUri
+doc: "Base URI for identifying defs in this library"
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+def: ^baseUri
+is: ^uri
+doc: "Base URI for normalizing relative URIs"
+--------------------------------------------------------------------------
+
+
+
+

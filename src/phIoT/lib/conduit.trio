@@ -1,0 +1,170 @@
+//
+// Copyright (c) 2019 Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   15 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^conduit
+is: ^equip
+doc: "Duct, pipe, or cable to convey a substance or phenomenon"
+--------------------------------------------------------------------------
+def: ^pipe
+is: ^conduit
+wikipedia: `https://wikipedia.org/wiki/Pipe_(fluid_conveyance)`
+doc: "Conduit used to convey a fluid"
+--------------------------------------------------------------------------
+def: ^duct
+is: ^conduit
+conveys: ^air
+wikipedia: `https://wikipedia.org/wiki/Duct_(flow)`
+doc: "Conduit used to convey air for HVAC"
+--------------------------------------------------------------------------
+def: ^wire
+is: ^conduit
+conveys: ^elec
+doc: "Cabling used to convey electricity"
+--------------------------------------------------------------------------
+def: ^conveys
+is: ^symbol
+doc: "What type of substance or phenomenon conveyed by a conduit"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Pipe Generics
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^f-pipe
+is: ^pipe
+f: ^fluid
+conveys: ^f
+doc: "Pipe which conveys fluid 'f'"
+--------------------------------------------------------------------------
+def: ^s-pipe
+is: ^pipe
+s: ^pipeSection
+doc: "Pipe in equipment section 's'"
+--------------------------------------------------------------------------
+def: ^s-f-pipe
+is: [^s-pipe, ^f-pipe]
+doc: "Pipe in equipment section 's' which conveys fluid 'f'"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Pipe Section
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pipeSection
+is: ^marker
+doc: "Equipment section of piping"
+--------------------------------------------------------------------------
+def: ^entering
+is: ^pipeSection
+doc: "Pipe conveys fluid into an equipment"
+--------------------------------------------------------------------------
+def: ^leaving
+is: ^pipeSection
+doc: "Pipe conveys fluid out of an equipment"
+--------------------------------------------------------------------------
+def: ^bypass
+is: ^pipeSection
+doc: "Pipe used to bypass an equipment"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Duct Generics
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^s-duct
+is: ^duct
+s: ^ductSection
+doc: "Duct in equipment section 's'"
+--------------------------------------------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////
+// Duct Section
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ductSection
+is: ^marker
+doc: "Equipment section of ductwork"
+--------------------------------------------------------------------------
+def: ^discharge
+is: ^ductSection
+doc: "Duct with air leaving an equipment"
+--------------------------------------------------------------------------
+def: ^inlet
+is: ^ductSection
+doc: "Duct with air entering an equipment"
+--------------------------------------------------------------------------
+def: ^exhaust
+is: ^ductSection
+doc: "Duct used to expel air back outside"
+--------------------------------------------------------------------------
+def: ^mixed
+is: ^ductSection
+doc: "Duct where fresh outside and return air is mixed together"
+--------------------------------------------------------------------------
+def: ^outside
+is: ^ductSection
+doc: "Duct to access fresh outside air"
+--------------------------------------------------------------------------
+def: ^return
+is: ^ductSection
+doc: "Duct returning air back to equipment"
+--------------------------------------------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////
+// Duct Deck
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^duct.ductDeck
+--------------------------------------------------------------------------
+def: ^ductDeck
+is: ^marker
+doc: "Cold, hot, or neutral deck"
+--------------------------------------------------------------------------
+def: ^coldDeck
+is: ^ductDeck
+doc: "Duct carries air for cooling"
+--------------------------------------------------------------------------
+def: ^hotDeck
+is: ^ductDeck
+doc: "Duct carries air for heating"
+--------------------------------------------------------------------------
+def: ^neutralDeck
+is: ^ductDeck
+doc: "Duct carries air which by-passes both heating and cooling coils"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Duct Config
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ductConfig
+is: ^marker
+doc: "Ductwork configuration"
+--------------------------------------------------------------------------
+def: ^singleDuct
+is: ^ductConfig
+doc: "One single duct"
+--------------------------------------------------------------------------
+def: ^dualDuct
+is: ^ductConfig
+doc: "Two ducts: combination of hotDeck, coldDeck, or neutralDeck"
+--------------------------------------------------------------------------
+def: ^tripleDuct
+is: ^ductConfig
+doc: "Three ducts: hotDeck, coldDeck, or neutralDeck"
+--------------------------------------------------------------------------
+

@@ -1,0 +1,68 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    6 Jan 2019  Brian Frank  New design
+//
+
+
+//////////////////////////////////////////////////////////////////////////
+// IoT Substances
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^fuelOil
+is: ^liquid
+wikipedia: `https://wikipedia.org/wiki/Fuel_oil`
+doc: "Petroleum based oil burned for energy"
+--------------------------------------------------------------------------
+def: ^naturalGas
+is: ^gas
+wikipedia: `https://wikipedia.org/wiki/Natural_gas`
+doc: "Fossil fuel energy source consisting largely of methane and other hydrocarbons"
+--------------------------------------------------------------------------
+def: ^refrig
+is: ^fluid
+wikipedia: `https://wikipedia.org/wiki/Refrigerant`
+doc:
+  Fluid used in refrigeration and heat exchange.  Refrigerants typically
+  alternate between liquid and gas state.
+--------------------------------------------------------------------------
+def: ^gasoline
+is: ^liquid
+wikipedia: `https://wikipedia.org/wiki/Gasoline`
+doc: "Petroleum derived liquid used as a fuel source"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Water Subtypes
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^domestic-water
+is: ^water
+doc: "Tap water for drinking, washing, cooking, and flushing of toliets"
+--------------------------------------------------------------------------
+def: ^hot-water
+is: ^water
+doc: "Hot water used for HVAC heating or supply to hot taps"
+--------------------------------------------------------------------------
+def: ^chilled-water
+is: ^water
+doc: "Water used for HVAC cooling"
+wikipedia: `https://wikipedia.org/wiki/Chilled_water`
+--------------------------------------------------------------------------
+def: ^condenser-water
+is: ^water
+doc: "Water used used to remove heat through condensation"
+--------------------------------------------------------------------------
+def: ^makeup-water
+is: ^water
+doc: "Water used used to makeup water loss through leaks, evaporation, or blowdown"
+--------------------------------------------------------------------------
+def: ^blowdown-water
+is: ^water
+doc: "Water expelled from a system to remove mineral build up"
+--------------------------------------------------------------------------

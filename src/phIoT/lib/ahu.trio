@@ -1,0 +1,125 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    9 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^ahu
+is: ^equip
+wikipedia: `https://wikipedia.org/wiki/Air_handler`
+doc: "Air handling unit"
+--------------------------------------------------------------------------
+def: ^ahu.ahuZoneDelivery
+--------------------------------------------------------------------------
+def: ^ahu.ahuCoolingProcess
+--------------------------------------------------------------------------
+def: ^ahu.ahuHeatingProcess
+--------------------------------------------------------------------------
+def: ^ahu.ductConfig
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Sections
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ahu.discharge-duct
+doc: "Supply air to the zones"
+--------------------------------------------------------------------------
+def: ^ahu.outside-duct
+doc: "Fresh outside air intake"
+--------------------------------------------------------------------------
+def: ^ahu.mixed-duct
+doc: "Mixed air between outside and return"
+--------------------------------------------------------------------------
+def: ^ahu.return-duct
+doc: "Returning air from zone"
+--------------------------------------------------------------------------
+def: ^ahu.exhaust-duct
+doc: "Exhaust air to the outside"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// ahuZoneDelivery
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ahuZoneDelivery
+is: ^marker
+doc: "AHU delivery method of conditioned air to the zone"
+--------------------------------------------------------------------------
+def: ^directZone
+is: ^ahuZoneDelivery
+doc: "AHU supplies air directly to the zone"
+--------------------------------------------------------------------------
+def: ^vavZone
+is: ^ahuZoneDelivery
+doc: "AHU supplies air to VAV terminal units"
+--------------------------------------------------------------------------
+def: ^chilledBeamZone
+is: ^ahuZoneDelivery
+doc: "AHU supplies air to chilled beam terminal units"
+--------------------------------------------------------------------------
+def: ^multiZone
+is: ^ahuZoneDelivery
+doc: "AHU discharge air is split into a duct per zone"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// ahuCoolingProcess
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ahuCoolingProcess
+is: ^cooling-process
+outputs: ^air
+doc: "Method used to cool air for conditioning spaces"
+--------------------------------------------------------------------------
+def: ^ahu-dxCooling
+is: [^dxCooling, ^ahuCoolingProcess]
+--------------------------------------------------------------------------
+def: ^ahu-chilledWaterCooling
+is: [^chilledWaterCooling, ^ahuCoolingProcess]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// ahuHeatingProcess
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ahuHeatingProcess
+is: ^heating-process
+outputs: ^air
+doc: "Method used to heat air for conditioning spaces"
+--------------------------------------------------------------------------
+def: ^ahu-hotWaterHeating
+is: [^hotWaterHeating, ^ahuHeatingProcess]
+--------------------------------------------------------------------------
+def: ^ahu-steamHeating
+is: [^steamHeating, ^ahuHeatingProcess]
+--------------------------------------------------------------------------
+def: ^ahu-gasHeating
+is: [^gasHeating, ^ahuHeatingProcess]
+--------------------------------------------------------------------------
+def: ^ahu-elecHeating
+is: [^elecHeating, ^ahuHeatingProcess]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Relationships
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ahuRef
+is: ^ref
+of: ^ahu
+doc: "AHU which supplies air to an equipment or space"
+--------------------------------------------------------------------------
+
+
+
+

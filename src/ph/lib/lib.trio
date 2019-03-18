@@ -1,0 +1,16 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   3 Aug 2018  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^lib:ph
+doc: "Project Haystack core definitions"
+version: "3.9.1"
+baseUri: `https://project-haystack.org/def/ph/`
+--------------------------------------------------------------------------
+
+

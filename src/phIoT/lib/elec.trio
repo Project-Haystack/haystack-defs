@@ -1,0 +1,132 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//   28 Dec 2018  Brian Frank  New design
+//
+
+//////////////////////////////////////////////////////////////////////////
+// AC vs DC
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ac
+is: ^marker
+doc: "Relating to alternating current electricity"
+--------------------------------------------------------------------------
+def: ^dc
+is: ^marker
+doc: "Relating to direct current electricity"
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+def: ^ac-elec
+is: ^elec
+wikipedia: `https://wikipedia.org/wiki/Alternating_current`
+doc: "Alternating current electricity"
+--------------------------------------------------------------------------
+def: ^dc-elec
+is: ^elec
+wikipedia: `https://en.wikipedia.org/wiki/Direct_current`
+doc: "Direct current electricity"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// AC Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ac-freq
+is: ^freq
+quantityOf: ^ac-elec
+doc: "Frequency of alternating current"
+--------------------------------------------------------------------------
+def: ^pf
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["pf"]
+doc:
+  Electrical power factor; unitless number between 0.0 and 1.0 which is ratio
+  of active to apparent power in an AC power system.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// AC Power Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^active-power
+is: ^elec-power
+quantityOf: ^ac-elec
+doc: "Active power or real power; energy transfer that contributes useful work"
+--------------------------------------------------------------------------
+def: ^reactive-power
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["kVAR"]
+doc: "Reactive power or imaginary power; energy transfer that contributes useful work"
+--------------------------------------------------------------------------
+def: ^apparent-power
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["kVA"]
+doc: "Apparent power is perceived magnitude of power due to the combination of active and reactive power"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// AC Current Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^current-magnitude
+is: ^elec-current
+quantityOf: ^ac-elec
+prefUnit: ["A"]
+doc: "Magnitude of electrical current"
+--------------------------------------------------------------------------
+def: ^current-angle
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["deg"]
+doc: "AC current phase angle"
+--------------------------------------------------------------------------
+
+def: ^current-imbalance
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["%"]
+doc: "Current phase imbalance in a multiphase AC system"
+--------------------------------------------------------------------------
+def: ^current-thd
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["%"]
+doc: "Total harmonic current distortion"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// AC Volt Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^volt-magnitude
+is: ^elec-volt
+quantityOf: ^ac-elec
+prefUnit: ["A"]
+doc: "Magnitude of electrical voltage"
+--------------------------------------------------------------------------
+def: ^volt-angle
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["deg"]
+doc: "AC voltage phase angle"
+--------------------------------------------------------------------------
+def: ^volt-imbalance
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["%"]
+doc: "AC voltage phase imbalance"
+--------------------------------------------------------------------------
+

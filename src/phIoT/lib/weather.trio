@@ -1,0 +1,25 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//   24 Jan 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^weatherStation
+is: [^site, ^equip]
+doc: "Weather station"
+wikipedia: `https://wikipedia.org/wiki/Weather_station`
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Contains
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^weatherStation.q-weather-point
+doc: "Point associated with a specific weather observation/measurement"
+--------------------------------------------------------------------------
+
