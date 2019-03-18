@@ -20,6 +20,7 @@ class Build : BuildPod
     summary = "Project Haystack definitions for Internet of Things"
     meta    = ["org.name":     "Project Haystack",
                "org.uri":      "https://project-haystack.org/",
+               "proj.name":    "Project Haystack Defs",
                "license.name": "Academic Free License 3.0"]
     resDirs = [`lib/`]
   }
