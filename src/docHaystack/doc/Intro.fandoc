@@ -1,0 +1,30 @@
+**************************************************************************
+** title:      Intro
+** author:     Brian Frank
+** created:    22 Mar 2019
+** copyright:  Copyright (c) 2019, Project-Haystack
+**************************************************************************
+
+Introduction [#intro]
+*********************
+Welcome to Project Haystack!
+
+This initial documentation addresses Haysatck 4.0 and its suite of new
+technologies for more advanced data modeling.  The work was done
+under [WG 551]`https://project-haystack.org/forum/topic/551`.
+
+Key concepts for the Haystack 4.0 include:
+  - new design for definition of tags and tag sets
+  - organization of tags into a taxonomy tree structure
+  - symbol relationships between tags for a richer ontology
+  - enhancements to the filter query language
+  - RDF support
+
+Test links:
+  - `Intro`: back to me?
+  - `site`: site tag?
+  - `lib:phIoT`: lib tag?
+
+
+
+
