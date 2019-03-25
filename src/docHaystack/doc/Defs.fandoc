@@ -95,6 +95,10 @@ Conjunct symbols are formatted as individual names separated by a dash.
 Each tag name used in a conjunct must itself be formally defined and must
 be a subtype of marker.
 
+Conjuncts are applied to dicts by applying each tag separately.  For
+example to apply the `elec-meter` conjunct to a dict, we would
+add the individual tags `elec` and `meter`.
+
 The order of the names in a conjunct is significant - the symbol itself
 defines a unique identifier.  For example 'hot-water' is *not* the same
 identifier as 'water-hot'.  Note this is in contrast to instance
@@ -102,7 +106,7 @@ data modeled as dicts which do not define any ordering on their tags.
 
 The general rule for ordering the tags in a conjunct is to put the most
 important term or noun at the end.  For example since 'hot' is an adjective
-on the noun 'water' then we order the conjunct as 'hot-water'.  The
+on the noun 'water', then we order the conjunct as 'hot-water'.  The
 order often maps to how we would use the phrase or compound word in normal
 language.
 
