@@ -1,0 +1,147 @@
+**************************************************************************
+** title:      Defs
+** author:     Brian Frank
+** created:    23 Mar 2019
+** copyright:  Copyright (c) 2019, Project-Haystack
+**************************************************************************
+
+Overview [#overview]
+********************
+Defs bind a symbolic name to a formal definition.  Defs are modeled as
+a dict with the `def` tag.  Defs are used to define the tags we use on
+Haystack data.  And because they are dicts themselves, defs are normal
+Haystack data also.
+
+The primary tags used to model a def include:
+  - `def`: binds a well-known name to the definition
+  - `doc`: human description of the definition
+  - `is`: organizes the definition into a taxonomy type tree
+  - `lib`: specifies the library module which declares the definition
+
+See [def tags]`def` for the full list of all tags which might
+be used on a definition.
+
+Def Types [#types]
+******************
+There are four types of definitions determined by the format of their
+symbol name:
+
+  - [tag]`#tags`: definition for a tag name
+  - [conjunct]`#conjuncts`: definition for a set of tags such as 'hot-water'
+  - [key]`#keys`: definition for a feature specific name such as 'filetype:json'
+  - [compose]`#composes`: associates a tag with a type marker such as 'geoPlace.geoCity'
+
+Collectively we call tags and conjuncts our [terms]`#terms`.
+
+Tag Defs [#tags]
+****************
+Tag defs are used to formally tag names.  They must have symbol names
+which are valid tag names:
+
+ - Must start with ASCII lower case letter (a-z)
+ - Must contain only ASCII letters, digits, or underbar (a-z, A-Z, 0-9, _)
+ - By convention use camel case (fooBarBaz)
+
+Here is an example:
+
+  def: ^equip
+  doc: "Equipment asset"
+  is: ^entity
+
+Conjuncts [#conjuncts]
+**********************
+Conjuncts are used to define a set of two or more tags used together in
+combination.  Conjuncts are like the compound words used in English and
+other languages.  We coin a new term from existing terms.
+
+Conjunct symbols are formatted as individual names separated by a dash.
+Each tag name used in a conjunct must itself be formally defined and must
+be a subtype of marker.
+
+The order of the names in a conjunct is significant - the symbol itself
+defines a unique identifier.  For example 'hot-water' is *not* the same
+identifier as 'water-hot'.  Note this is in contrast to instance
+data modeled as dicts which do not define any ordering on their tags.
+
+The general rule for ordering the tags in a conjunct is to put the most
+important term or noun at the end.  For example since 'hot' is an adjective
+on the noun 'water' then we order the conjunct as 'hot-water'.  The
+order often maps to how we would use the phrase or compound word in normal
+language.
+
+Conjuncts have no implied subtyping.  For example `hot-water` does
+not imply that it subtypes from either `hot` or `water`.  Subtyping must
+be explicitly specified in the def via the 'is' tag.
+
+Here is an example:
+
+  def: ^hot-water
+  is: ^water
+  doc: "Hot water used for HVAC heating or supply to hot taps"
+
+Terms [#terms]
+**************
+Any def which is either a *tag* or a *conjunct* is a *term*.  Terms define
+our standardized vocabulary to model data.  It can be difficult to determine
+when a term should be a camel case tag or a conjunct.  For example should we
+use 'hotWater' as a single tag or 'hot-water' as a conjunct?
+
+One consideration is how instance data will be queried with tags.  By making
+a term a conjunct, we can easily query the individual tags.  For example since
+'hot-water' is a conjunct, we can query data for the 'water' tag which would
+include 'hot-water', 'chilled-water', etc.  Although in Haystack 4.0 we can
+also perform these queries using the subtype tree.
+
+Another consideration is semantic conflicts.  Many of the primary entity tags
+carry very specific semantics.  For example the `site` tag by its presence
+means the data models a geographic site.  So we cannot reuse the 'site'
+tag to mean something associated with a site; which is why use the camel
+case tag `siteMeter` to mean the main meter associated with a site.
+
+Feature Keys [#keys]
+********************
+Feature keys create named definitions which are application specific.  Feature
+key symbols are formatted as 'feature:name'. Currently we define two features:
+  - `lib`: the namespace of library modules
+  - `filetype`: the namespace of Haystack file format types
+
+Feature keys let us share a single unified symbolic namespace for all
+definitions.  But they don't pollute our tag namespace.  For example the
+symbol `filetype:json` lets us define the JSON file format, but its wholly
+separate if we ever decide we want a 'json' tag definition.
+
+Feature keys require that the feature name be formally specified as a
+subtype of `feature`.  The name of the key must be a valid [tag name]`#tags`.
+All the names within a feature key must be unique.
+
+Feature keys are implied to subtype from their feature.  For example `lib:phIoT`
+automatically subtypes from `lib`.  It is invalid to declare an 'is' tag
+on a feature key def.
+
+Compose Defs [#composes]
+************************
+Compose defs are used to bind two terms together into a composition.  Their
+symbols are formatted as 'parent.child'.  We use the dot as a separator to
+imply a syntax similar to field accessors in common programming languages.
+
+The simplest use case for compose defs is to associate "property" tags on
+an entity type.  For example to indicate the value tags associated with
+the `geoPlace` entity type:
+
+  def: ^geoPlace.geoCity
+  ---
+  def: ^geoPlace.geoState
+  ---
+  def: ^geoPlace.geoCountry
+
+We also use compose defs to specify parent/child entity relationships to
+guide users and tools a top-down model of the Haystack ontology.  For
+example we can specify the sub-components of an AHU:
+
+  def: ^ahu.discharge-duct
+  doc: "Supply air to the zones"
+
+Compose defs are implied to subtype from the child term.  For example
+the def 'geoPlace.geoCountry' is implied to subtype from 'geoCountry'.
+It is invalid to declare an 'is' tag on a compose def.
+
