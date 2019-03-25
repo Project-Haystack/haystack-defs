@@ -21,6 +21,43 @@ The primary tags used to model a def include:
 See [def tags]`def` for the full list of all tags which might
 be used on a definition.
 
+Semantic Layers [#layers]
+*************************
+Defs allow us to build up layers of our information model:
+  - **No Defs**: using dict as simple name/value pairs without formal defs
+  - **Vocabulary**: giving our tag names formal definitions as terms
+  - **Taxonomy**: organizing our terms into a subtype tree
+  - **Ontology**: modeling more complex relationships between definitions
+
+Lets start at the bottom: you can use the Haystack data model and file
+formats without any defs.  Even without defs, Haystack provides a nice
+framework for structuring and exchanging data.  It is like JSON but with
+a richer type system since we have first class types for dates, times,
+references, etc.
+
+The real power of Haystack is unleashed when we use the def framework to
+formally define our tag names.  As a first step we create a def for
+each of our tag names (or conjuncts for sets of tag names).  This allows
+to us to precisely define our vocabulary.  Each of those tags now can be
+reflected to its definition.
+
+We use the 'is' tag in our defs to organize our meta-model into a taxonomy
+through [subtyping]`Subtyping`.  Subtyping allows us to relate terms as
+[hyponyms and hypernyms]`https://en.wikipedia.org/wiki/Hyponymy_and_hypernymy`.
+For example we define that `water` is a subtype of `liquid`.  Subtyping
+allows us to infer semantics beyond the presence of tags.
+
+Ontologies extend taxonomies to include the relationships between concepts.
+In Haystack we build out this ontological information using symbolic tags
+on defs to cross-reference other defs.  For example, we can model that a duct
+conveys air:
+
+  def: ^duct
+  conveys: ^air
+
+Ontological relationships provide tremendous power to query the
+knowledge from Haystack data.
+
 Def Types [#types]
 ******************
 There are four types of definitions determined by the format of their
