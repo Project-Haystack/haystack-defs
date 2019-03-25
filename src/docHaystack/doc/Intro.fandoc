@@ -1,11 +1,11 @@
 **************************************************************************
-** title:      Intro
+** title:      Introduction
 ** author:     Brian Frank
 ** created:    22 Mar 2019
 ** copyright:  Copyright (c) 2019, Project-Haystack
 **************************************************************************
 
-Introduction [#intro]
+Overview [#overview]
 *********************
 Welcome to Project Haystack!
 
@@ -20,10 +20,9 @@ Key concepts for the Haystack 4.0 include:
   - enhancements to the filter query language
   - RDF support
 
-Test links:
-  - `Intro`: back to me?
-  - `site`: site tag?
-  - `lib:phIoT`: lib tag?
+This current documentation is focused only on the major 4.0 features.
+Eventually we will also include/rework all of the existing documentation
+a single document.
 
 
 
