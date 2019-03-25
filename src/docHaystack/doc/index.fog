@@ -6,6 +6,10 @@
 **************************************************************************
 
 [
-  [`Intro`,   "Introduction to Project Haystack"],
-  [`Defs`,    "Definition meta-model"],
+  [`Intro`,      "Introduction to Project Haystack"],
+  [`Defs`,       "Definition meta-model"],
+  [`Spaces`,     "Definition namespaces"],
+  [`Subtyping`,  "Definition subtyping"],
+  [`Reflection`, "Dict reflection to definitions"],
+  [`Rdf`,        "Resource Description Framework export"],
 ]

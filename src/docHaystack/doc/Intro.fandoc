@@ -24,6 +24,9 @@ This current documentation is focused only on the major 4.0 features.
 Eventually we will also include/rework all of the existing documentation
 a single document.
 
+This documentation and the definitions is managed in a Mercial repo
+located at `https://bitbucket.org/project-haystack/haystack-defs`.
+
 
 
 
