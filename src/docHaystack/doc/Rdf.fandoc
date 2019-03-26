@@ -38,11 +38,35 @@ General Mapping Rules [#genRules]
 These are the basic rules for mapping defs to RDF. They are further refined in the
 sections that follow.
 
-- The symbol for a def becomes the **subject** of an RDF statement.
-- Each tag/value pair on a def becomes the **predicate** and **object**
+The symbol for a def becomes the **subject** of an RDF statement.
+
+Each tag/value pair on a def becomes the **predicate** and **object**
 of an RDF statement respectively.
   - 'ph:doc' tags are mapped to 'rdfs:comment' predicates.
   - Values of the 'ph:is' list become distinct 'predicate/object' pairs
+
+RDF requires that every resource be uniquely identified by an
+[IRI]`https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier`.
+Every Def is a logical resource, so we need to map def symbols to IRIs.
+To construct an IRI from a symbol:
+    1. Obtain the 'baseUri' from the [Lib]`Spaces#libs` the def belongs to.
+    1. Append the version of the lib with an empty fragment
+    1. Append the symbol name
+
+For example, the '^site' symbol is defined in the 'phIoT' library. That library
+has the following def
+
+pre>
+  def: ^lib:phIoT
+  doc: "Project Haystack definitions for Internet of Things"
+  version: "4.0"
+  baseUri: `https://project-haystack.org/def/phIoT/`
+  includes: [^lib:ph, ^lib:phScience]
+<pre
+
+Therefore, the full IRI for the '^site' def based on the above lib def is
+
+  https://project-haystack.org/def/phIoT/4.0#site
 
 Consider the basic definition of a site.
 
@@ -53,10 +77,17 @@ pre>
   doc: "Site is a geographic location of the built environment"
 <pre
 
-A minimal RDF mapping would be:
-(NOTE: for all examples I am omitting RDF '@prefix' statements for brevity)
+A minimal RDF mapping for this def would be:
 
 pre>
+  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix owl: <http://www.w3.org/2002/07/owl#> .
+  @prefix ph: <https://project-haystack.org/def/ph/4.0#> .
+  @prefix phScience: <https://project-haystack.org/def/phScience/4.0#> .
+  @prefix phIoT: <https://project-haystack.org/def/phIoT/4.0#> .
+
   phIoT:site is ph:entity, ph:geoPlace ;
       rdfs:comment "Site is a geographic location of the built environment" ;
       ph:mandatory ph:marker .
@@ -65,6 +96,8 @@ pre>
 This is a valid RDF export, but it lacks the necessary statements to convey
 semantic and ontological meaning. The remaining sections refine the export
 rules for different def types to address this issue.
+
+**NOTE**: for the remaining examples I am omitting RDF '@prefix' statements for brevity.
 
 Marker Tags [#markers]
 **********************
@@ -190,6 +223,10 @@ instances (i.e. Dicts) to RDF.
 
 - All the [general mapping rules]`#genRules` apply, **except** you should not
 write any statements for marker tags. These tags are implied by the ontology.
+- It is currently an open issue how to generate an IRI for an entity. The current
+strategy is to:
+  1. Use the URL of the host serving the instance data
+  2. Append the ref value for that id tag. See the example below.
 - Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
   'owl:Class'.
 - Use [compose]`Defs#composes` def predicates if we can infer that
@@ -197,22 +234,34 @@ information from Haystack def. In the example below, we know it is a
 `site` instance, so we should use 'phIoT:site.tz' instead of 'ph:tz' for
 the time zone tag.
 - Encode tag values as defined in the [data types]`#datatypes` section.
+- If we don't have a def for a tag, do not export it to RDF.
 
-Here is an example of exporting a concrete site instance.
+For example, here is the Trio for a site Dict:
 
 pre>
-  <http://localhost/def/dummy#23350899-59fbdd44>
+  id:@24192ca1-0c85f75d "Headquarters"
+  site
+  area:140797ft²
+  tz:New_York
+  dis:Headquarters
+  geoAddr:"600 W Main St, Richmond, VA"
+  geoCoord:C(37.545826,-77.449188)
+  hq
+  metro:Richmond
+  primaryFunction:Office
+  yearBuilt:1999
+<pre
+
+And here is the RDF export of that site instance:
+
+pre>
+  <http://localhost/def/dummy#24192ca1-0c85f75d>
       a phIoT:site ;
       phIoT:site.area 140797 ;
       phIoT:site.tz "New_York" ;
       ph:dis "Headquarters" ;
       ph:geoPlace.geoAddr "600 W Main St, Richmond, VA" ;
-      ph:geoPlace.geoCity "Richmond" ;
       ph:geoPlace.geoCoord "C(37.545826,-77.449188)" ;
-      ph:geoPlace.geoCountry "US" ;
-      ph:geoPlace.geoPostalCode "23220" ;
-      ph:geoPlace.geoState "VA" ;
-      ph:geoPlace.geoStreet "600 W Main St" ;
       phIoT:primaryFunction "Office" ;
       phIoT:site.yearBuilt 1999 .
 <pre
@@ -220,6 +269,7 @@ pre>
 Pending Work [#todo]
 ********************
 
+- How to generate IRIs for the 'id' of an instance export?
 - How to handle the unit of numeric tags in instance exports?
 - How to indicate inverse relationships?
 - How to indicate transitive containment?
