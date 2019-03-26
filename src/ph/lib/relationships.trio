@@ -1,0 +1,65 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   26 Mar 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^relationship
+is: ^symbol
+doc: "Supertype for tags which model relationships"
+--------------------------------------------------------------------------
+def: ^inverseOf
+is: ^symbol
+doc: "Specifies the inverse of a relationship"
+--------------------------------------------------------------------------
+def: ^transitive
+is: ^marker
+doc:
+  This marker is applied to a `relationship` to indicate it is transitive.
+  Transitivity requires that if the relationship applies to A,B and B,C
+  then it also applies to A,C.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Contains/ContainedBy
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^contains
+is: ^relationship
+inverseOf: ^containedBy
+transitive
+doc: "The entity is contained by the referent"
+--------------------------------------------------------------------------
+def: ^containedBy
+is: ^relationship
+inverseOf: ^contains
+transitive
+doc: "The entity contains the referent"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Receives/Supplies
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^receives
+is: ^relationship
+inverseOf: ^supplies
+doc:
+  The entity receives from the referent.
+  The value of this tag is what is received.
+--------------------------------------------------------------------------
+def: ^supplies
+is: ^relationship
+inverseOf: ^receives
+transitive
+doc:
+  The entity supplies to the referent.
+  The value of this tag is what is supplied.
+--------------------------------------------------------------------------
+
+

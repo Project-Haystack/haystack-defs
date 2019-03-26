@@ -117,6 +117,7 @@ is: [^elecHeating, ^ahuHeatingProcess]
 def: ^ahuRef
 is: ^ref
 of: ^ahu
+receives: ^air
 doc: "AHU which supplies air to an equipment or space"
 --------------------------------------------------------------------------
 

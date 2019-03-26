@@ -35,6 +35,7 @@ doc: "Points contained by the equipment"
 def: ^equipRef
 is: ^ref
 of: ^equip
+containedBy: ^equip
 doc: "Reference to equip which contains this entity"
 --------------------------------------------------------------------------
 
