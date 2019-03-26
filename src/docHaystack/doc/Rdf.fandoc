@@ -5,10 +5,222 @@
 ** copyright:  Copyright (c) 2019, Project-Haystack
 **************************************************************************
 
+Status [#status]
+****************
+The status of this document is "in-development". Mapping rules may change
+or be enhanced as a result of review.
+
 Overview [#overview]
 *********************
-TODO
+Ontological relationships are conveyed in the Haystack information model
+using [defs]`Defs`. Haystack provides methods to query information about the
+relationships between defs, and to make inferences about these relationships.
+These defs are stored in a format, viz., Trio, that cannot be consumed
+by traditional semantic tools.
+
+In order to make the Haystack ontology more accessible to users more familiar
+with standard tools for the semantic web, we define a mapping from Haystack defs
+to [RDF]`https://www.w3.org/RDF/`. RDF is considered the "lingua franca" of the
+semantic web, so it is highly desirable to have a well-defined set of rules
+for exporting Haystack defs to RDF. We adopt the following high-level goals
+in defining this mapping:
+
+  - Export defs as RDF statements in [Turtle]`https://www.w3.org/TR/turtle/` format.
+  - Generate [RDFS]`https://www.w3.org/TR/rdf-schema/` statements to add
+    semantic meaning that is equivalent to the def.
+  - Use [OWL]`https://www.w3.org/TR/owl2-primer/` statements where they serve
+    to increase the expressivity, and usability of the model.
+
+The rest of this document outlines a strategy for mapping Haystack defs to RDF.
+
+General Mapping Rules [#genRules]
+*********************************
+These are the basic rules for mapping defs to RDF. They are further refined in the
+sections that follow.
+
+- The symbol for a def becomes the **subject** of an RDF statement.
+- Each tag/value pair on a def becomes the **predicate** and **object**
+of an RDF statement respectively.
+  - 'ph:doc' tags are mapped to 'rdfs:comment' predicates.
+  - Values of the 'ph:is' list become distinct 'predicate/object' pairs
+
+Consider the basic definition of a site.
+
+pre>
+  def: ^site
+  is: [^entity, ^geoPlace]
+  mandatory
+  doc: "Site is a geographic location of the built environment"
+<pre
+
+A minimal RDF mapping would be:
+(NOTE: for all examples I am omitting RDF '@prefix' statements for brevity)
+
+pre>
+  phIoT:site is ph:entity, ph:geoPlace ;
+      rdfs:comment "Site is a geographic location of the built environment" ;
+      ph:mandatory ph:marker .
+<pre
+
+This is a valid RDF export, but it lacks the necessary statements to convey
+semantic and ontological meaning. The remaining sections refine the export
+rules for different def types to address this issue.
+
+Marker Tags [#markers]
+**********************
+Defs for marker tags are subtypes of 'ph:marker' via the 'ph:is' tag. See the
+section on [Subtyping]`Subtyping` for details.
+
+Marker tag defs become instances of an 'owl:Class'.
+
+The supertype tree defined by 'ph:is' maps to a set of 'rdfs:subClassOf' statements.
+This establishes a subtyping relationship in the ontology.
+
+Using these rules, the 'site' def now becomes
+
+pre>
+  phIoT:site a owl:Class ;
+      rdfs:subClassOf ph:entity,
+          ph:geoPlace ;
+      rdfs:comment "Site is a geographic location of the built environment" ;
+      ph:is ph:entity,
+          ph:geoPlace ;
+      ph:lib phIoT:lib:phIoT ;
+      ph:mandatory ph:marker .
+<pre
+
+Datatypes [#datatypes]
+**********************
+Haystack defines a number of data types (e.g. Str, Bool, DateTime). All data types
+in Haystack are subtypes of the 'ph:val' def. Scalar data types ('ph:scalar')
+are further refined as subtypes of 'ph:val'. This section describes the rules
+for defining scalar data types in the RDF export.
+
+Only *direct* subtypes of 'ph:scalar' are defined as data types. They are
+declared as instances of the 'owl:DatatypeProperty' class.
+
+**Exception**: marker tags are not defined as data types since they convey
+subtyping information (see [Marker Tags]`#markers` section).
+
+We also declare scalar data types to be a subclass of the best XSD datatype
+using 'rdfs:subClassOf'. The following rules map a Haystack scalar type to
+XSD data type:
+
+  - **bool**: 'xsd:boolean'
+  - **curVal**: 'rdfs:Literal'
+  - **date**: 'xsd:date'
+  - **dateTime**: 'xsd:dateTime'
+  - **number**: 'xsd:double'
+  - **ref**: 'xsd:anyURI'
+  - **symbol**: 'xsd:anyURI'
+  - **time**: 'xsd:time'
+  - **uri**: 'xsd:anyURI'
+  - **writeVal**: 'rdfs:Literal'
+  - All other scalar types are 'xsd:string'
 
 
+Example:
+pre>
+  ph:dateTime a owl:DatatypeProperty ;
+      rdfs:subClassOf xsd:dateTime ;
+      rdfs:comment "ISO 8601 timestamp followed by timezone identifier" ;
+      ph:is ph:scalar ;
+      ph:lib ph:lib:ph .
 
+  ph:number a owl:DatatypeProperty ;
+      rdfs:subClassOf xsd:double ;
+      rdfs:comment "Integer or floating point numbers annotated with an optional unit" ;
+      ph:is ph:scalar ;
+      ph:lib ph:lib:ph .
+<pre
 
+Value Tags [#valTags]
+*********************
+A value tag def is any tag def that is **not** a subtype of 'ph:marker'.
+
+If the tag def is a subtype of 'ph:ref', then declare the def to be an instance of
+'owl:ObjectProperty'. All other value tags are declared to be an instance of
+'owl:DatatypeProperty'.
+
+If the def is a basic [Tag Def]`Defs#tags` (e.g. 'tz'), then specify the 'rdfs:range'
+to be the appropriate Haystack datatype (see [Datatypes]`#datatypes` section).
+
+If the def is a [Compose Def]`Defs#composes` (e.g. site.tz), then
+  - Specify the 'rdfs:domain' to be an instance of the parent type
+  - Declare the def to be an 'rdfs:subPropertyOf' the child type
+
+pre>
+  // A Ref tag
+  phIoT:siteRef a owl:ObjectProperty ;
+      rdfs:range ph:ref ;
+      rdfs:comment "Site which contains the entity" ;
+      ph:is ph:ref ;
+      ph:lib phIoT:lib:phIoT ;
+      ph:of phIoT:site .
+
+  // A basic Tag Def
+  ph:tz a owl:DatatypeProperty ;
+      rdfs:range ph:str ;
+      rdfs:comment "Timezone identifier from standard timezone database" ;
+      ph:is ph:str ;
+      ph:lib ph:lib:ph .
+
+  // A Compose Def for using the tz tag on a site
+  phIoT:site.tz rdfs:subPropertyOf ph:tz ;
+      rdfs:domain phIoT:site ;
+      rdfs:comment "Timezone identifier from standard timezone database" ;
+      ph:is ph:tz ;
+      ph:lib phIoT:lib:phIoT .
+
+  // A Compose Def for using the tz tag on a point
+  phIoT:point.tz rdfs:subPropertyOf ph:tz ;
+      rdfs:domain phIoT:point ;
+      rdfs:comment "Timezone identifier from standard timezone database" ;
+      ph:enum "Abidjan\n...\nZurich" ;
+      ph:is ph:tz ;
+      ph:lib phIoT:lib:phIoT .
+<pre
+
+Exporting Instances [#instances]
+********************************
+To this point we have been primarily interested in exporting Defs to RDF.
+However, we can also export instance data to RDF. In Haystack, an instance is a Dict
+with an `id` tag. The following outlines the high-level rules for exporting
+instances (i.e. Dicts) to RDF.
+
+- All the [general mapping rules]`#genRules` apply, **except** you should not
+write any statements for marker tags. These tags are implied by the ontology.
+- Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
+  'owl:Class'.
+- Use [compose]`Defs#composes` def predicates if we can infer that
+information from Haystack def. In the example below, we know it is a
+`site` instance, so we should use 'phIoT:site.tz' instead of 'ph:tz' for
+the time zone tag.
+- Encode tag values as defined in the [data types]`#datatypes` section.
+
+Here is an example of exporting a concrete site instance.
+
+pre>
+  <http://localhost/def/dummy#23350899-59fbdd44>
+      a phIoT:site ;
+      phIoT:site.area 140797 ;
+      phIoT:site.tz "New_York" ;
+      ph:dis "Headquarters" ;
+      ph:geoPlace.geoAddr "600 W Main St, Richmond, VA" ;
+      ph:geoPlace.geoCity "Richmond" ;
+      ph:geoPlace.geoCoord "C(37.545826,-77.449188)" ;
+      ph:geoPlace.geoCountry "US" ;
+      ph:geoPlace.geoPostalCode "23220" ;
+      ph:geoPlace.geoState "VA" ;
+      ph:geoPlace.geoStreet "600 W Main St" ;
+      phIoT:primaryFunction "Office" ;
+      phIoT:site.yearBuilt 1999 .
+<pre
+
+Pending Work [#todo]
+********************
+
+- How to handle the unit of numeric tags in instance exports?
+- How to indicate inverse relationships?
+- How to indicate transitive containment?
+- Can we leverage other OWL statements to improve the ontology?
