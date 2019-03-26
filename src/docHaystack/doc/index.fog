@@ -6,13 +6,20 @@
 **************************************************************************
 
 [
-  [`Intro`,      "Introduction to Project Haystack"],
+  [`Intro`,         "Introduction to Project Haystack"],
+
+  "Data Model",
+  [`Filters`,       "Predicates for querying Haystack data"],
+
   "Defs",
-  [`Defs`,       "Definition meta-model"],
-  [`Spaces`,     "Definition namespaces"],
-  [`Subtyping`,  "Definition subtyping"],
-  [`Reflection`, "Mapping between dicts and defs"],
-  [`Rdf`,        "Resource Description Framework export"],
+  [`Defs`,          "Definition meta-model"],
+  [`Spaces`,        "Definition namespaces"],
+  [`Subtyping`,     "Definition subtyping"],
+  [`Reflection`,    "Mapping between dicts and defs"],
+  [`Relationships`, "Modeling relationships"],
+
   "Filetype Formats",
-  [`Trio`,        "Resource Description Framework export"],
+  [`Zinc`,          "Zinc plain text format"],
+  [`Trio`,          "Tag record I/O format"],
+  [`Rdf`,           "Resource Description Framework export"],
 ]
