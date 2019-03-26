@@ -159,6 +159,11 @@ Feature keys are implied to subtype from their feature.  For example `lib:phIoT`
 automatically subtypes from `lib`.  It is invalid to declare an 'is' tag
 on a feature key def.
 
+Feature keys are [singletons]`https://en.wikipedia.org/wiki/Singleton_pattern`.
+They don't have data instances.  For example, there is no combination of
+tags applied to dicts to [implement]`Reflection` the 'lib:ph' def.  The 'lib:ph'
+def is itself the only instance.
+
 Compose Defs [#composes]
 ************************
 Compose defs are used to bind two terms together into a composition.  Their

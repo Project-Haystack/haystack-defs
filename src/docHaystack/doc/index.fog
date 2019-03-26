@@ -11,7 +11,7 @@
   [`Defs`,       "Definition meta-model"],
   [`Spaces`,     "Definition namespaces"],
   [`Subtyping`,  "Definition subtyping"],
-  [`Reflection`, "Dict reflection to definitions"],
+  [`Reflection`, "Mapping between dicts and defs"],
   [`Rdf`,        "Resource Description Framework export"],
   "Filetype Formats",
   [`Trio`,        "Resource Description Framework export"],

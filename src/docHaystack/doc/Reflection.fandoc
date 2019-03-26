@@ -6,9 +6,120 @@
 **************************************************************************
 
 Overview [#overview]
-*********************
-TODO
+********************
+Defs define our meta-model and dicts define our data instances.
+Haystack provides a standardized processes to map between
+the two:
+   - *implementation*: mapping defs to a dict using the appropriate tags
+   - *reflection*: mapping a dict to its effective defs
 
+We say a dict *implements* a def when the it contains the appropriate
+tags.  For example if a dict defines the `equip` tag, then the dict
+implements the `equip` def.  If a dict contains both the `hot` and `water`
+tags then the dict implements `hot-water`.
 
+Reflection is the inverse process.  We are given a dict and we compute
+the list of effective defs which the it implements.
+
+Implementation and reflection in Haystack are a flavor of
+[structural typing]`https://en.wikipedia.org/wiki/Structural_type_system`.
+Dict data never explicitly declares itself of a single class or type.
+Instead we use a combination of marker tags to indicate typing information.
+We use value tags to indicate an attribute or fact about the data.
+
+Implementation [#implementation]
+********************************
+The rules for a dict to implement a def are as follows:
+
+  1. Based on the def type:
+      a. Tag def: the single tag name is applied
+      b. Conjunct: each tag within the conjunct is applied
+      c. Compose: both the parent and child term must be applied
+      d. Feature keys: are never implemented
+
+  2. We walk the supertype tree of the def and apply any
+     tag which is marked as `mandatory`
+
+Lets look at some examples.
+
+If we want to apply the `point` def to a dict, then we apply rule 1a.  There
+are no supertypes marked as 'mandatory' so we are done.  Thus we apply
+only '{point}' to fully implement the `point` def.
+
+If we wish to apply the `building` def, then we apply rule 1a.  However when
+we walk the supertype tree we see that there are two defs marked as 'mandatory':
+both `site` and `space`.  Therefore to implement `building` requires adding
+all three tags: '{site, space, building}'.  As a general rule top-level
+entity markers such as `site`, `space`, `equip`, `point` are always required.
+This makes it easy to query your tag based data.
+
+If we wish to apply the `hot-water-plant` def then we will apply rule 1b.
+Additionally this def subtypes from the mandatory `equip` tag.  So we need to
+add four tags '{hot, water, plant, equip}'.
+
+Typically for compose defs, we are always start with a dict which has
+implemented the parent.  For example if we wish to implement `point.tz`
+then we must implement both `point` and `tz` using rule 1d.  We've already
+said how to implement `point` from the first example.  Implementing `tz` will
+follow rule 1a.  Depending on what timezone value we select we end up
+with the tags '{point, tz:"New_York"}'.
+
+Inheritance [#inheritance]
+**************************
+When a dict implements a def, it implicitly implements all of that def's
+supertypes.  For example if we add the `water` tag to a dict, then we
+implicitly implement all of the supertypes of `water` which includes
+`liquid`, `fluid`, `substance`, `phenomenon`, and `marker`.  We call
+this flattened list of supertypes the def's *inheritance*.
+
+Reflection [#reflection]
+************************
+Reflection is the inverse of implementation.  Given a dict we compute
+the defs it implements.  Reflection is always done within the context
+of a [space]`Spaces` to determine which defs are in scope.
+
+To reflect a dict to its def, we walk each tag in the dict and
+apply the following rules:
+  1. Check if the tag name maps to a tag def
+  2. If the tag maps to a possible conjunct, then check if
+     the dict has all the conjunct's tags
+  3. If the tag maps to a compose child, check if the parent term is
+     also implemented
+  4. Infer the [inheritance]`#inheritance` from all defs reflected
+     from the previous steps
+
+Lets follow this process to reflect the following dict:
+
+  id: @hwp, dis: "Hot Water Plant", hot, water, plant, equip
+
+Step 1 yield: `id`, `dis`, `hot`, `water`, `plant`, `equip`
+
+Step 2 yields: `hot-water`, `hot-water-plant`
+
+Step 3 yields: `entity.id`, `entity.dis`
+
+ Step 4 yields:
+  - from hot-water-plant/equip: `entity`, `marker`
+  - from id/dis: `ref`, `str`, `scalar`, `val`
+
+Entity Types [#entityTypes]
+***************************
+We use markers extensively in Haystack to indicate typing information.  However
+a marker tag is not a *type* per se.  In a tagging system we use tags to
+quickly and easily associate data to related terms.  Lets examine our
+example from above:
+
+  id: @hwp, dis: "Hot Water Plant", hot, water, plant, equip
+
+This dict implements the term `hot-water`, but we would not say that
+the plant "is-a" a type of hot-water.  Those tags only mean that this data
+is related to hot-water.  This makes it convenient to query our data for
+things related to hot-water, water, or liquid.
+
+However we would say that the dict above "is-a" type of `hot-water-plant`.  We can
+reflect this information because `hot-water-plant` is a subtype of `entity`.
+The 'entity' subtype tree models primary typing information.  Terms which
+subtype from entity must be designed to stand on their own - they cannot be used
+in conjuncts.
 
 
