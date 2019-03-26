@@ -42,8 +42,8 @@ The symbol for a def becomes the **subject** of an RDF statement.
 
 Each tag/value pair on a def becomes the **predicate** and **object**
 of an RDF statement respectively.
-  - 'ph:doc' tags are mapped to 'rdfs:comment' predicates.
-  - Values of the 'ph:is' list become distinct 'predicate/object' pairs
+  - `doc` tags are mapped to 'rdfs:comment' predicates.
+  - Values of the `is` list become distinct 'predicate/object' pairs
 
 RDF requires that every resource be uniquely identified by an
 [IRI]`https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier`.
@@ -53,8 +53,8 @@ To construct an IRI from a symbol:
     1. Append the version of the lib with an empty fragment
     1. Append the symbol name
 
-For example, the '^site' symbol is defined in the 'phIoT' library. That library
-has the following def
+For example, `site` is defined in the 'phIoT' library. That library
+has the following def:
 
 pre>
   def: ^lib:phIoT
@@ -64,11 +64,11 @@ pre>
   includes: [^lib:ph, ^lib:phScience]
 <pre
 
-Therefore, the full IRI for the '^site' def based on the above lib def is
+Therefore, the full IRI for the site def based on the above lib def is
 
   https://project-haystack.org/def/phIoT/4.0#site
 
-Consider the basic definition of a site.
+Consider the definition of a site:
 
 pre>
   def: ^site
@@ -101,15 +101,15 @@ rules for different def types to address this issue.
 
 Marker Tags [#markers]
 **********************
-Defs for marker tags are subtypes of 'ph:marker' via the 'ph:is' tag. See the
+Defs for marker tags are subtypes of `marker` via the `is` tag. See the
 section on [Subtyping]`Subtyping` for details.
 
 Marker tag defs become instances of an 'owl:Class'.
 
-The supertype tree defined by 'ph:is' maps to a set of 'rdfs:subClassOf' statements.
+The supertype tree defined by `is` maps to a set of 'rdfs:subClassOf' statements.
 This establishes a subtyping relationship in the ontology.
 
-Using these rules, the 'site' def now becomes
+Using these rules, the `site` def now becomes
 
 pre>
   phIoT:site a owl:Class ;
@@ -125,11 +125,11 @@ pre>
 Datatypes [#datatypes]
 **********************
 Haystack defines a number of data types (e.g. Str, Bool, DateTime). All data types
-in Haystack are subtypes of the 'ph:val' def. Scalar data types ('ph:scalar')
-are further refined as subtypes of 'ph:val'. This section describes the rules
+in Haystack are subtypes of the `val` def. Scalar data types (`scalar`)
+are further refined as subtypes of `val`. This section describes the rules
 for defining scalar data types in the RDF export.
 
-Only *direct* subtypes of 'ph:scalar' are defined as data types. They are
+Only *direct* subtypes of `scalar` are defined as data types. They are
 declared as instances of the 'owl:DatatypeProperty' class.
 
 **Exception**: marker tags are not defined as data types since they convey
@@ -169,16 +169,16 @@ pre>
 
 Value Tags [#valTags]
 *********************
-A value tag def is any tag def that is **not** a subtype of 'ph:marker'.
+A value tag def is any tag def that is **not** a subtype of `marker`.
 
-If the tag def is a subtype of 'ph:ref', then declare the def to be an instance of
+If the tag def is a subtype of `ref`, then declare the def to be an instance of
 'owl:ObjectProperty'. All other value tags are declared to be an instance of
 'owl:DatatypeProperty'.
 
-If the def is a basic [Tag Def]`Defs#tags` (e.g. 'tz'), then specify the 'rdfs:range'
+If the def is a basic [Tag Def]`Defs#tags` (e.g. `tz`), then specify the 'rdfs:range'
 to be the appropriate Haystack datatype (see [Datatypes]`#datatypes` section).
 
-If the def is a [Compose Def]`Defs#composes` (e.g. site.tz), then
+If the def is a [Compose Def]`Defs#composes` (e.g. `site.tz`), then
   - Specify the 'rdfs:domain' to be an instance of the parent type
   - Declare the def to be an 'rdfs:subPropertyOf' the child type
 
@@ -231,7 +231,7 @@ strategy is to:
   'owl:Class'.
 - Use [compose]`Defs#composes` def predicates if we can infer that
 information from Haystack def. In the example below, we know it is a
-`site` instance, so we should use 'phIoT:site.tz' instead of 'ph:tz' for
+`site` instance, so we should use `site.tz` instead of `tz` for
 the time zone tag.
 - Encode tag values as defined in the [data types]`#datatypes` section.
 - If we don't have a def for a tag, do not export it to RDF.
