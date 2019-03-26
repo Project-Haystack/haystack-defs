@@ -1,0 +1,201 @@
+**************************************************************************
+** title:      Relationships
+** author:     Brian Frank
+** copyright:  Copyright (c) 2015, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+Relationships enable us to model how spaces, equip, points, and processes
+are related to each other.  Almost all Haystack implementations will model
+the containment of physical spaces and equipment.  It is also typical to
+model the flows of energy and substances such as electricity, air, and water.
+
+Entity Relationships [#entities]
+********************************
+Relationships between entities are modeled by cross-referencing the `id`
+identifier.  Lets look at how to establish a relationships between
+an AHU and the plant which supplies it hot water:
+
+  // hot water plant entity
+  id: @hwp, hot, water, plant, equip
+
+  // AHU entity which receives hot water from the plant above
+  id: @ahu, ahu, equip, hotWaterPlantRef: @hwp
+
+The plant's primary identifier is modeled by the `id` tag with a ref
+value of '@hwp'.  The id tag uniquely identifies this plant within the
+data set.  The second dict models an `ahu` which has the reference
+tag `hotWaterPlantRef` referencing the plant by its id.  This model
+of cross-referencing is similar to the use of primary/foreign keys in a
+relational database.
+
+Def Relationships [#defs]
+*************************
+We use a similar model to create relationships between defs.  However
+instead of cross-referencing the `id` tag, we use `def` and its symbolic
+name.  For an example let us consider the def of `hotWaterPlantRef`:
+
+  def: ^hotWaterPlantRef
+  is: ^ref
+  of: ^hot-water-plant
+  receives: ^hot-water
+  doc: "Plant which supplies hot water to the entity"
+
+The `def` tag specifies the primary key for the definition which is
+a symbolic name.  We also have three other tags with a symbolic value:
+  - `is`: specifies a subtyping relationship
+  - `of`: specifies the entity type this tag should reference
+  - `receives`: specifies the substance received by this relationship
+
+Relationships on the definition side provide the deep semantics
+used to infer knowledge from our entity relationships.
+
+Querying Relationships [#querying]
+**********************************
+Project Haystack uses [filters]`Filters` as its simple declarative query
+language.  The most basic way to query relationships is by tags.  The following
+filter queries AHUs which receive hot water from our plant in the example
+above:
+
+  ahu and hotWaterPlantRef == @hwp
+
+This filter would match any dict which has the `ahu` tag and the `hotWaterPlantRef`
+tag with a value equal to the identifier '@hwp'.
+
+This technique is also heavily used to match points associated with a given
+equipment.  For example to find the discharge temp sensor for the AHU identified
+as '@ahu' would be:
+
+  discharge and temp and sensor and point and equipRef == @ahu
+
+We can use the [def operator]`Filters#def` to perform more abstract relationship
+queries.  This operator lets us use [reflection]`Reflection` and [subtype]`Subtyping`
+inference to construct queries which don't require detailed knowledge of how
+a system was tagged.  Using our plant example above we can query AHUs that
+receive anything:
+
+  ahu and receives?
+
+This query matches dicts that have the `ahu` tag and any reflected def with
+the `receives` tag.  The '?' operator performs indirection to query the tags
+on the defs.  For example:
+
+  receives   // does the dict have a tag named "receives"
+  receives?  // does the dict implement a def with a tag name "receives"
+
+The rules to map a dict to its implemented defs is specified in
+the [reflection]`Reflection#reflection` chapter.
+
+We can enhance our query to filter dicts which receive hot water like this:
+
+  receives-hot-water?
+
+The term to the right of the first dash is used to match the value of
+the def's `receives` tag.  We can read the filter above as follows: does
+the dict implement a def with a value which fits the `hot-water` term.  Subtyping
+may used too; any of the following filters would match our AHU also:
+
+  receives-water?   // hot-water is a subtype of water
+  receives-liquid?  // hot-water is a subtype of liquid
+
+We can also give the '?' operator a value on the right hand side as follows:
+
+  receives-hot-water? @hwp
+
+The filter above matches using the rules discussed with one new requirement:
+the tag's value must be equal to '@hwp'.  We can break down the steps as
+follows:
+  1. Does the dict implement a def with `receives` (it does: `hotWaterPlantRef`)
+  2. Does the value of that tag *in the def* subtype from `hot-water` (it does)
+  3. Does the value of that tag *in the dict* equal '@hwp' (it does)
+  4. If all of the above are true, the overall filter is a match
+
+This syntax is fairly simple to use, but provides a lot of flexibility under
+the hood to integrate the ontology into your queries.
+
+Transitive Relationships [#transitive]
+**************************************
+Relationship tags can be marked as `transitive`.  A transitive relationship
+means that if the relationship applies between A and B and also between
+B and C, that it is inferred to apply between A and C.  Lets look at an
+example to illustrate:
+
+  id: @ahu, ahu, equip
+  id: @fan, discharge, fan, equip, equipRef=@ahu
+  id: @status, speed, cmd, point, equipRef=@fan
+
+We have three entities in our example:
+  - AHU identified with '@ahu' id
+  - Discharge fan contained by the AHU
+  - Fan speed command point contained by the fan
+
+In this example, containment is modeled by `equipRef` which is tagged
+with the `containedBy` relationship. Furthermore the `containedBy` definition
+is tagged as `transitive`.
+
+Put it all together and we have a transitive containment relationship
+we can query.  The following filter will match both the fan
+equip **and** the speed point dicts:
+
+  containedBy? @ahu
+
+The filter above will match any dict if it is contained by the given
+AHU either directly or indirectly.
+
+This filter matches the fan equip as follows:
+  1. Does the dict implement a def with the 'containedBy' tag (it does: `equipRef`)
+  2. Is the value of that tag in the dict equal to '@ahu' (it does)
+  3. Match
+
+The filter matches the fan speed point as follows
+  1. Does the dict implement a def with the 'containedBy' tag (it does: `equipRef`)
+  2. Does the value of that tag in the dict equal '@ahu' (it does not, its value is '@fan')
+  3. Is the def marked as transitive (yes, containedBy is transitive)
+  4. If so, then does the entity referenced the by tag ('@fan' in this case) itself
+     match the containedBy filter? It does because of the previous steps we evaluated
+
+Transitive relationships don't require the same reference tag is used.  For
+example we might traverse a `equipRef` first, and a `spaceRef` tag second.
+What matters that there is a recursive set of matching relationships.
+
+Inverse Relationships [#inverse]
+********************************
+Its also desirable to query relationships from either endpoint without
+regard to which endpoint actually declares the reference tag.  Using
+our plant example we want to be able to query both sides as follows:
+
+  receives-hot-water? @hwp  // receives hot water from the plant
+  supplies-hot-water? @ahu  // supplies hot water to the AHU
+
+We call these *inverse* relationships.  They are explicitly configured
+on the relationship defs via the `inverseOf` tag.
+
+Lets follow the filtering process for this filter which should match
+the '@hwp' entity:
+
+  supplies-hot-water? @ahu
+
+Following the rules we have discussed above we would not find a match
+because there is no tag on the plant that directly references the AHU.
+However because `supplies` specifies it is an inverse of `receives`, we
+would then have to check for a match in the reverse direction.  The
+inverse is constructed as follows when matching the '@hwp' entity:
+
+  1. Replace 'supplies' with its inverse which is 'receives'
+  2. Leave the subject term to the right of the first dash
+  3. Replace the reference value '@ahu' with the dict being processed which is '@hwp'
+  4. Replace the dict being processed with entity identified by '@ahu'
+
+Following those rules we would end up with an inverse filter which
+looks just the one we have already examined and we know will match:
+
+  receives-hot-water? @hwp
+
+Together transitive and inverse relationships provide tremendous flexibility
+to query Haystack data without regard to the underlying reference tags used.
+
+
+
+

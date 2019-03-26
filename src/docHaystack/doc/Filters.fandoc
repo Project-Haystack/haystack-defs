@@ -1,0 +1,94 @@
+**************************************************************************
+** title:      Filters
+** author:     Brian Frank
+** copyright:  Copyright (c) 2015, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+Filters are a simple declarative language used to query Haystack
+data.  A filter is a predicate function which takes a dict and
+returns true/false (match/no match).  Some filter constructs
+require the use of [defs]`Defs` in which case the filter must
+be evaluated in the context of a [space]`Spaces`.
+
+Usage [#usage]
+**************
+The simplest filter is just a tag name which matches any record which
+contains that tag (regardless of its value):
+
+  site  // query any record with the "site" tag
+
+To match a tag value you can use any of the equality or comparison
+operators:
+
+  geoPostalCode == "23220"   // equal to
+  geoPostalCode != "23220"   // not equal to
+  curVal < 75                // less than
+  curVal <= 75               // less than or equal to
+  curVal > 75                // greater than
+  curVal >= 75               // greater than or equal to
+
+The scalars to compare against are encoded using `Zinc`
+encoding (with couple exceptions noted below).
+
+You can combine filters using 'and', 'or', or 'not':
+
+  site or equip             // has site or equip tag
+  equip and hvac            // has equip and hvac tag
+  equip and not ahu         // has equip tag, but not the ahu tag
+
+Arrow Operator [#arrow]
+***********************
+You use the '->' operator to dereference a tag which has a Ref value.  For
+example if your 'equip' rec has a 'siteRef' tag that references the
+site, you can query for equip in a given city such as:
+
+  equip and siteRef->geoCity == "Chicago"
+
+The way to read the above expression is match an entity if:
+  - it has equip tag
+  - and it has a siteRef tag which is a Ref
+  - and what the siteRef tag points to has the geoCity tag
+  - and that the site's geoCity tag is equal to "Chicago"
+
+Def Operator [#def]
+*******************
+You can use the '?' operator to filter based on the defs which the
+dict [implements]`Reflection`.
+
+TODO
+
+Also see [relationship queries]`Relationships#querying`.
+
+Grammar [#grammar]
+******************
+The formal grammar of the filter langauge:
+
+   <filter>     :=  <condOr>
+   <condOr>     :=  <condAnd> ("or" <condAnd>)*
+   <condAnd>    :=  <term> ("and" <term>)*
+   <term>       :=  <parens> | <has> | <missing> | <cmp>
+   <parens>     :=  "(" <filter> ")"
+   <has>        :=  <path>
+   <missing>    :=  "not" <path>
+   <cmp>        :=  <path> <cmpOp> <val>
+   <cmpOp>      :=  "=" | "!=" | "<" | "<=" | ">" | ">="
+   <path>       :=  <name> ("->" <name>)*
+
+   <val>        :=  <bool> | <ref> | <str> | <uri> |
+                    <number> | <date> | <time>
+   <bool>       := "true" or "false"
+   <number>     := same as Zinc (keywords not supported INF, -INF, NaN)
+   <ref>        := same as Zinc
+   <symbol>     := same as Zinc
+   <str>        := same as Zinc
+   <uri>        := same as Zinc
+   <date>       := same as Zinc
+   <time>       := same as Zinc
+
+See [Zinc grammar]`Zinc#grammar` for productions reused from Zinc.  Bools
+are encoded as "true" or "false" (Zinc encodes as "T" or "F").
+
+
