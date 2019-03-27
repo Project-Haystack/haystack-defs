@@ -1,0 +1,133 @@
+**************************************************************************
+** title:      ChangeLog
+** author:     Brian Frank
+** created:    4 Apr 2011
+** copyright:  Copyright (c) 2016, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+**Version 3.9.2 (working)**
+- Public review of new Haystack 4.0 docs and defs
+
+**Version 3.0.2 (16-Jan-2017)**
+- Elec model enhancments
+- Updated tags: apparent, current, pf, phase, power, volt,
+- New tags: ac, active, angle, avg, export, dc, imbalance, import,
+  mag, net, reactive, total, thd
+
+**Version 3.0.1 (13-Jul-2016)**
+- Add new Associate members to about
+- New tags: circ, diverting, flue, gasHeat, header, level, mixing, oil, tank
+- Add file manager to website
+- Roll encoding version to "3.0" for Zinc and JSON
+- Add Trio chapter
+- Renamed chillerPlant to chilledWaterPlant
+- Renamed boilerPlant to hotWaterPlant/steamPlant
+- Change pump to work as equop or point (like fan)
+- New Tanks chapter
+- Beef up curStatus enumeration
+- 258: JSON new encoding
+- 341: heating plants
+- 350: new 'mau' tag
+- 360: new XStr data type
+- 361: nested collection types
+- 362: new NA data type
+- 383: new HTTP authentication protocol
+- 396: remove discharge/entering tag from VAVs
+- 418: new weather points
+
+**Version 2.0.7 (2-Jun-2015)**
+- Publish source to BitBucket
+- New Builds and ChangeLog chapters
+- New Builds section on Downloads page
+
+**Version 2.0.6 (14-May-2015)**
+- Add Zones chapter
+- Add Unitary Equip chapter
+- Enhanced VAV tags
+- Add AHU section on cooling/heating methods
+- Remove 'curDis'
+- Add links for C++, Dart, and Node.JS projects
+- New tags: chilledWaterCool, co, coolOnly, ductArea, dxCool, elecHeat,
+  elecReheat, fanPowered, fcu, heatPump, hotWaterHeat, hotWaterReheat,
+  max, min, occ, parallel, pressureDependent, pressureIndependent, reheat,
+  reheating, series, singleDuct, standby, steamHeat, unocc, uv, vavMode
+
+**Version 2.0.5 (13-Aug-2014)**
+- #193 New meter tag design
+- #193 New VFD chapter
+- #193 Additional points for chillers
+- #50 JSON serialization tweaks
+- #146: change tags in formats op
+- #181: minVal and maxVal
+- French localization provided by Christian Tremblay
+- Rework doc engine to use new new fandoc APIs
+- File downloads
+
+**Version 2.0.4 (13-Jan-2014)**
+- Fix wetBulb
+- Add search redirect to google
+
+**Version 2.0.3 (27-Nov-2013)**
+- Update diagrams to use @ ref syntax
+- #30: Experimental device networking model
+- #35: Rename condensed to condenser
+- #35: Add 'primaryLoop' and 'secondaryLoop'
+- #80: ElecPanels
+- #85: AHU enhancements
+- #119: Add 'wetBulb', clarify 'air' as dry-blub
+- #134: new units PUE, DCIE
+
+**Version 2.0.2 (15-Jul-2013)**
+- Energy Star tags #104
+- Fix password reset bug
+- Add zh.props
+
+**Version 2.0.1 (1-Apr-2013)**
+- Allow tilde char to Refs
+- Add ops: nav, pointWrite, invokeAction
+- Beef up rules for ids and ordering of watchSub/watchPoll
+- #50 Add Json chapter
+- #52 Add Str/enum points
+- #64 Add cur, writable, his point tags
+- #63 Add hisInterpoalte, hisTotalized
+- #66 Add Coord tag value type, replace geoLat/geoLon with geoCoord
+- #76 Add geoCounty
+
+**Version 2.0.0 (1-Oct-2012)**
+- New @ Ref syntax
+- Add Grid, Filters, Zinc, Csv, Rest, Ops chapters
+- New units: kBTU/ft², MBTU/ft², kBTU/h/ft², W/cfm, kW/kcfm, kW/gal/min, knot
+- Fix chiller diagram to use "leaving"
+- Add meter diagram to Energy chapter
+- New path environment design/repo
+- #48 VAV entering
+- #49 add AHU bypass damper cmd
+
+**Version 1.0.4 (2-Dec-2011)**
+- #7: Rename elecKw/elecKwh to kw and kwh
+- #7: New elecMeter points for current, volt, freq, pf, 3-phase
+- #25: Rename in/out to sensor/cmd
+- #33: Require equipRef on points, optional on equip
+- Rework equip point listing for reflection
+- Added W/ft² to unit database
+- Formalize kind tag, use Number vs Num
+- Add equip-point downloads
+- Add tag linking in forum posts
+- Chiller plants
+
+**Version 1.0.3 (7-Sep-2011)**
+- Rework to use multiple finer grained tags
+
+**Version 1.0.2 (14-Jun-2011)**
+- Add new tag types: bool, uri, date, time, datetime
+- #4: added MMBTU and kcfm units
+- #9: Added returnCO2, zoneCO2, zoneHumidity, outsideFlowSp
+- #9: Added zoneTempHeatSp, zoneTempCoolSp, heatWheel
+- #9: Added outsideTemp, outsideTempRef, outsideHumidity, outsideHumidityRef
+- #10: Added faceBypass, freezeState, fanDiffPressure
+- #10: Updated filterDiffPresssure
+
+**Version 1.0.1 (4-Apr-2011)**
+- Initial version
+

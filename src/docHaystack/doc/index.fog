@@ -9,6 +9,8 @@
   [`Intro`,         "Introduction to Project Haystack"],
 
   "Data Model",
+  [`TimeZones`,     "Respresentation of timezones"],
+  [`Units`,         "Respresentation  of units of measurement"],
   [`Filters`,       "Predicates for querying Haystack data"],
 
   "Defs",
@@ -23,4 +25,8 @@
   [`Zinc`,          "Zinc plain text format"],
   [`Trio`,          "Tag record I/O format"],
   [`Rdf`,           "Resource Description Framework export"],
+
+  "Appendix",
+  [`ChangeLog`,     "Version history"],
+  [`License`,       "Academic Free License 3.0"],
 ]

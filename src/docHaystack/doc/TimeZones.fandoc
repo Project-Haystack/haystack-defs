@@ -1,0 +1,56 @@
+**************************************************************************
+** title:      TimeZones
+** author:     Brian Frank
+** created:    22 Feb 2011
+** copyright:  Copyright (c) 2015, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+Time-series data is the foundation for the sensor and operational data.
+This makes it critical to define a proper, unambiguous representation
+of time and timezones.  Timezones are identified using the `tz` tag with a city
+name from the [zoneinfo database]`http://en.wikipedia.org/wiki/Tz_database` (discussed
+below).
+
+Concepts [#concepts]
+********************
+In Haystack, we use the term timezone to encapsulate two concepts: offset
+from UTC and daylight saving time rules. For example, US Eastern Standard
+Time is -5hrs from UTC. But between 2am on the second Sunday of March and 2am
+on the first Sunday in November is daylight savings time (DST) and is -4hrs
+from UTC.
+
+Because timezones are such a critical aspect of time-series data, Haystack
+requires a comprehensive model and database of timezones. Timezones are quite
+problematic for computers because they are a political abstraction versus a
+scientific abstraction. This means that a given region might change its timezone
+rules (either UTC offset of DST rules) over time. For example, in 2007 the US
+changed the dates for when DST starts and ends. This means that computing a date
+in 2000 uses different rules than 2010 (we call these historical timezones).
+
+Zoneinfo [#zoneinfo]
+********************
+Luckily there is a database which keeps track of these rules across regions
+and time. Haystack uses the zoneinfo database which is also used by oBIX, Unix, and
+some versions of Java.  The zoneinfo database uses a convention of naming timezones
+as "Continent/City". For example, US Eastern time is canonically identified
+as "America/New_York". Since there are no duplicate city names between
+continents, the city name also works as a canonical identifier.
+
+All timezones in Haystack are repesented using the city name of an entry
+in the Olsen database.
+
+Common TimeZones [#common]
+**************************
+Here are some common timezones used in the United States:
+- 'New_York': US Eastern Time
+- 'Chicago': US Central Time
+- 'Denver': US Mountain Time
+- 'Los_Angeles': US Pacific Time
+- 'Phoenix': Arizona Time (Mountain Time with no DST)
+
+The list above is by no means comprehensive.  You can download the full list
+of timezones from [project-haystack.org]`https://project-haystack.org/download#tz`
+or visit the [zoneinfo website]`https://www.iana.org/time-zones`.
