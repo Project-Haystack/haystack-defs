@@ -1,0 +1,92 @@
+**************************************************************************
+** title:      Generics
+** author:     Brian Frank
+** created:    26 Mar 2019
+** copyright:  Copyright (c) 2019, Project-Haystack
+**************************************************************************
+
+Overview [#overview]
+*********************
+**This is just an early draft of the generics proposal.  Its likely
+to change significantly**
+
+Generics are a mechanism used to construct "definition macros".  They
+allow us to capture reusable concepts without reams of boilerplate.
+The essence of a generic is a definition with *variables*.  Generics
+in Haystack are patterned after parameterized types commonly
+found in programming languages.
+
+Lets consider a concrete example: how to model the various types
+of pipes?  Along one dimension, we wish to classify pipes by the type
+of fluid they convey.  Along another dimension we wish to classify pipes
+by the section they serve.  We have a taxonomy for fluids defined
+by the `fluid` term and we have a taxonomy for pipe sections
+defined by `pipeSection`.  Even in our initial taxonomy we have 12 different
+fluid types and 3 sections.  So if we wished to coin a term for each
+combination then we would need 36 combinations.  It might looks like this:
+
+  leaving-chilled-water-pipe
+  entering-chilled-water-pipe
+  leaving-hot-water-pipe
+  entering-hot-water-pipe
+  ...
+
+In the future if we added a new fluid type, we would need to remember to
+create a new term for pipes which convey that fluid (along with all its
+combinations for pipe section).  Also we would need to remember to
+map that fluid to new terms for tanks, points, etc.
+
+This pattern repeats itself across the Haystack ontology.  To explicitly
+define every term combination would explode the size of our vocabulary.
+And 90% of the terms would be boilerplate combinations.  Generics are the
+solution.
+
+Variables [#vars]
+*****************
+Variables are the foundation of building generic definitions.  The tags `a`
+through `z` are reserved as variable terms.  Variables serve as place holders
+in conjuncts.  We use single character terms to indicate a variable to
+avoid creating unnecessary new syntax in definitions.  Single character
+variables also mimic the conventions found in generics of most programming
+languages.
+
+Generic [#generic]
+******************
+A generic is a [conjunct]`Defs#conjuncts` with one or more variable terms
+and one or more non-variable tags.  Remember that conjuncts are only
+composed of marker tags.  This in turn means generics and their variable
+values must only be marker tags.
+
+We must also specify the expected supertype of the variable by adding the
+variable as a tag to the generic definition.  For example if we use
+the variable 'x' we define the expected type of 'x' to be a fluid like
+this:
+
+  def: ^x-foo
+  x: ^fluid
+
+Lets look at our pipe example:
+
+  def: ^s-f-pipe
+  f: ^fluid
+  s: ^pipeSection
+  is: ^conduit
+  conveys: ^f
+  doc: "Pipe in equipment section 's' which conveys fluid 'f'"
+
+Note this isn't the actual def for `s-f-pipe`; we have simplified it for
+illustrative purposes.  But lets examine the salient characteristics.
+The 's-f-pipe' symbol includes two variables named `s` and `f`.  This
+makes it a generic.
+
+We also specify that in the context of this def that `s` must
+be a `pipeSection` and that `f` must be a `fluid`.  Generics must
+specify a supertype for each of their variables, and this term
+must be a type of marker.  Note these variables may be typed differently
+in other generics.
+
+We can also variables in the def's relationships.  In our pipe we
+have specified that whatever 'f' is bound to it will also become
+the value of the `conveys` tag.
+
+
