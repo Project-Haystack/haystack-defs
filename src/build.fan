@@ -38,7 +38,8 @@ class Build : BuildGroup
     files := File[,]
     childrenScripts.each |uri|
     {
-      files.add(scriptDir.plus(uri.parent.plus(`lib/lib.trio`)))
+      file := scriptDir.plus(uri.parent.plus(`lib/lib.trio`))
+      if (file.exists) files.add(file)
     }
 
     // update each one
