@@ -8,8 +8,9 @@
 Overview [#overview]
 *********************
 All defs are declared within a *lib* or library module.  A *space* is a
-set of libs which define a namespace of defs.  All applications using Haystack
-are performed in the context of a space.  Spaces define the defs in scope
+set of libs which define a namespace of defs.  In this usage, space
+means "namespace" and not "zone space".  All applications using Haystack
+are performed within the context of a space.  Spaces define the defs in scope
 for reflection, querying, and symbolic linking.
 
 Libs [#libs]
@@ -81,7 +82,7 @@ for project spaces.  However all project spaces must have a mechanism
 to formally specify/export which libs are in scope.  This is best accomplished
 through the 'libs' HTTP API operation (TODO).
 
-Symbolic Namesapce [#ns]
+Symbolic Namespace [#ns]
 ************************
 A space is defined strictly by a list of libs and their corresponding children
 defs.  Thus we can logically model a space as a map of symbol names to defs.
