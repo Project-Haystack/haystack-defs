@@ -9,8 +9,7 @@
 --------------------------------------------------------------------------
 def: ^lib:ph
 doc: "Project Haystack core definitions"
-version: "3.9.1"
+version: "3.9.2"
 baseUri: `https://project-haystack.org/def/ph/`
 --------------------------------------------------------------------------
-
 
