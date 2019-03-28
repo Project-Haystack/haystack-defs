@@ -24,6 +24,15 @@ This current documentation is focused only on the major 4.0 features.
 Eventually we will also include/rework all of the existing documentation
 a single document.
 
+Key new concepts to review:
+  - `Defs`: new model for defining tags and tag combinations
+  - `Spaces`: a new modular design based on versioned libraries
+  - `Subtyping`: organizing all terms into a taxonomy tree based on subtyping
+  - `Reflection`: mapping between dict data and definitions
+  - `Relationships`: more powerful relationship modeling and queries
+  - `Generics`: definition "macros"
+  - `Rdf`: prototype support for exporting Haystack data to RDF
+
 This documentation and the definitions is managed in a Mercial repo
 located at `https://bitbucket.org/project-haystack/haystack-defs`.
 
