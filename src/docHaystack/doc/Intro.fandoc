@@ -22,7 +22,7 @@ Key concepts for the Haystack 4.0 include:
 
 This current documentation is focused only on the major 4.0 features.
 Eventually we will also include/rework all of the existing documentation
-a single document.
+into 'docHaystack' as a single document.
 
 Key new concepts to review:
   - `Defs`: new model for defining tags and tag combinations

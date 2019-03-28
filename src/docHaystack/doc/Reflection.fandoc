@@ -59,7 +59,7 @@ add four tags '{hot, water, plant, equip}'.
 
 Typically for compose defs, we are always start with a dict which has
 implemented the parent.  For example if we wish to implement `point.tz`
-then we must implement both `point` and `tz` using rule 1d.  We've already
+then we must implement both `point` and `tz` using rule 1c.  We've already
 said how to implement `point` from the first example.  Implementing `tz` will
 follow rule 1a.  Depending on what timezone value we select we end up
 with the tags '{point, tz:"New_York"}'.
