@@ -42,7 +42,7 @@ Is Tag [#is]
 ************
 Subtyping is declared via the `is` tag on a def.  The value of the 'is'
 tag is a symbol or list of symbols.  Since most defs subtype
-from a single def, we typically  symbol:
+from a single def, we typically use just a symbol:
 
   def: ^water
   is: ^liquid
@@ -68,7 +68,7 @@ this process *inheritance* and it works similar to inheritance in
 traditional object-oriented languages.
 
 We call the tags explicitly defined in a def the *declared* tags.  The
-tags that are effective after inheritance is considered are called the
+tags that are effective after inheritance is applied are called the
 *normalized* tags.  Normalization rules are as follows:
 
   1. Start with the declared types from the def
