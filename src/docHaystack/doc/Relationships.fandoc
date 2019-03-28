@@ -94,8 +94,9 @@ We can enhance our query to filter dicts which receive hot water like this:
 
 The term to the right of the first dash is used to match the value of
 the def's `receives` tag.  We can read the filter above as follows: does
-the dict implement a def with a value which fits the `hot-water` term.  Subtyping
-may used too; any of the following filters would match our AHU also:
+the dict implement a def with the `receives` tag where the value which
+fits `hot-water`.  Subtyping may be used too; any of the following
+filters would match our AHU also:
 
   receives-water?   // hot-water is a subtype of water
   receives-liquid?  // hot-water is a subtype of liquid
@@ -146,7 +147,7 @@ AHU either directly or indirectly.
 
 This filter matches the fan equip as follows:
   1. Does the dict implement a def with the 'containedBy' tag (it does: `equipRef`)
-  2. Is the value of that tag in the dict equal to '@ahu' (it does)
+  2. Is the value of that tag in the dict equal to '@ahu' (yeap)
   3. Match
 
 The filter matches the fan speed point as follows
@@ -172,13 +173,13 @@ our plant example we want to be able to query both sides as follows:
 We call these *inverse* relationships.  They are explicitly configured
 on the relationship defs via the `inverseOf` tag.
 
-Lets follow the filtering process for this filter which should match
+Lets follow the process for this filter which should match
 the '@hwp' entity:
 
   supplies-hot-water? @ahu
 
-Following the rules we have discussed above we would not find a match
-because there is no tag on the plant that directly references the AHU.
+Following the rules we have discussed above so far, we would not find a
+match.  There is no tag on the plant that directly references the AHU.
 However because `supplies` specifies it is an inverse of `receives`, we
 would then have to check for a match in the reverse direction.  The
 inverse is constructed as follows when matching the '@hwp' entity:
