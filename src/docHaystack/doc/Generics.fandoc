@@ -27,6 +27,7 @@ combination then we would need 36 combinations.  It might looks like this:
 
   leaving-chilled-water-pipe
   entering-chilled-water-pipe
+  bypass-chilled-water-pipe
   leaving-hot-water-pipe
   entering-hot-water-pipe
   ...
@@ -43,9 +44,9 @@ solution.
 
 Variables [#vars]
 *****************
-Variables are the foundation of building generic definitions.  The tags `a`
+Variables are the foundation of generic definitions.  The tags `a`
 through `z` are reserved as variable terms.  Variables serve as place holders
-in conjuncts.  We use single character terms to indicate a variable to
+in conjuncts.  We use single character names to indicate a variable to
 avoid creating unnecessary new syntax in definitions.  Single character
 variables also mimic the conventions found in generics of most programming
 languages.
@@ -58,7 +59,7 @@ composed of marker tags.  This in turn means generics and their variable
 values must only be marker tags.
 
 We must also specify the expected supertype of the variable by adding the
-variable as a tag to the generic definition.  For example if we use
+variable name as a tag to the generic definition.  For example if we use
 the variable 'x' we define the expected type of 'x' to be a fluid like
 this:
 
@@ -85,7 +86,7 @@ specify a supertype for each of their variables, and this term
 must be a type of marker.  Note these variables may be typed differently
 in other generics.
 
-We can also variables in the def's relationships.  In our pipe we
+We can also use variables in the def's relationships.  In our pipe we
 have specified that whatever 'f' is bound to it will also become
 the value of the `conveys` tag.
 
