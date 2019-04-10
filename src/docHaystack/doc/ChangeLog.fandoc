@@ -6,6 +6,11 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.2 (working)**
+- Add ac-elec-meter, dc-elec-meter subtypes
+- Rename meterSphere to meterScope
+- Flush out submeterOf relationship
+
 **Version 3.9.2 (28 Mar 2019)**
 - Public review of new Haystack 4.0 docs and defs
 
