@@ -59,6 +59,10 @@ def: ^fanPowered
 is: ^marker
 doc: "Device with a fan"
 --------------------------------------------------------------------------
+def: ^ground
+is: ^marker
+doc: "Related to the surface of the earth"
+--------------------------------------------------------------------------
 def: ^his
 is: ^marker
 doc: "Related to historization of data"
@@ -98,6 +102,10 @@ is: ^marker
 wikipedia: `https://wikipedia.org/wiki/Reciprocating_compressor`
 doc: "Piston compressor driven by a crankshaft"
 --------------------------------------------------------------------------
+def: ^roof
+is: ^marker
+doc: "Envelope covering the top of a building"
+--------------------------------------------------------------------------
 def: ^rotaryScrew
 is: ^marker
 wikipedia: `https://wikipedia.org/wiki/Rotary-screw_compressor`
@@ -106,6 +114,10 @@ doc: "Rotary screw compression"
 def: ^series
 is: ^marker
 doc: "Circuit with single path of flow"
+--------------------------------------------------------------------------
+def: ^subterranean
+is: ^marker
+doc: "Below the surface of the earth"
 --------------------------------------------------------------------------
 def: ^thermal
 is: ^marker

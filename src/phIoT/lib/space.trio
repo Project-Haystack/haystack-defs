@@ -33,7 +33,7 @@ doc: "Points within the space"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Subtypes
+// Floors
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
@@ -41,6 +41,52 @@ def: ^floor
 is: ^space
 wikipedia: `https://wikipedia.org/wiki/Storey`
 doc: "Storey of a building"
+--------------------------------------------------------------------------
+def: ^ground-floor
+is: ^floor
+doc:
+  Floor at ground level.  In North America this is typically called
+  the first floor, but in Europe its often labelled as floor zero.
+  If `floorNum` is defined, then it must be set to zero.
+--------------------------------------------------------------------------
+def: ^subterranean-floor
+is: ^floor
+doc:
+  Floor below ground level.  Subterranean floors are also known as
+  basements, lower levels, or cellars.
+--------------------------------------------------------------------------
+def: ^roof-floor
+is: ^floor
+doc:
+  The roof floor is the topmost level of a building.  It is often
+  where HVAC equipment is located such as rooftop AHUs.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Floor Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^floor.floorNum
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+def: ^floorNum
+is: ^int
+doc:
+  Unitless integer indicating the floor's distance from ground level.  The
+  ground floor is always defined as zero.  Additional floors above ground are
+  numbered 1, 2, 3, etc.  Subterranean floors are numbered -1, -2, -3, etc.
+  This convention is consistent with how most European buildings number
+  floors.  In North America its common to label the ground floor
+  as the first floor; however Haystack requires the ground level to be
+  assigned a floorNum of 0.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Rooms
+//////////////////////////////////////////////////////////////////////////
+
 --------------------------------------------------------------------------
 def: ^room
 is: ^space
