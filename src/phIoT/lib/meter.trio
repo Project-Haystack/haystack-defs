@@ -16,6 +16,14 @@ def: ^elec-meter
 is: ^meter
 doc: "Electricity meter"
 --------------------------------------------------------------------------
+def: ^ac-elec-meter
+is: ^elec-meter
+doc: "AC Electricity meter"
+--------------------------------------------------------------------------
+def: ^dc-elec-meter
+is: ^elec-meter
+doc: "DC Electricity meter"
+--------------------------------------------------------------------------
 def: ^flow-meter
 is: ^meter
 doc: "Meter to measure flow rate and total volume of fluid"
@@ -40,24 +48,36 @@ doc: "Meter to measure energy transfer via fluid 'f'"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^meter.meterSphere
+def: ^meter.meterScope
+--------------------------------------------------------------------------
+def: ^meter.submeterOf
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// MeterType
+// MeterScope
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^meterSphere
+def: ^meterScope
 is: ^marker
 doc: "Classifies a meter as a main site meter or submeter"
 --------------------------------------------------------------------------
 def: ^siteMeter
-is: ^meterSphere
+is: ^meterScope
 doc: "Main meter for the associated site"
 --------------------------------------------------------------------------
 def: ^submeter
-is: ^meterSphere
+is: ^meterScope
 doc: "Submeters measure usage of a sub-system or equipment within a site"
+--------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////
+// Relationships
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^submeterOf
+is: ^ref
+of: ^meter
+doc: "Reference to parent meter which is immediately upstream of this meter"
 --------------------------------------------------------------------------
 
