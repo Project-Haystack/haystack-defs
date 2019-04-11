@@ -49,7 +49,7 @@ RDF requires that every resource be uniquely identified by an
 [IRI]`https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier`.
 Every Def is a logical resource, so we need to map def symbols to IRIs.
 To construct an IRI from a symbol:
-    1. Obtain the 'baseUri' from the [Lib]`Spaces#libs` the def belongs to.
+    1. Obtain the 'baseUri' from the [Lib]`Namespaces#libs` the def belongs to.
     1. Append the version of the lib with an empty fragment
     1. Append the symbol name
 

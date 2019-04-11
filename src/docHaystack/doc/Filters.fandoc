@@ -11,7 +11,7 @@ Filters are a simple declarative language used to query Haystack
 data.  A filter is a predicate function which takes a dict and
 returns true/false (match/no match).  Some filter constructs
 require the use of [defs]`Defs` in which case the filter must
-be evaluated in the context of a [space]`Spaces`.
+be evaluated in the context of a [namespace]`Namespaces`.
 
 Usage [#usage]
 **************

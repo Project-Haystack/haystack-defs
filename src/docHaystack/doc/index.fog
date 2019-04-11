@@ -15,7 +15,7 @@
 
   "Defs",
   [`Defs`,          "Definition meta-model"],
-  [`Spaces`,        "Definition namespaces"],
+  [`Namespaces`,    "Symbolic namespaces"],
   [`Subtyping`,     "Definition subtyping"],
   [`Reflection`,    "Mapping between dicts and defs"],
   [`Relationships`, "Modeling relationships"],
