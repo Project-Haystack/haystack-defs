@@ -26,7 +26,7 @@ into 'docHaystack' as a single document.
 
 Key new concepts to review:
   - `Defs`: new model for defining tags and tag combinations
-  - `Spaces`: a new modular design based on versioned libraries
+  - `Namespaces`: a new modular design based on versioned libraries
   - `Subtyping`: organizing all terms into a taxonomy tree based on subtyping
   - `Reflection`: mapping between dict data and definitions
   - `Relationships`: more powerful relationship modeling and queries

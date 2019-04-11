@@ -76,7 +76,7 @@ Reflection [#reflection]
 ************************
 Reflection is the inverse of implementation.  Given a dict we compute
 the defs it implements.  Reflection is always done within the context
-of a [space]`Spaces` to determine which defs are in scope.
+of a [namespace]`Namespaces` to determine which defs are in scope.
 
 To reflect a dict to its def, we walk each tag in the dict and
 apply the following rules:
