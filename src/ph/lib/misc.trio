@@ -16,5 +16,9 @@ def: ^unit
 is: ^str
 doc: "Unit identifier from standard unit database"
 --------------------------------------------------------------------------
+def: ^filter
+is: ^str
+doc: "Haystack filter string.  See `docHaystack::Filters`"
+--------------------------------------------------------------------------
 
 
