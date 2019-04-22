@@ -10,7 +10,9 @@
 def: ^chiller
 is: ^equip
 wikipedia: `https://wikipedia.org/wiki/Chiller`
-doc: "Device to remove heat via a vapor compression or an absorption refrigeration cycle"
+doc:
+  Device to remove heat from a liquid.  Chillers typically use a vapor
+  compression or an absorption refrigeration cycle."
 --------------------------------------------------------------------------
 def: ^chiller.coolingCapacity
 --------------------------------------------------------------------------
