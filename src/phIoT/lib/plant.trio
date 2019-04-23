@@ -13,17 +13,17 @@ doc: "Central plant used to generate a substance for a process"
 --------------------------------------------------------------------------
 def: ^chilled-water-plant
 is: ^plant
-outputs: ^chilled-water
+supplies: ^chilled-water
 doc: "Plant used to generate chilled water for cooling"
 --------------------------------------------------------------------------
 def: ^hot-water-plant
 is: ^plant
-outputs: ^hot-water
+supplies: ^hot-water
 doc: "Plant used to generate hot water for heating"
 --------------------------------------------------------------------------
 def: ^steam-plant
 is: ^plant
-outputs: ^steam
+supplies: ^steam
 doc: "Plant used to generate steam for heating"
 --------------------------------------------------------------------------
 

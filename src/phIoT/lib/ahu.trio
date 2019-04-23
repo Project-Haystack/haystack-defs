@@ -15,9 +15,9 @@ doc: "Air handling unit"
 --------------------------------------------------------------------------
 def: ^ahu.ahuZoneDelivery
 --------------------------------------------------------------------------
-def: ^ahu.ahuCoolingProcess
+// TODO def: ^ahu.ahuCoolingProcess
 --------------------------------------------------------------------------
-def: ^ahu.ahuHeatingProcess
+// TODO def: ^ahu.ahuHeatingProcess
 --------------------------------------------------------------------------
 def: ^ahu.ductConfig
 --------------------------------------------------------------------------
@@ -46,46 +46,6 @@ doc: "AHU supplies air to chilled beam terminal units"
 def: ^multiZone
 is: ^ahuZoneDelivery
 doc: "AHU discharge air is split into a duct per zone"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// ahuCoolingProcess
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^ahuCoolingProcess
-is: ^cooling-process
-outputs: ^air
-doc: "Method used to cool air for conditioning spaces"
---------------------------------------------------------------------------
-def: ^ahu-dxCooling
-is: [^dxCooling, ^ahuCoolingProcess]
---------------------------------------------------------------------------
-def: ^ahu-chilledWaterCooling
-is: [^chilledWaterCooling, ^ahuCoolingProcess]
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// ahuHeatingProcess
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^ahuHeatingProcess
-is: ^heating-process
-outputs: ^air
-doc: "Method used to heat air for conditioning spaces"
---------------------------------------------------------------------------
-def: ^ahu-hotWaterHeating
-is: [^hotWaterHeating, ^ahuHeatingProcess]
---------------------------------------------------------------------------
-def: ^ahu-steamHeating
-is: [^steamHeating, ^ahuHeatingProcess]
---------------------------------------------------------------------------
-def: ^ahu-gasHeating
-is: [^gasHeating, ^ahuHeatingProcess]
---------------------------------------------------------------------------
-def: ^ahu-elecHeating
-is: [^elecHeating, ^ahuHeatingProcess]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
