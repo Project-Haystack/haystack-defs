@@ -19,7 +19,6 @@
   [`Subtyping`,     "Definition subtyping"],
   [`Reflection`,    "Mapping between dicts and defs"],
   [`Relationships`, "Modeling relationships"],
-  [`Generics`,      "Parameterized definitions"],
 
   "Filetype Formats",
   [`Zinc`,          "Zinc plain text format"],

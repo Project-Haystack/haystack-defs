@@ -33,24 +33,25 @@ doc: "What type of substance or phenomenon conveyed by a conduit"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Pipe Generics
+// Pipes
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^f-pipe
+def: ^chilled-water-leaving-pipe
 is: ^pipe
-f: ^fluid
-conveys: ^f
-doc: "Pipe which conveys fluid 'f'"
+doc: "Chilled water supply pipe"
 --------------------------------------------------------------------------
-def: ^s-pipe
+def: ^chilled-water-entering-pipe
 is: ^pipe
-s: ^pipeSection
-doc: "Pipe in equipment section 's'"
+doc: "Chilled water return pipe"
 --------------------------------------------------------------------------
-def: ^s-f-pipe
-is: [^s-pipe, ^f-pipe]
-doc: "Pipe in equipment section 's' which conveys fluid 'f'"
+def: ^condenser-water-leaving-pipe
+is: ^pipe
+doc: "Piping to the cooling towers"
+--------------------------------------------------------------------------
+def: ^condenser-water-entering-pipe
+is: ^pipe
+doc: "Piping from the cooling towers"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -76,16 +77,34 @@ doc: "Pipe used to bypass an equipment"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Duct Generics
+// Ducts
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^s-duct
+def: ^discharge-duct
 is: ^duct
-s: ^ductSection
-doc: "Duct in equipment section 's'"
+doc: "Supply air discharged from equipment"
 --------------------------------------------------------------------------
-
+def: ^inlet-duct
+is: ^duct
+doc: "Air entering into equipment"
+--------------------------------------------------------------------------
+def: ^outside-duct
+is: ^duct
+doc: "Fresh outside air intake"
+--------------------------------------------------------------------------
+def: ^mixed-duct
+is: ^duct
+doc: "Mixed air between outside and return"
+--------------------------------------------------------------------------
+def: ^return-duct
+is: ^duct
+doc: "Returning air from zone"
+--------------------------------------------------------------------------
+def: ^exhaust-duct
+is: ^duct
+doc: "Exhaust air to the outside"
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Duct Section
