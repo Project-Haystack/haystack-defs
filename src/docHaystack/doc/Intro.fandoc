@@ -30,7 +30,6 @@ Key new concepts to review:
   - `Subtyping`: organizing all terms into a taxonomy tree based on subtyping
   - `Reflection`: mapping between dict data and definitions
   - `Relationships`: more powerful relationship modeling and queries
-  - `Generics`: definition "macros"
   - `Rdf`: prototype support for exporting Haystack data to RDF
 
 This documentation and the definitions is managed in a Mercial repo
