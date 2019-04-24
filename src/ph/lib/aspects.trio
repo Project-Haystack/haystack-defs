@@ -33,6 +33,8 @@ doc: "This tag is used on the given entity"
 def: ^tags
 is: ^aspect
 reciprocalOf: ^tagOn
+computed
+docSection
 doc: "Tags used with this entity"
 --------------------------------------------------------------------------
 
@@ -49,6 +51,8 @@ doc: "This entity is contained byt the given entity"
 def: ^contains
 is: ^aspect
 reciprocalOf: ^containedBy
+computed
+docSection
 transitive
 doc: "Entities contained by this entity"
 --------------------------------------------------------------------------

@@ -13,6 +13,12 @@ is: ^uri
 tagOn: ^lib
 doc: "Base URI for normalizing relative URIs"
 --------------------------------------------------------------------------
+def: ^computed
+is: ^marker
+doc:
+  Indicates a definition which is computed.  Computed defs cannot be
+  used as tags themselves.
+--------------------------------------------------------------------------
 def: ^def
 is: ^symbol
 doc: "Create a new definition bound to the given symbol"
@@ -53,6 +59,10 @@ doc:
   ticks and hyperlinks are annotated using the backtick.  Links may be:
     - absolute http/https URIs
     - def symbol such as "site" or "hot-water"
+--------------------------------------------------------------------------
+def: ^docSection
+is: ^marker
+doc: "This tag is documented with its own section."
 --------------------------------------------------------------------------
 def: ^enum
 is: ^str

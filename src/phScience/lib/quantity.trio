@@ -14,14 +14,19 @@
 def: ^quantity
 is: ^marker
 doc: "Measurable property of a substance or phenomenon"
-//--------------------------------------------------------------------------
-//def: ^quantity.quantityOf
 --------------------------------------------------------------------------
-
 def: ^quantityOf
-is: ^symbol
+is: ^aspect
 of: ^phenomenon
+reciprocalOf: ^quantities
 doc: "Associates quantity as measurement of a phenomenon"
+--------------------------------------------------------------------------
+def: ^quantities
+is: ^aspect
+reciprocalOf: ^quantityOf
+computed
+docSection
+doc: "Quantities used to measure this phenomenon"
 --------------------------------------------------------------------------
 def: ^prefUnit
 is: ^list
