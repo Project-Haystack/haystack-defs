@@ -10,7 +10,7 @@
 def: ^boiler
 is: ^equip
 wikipedia: `https://wikipedia.org/wiki/Boiler`
-doc: "Boilers generate hot water or steam for heating"
+doc: "Equipment to generate hot water or steam for heating"
 --------------------------------------------------------------------------
 def: ^hot-water-boiler
 is: ^boiler

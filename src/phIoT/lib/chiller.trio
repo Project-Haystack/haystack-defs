@@ -11,7 +11,7 @@ def: ^chiller
 is: ^equip
 wikipedia: `https://wikipedia.org/wiki/Chiller`
 doc:
-  Device to remove heat from a liquid.  Chillers typically use a vapor
+  Equipment to remove heat from a liquid.  Chillers typically use a vapor
   compression or an absorption refrigeration cycle."
 --------------------------------------------------------------------------
 // TODO def: ^chiller.chillerMechanism
@@ -29,6 +29,24 @@ is: ^number
 tagOn: ^chiller
 doc: "Measurement of a chiller ability to remove heat measured"
 prefUnit: ["tonref", "BTU/h", "kW"]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Contains
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+defx: ^chilled-water-entering-pipe
+containedBy: ^chiller
+--------------------------------------------------------------------------
+defx: ^chilled-water-leaving-pipe
+containedBy: ^chiller
+--------------------------------------------------------------------------
+defx: ^condenser-water-entering-pipe
+containedBy: ^chiller
+--------------------------------------------------------------------------
+defx: ^condenser-water-leaving-pipe
+containedBy: ^chiller
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
