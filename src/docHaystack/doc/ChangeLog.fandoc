@@ -13,6 +13,7 @@
 - Rename Spaces to Namespaces
 - Simplify process taxonomy
 - Add ac-elec-meter, dc-elec-meter subtypes
+- Add fan, damper, pump, valve
 - Rename meterSphere to meterScope
 - Flush out submeterOf relationship
 - Add ground-floor, roof-floor, subterranean-floor, and floorNum
