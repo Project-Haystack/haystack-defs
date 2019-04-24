@@ -11,6 +11,7 @@
 def: ^space
 is: ^entity
 mandatory
+containedBy: [^site]
 doc: "Space is a three-dimensional volume in the built environment"
 --------------------------------------------------------------------------
 def: ^area
@@ -116,14 +117,13 @@ doc: "Zone related to lighting system"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Relationships
+// Refs
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^spaceRef
 is: ^ref
 of: ^space
-containedBy: ^space
 doc: "Reference to space which contains this entity"
 --------------------------------------------------------------------------
 
