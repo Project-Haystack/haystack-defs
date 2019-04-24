@@ -8,25 +8,22 @@
 //
 
 --------------------------------------------------------------------------
+def: ^baseUri
+is: ^uri
+tagOn: ^lib
+doc: "Base URI for normalizing relative URIs"
+--------------------------------------------------------------------------
 def: ^def
 is: ^symbol
 doc: "Create a new definition bound to the given symbol"
 --------------------------------------------------------------------------
-def: ^feature
-doc: "Feature namespace of definitions formatted as 'feature:name'"
---------------------------------------------------------------------------
-def: ^enum
-is: ^str
-doc:
-  Defines an eumeration of string keys.  The range may also be applied
-  to format a Bool ordered as "false,true".  The string may be formatted
-  in one of three ways:
-   - comma separated keys on one line
-   - keys separated by a "\n" newline character
-   - markdown unordered list formatted as a series of "- key: description\n"
+def: ^defx
+is: ^symbol
+doc: "Extends the given definition with additional meta tags"
 --------------------------------------------------------------------------
 def: ^doc
 is: ^str
+tagOn: ^def
 doc:
   Documentation in simplified flavor of markdown.  The first
   sentence up to the period is used as the summary.
@@ -57,18 +54,38 @@ doc:
     - absolute http/https URIs
     - def symbol such as "site" or "hot-water"
 --------------------------------------------------------------------------
+def: ^enum
+is: ^str
+doc:
+  Defines an eumeration of string keys.  The range may also be applied
+  to format a Bool ordered as "false,true".  The string may be formatted
+  in one of three ways:
+   - comma separated keys on one line
+   - keys separated by a "\n" newline character
+   - markdown unordered list formatted as a series of "- key: description\n"
+--------------------------------------------------------------------------
+def: ^feature
+doc: "Feature namespace of definitions formatted as 'feature:name'"
+--------------------------------------------------------------------------
+def: ^lib
+is: ^feature
+doc: "Library module of symbolic definitions"
+--------------------------------------------------------------------------
 def: ^includes
 is: ^list
 of: ^ref
+tagOn: ^lib
 doc: "List of library names to include"
 --------------------------------------------------------------------------
 def: ^is
 is: ^list
 of: ^symbol
+tagOn: ^def
 doc: "Defines one or more supertypes of a subtyping relationship"
 --------------------------------------------------------------------------
 def: ^mandatory
 is: ^marker
+tagOn: ^def
 notInherited
 doc:
   Requires that the marker be applied to dicts which use the marker's subtypes.
@@ -79,18 +96,21 @@ doc:
 --------------------------------------------------------------------------
 def: ^mixin
 is: ^marker
+tagOn: ^def
 doc:
   Marker added to a def to indicate inclusive subtyping.  Defs without
   the mixin tag have a default assumption of exclusive subtyping.
 --------------------------------------------------------------------------
 def: ^notInherited
 is: ^marker
+tagOn: ^def
 doc:
   Marker applied to a def to indicate that is not inherited into
   subtype definitions.
 --------------------------------------------------------------------------
 def: ^transient
 is: ^marker
+tagOn: ^def
 doc:
   Indicates a value tag which should not be persisted.  Transient
   values often change frequently and do not provide long term informational
@@ -99,58 +119,14 @@ doc:
 --------------------------------------------------------------------------
 def: ^version
 is: ^str
+tagOn: ^lib
 doc: "Version string formatted as decimal integers separated by a dot"
 --------------------------------------------------------------------------
 def: ^wikipedia
 is: ^uri
+tagOn: ^def
 doc: "Hyperlink to the subject's page on Wikipedia"
 --------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Def
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^def.doc
---------------------------------------------------------------------------
-def: ^def.is
---------------------------------------------------------------------------
-def: ^def.wikipedia
---------------------------------------------------------------------------
-def: ^def.transient
---------------------------------------------------------------------------
-def: ^def.notInherited
---------------------------------------------------------------------------
-def: ^def.mixin
---------------------------------------------------------------------------
-def: ^def.mandatory
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Library
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^lib
-is: ^feature
-doc: "Library module of symbolic definitions"
---------------------------------------------------------------------------
-def: ^lib.doc
---------------------------------------------------------------------------
-def: ^lib.includes
---------------------------------------------------------------------------
-def: ^lib.version
---------------------------------------------------------------------------
-def: ^lib.baseUri
-doc: "Base URI for identifying defs in this library"
---------------------------------------------------------------------------
-
---------------------------------------------------------------------------
-def: ^baseUri
-is: ^uri
-doc: "Base URI for normalizing relative URIs"
---------------------------------------------------------------------------
-
 
 
 

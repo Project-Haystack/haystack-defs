@@ -12,60 +12,44 @@ def: ^geoPlace
 is: ^marker
 doc: "Geographic place"
 --------------------------------------------------------------------------
-def: ^geoPlace.geoAddr
---------------------------------------------------------------------------
-def: ^geoPlace.geoCoord
---------------------------------------------------------------------------
-def: ^geoPlace.geoElevation
---------------------------------------------------------------------------
-def: ^geoPlace.geoStreet
---------------------------------------------------------------------------
-def: ^geoPlace.geoCity
---------------------------------------------------------------------------
-def: ^geoPlace.geoCounty
---------------------------------------------------------------------------
-def: ^geoPlace.geoState
---------------------------------------------------------------------------
-def: ^geoPlace.geoCountry
---------------------------------------------------------------------------
-def: ^geoPlace.geoPostalCode
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Tags
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
 def: ^geoAddr
 is: ^str
+tagOn: ^geoPlace
 doc: "Free form street address"
 --------------------------------------------------------------------------
 def: ^geoCoord
 is: ^coord
+tagOn: ^geoPlace
 doc: "Geographic coordinate as 'C(latitude,longitude)'"
 --------------------------------------------------------------------------
 def: ^geoElevation
 is: ^number
+tagOn: ^geoPlace
 doc: "Elevation above sea-level of the location"
 --------------------------------------------------------------------------
 def: ^geoStreet
 is: ^str
+tagOn: ^geoPlace
 doc: "Geographic street address and name"
 --------------------------------------------------------------------------
 def: ^geoCity
 is: ^str
+tagOn: ^geoPlace
 doc: "Geographic city or locality name"
 --------------------------------------------------------------------------
 def: ^geoCounty
 is: ^str
+tagOn: ^geoPlace
 doc: "Geographic subdivision of US state"
 --------------------------------------------------------------------------
 def: ^geoPostalCode
 is: ^str
+tagOn: ^geoPlace
 doc: "Geographic postal code; for US this is a five digit zip code"
 --------------------------------------------------------------------------
 def: ^geoState
 is: ^str
+tagOn: ^geoPlace
 doc:
   State or province name; for US this is two letter state code. May be
   used to model adminstrative area betwen the geoCity and geoCountry level.
@@ -132,6 +116,7 @@ enum:
 --------------------------------------------------------------------------
 def: ^geoCountry
 is: ^str
+tagOn: ^geoPlace
 doc:
   Geographic country as [ISO 3166-1]`http://en.wikipedia.org/wiki/ISO_3166-1`
   two letter code

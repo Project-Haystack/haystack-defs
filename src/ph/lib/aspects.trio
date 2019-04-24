@@ -3,54 +3,53 @@
 // Licensed under the Academic Free License version 3.0
 //
 // History:
-//   21 Jan 2019  Brian Frank  Creation
+//   24 Apr 2019  Brian Frank  Creation
 //
 
 --------------------------------------------------------------------------
-def: ^chiller
-is: ^equip
-wikipedia: `https://wikipedia.org/wiki/Chiller`
-doc:
-  Device to remove heat from a liquid.  Chillers typically use a vapor
-  compression or an absorption refrigeration cycle."
+def: ^aspect
+doc: "Aspects model a relationship between two definitions"
 --------------------------------------------------------------------------
-// TODO def: ^chiller.chillerMechanism
+def: ^choice
+is: ^aspect
+doc: "Choice specifies an aspect with an single exclusive value"
 --------------------------------------------------------------------------
-//  TODO  def: ^chiller.chillerCoolingProcess
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Tags
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^coolingCapacity
-is: ^number
-tagOn: ^chiller
-doc: "Measurement of a chiller ability to remove heat measured"
-prefUnit: ["tonref", "BTU/h", "kW"]
+def: ^reciprocalOf
+is: ^symbol
+tagOn: ^aspect
+doc: "Specifies the inverse of an aspect relationship"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// chillerMechanism
+// Tags/TagOn
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^chillerMechanism
-is: ^marker
-doc: "Primary mechanism of chiller"
+def: ^tagOn
+is: ^aspect
+reciprocalOf: ^tags
+doc: "This tag is used on the given entity"
 --------------------------------------------------------------------------
-def: ^chiller-absorption
-is: [^absorption, ^chillerMechanism]
---------------------------------------------------------------------------
-def: ^chiller-reciprocal
-is: [^reciprocal, ^chillerMechanism]
---------------------------------------------------------------------------
-def: ^chiller-rotaryScrew
-is: [^rotaryScrew, ^chillerMechanism]
---------------------------------------------------------------------------
-def: ^chiller-centrifugal
-is: [^centrifugal, ^chillerMechanism]
+def: ^tags
+is: ^aspect
+reciprocalOf: ^tagOn
+doc: "Tags used with this entity"
 --------------------------------------------------------------------------
 
+//////////////////////////////////////////////////////////////////////////
+// Contains/ContainedBy
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^containedBy
+is: ^aspect
+reciprocalOf: ^contains
+doc: "This entity is contained byt the given entity"
+--------------------------------------------------------------------------
+def: ^contains
+is: ^aspect
+reciprocalOf: ^containedBy
+transitive
+doc: "Entities contained by this entity"
+--------------------------------------------------------------------------
 

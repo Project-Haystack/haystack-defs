@@ -178,7 +178,7 @@ If the tag def is a subtype of `ref`, then declare the def to be an instance of
 If the def is a basic [Tag Def]`Defs#tags` (e.g. `tz`), then specify the 'rdfs:range'
 to be the appropriate Haystack datatype (see [Datatypes]`#datatypes` section).
 
-If the def is a [Compose Def]`Defs#composes` (e.g. `site.tz`), then
+If the def is a [Compose Def]`Defs#composes` (e.g. 'site.tz'), then
   - Specify the 'rdfs:domain' to be an instance of the parent type
   - Declare the def to be an 'rdfs:subPropertyOf' the child type
 
@@ -231,7 +231,7 @@ strategy is to:
   'owl:Class'.
 - Use [compose]`Defs#composes` def predicates if we can infer that
 information from Haystack def. In the example below, we know it is a
-`site` instance, so we should use `site.tz` instead of `tz` for
+`site` instance, so we should use 'site.tz' instead of `tz` for
 the time zone tag.
 - Encode tag values as defined in the [data types]`#datatypes` section.
 - If we don't have a def for a tag, do not export it to RDF.

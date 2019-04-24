@@ -34,8 +34,7 @@ The rules for a dict to implement a def are as follows:
   1. Based on the def type:
       a. Tag def: the single tag name is applied
       b. Conjunct: each tag within the conjunct is applied
-      c. Compose: both the parent and child term must be applied
-      d. Feature keys: are never implemented
+      c. Feature keys: are never implemented
 
   2. We walk the supertype tree of the def and apply any
      tag which is marked as `mandatory`
@@ -57,13 +56,6 @@ If we wish to apply the `hot-water-plant` def then we will apply rule 1b.
 Additionally this def subtypes from the mandatory `equip` tag.  So we need to
 add four tags '{hot, water, plant, equip}'.
 
-Typically for compose defs, we are always start with a dict which has
-implemented the parent.  For example if we wish to implement `point.tz`
-then we must implement both `point` and `tz` using rule 1c.  We've already
-said how to implement `point` from the first example.  Implementing `tz` will
-follow rule 1a.  Depending on what timezone value we select we end up
-with the tags '{point, tz:"New_York"}'.
-
 Inheritance [#inheritance]
 **************************
 When a dict implements a def, it implicitly implements all of that def's
@@ -83,9 +75,7 @@ apply the following rules:
   1. Check if the tag name maps to a tag def
   2. If the tag maps to a possible conjunct, then check if
      the dict has all the conjunct's tags
-  3. If the tag maps to a compose child, check if the parent term is
-     also implemented
-  4. Infer the [inheritance]`#inheritance` from all defs reflected
+  3. Infer the [inheritance]`#inheritance` from all defs reflected
      from the previous steps
 
 Lets follow this process to reflect the following dict:
@@ -96,9 +86,7 @@ Step 1 yield: `id`, `dis`, `hot`, `water`, `plant`, `equip`
 
 Step 2 yields: `hot-water`, `hot-water-plant`
 
-Step 3 yields: `entity.id`, `entity.dis`
-
- Step 4 yields:
+ Step 3 yields:
   - from hot-water-plant/equip: `entity`, `marker`
   - from id/dis: `ref`, `str`, `scalar`, `val`
 
