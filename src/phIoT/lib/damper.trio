@@ -1,0 +1,17 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//   24 Apr 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^damper
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
+doc: "Equipment used to regulate the flow of air."
+containedBy: ^duct
+--------------------------------------------------------------------------
+
