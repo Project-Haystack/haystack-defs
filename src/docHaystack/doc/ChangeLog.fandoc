@@ -7,7 +7,11 @@
 **************************************************************************
 
 **Version 3.9.2 (working)**
+- Remove generics
+- Remove compose symbols (replaced with tagOn, containedBy)
+- Add defx support
 - Rename Spaces to Namespaces
+- Simplify process taxonomy
 - Add ac-elec-meter, dc-elec-meter subtypes
 - Rename meterSphere to meterScope
 - Flush out submeterOf relationship

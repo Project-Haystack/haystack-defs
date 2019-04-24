@@ -13,26 +13,26 @@ is: ^entity
 mandatory
 doc: "Data point such as a sensor or actuator"
 --------------------------------------------------------------------------
-def: ^point.equipRef
---------------------------------------------------------------------------
-def: ^point.siteRef
---------------------------------------------------------------------------
-def: ^point.spaceRef
---------------------------------------------------------------------------
-def: ^point.tz
---------------------------------------------------------------------------
-def: ^point.pointType
---------------------------------------------------------------------------
-def: ^point.pointKind
---------------------------------------------------------------------------
-def: ^point.enum
---------------------------------------------------------------------------
-def: ^point.minVal
-doc: "Minimum value to allow for writes or which sensor should read."
---------------------------------------------------------------------------
-def: ^point.maxVal
-doc: "Maximum value to allow for writes or which sensor should read."
---------------------------------------------------------------------------
+// def: ^point.equipRef
+// --------------------------------------------------------------------------
+// def: ^point.siteRef
+// --------------------------------------------------------------------------
+// def: ^point.spaceRef
+// --------------------------------------------------------------------------
+// def: ^point.tz
+// --------------------------------------------------------------------------
+// def: ^point.pointType
+// --------------------------------------------------------------------------
+// def: ^point.pointKind
+// --------------------------------------------------------------------------
+// def: ^point.enum
+// --------------------------------------------------------------------------
+// def: ^point.minVal
+// doc: "Minimum value to allow for writes or which sensor should read."
+// --------------------------------------------------------------------------
+// def: ^point.maxVal
+// doc: "Maximum value to allow for writes or which sensor should read."
+// --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Point Tags
@@ -92,18 +92,13 @@ doc:
   data over a protocol such as BACnet or Modbus then the current value
   is typically refreshed using polling or subscription over a network.
 --------------------------------------------------------------------------
-def: ^cur-point.curVal
---------------------------------------------------------------------------
-def: ^cur-point.curStatus
---------------------------------------------------------------------------
-def: ^cur-point.curErr
---------------------------------------------------------------------------
 
 // Cur tags
 
 --------------------------------------------------------------------------
 def: ^curVal
 is: ^scalar
+tagOn: ^cur-point
 transient
 doc:
   Current value of a point.  The current value is only available when
@@ -111,6 +106,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^curStatus
 is: ^str
+tagOn: ^cur-point
 transient
 doc:
   Status of point's current value reading.  The `curVal` is only available
@@ -132,6 +128,7 @@ enum:
 --------------------------------------------------------------------------
 def: ^curErr
 is: ^str
+tagOn: ^cur-point
 transient
 doc: "Error description when `curStatus` indicates error condition"
 --------------------------------------------------------------------------
@@ -156,20 +153,13 @@ doc:
       and the local system synchronizes the history data in batch on
       a periodic basis
 --------------------------------------------------------------------------
-def: ^his-point.hisMode
---------------------------------------------------------------------------
-def: ^his-point.hisTotalized
---------------------------------------------------------------------------
-def: ^his-point.hisStatus
---------------------------------------------------------------------------
-def: ^his-point.hisErr
---------------------------------------------------------------------------
 
 // His tags
 
 --------------------------------------------------------------------------
 def: ^hisMode
 is: ^str
+tagOn: ^his-point
 doc: "Indicates the way that history data is collected for a point."
 enum:
   - sampled: Data is sampled on a regular interval. The timestamp
@@ -186,12 +176,14 @@ enum:
 --------------------------------------------------------------------------
 def: ^hisTotalized
 is: ^marker
+tagOn: ^his-point
 doc:
   Indicates values which are a continuous stream of totalization. History
   data reads and should be normalized by computing the delta.
 --------------------------------------------------------------------------
 def: ^hisStatus
 is: ^str
+tagOn: ^his-point
 transient
 doc: "Status of point's history collection or synchronization"
 enum:
@@ -205,6 +197,7 @@ enum:
 --------------------------------------------------------------------------
 def: ^hisErr
 is: ^str
+tagOn: ^his-point
 transient
 doc: "Error description when `hisStatus` indicates error condition"
 --------------------------------------------------------------------------
@@ -243,20 +236,13 @@ doc:
   to a priority level, we say that level has been set to auto or released (this
   allows the next highest level to take command of the output).
 --------------------------------------------------------------------------
-def: ^writable-point.writeVal
---------------------------------------------------------------------------
-def: ^writable-point.writeLevel
---------------------------------------------------------------------------
-def: ^writable-point.writeStatus
---------------------------------------------------------------------------
-def: ^writable-point.writeErr
---------------------------------------------------------------------------
 
 // Writable tags
 
 --------------------------------------------------------------------------
 def: ^writeVal
 is: ^scalar
+tagOn: ^writable-point
 transient
 doc:
   Current desired value to write to output.  This is the current "winning"
@@ -265,6 +251,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^writeLevel
 is: ^number
+tagOn: ^writable-point
 transient
 minVal: 1
 maxVal: 17
@@ -274,6 +261,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^writeStatus
 is: ^str
+tagOn: ^writable-point
 transient
 doc: "Current status of a writable point output"
 enum:
@@ -286,6 +274,7 @@ enum:
 --------------------------------------------------------------------------
 def: ^writeErr
 is: ^str
+tagOn: ^writable-point
 transient
 doc: "Error description when `writeStatus` indicates error condition"
 --------------------------------------------------------------------------

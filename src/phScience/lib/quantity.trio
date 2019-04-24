@@ -14,8 +14,8 @@
 def: ^quantity
 is: ^marker
 doc: "Measurable property of a substance or phenomenon"
---------------------------------------------------------------------------
-def: ^quantity.quantityOf
+//--------------------------------------------------------------------------
+//def: ^quantity.quantityOf
 --------------------------------------------------------------------------
 
 def: ^quantityOf

@@ -13,22 +13,5 @@ wikipedia: `https://wikipedia.org/wiki/Heat_exchanger`
 doc: "Device used to transfer heat between two fluids"
 --------------------------------------------------------------------------
 
-//////////////////////////////////////////////////////////////////////////
-// Sections
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^heatExchanger.chilled-water-leaving-pipe
-doc: "Water circulating back to chillers out of the heat exchanger"
---------------------------------------------------------------------------
-def: ^heatExchanger.chilled-water-entering-pipe
-doc: "Water circulating from chillers into the heat exchanger"
---------------------------------------------------------------------------
-def: ^heatExchanger.condenser-water-leaving-pipe
-doc: "Water circulating back to cooling towers out of the heat exchanger"
---------------------------------------------------------------------------
-def: ^heatExchanger.condenser-water-entering-pipe
-doc: "Water circulating from cooling towers into the heat exchanger"
---------------------------------------------------------------------------
 
 

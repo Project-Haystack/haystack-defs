@@ -17,11 +17,6 @@ def: ^active
 is: ^marker
 doc: "Working, operative, effective"
 --------------------------------------------------------------------------
-def: ^area
-is: ^number
-prefUnit: ["ft²", "m²"]
-doc: "Area of a shape or floor space"
---------------------------------------------------------------------------
 def: ^barometric
 is: ^marker
 doc: "Relating atmospheric pressure"

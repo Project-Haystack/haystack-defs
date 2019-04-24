@@ -12,19 +12,21 @@ is: ^equip
 wikipedia: `https://wikipedia.org/wiki/Cooling_tower`
 doc: "Device used to transfer waste heat into the atmosphere"
 --------------------------------------------------------------------------
-def: ^coolingTower.coolingLoop
---------------------------------------------------------------------------
+// def: ^coolingTower.coolingLoop
+// --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Sections
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^coolingTower.condenser-water-leaving-pipe
-doc: "Water with heat removed leaving tower"
+// TODO
+//def: ^coolingTower.condenser-water-leaving-pipe
+//doc: "Water with heat removed leaving tower"
 --------------------------------------------------------------------------
-def: ^coolingTower.condenser-water-entering-pipe
-doc: "Water with waste heat to remove entering tower"
+// TODO
+//def: ^coolingTower.condenser-water-entering-pipe
+//doc: "Water with waste heat to remove entering tower"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
