@@ -175,12 +175,11 @@ If the tag def is a subtype of `ref`, then declare the def to be an instance of
 'owl:ObjectProperty'. All other value tags are declared to be an instance of
 'owl:DatatypeProperty'.
 
+If the tag def (or one of its `defx` extensions) declares a `tagOn` aspect,
+then specify the 'rdfs:domain' to be all referent entities.
+
 If the def is a basic [Tag Def]`Defs#tags` (e.g. `tz`), then specify the 'rdfs:range'
 to be the appropriate Haystack datatype (see [Datatypes]`#datatypes` section).
-
-If the def is a [Compose Def]`Defs#composes` (e.g. 'site.tz'), then
-  - Specify the 'rdfs:domain' to be an instance of the parent type
-  - Declare the def to be an 'rdfs:subPropertyOf' the child type
 
 pre>
   // A Ref tag
@@ -191,27 +190,13 @@ pre>
       ph:lib phIoT:lib:phIoT ;
       ph:of phIoT:site .
 
-  // A basic Tag Def
+  // A basic Tag Def with multiple domains
   ph:tz a owl:DatatypeProperty ;
+      rdfs:domain phIoT:site, phIoT:point ;
       rdfs:range ph:str ;
       rdfs:comment "Timezone identifier from standard timezone database" ;
       ph:is ph:str ;
       ph:lib ph:lib:ph .
-
-  // A Compose Def for using the tz tag on a site
-  phIoT:site.tz rdfs:subPropertyOf ph:tz ;
-      rdfs:domain phIoT:site ;
-      rdfs:comment "Timezone identifier from standard timezone database" ;
-      ph:is ph:tz ;
-      ph:lib phIoT:lib:phIoT .
-
-  // A Compose Def for using the tz tag on a point
-  phIoT:point.tz rdfs:subPropertyOf ph:tz ;
-      rdfs:domain phIoT:point ;
-      rdfs:comment "Timezone identifier from standard timezone database" ;
-      ph:enum "Abidjan\n...\nZurich" ;
-      ph:is ph:tz ;
-      ph:lib phIoT:lib:phIoT .
 <pre
 
 Exporting Instances [#instances]
@@ -229,10 +214,6 @@ strategy is to:
   2. Append the ref value for that id tag. See the example below.
 - Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
   'owl:Class'.
-- Use [compose]`Defs#composes` def predicates if we can infer that
-information from Haystack def. In the example below, we know it is a
-`site` instance, so we should use 'site.tz' instead of `tz` for
-the time zone tag.
 - Encode tag values as defined in the [data types]`#datatypes` section.
 - If we don't have a def for a tag, do not export it to RDF.
 
@@ -257,13 +238,13 @@ And here is the RDF export of that site instance:
 pre>
   <http://localhost/def/dummy#24192ca1-0c85f75d>
       a phIoT:site ;
-      phIoT:site.area 140797 ;
-      phIoT:site.tz "New_York" ;
+      phIoT:area 140797 ;
+      ph:tz "New_York" ;
       ph:dis "Headquarters" ;
-      ph:geoPlace.geoAddr "600 W Main St, Richmond, VA" ;
-      ph:geoPlace.geoCoord "C(37.545826,-77.449188)" ;
+      ph:geoAddr "600 W Main St, Richmond, VA" ;
+      ph:geoCoord "C(37.545826,-77.449188)" ;
       phIoT:primaryFunction "Office" ;
-      phIoT:site.yearBuilt 1999 .
+      phIoT:yearBuilt 1999 .
 <pre
 
 Pending Work [#todo]
