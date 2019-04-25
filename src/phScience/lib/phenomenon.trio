@@ -13,12 +13,12 @@ doc: "Aspect of scientific interest with measurable quantities"
 --------------------------------------------------------------------------
 def: ^elec
 is: ^phenomenon
-wikipedia: `https://wikipedia.org/wiki/Electricity`
+wikipedia: `https://en.wikipedia.org/wiki/Electricity`
 doc: "Associated with electricity, electric charge"
 --------------------------------------------------------------------------
 def: ^light
 is: ^phenomenon
-wikipedia: `https://wikipedia.org/wiki/Light`
+wikipedia: `https://en.wikipedia.org/wiki/Light`
 doc: "Electromagnetic radiation in the visibile spectrum"
 --------------------------------------------------------------------------
 def: ^solar
@@ -27,12 +27,12 @@ doc: "Relating to energy from the sun"
 --------------------------------------------------------------------------
 def: ^wind
 is: ^phenomenon
-wikipedia: `https://wikipedia.org/wiki/Wind`
+wikipedia: `https://en.wikipedia.org/wiki/Wind`
 doc: "Flow of air on surface of the Earth"
 --------------------------------------------------------------------------
 def: ^weather
 is: [^air, ^solar, ^wind]
-wikipedia: `https://wikipedia.org/wiki/Weather`
+wikipedia: `https://en.wikipedia.org/wiki/Weather`
 doc: "Associated with atmospheric air or phenomenon"
 --------------------------------------------------------------------------
 
