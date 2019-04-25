@@ -1,0 +1,30 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   25 Apr 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^airTerminalUnit
+is: ^equip
+ductConfig: ^ductConfigType
+doc:
+  Equipment in air distribution system which terminates at the space.
+  Terminal units may control the rate, velocity, pressure, or temperature
+  of air delivered to the space.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Contains
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+defx: ^discharge-duct
+containedBy: ^airTerminalUnit
+--------------------------------------------------------------------------
+defx: ^inlet-duct
+containedBy: ^airTerminalUnit
+--------------------------------------------------------------------------
+

@@ -9,11 +9,12 @@
 
 --------------------------------------------------------------------------
 def: ^vav
-is: ^equip
-ductConfig: ^ductConfigType
+is: ^airTerminalUnit
 vavModulation: ^vavModulationType
 wikipedia: `https://en.wikipedia.org/wiki/Variable_air_volume`
-doc: "Variable air volume terminal unit"
+doc:
+  Variable air volume terminal unit.  VAV systems use a constant
+  air temperature with a variable air flow rate.
 --------------------------------------------------------------------------
 def: ^coolingOnly-vav
 is: ^vav
@@ -25,18 +26,6 @@ reheats: ^air
 heatingProcess: ^heatingProcessType
 vavAirCircuit: ^vavAirCircuitType
 doc: "VAV contains a fan with reheat"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Contains
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^discharge-duct
-containedBy: ^vav
---------------------------------------------------------------------------
-defx: ^inlet-duct
-containedBy: ^vav
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
