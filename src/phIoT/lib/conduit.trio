@@ -15,12 +15,15 @@ doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 def: ^pipe
 is: ^conduit
 conveys: ^fluid
+pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
 conveys: ^air
+ductDeck: ^ductDeckType
+ductSection: ^ductSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 --------------------------------------------------------------------------
@@ -40,16 +43,19 @@ doc: "Cabling used to convey electricity or data"
 def: ^chilled-water-bypass-pipe
 is: ^pipe
 conveys: ^chilled-water
+pipeSection: ^bypass
 doc: "Chilled water bypass pipe"
 --------------------------------------------------------------------------
 def: ^chilled-water-entering-pipe
 is: ^pipe
 conveys: ^chilled-water
+pipeSection: ^entering
 doc: "Chilled water return pipe"
 --------------------------------------------------------------------------
 def: ^chilled-water-leaving-pipe
 is: ^pipe
 conveys: ^chilled-water
+pipeSection: ^leaving
 doc: "Chilled water supply pipe"
 --------------------------------------------------------------------------
 
@@ -59,11 +65,13 @@ doc: "Chilled water supply pipe"
 def: ^condenser-water-entering-pipe
 is: ^pipe
 conveys: ^condenser-water
+pipeSection: ^entering
 doc: "Condenser water entering pipe"
 --------------------------------------------------------------------------
 def: ^condenser-water-leaving-pipe
 is: ^pipe
 conveys: ^condenser-water
+pipeSection: ^leaving
 doc: "Condenser water leaving pipe"
 --------------------------------------------------------------------------
 
@@ -73,16 +81,19 @@ doc: "Condenser water leaving pipe"
 def: ^hot-water-bypass-pipe
 is: ^pipe
 conveys: ^hot-water
+pipeSection: ^bypass
 doc: "Hot water bypass pipe"
 --------------------------------------------------------------------------
 def: ^hot-water-entering-pipe
 is: ^pipe
 conveys: ^hot-water
+pipeSection: ^entering
 doc: "Hot water return pipe"
 --------------------------------------------------------------------------
 def: ^hot-water-leaving-pipe
 is: ^pipe
 conveys: ^hot-water
+pipeSection: ^leaving
 doc: "Hot water supply pipe"
 --------------------------------------------------------------------------
 
@@ -92,16 +103,19 @@ doc: "Hot water supply pipe"
 def: ^steam-bypass-pipe
 is: ^pipe
 conveys: ^steam
+pipeSection: ^bypass
 doc: "Steam bypass pipe"
 --------------------------------------------------------------------------
 def: ^steam-entering-pipe
 is: ^pipe
 conveys: ^steam
+pipeSection: ^entering
 doc: "Steam return pipe"
 --------------------------------------------------------------------------
 def: ^steam-leaving-pipe
 is: ^pipe
 conveys: ^steam
+pipeSection: ^leaving
 doc: "Steam supply pipe"
 --------------------------------------------------------------------------
 
@@ -111,19 +125,24 @@ doc: "Steam supply pipe"
 
 --------------------------------------------------------------------------
 def: ^pipeSection
+is: ^choice
+of: ^pipeSectionType
+doc: "Equipment section of piping"
+--------------------------------------------------------------------------
+def: ^pipeSectionType
 is: ^marker
 doc: "Equipment section of piping"
 --------------------------------------------------------------------------
 def: ^entering
-is: ^pipeSection
+is: ^pipeSectionType
 doc: "Pipe conveys fluid into an equipment"
 --------------------------------------------------------------------------
 def: ^leaving
-is: ^pipeSection
+is: ^pipeSectionType
 doc: "Pipe conveys fluid out of an equipment"
 --------------------------------------------------------------------------
 def: ^bypass
-is: ^pipeSection
+is: ^pipeSectionType
 doc: "Pipe used to bypass an equipment"
 --------------------------------------------------------------------------
 
@@ -134,26 +153,32 @@ doc: "Pipe used to bypass an equipment"
 --------------------------------------------------------------------------
 def: ^discharge-duct
 is: ^duct
+ductSection: ^discharge
 doc: "Supply air discharged from equipment"
 --------------------------------------------------------------------------
 def: ^inlet-duct
 is: ^duct
+ductSection: ^inlet
 doc: "Air entering into equipment"
 --------------------------------------------------------------------------
 def: ^outside-duct
 is: ^duct
+ductSection: ^outside
 doc: "Fresh outside air intake"
 --------------------------------------------------------------------------
 def: ^mixed-duct
 is: ^duct
+ductSection: ^mixed
 doc: "Mixed air between outside and return"
 --------------------------------------------------------------------------
 def: ^return-duct
 is: ^duct
+ductSection: ^return
 doc: "Returning air from zone"
 --------------------------------------------------------------------------
 def: ^exhaust-duct
 is: ^duct
+ductSection: ^exhaust
 doc: "Exhaust air to the outside"
 --------------------------------------------------------------------------
 
@@ -163,31 +188,36 @@ doc: "Exhaust air to the outside"
 
 --------------------------------------------------------------------------
 def: ^ductSection
+is: ^choice
+of: ^ductSectionType
+doc: "Equipment section of ductwork"
+--------------------------------------------------------------------------
+def: ^ductSectionType
 is: ^marker
 doc: "Equipment section of ductwork"
 --------------------------------------------------------------------------
 def: ^discharge
-is: ^ductSection
+is: ^ductSectionType
 doc: "Duct with air leaving an equipment"
 --------------------------------------------------------------------------
 def: ^inlet
-is: ^ductSection
+is: ^ductSectionType
 doc: "Duct with air entering an equipment"
 --------------------------------------------------------------------------
 def: ^exhaust
-is: ^ductSection
+is: ^ductSectionType
 doc: "Duct used to expel air back outside"
 --------------------------------------------------------------------------
 def: ^mixed
-is: ^ductSection
+is: ^ductSectionType
 doc: "Duct where fresh outside and return air is mixed together"
 --------------------------------------------------------------------------
 def: ^outside
-is: ^ductSection
+is: ^ductSectionType
 doc: "Duct to access fresh outside air"
 --------------------------------------------------------------------------
 def: ^return
-is: ^ductSection
+is: ^ductSectionType
 doc: "Duct returning air back to equipment"
 --------------------------------------------------------------------------
 
@@ -198,19 +228,24 @@ doc: "Duct returning air back to equipment"
 
 --------------------------------------------------------------------------
 def: ^ductDeck
+is: ^choice
+of: ^ductDeckType
+doc: "Cold, hot, or neutral deck"
+--------------------------------------------------------------------------
+def: ^ductDeckType
 is: ^marker
 doc: "Cold, hot, or neutral deck"
 --------------------------------------------------------------------------
 def: ^coldDeck
-is: ^ductDeck
+is: ^ductDeckType
 doc: "Duct carries air for cooling"
 --------------------------------------------------------------------------
 def: ^hotDeck
-is: ^ductDeck
+is: ^ductDeckType
 doc: "Duct carries air for heating"
 --------------------------------------------------------------------------
 def: ^neutralDeck
-is: ^ductDeck
+is: ^ductDeckType
 doc: "Duct carries air which by-passes both heating and cooling coils"
 --------------------------------------------------------------------------
 
@@ -220,19 +255,24 @@ doc: "Duct carries air which by-passes both heating and cooling coils"
 
 --------------------------------------------------------------------------
 def: ^ductConfig
+is: ^choice
+of: ^ductConfigType
+doc: "Ductwork configuration"
+--------------------------------------------------------------------------
+def: ^ductConfigType
 is: ^marker
 doc: "Ductwork configuration"
 --------------------------------------------------------------------------
 def: ^singleDuct
-is: ^ductConfig
+is: ^ductConfigType
 doc: "One single duct"
 --------------------------------------------------------------------------
 def: ^dualDuct
-is: ^ductConfig
+is: ^ductConfigType
 doc: "Two ducts: combination of hotDeck, coldDeck, or neutralDeck"
 --------------------------------------------------------------------------
 def: ^tripleDuct
-is: ^ductConfig
+is: ^ductConfigType
 doc: "Three ducts: hotDeck, coldDeck, or neutralDeck"
 --------------------------------------------------------------------------
 
