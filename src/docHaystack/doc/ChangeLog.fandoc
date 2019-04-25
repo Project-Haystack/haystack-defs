@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.2 (working)**
+**Version 3.9.3 (26 Apr 2019)**
 - Remove generics
 - Remove compose symbols (replaced with tagOn, containedBy)
 - Add defx support
