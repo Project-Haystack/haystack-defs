@@ -31,7 +31,7 @@ wikipedia: `https://en.wikipedia.org/wiki/Wind`
 doc: "Flow of air on surface of the Earth"
 --------------------------------------------------------------------------
 def: ^weather
-is: [^air, ^solar, ^wind]
+is: ^phenomenon
 wikipedia: `https://en.wikipedia.org/wiki/Weather`
 doc: "Associated with atmospheric air or phenomenon"
 --------------------------------------------------------------------------
