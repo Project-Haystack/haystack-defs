@@ -10,6 +10,8 @@
 --------------------------------------------------------------------------
 def: ^vav
 is: ^equip
+ductConfig: ^ductConfigType
+vavModulation: ^vavModulationType
 wikipedia: `https://en.wikipedia.org/wiki/Variable_air_volume`
 doc: "Variable air volume terminal unit"
 --------------------------------------------------------------------------
@@ -20,7 +22,8 @@ doc: "Cooling only VAV without fan or reheat"
 def: ^fanPowered-vav
 is: ^vav
 reheats: ^air
-heatsVia: ^heatingProcess
+heatingProcess: ^heatingProcessType
+vavAirCircuit: ^vavAirCircuitType
 doc: "VAV contains a fan with reheat"
 --------------------------------------------------------------------------
 
@@ -37,50 +40,30 @@ containedBy: ^vav
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// VAV Common
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-// def: ^vav.ductConfig
-// --------------------------------------------------------------------------
-// def: ^vav.ahuRef
-// doc: "AHU which supplies air to VAV"
-// --------------------------------------------------------------------------
-// def: ^vav.vavModulation
-// --------------------------------------------------------------------------
-// def: ^vav.vavAirCircuit
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
 // VAV Modulation
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^vavModulation
+is: ^choice
+of: ^vavModulationType
+doc: "How does VAV modulate the temp based on duct pressure"
+--------------------------------------------------------------------------
+def: ^vavModulationType
 is: ^marker
 doc: "How does VAV modulate the temp based on duct pressure"
 --------------------------------------------------------------------------
 def: ^pressureDependent
-is: ^vavModulation
+is: ^vavModulationType
 doc:
   VAV damper modulates to control space temp; dependent on duct pressure
   being maintained
 --------------------------------------------------------------------------
 def: ^pressureIndependent
-is: ^vavModulation
+is: ^vavModulationType
 doc:
   VAV damper or a control valve that modulates to maintain desired flow
   setpoint; independent of the duct pressure
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Fan Powered
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-// def: ^fanPowered-vav.vavAirCircuit
---------------------------------------------------------------------------
-// TODO def: ^fanPowered-vav.vavReheat
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -89,15 +72,20 @@ doc:
 
 --------------------------------------------------------------------------
 def: ^vavAirCircuit
+is: ^choice
+of: ^vavAirCircuitType
+doc: "How does the VAV pull in air"
+--------------------------------------------------------------------------
+def: ^vavAirCircuitType
 is: ^marker
 doc: "How does the VAV pull in air"
 --------------------------------------------------------------------------
 def: ^vav-series
-is: ^vavAirCircuit
+is: ^vavAirCircuitType
 doc: "VAV pulls air from the primary air flow"
 --------------------------------------------------------------------------
 def: ^vav-parallel
-is: ^vavAirCircuit
+is: ^vavAirCircuitType
 doc: "VAV pulls air from outside the primary air flow"
 --------------------------------------------------------------------------
 

@@ -10,7 +10,7 @@
 def: ^boiler
 is: ^equip
 heats: ^fluid
-heatsVia: ^heatingProcess
+heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
 --------------------------------------------------------------------------

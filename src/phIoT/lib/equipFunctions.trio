@@ -33,7 +33,7 @@ doc: "Equipment removes moisture from air to decrease humidity."
 def: ^heats
 is: ^equipFunction
 of: ^substance
-doc: "Equipment heats a substance previously cooled or heated."
+doc: "Equipment heats a substance."
 --------------------------------------------------------------------------
 def: ^humidifies
 is: ^equipFunction
@@ -52,7 +52,7 @@ doc: "Equipment regulates the flow of substance or phenomenon."
 --------------------------------------------------------------------------
 def: ^reheats
 is: ^heats
-doc: "Equipment reheats a substance."
+doc: "Equipment heats a substance previously cooled or heated."
 --------------------------------------------------------------------------
 def: ^stores
 is: ^equipFunction
@@ -65,25 +65,4 @@ of: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Ventilation_(architecture)`
 doc: "Equipment brings fresh outside air into a space."
 --------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Via
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^equipFunctionVia
-is: ^choice
-doc: "Models the process or energy source of an equipment function."
---------------------------------------------------------------------------
-def: ^coolsVia
-is: ^equipFunctionVia
-of: ^coolingProcess
-doc: "Process used to remove heat from substance."
---------------------------------------------------------------------------
-def: ^heatsVia
-is: ^equipFunctionVia
-of: ^heatingProcess
-doc: "Process used to heat substance."
---------------------------------------------------------------------------
-
 

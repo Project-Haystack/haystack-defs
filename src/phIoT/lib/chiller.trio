@@ -10,15 +10,11 @@
 def: ^chiller
 is: ^equip
 cools: ^chilled-water
-coolsVia: ^chillerProcess
+chillerMechanism: ^chillerMechanismType
 wikipedia: `https://en.wikipedia.org/wiki/Chiller`
 doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
   compression or an absorption refrigeration cycle."
---------------------------------------------------------------------------
-// TODO def: ^chiller.chillerMechanism
---------------------------------------------------------------------------
-//  TODO  def: ^chiller.chillerCoolingProcess
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -52,25 +48,29 @@ containedBy: ^chiller
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// chillerProcess
+// chillerMechanism
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^chillerProcess
+def: ^chillerMechanism
+is: ^choice
+doc: "Primary mechanism of chiller"
+--------------------------------------------------------------------------
+def: ^chillerMechanismType
 is: ^marker
 doc: "Primary mechanism of chiller"
 --------------------------------------------------------------------------
 def: ^chiller-absorption
-is: [^absorption, ^chillerProcess]
+is: [^absorption, ^chillerMechanismType]
 --------------------------------------------------------------------------
 def: ^chiller-reciprocal
-is: [^reciprocal, ^chillerProcess]
+is: [^reciprocal, ^chillerMechanismType]
 --------------------------------------------------------------------------
 def: ^chiller-rotaryScrew
-is: [^rotaryScrew, ^chillerProcess]
+is: [^rotaryScrew, ^chillerMechanismType]
 --------------------------------------------------------------------------
 def: ^chiller-centrifugal
-is: [^centrifugal, ^chillerProcess]
+is: [^centrifugal, ^chillerMechanismType]
 --------------------------------------------------------------------------
 
 

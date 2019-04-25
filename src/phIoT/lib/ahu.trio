@@ -10,23 +10,17 @@
 --------------------------------------------------------------------------
 def: ^ahu
 is: ^equip
-wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
+ahuZoneDelivery: ^ahuZoneDeliveryType
 cools: ^air
-coolsVia: ^coolingProcess
+coolingProcess: ^coolingProcessType
 dehumidifies: ^air
+ductConfig: ^ductConfigType
 heats: ^air
-heatsVia: ^heatingProcess
+heatingProcess: ^heatingProcessType
 humidifies: ^air
 ventilates: ^air
+wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc: "Air handling unit"
---------------------------------------------------------------------------
-//def: ^ahu.ahuZoneDelivery
---------------------------------------------------------------------------
-// TODO def: ^ahu.ahuCoolingProcess
---------------------------------------------------------------------------
-// TODO def: ^ahu.ahuHeatingProcess
---------------------------------------------------------------------------
-//def: ^ahu.ductConfig
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -59,20 +53,24 @@ def: ^ahuZoneDelivery
 is: ^choice
 doc: "AHU delivery method of conditioned air to the zone"
 --------------------------------------------------------------------------
+def: ^ahuZoneDeliveryType
+is: ^marker
+doc: "AHU delivery method of conditioned air to the zone"
+--------------------------------------------------------------------------
 def: ^directZone
-is: ^ahuZoneDelivery
+is: ^ahuZoneDeliveryType
 doc: "AHU supplies air directly to the zone"
 --------------------------------------------------------------------------
 def: ^vavZone
-is: ^ahuZoneDelivery
+is: ^ahuZoneDeliveryType
 doc: "AHU supplies air to VAV terminal units"
 --------------------------------------------------------------------------
 def: ^chilledBeamZone
-is: ^ahuZoneDelivery
+is: ^ahuZoneDeliveryType
 doc: "AHU supplies air to chilled beam terminal units"
 --------------------------------------------------------------------------
 def: ^multiZone
-is: ^ahuZoneDelivery
+is: ^ahuZoneDeliveryType
 doc: "AHU discharge air is split into a duct per zone"
 --------------------------------------------------------------------------
 
