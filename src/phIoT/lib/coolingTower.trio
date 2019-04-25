@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------
 def: ^coolingTower
 is: ^equip
-wikipedia: `https://wikipedia.org/wiki/Cooling_tower`
+wikipedia: `https://en.wikipedia.org/wiki/Cooling_tower`
 doc: "Equipment to transfer waste heat into the atmosphere"
 --------------------------------------------------------------------------
 // def: ^coolingTower.coolingLoop

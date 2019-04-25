@@ -15,24 +15,24 @@
 --------------------------------------------------------------------------
 def: ^fuelOil
 is: ^liquid
-wikipedia: `https://wikipedia.org/wiki/Fuel_oil`
+wikipedia: `https://en.wikipedia.org/wiki/Fuel_oil`
 doc: "Petroleum based oil burned for energy"
 --------------------------------------------------------------------------
 def: ^naturalGas
 is: ^gas
-wikipedia: `https://wikipedia.org/wiki/Natural_gas`
+wikipedia: `https://en.wikipedia.org/wiki/Natural_gas`
 doc: "Fossil fuel energy source consisting largely of methane and other hydrocarbons"
 --------------------------------------------------------------------------
 def: ^refrig
 is: ^fluid
-wikipedia: `https://wikipedia.org/wiki/Refrigerant`
+wikipedia: `https://en.wikipedia.org/wiki/Refrigerant`
 doc:
   Fluid used in refrigeration and heat exchange.  Refrigerants typically
   alternate between liquid and gas state.
 --------------------------------------------------------------------------
 def: ^gasoline
 is: ^liquid
-wikipedia: `https://wikipedia.org/wiki/Gasoline`
+wikipedia: `https://en.wikipedia.org/wiki/Gasoline`
 doc: "Petroleum derived liquid used as a fuel source"
 --------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ doc: "Hot water used for HVAC heating or supply to hot taps"
 def: ^chilled-water
 is: ^water
 doc: "Water used for HVAC cooling"
-wikipedia: `https://wikipedia.org/wiki/Chilled_water`
+wikipedia: `https://en.wikipedia.org/wiki/Chilled_water`
 --------------------------------------------------------------------------
 def: ^condenser-water
 is: ^water

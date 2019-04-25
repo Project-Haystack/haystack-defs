@@ -24,7 +24,7 @@ doc: "Relating to direct current electricity"
 --------------------------------------------------------------------------
 def: ^ac-elec
 is: ^elec
-wikipedia: `https://wikipedia.org/wiki/Alternating_current`
+wikipedia: `https://en.wikipedia.org/wiki/Alternating_current`
 doc: "Alternating current electricity"
 --------------------------------------------------------------------------
 def: ^dc-elec

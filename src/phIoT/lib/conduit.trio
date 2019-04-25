@@ -13,13 +13,13 @@ doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^pipe
 is: ^conduit
-wikipedia: `https://wikipedia.org/wiki/Pipe_(fluid_conveyance)`
+wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
 conveys: ^air
-wikipedia: `https://wikipedia.org/wiki/Duct_(flow)`
+wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 --------------------------------------------------------------------------
 def: ^wire

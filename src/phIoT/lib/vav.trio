@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------
 def: ^vav
 is: ^equip
-wikipedia: `https://wikipedia.org/wiki/Variable_air_volume`
+wikipedia: `https://en.wikipedia.org/wiki/Variable_air_volume`
 doc: "Variable air volume terminal unit"
 --------------------------------------------------------------------------
 def: ^coolingOnly-vav

@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------
 def: ^heatExchanger
 is: ^equip
-wikipedia: `https://wikipedia.org/wiki/Heat_exchanger`
+wikipedia: `https://en.wikipedia.org/wiki/Heat_exchanger`
 doc: "Equipment to transfer heat between two fluids"
 --------------------------------------------------------------------------
 
