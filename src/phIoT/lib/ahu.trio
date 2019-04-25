@@ -11,8 +11,13 @@
 def: ^ahu
 is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
-coolsAir: ^coolingProcess
-heatsAir: ^heatingProcess
+cools: ^air
+coolsVia: ^coolingProcess
+dehumidifies: ^air
+heats: ^air
+heatsVia: ^heatingProcess
+humidifies: ^air
+ventilates: ^air
 doc: "Air handling unit"
 --------------------------------------------------------------------------
 //def: ^ahu.ahuZoneDelivery

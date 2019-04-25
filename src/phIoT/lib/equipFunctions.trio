@@ -1,0 +1,89 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   25 Apr 2019  Brian Frank  Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Functions
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^equipFunction
+is: ^choice
+doc: "Models one of the primary functions of an equipment type"
+--------------------------------------------------------------------------
+def: ^cools
+is: ^equipFunction
+of: ^substance
+doc: "Equipment removes heat from a substance."
+--------------------------------------------------------------------------
+def: ^conveys
+is: ^equipFunction
+of: ^phenomenon
+doc: "Equipment conveys a substance or phenomenon."
+--------------------------------------------------------------------------
+def: ^dehumidifies
+is: ^equipFunction
+of: ^air
+doc: "Equipment removes moisture from air to decrease humidity."
+--------------------------------------------------------------------------
+def: ^heats
+is: ^equipFunction
+of: ^substance
+doc: "Equipment heats a substance previously cooled or heated."
+--------------------------------------------------------------------------
+def: ^humidifies
+is: ^equipFunction
+of: ^air
+doc: "Equipment adds moisture to air to increase humidity."
+--------------------------------------------------------------------------
+def: ^moves
+is: ^equipFunction
+of: ^substance
+doc: "Equipment moves a substance."
+--------------------------------------------------------------------------
+def: ^regulates
+is: ^equipFunction
+of: ^phenomenon
+doc: "Equipment regulates the flow of substance or phenomenon."
+--------------------------------------------------------------------------
+def: ^reheats
+is: ^heats
+doc: "Equipment reheats a substance."
+--------------------------------------------------------------------------
+def: ^stores
+is: ^equipFunction
+of: ^phenomenon
+doc: "Equipment stores a substance or phenomenon."
+--------------------------------------------------------------------------
+def: ^ventilates
+is: ^equipFunction
+of: ^air
+wikipedia: `https://en.wikipedia.org/wiki/Ventilation_(architecture)`
+doc: "Equipment brings fresh outside air into a space."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Via
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^equipFunctionVia
+is: ^choice
+doc: "Models the process or energy source of an equipment function."
+--------------------------------------------------------------------------
+def: ^coolsVia
+is: ^equipFunctionVia
+of: ^coolingProcess
+doc: "Process used to remove heat from substance."
+--------------------------------------------------------------------------
+def: ^heatsVia
+is: ^equipFunctionVia
+of: ^heatingProcess
+doc: "Process used to heat substance."
+--------------------------------------------------------------------------
+
+

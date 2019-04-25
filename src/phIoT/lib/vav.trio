@@ -19,7 +19,8 @@ doc: "Cooling only VAV without fan or reheat"
 --------------------------------------------------------------------------
 def: ^fanPowered-vav
 is: ^vav
-reheatsAir: ^heatingProcess
+reheats: ^air
+heatsVia: ^heatingProcess
 doc: "VAV contains a fan with reheat"
 --------------------------------------------------------------------------
 
