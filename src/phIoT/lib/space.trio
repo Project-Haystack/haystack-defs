@@ -11,7 +11,7 @@
 def: ^space
 is: ^entity
 mandatory
-containedBy: [^site]
+containedBy: [^site, ^space]
 doc: "Space is a three-dimensional volume in the built environment"
 --------------------------------------------------------------------------
 def: ^area
@@ -43,7 +43,7 @@ doc: "Area of a shape or floor space"
 --------------------------------------------------------------------------
 def: ^floor
 is: ^space
-wikipedia: `https://wikipedia.org/wiki/Storey`
+wikipedia: `https://en.wikipedia.org/wiki/Storey`
 doc: "Storey of a building"
 --------------------------------------------------------------------------
 def: ^ground-floor
@@ -91,7 +91,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^room
 is: ^space
-wikipedia: `https://wikipedia.org/wiki/Room`
+wikipedia: `https://en.wikipedia.org/wiki/Room`
 doc: "Enclosed room of a building"
 --------------------------------------------------------------------------
 

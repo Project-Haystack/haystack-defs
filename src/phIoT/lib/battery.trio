@@ -10,7 +10,7 @@
 def: ^battery
 is: ^equip
 stores: ^elec
-wikipedia: `https://wikipedia.org/wiki/Electric_battery`
+wikipedia: `https://en.wikipedia.org/wiki/Electric_battery`
 doc: "Equipment used to store electric energy"
 --------------------------------------------------------------------------
 

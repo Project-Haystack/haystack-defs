@@ -11,6 +11,6 @@
 def: ^weatherStation
 is: [^site, ^equip]
 doc: "Weather station"
-wikipedia: `https://wikipedia.org/wiki/Weather_station`
+wikipedia: `https://en.wikipedia.org/wiki/Weather_station`
 --------------------------------------------------------------------------
 

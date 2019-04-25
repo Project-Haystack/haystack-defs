@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------
 def: ^ahu
 is: ^equip
-wikipedia: `https://wikipedia.org/wiki/Air_handler`
+wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc: "Air handling unit"
 --------------------------------------------------------------------------
 //def: ^ahu.ahuZoneDelivery

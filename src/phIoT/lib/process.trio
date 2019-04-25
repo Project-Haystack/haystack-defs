@@ -49,7 +49,7 @@ doc: "Heating by the combustion of fuel oil"
 def: ^elecHeating
 is: ^heatingProcess
 processUses: ^elec
-wikipedia: `https://wikipedia.org/wiki/Electric_heating`
+wikipedia: `https://en.wikipedia.org/wiki/Electric_heating`
 doc: "Heating by the conversion of electrical energy"
 --------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ doc: "Processed used to cool a substance"
 def: ^airCooling
 is: ^coolingProcess
 processUses: ^air
-wikipedia: `https://wikipedia.org/wiki/Air_cooling`
+wikipedia: `https://en.wikipedia.org/wiki/Air_cooling`
 doc: "Cooling by dissipating heat into the surrounding air"
 --------------------------------------------------------------------------
 def: ^condenserCooling
