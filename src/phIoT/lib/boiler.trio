@@ -9,6 +9,7 @@
 --------------------------------------------------------------------------
 def: ^boiler
 is: ^equip
+heatsWater: ^heatingProcess
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
 --------------------------------------------------------------------------

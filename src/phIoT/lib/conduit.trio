@@ -9,10 +9,12 @@
 --------------------------------------------------------------------------
 def: ^conduit
 is: ^equip
+conveys: ^phenomenon
 doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^pipe
 is: ^conduit
+conveys: ^fluid
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
 --------------------------------------------------------------------------
@@ -25,11 +27,7 @@ doc: "Conduit used to convey air for HVAC"
 def: ^wire
 is: ^conduit
 conveys: ^elec
-doc: "Cabling used to convey electricity"
---------------------------------------------------------------------------
-def: ^conveys
-is: ^symbol
-doc: "What type of substance or phenomenon conveyed by a conduit"
+doc: "Cabling used to convey electricity or data"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

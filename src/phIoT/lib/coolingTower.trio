@@ -9,6 +9,7 @@
 --------------------------------------------------------------------------
 def: ^coolingTower
 is: ^equip
+coolsWater: ^condenserCooling
 wikipedia: `https://en.wikipedia.org/wiki/Cooling_tower`
 doc: "Equipment to transfer waste heat into the atmosphere"
 --------------------------------------------------------------------------

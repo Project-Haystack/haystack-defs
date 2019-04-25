@@ -3,114 +3,106 @@
 // Licensed under the Academic Free License version 3.0
 //
 // History:
-//   21 Jan 2019  Brian Frank  Creation
+//   25 Apr 2019  Brian Frank  Creation
 //
 
+//////////////////////////////////////////////////////////////////////////
+// Misc
+//////////////////////////////////////////////////////////////////////////
+
 --------------------------------------------------------------------------
-def: ^process
-is: ^marker
-doc: "Industrial or HVAC process"
---------------------------------------------------------------------------
-def: ^processUses
-is: ^symbol
+def: ^conveys
+is: ^aspect
 of: ^phenomenon
-doc: "Input to a process, usually energy source"
+doc: "Equipment conveys a substance or phenomenon."
+--------------------------------------------------------------------------
+def: ^stores
+is: ^aspect
+of: ^phenomenon
+doc: "Equipment stores a substance or phenomenon."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Heating
+// Cooling Aspects
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^heatingProcess
-is: ^process
-doc: "Processed used to heat a substance"
+def: ^coolingAspect
+is: ^choice
+of: ^coolingProcess
+doc: "Equipment cools a substance"
 --------------------------------------------------------------------------
-def: ^hotWaterHeating
-is: ^heatingProcess
-processUses: ^hot-water
-doc: "Heating using energy of hot water"
+def: ^coolsAir
+is: ^coolingAspect
+doc: "Equipment removes heat from air"
 --------------------------------------------------------------------------
-def: ^steamHeating
-is: ^heatingProcess
-processUses: ^steam
-doc: "Heating using energy of steam"
+def: ^coolsRefrig
+is: ^coolingAspect
+doc: "Equipment removes heat from hot refrigerant"
 --------------------------------------------------------------------------
-def: ^gasHeating
-is: ^heatingProcess
-processUses: ^naturalGas
-doc: "Heating by the combustion of natural gas"
---------------------------------------------------------------------------
-def: ^oilHeating
-is: ^heatingProcess
-processUses: ^fuelOil
-doc: "Heating by the combustion of fuel oil"
---------------------------------------------------------------------------
-def: ^elecHeating
-is: ^heatingProcess
-processUses: ^elec
-wikipedia: `https://en.wikipedia.org/wiki/Electric_heating`
-doc: "Heating by the conversion of electrical energy"
+def: ^coolsWater
+is: ^coolingAspect
+doc: "Equipment removes heat from water"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Cooling
+// Heating Aspects
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^coolingProcess
-is: ^process
-doc: "Processed used to cool a substance"
+def: ^heatingAspect
+is: ^choice
+of: ^heatingProcess
+doc: "Equipment heats a substance"
 --------------------------------------------------------------------------
-def: ^airCooling
-is: ^coolingProcess
-processUses: ^air
-wikipedia: `https://en.wikipedia.org/wiki/Air_cooling`
-doc: "Cooling by dissipating heat into the surrounding air"
+def: ^heatsAir
+is: ^heatingAspect
+doc: "Equipment heats air using a heating process"
 --------------------------------------------------------------------------
-def: ^condenserCooling
-is: ^coolingProcess
-doc: "Removal of heat through the process of water condensation"
+def: ^reheatsAir
+is: ^heatsAir
+doc: "Equipment reheats air which has been previously conditioned"
 --------------------------------------------------------------------------
-def: ^dxCooling
-is: ^coolingProcess
-doc: "Cooling using direct expansion of a refrigerant vapar"
---------------------------------------------------------------------------
-def: ^chilledWaterCooling
-is: ^coolingProcess
-processUses: ^chilled-water
-doc: "Cooling using transfer of heat to chilled water"
+def: ^heatsWater
+is:  ^heatingAspect
+doc: "Equipment heats water to generate hot water or steam."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Moving
+// Moving Aspects
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^movingProcess
-is: ^process
-doc: "Process used to move a substance"
+def: ^movingAspect
+is: ^choice
+of: ^movingProcess
+doc: "Equipment moves a substance."
 --------------------------------------------------------------------------
-def: ^gravityMoving
-is: ^movingProcess
-doc: "Energy of gravity is used to move the substance"
+def: ^movesAir
+is: ^movingAspect
+doc: "Equipment moves air."
 --------------------------------------------------------------------------
-def: ^mechanicalMoving
-is: ^movingProcess
-doc: "Mechanical energy of a motor is used to move the substance"
+def: ^movesFluid
+is: ^movingAspect
+doc: "Equipment moves fuild."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Regulation
+// Regulating Aspects
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^regulatingProcess
-is: ^process
-doc: "Process used to regulate the flow a substance"
+def: ^regulatingAspect
+is: ^choice
+of: ^regulatingProcess
+doc: "Equipment regulates the flow of substance or phenomenon."
 --------------------------------------------------------------------------
-def: ^mechanicalRegulating
-is: ^regulatingProcess
-doc: "Mechanical energy of a motor is used to regulate the flow"
+def: ^regulatesAir
+is: ^regulatingAspect
+doc: "Equipment regulates the flow of air."
+--------------------------------------------------------------------------
+def: ^regulatesFluid
+is: ^regulatingAspect
+doc: "Equipment regulates the flow of fluid."
 --------------------------------------------------------------------------
 

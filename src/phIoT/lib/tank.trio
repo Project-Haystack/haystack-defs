@@ -9,11 +9,8 @@
 --------------------------------------------------------------------------
 def: ^tank
 is: ^equip
+stores: ^fluid
 wikipedia: `https://en.wikipedia.org/wiki/Storage_tank`
 doc: "Tank used to store a substance for temporary holding"
---------------------------------------------------------------------------
-def: ^stores
-is: ^symbol
-doc: "What is stored by an equipment"
 --------------------------------------------------------------------------
 

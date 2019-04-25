@@ -11,6 +11,8 @@
 def: ^ahu
 is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
+coolsAir: ^coolingProcess
+heatsAir: ^heatingProcess
 doc: "Air handling unit"
 --------------------------------------------------------------------------
 //def: ^ahu.ahuZoneDelivery
@@ -49,7 +51,7 @@ containedBy: ^ahu
 
 --------------------------------------------------------------------------
 def: ^ahuZoneDelivery
-is: ^marker
+is: ^choice
 doc: "AHU delivery method of conditioned air to the zone"
 --------------------------------------------------------------------------
 def: ^directZone

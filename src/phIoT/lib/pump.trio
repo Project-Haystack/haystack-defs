@@ -10,6 +10,7 @@
 --------------------------------------------------------------------------
 def: ^pump
 is: ^equip
+movesFluid: ^mechanicalMoving
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 doc: "Equipment used move fluid."
 containedBy: ^pipe
