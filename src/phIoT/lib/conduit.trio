@@ -36,22 +36,64 @@ doc: "What type of substance or phenomenon conveyed by a conduit"
 // Pipes
 //////////////////////////////////////////////////////////////////////////
 
+// Chilled Water
+
 --------------------------------------------------------------------------
-def: ^chilled-water-leaving-pipe
+def: ^chilled-water-bypass-pipe
 is: ^pipe
-doc: "Chilled water supply pipe"
+doc: "Chilled water bypass pipe"
 --------------------------------------------------------------------------
 def: ^chilled-water-entering-pipe
 is: ^pipe
 doc: "Chilled water return pipe"
 --------------------------------------------------------------------------
-def: ^condenser-water-leaving-pipe
+def: ^chilled-water-leaving-pipe
 is: ^pipe
-doc: "Piping to the cooling towers"
+doc: "Chilled water supply pipe"
+--------------------------------------------------------------------------
+
+// Condenser Water
+
 --------------------------------------------------------------------------
 def: ^condenser-water-entering-pipe
 is: ^pipe
-doc: "Piping from the cooling towers"
+doc: "Condenser water entering pipe"
+--------------------------------------------------------------------------
+def: ^condenser-water-leaving-pipe
+is: ^pipe
+doc: "Condenser water leaving pipe"
+--------------------------------------------------------------------------
+
+// Hot Water
+
+--------------------------------------------------------------------------
+def: ^hot-water-bypass-pipe
+is: ^pipe
+doc: "Hot water bypass pipe"
+--------------------------------------------------------------------------
+def: ^hot-water-entering-pipe
+is: ^pipe
+doc: "Hot water return pipe"
+--------------------------------------------------------------------------
+def: ^hot-water-leaving-pipe
+is: ^pipe
+doc: "Hot water supply pipe"
+--------------------------------------------------------------------------
+
+// Steam
+
+--------------------------------------------------------------------------
+def: ^steam-bypass-pipe
+is: ^pipe
+doc: "Steam bypass pipe"
+--------------------------------------------------------------------------
+def: ^steam-entering-pipe
+is: ^pipe
+doc: "Steam return pipe"
+--------------------------------------------------------------------------
+def: ^steam-leaving-pipe
+is: ^pipe
+doc: "Steam supply pipe"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
