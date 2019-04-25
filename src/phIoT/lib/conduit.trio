@@ -39,14 +39,17 @@ doc: "Cabling used to convey electricity or data"
 --------------------------------------------------------------------------
 def: ^chilled-water-bypass-pipe
 is: ^pipe
+conveys: ^chilled-water
 doc: "Chilled water bypass pipe"
 --------------------------------------------------------------------------
 def: ^chilled-water-entering-pipe
 is: ^pipe
+conveys: ^chilled-water
 doc: "Chilled water return pipe"
 --------------------------------------------------------------------------
 def: ^chilled-water-leaving-pipe
 is: ^pipe
+conveys: ^chilled-water
 doc: "Chilled water supply pipe"
 --------------------------------------------------------------------------
 
@@ -55,10 +58,12 @@ doc: "Chilled water supply pipe"
 --------------------------------------------------------------------------
 def: ^condenser-water-entering-pipe
 is: ^pipe
+conveys: ^condenser-water
 doc: "Condenser water entering pipe"
 --------------------------------------------------------------------------
 def: ^condenser-water-leaving-pipe
 is: ^pipe
+conveys: ^condenser-water
 doc: "Condenser water leaving pipe"
 --------------------------------------------------------------------------
 
@@ -67,14 +72,17 @@ doc: "Condenser water leaving pipe"
 --------------------------------------------------------------------------
 def: ^hot-water-bypass-pipe
 is: ^pipe
+conveys: ^hot-water
 doc: "Hot water bypass pipe"
 --------------------------------------------------------------------------
 def: ^hot-water-entering-pipe
 is: ^pipe
+conveys: ^hot-water
 doc: "Hot water return pipe"
 --------------------------------------------------------------------------
 def: ^hot-water-leaving-pipe
 is: ^pipe
+conveys: ^hot-water
 doc: "Hot water supply pipe"
 --------------------------------------------------------------------------
 
@@ -83,14 +91,17 @@ doc: "Hot water supply pipe"
 --------------------------------------------------------------------------
 def: ^steam-bypass-pipe
 is: ^pipe
+conveys: ^steam
 doc: "Steam bypass pipe"
 --------------------------------------------------------------------------
 def: ^steam-entering-pipe
 is: ^pipe
+conveys: ^steam
 doc: "Steam return pipe"
 --------------------------------------------------------------------------
 def: ^steam-leaving-pipe
 is: ^pipe
+conveys: ^steam
 doc: "Steam supply pipe"
 --------------------------------------------------------------------------
 

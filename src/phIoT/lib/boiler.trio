@@ -9,17 +9,20 @@
 --------------------------------------------------------------------------
 def: ^boiler
 is: ^equip
-heatsWater: ^heatingProcess
+heats: ^fluid
+heatsVia: ^heatingProcess
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
 --------------------------------------------------------------------------
 def: ^hot-water-boiler
 is: ^boiler
+heats: ^hot-water
 supplies: ^hot-water
 doc: "Boiler which outputs hot water"
 --------------------------------------------------------------------------
 def: ^steam-boiler
 is: ^boiler
+heats: ^steam
 supplies: ^steam
 doc: "Boiler which outputs steam"
 --------------------------------------------------------------------------

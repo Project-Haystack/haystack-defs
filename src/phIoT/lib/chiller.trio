@@ -9,7 +9,8 @@
 --------------------------------------------------------------------------
 def: ^chiller
 is: ^equip
-coolsRefrig: ^coolingProcess
+cools: ^chilled-water
+coolsVia: ^chillerProcess
 wikipedia: `https://en.wikipedia.org/wiki/Chiller`
 doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
@@ -51,25 +52,25 @@ containedBy: ^chiller
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// chillerMechanism
+// chillerProcess
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^chillerMechanism
+def: ^chillerProcess
 is: ^marker
 doc: "Primary mechanism of chiller"
 --------------------------------------------------------------------------
 def: ^chiller-absorption
-is: [^absorption, ^chillerMechanism]
+is: [^absorption, ^chillerProcess]
 --------------------------------------------------------------------------
 def: ^chiller-reciprocal
-is: [^reciprocal, ^chillerMechanism]
+is: [^reciprocal, ^chillerProcess]
 --------------------------------------------------------------------------
 def: ^chiller-rotaryScrew
-is: [^rotaryScrew, ^chillerMechanism]
+is: [^rotaryScrew, ^chillerProcess]
 --------------------------------------------------------------------------
 def: ^chiller-centrifugal
-is: [^centrifugal, ^chillerMechanism]
+is: [^centrifugal, ^chillerProcess]
 --------------------------------------------------------------------------
 
 
