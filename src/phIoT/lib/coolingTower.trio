@@ -16,17 +16,18 @@ doc: "Equipment to transfer waste heat into the atmosphere"
 // --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Sections
+// Contains
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-// TODO
-//def: ^coolingTower.condenser-water-leaving-pipe
-//doc: "Water with heat removed leaving tower"
+defx: ^condenser-water-entering-pipe
+containedBy: ^coolingTower
 --------------------------------------------------------------------------
-// TODO
-//def: ^coolingTower.condenser-water-entering-pipe
-//doc: "Water with waste heat to remove entering tower"
+defx: ^condenser-water-leaving-pipe
+containedBy: ^coolingTower
+--------------------------------------------------------------------------
+defx: ^fan
+containedBy: ^coolingTower
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

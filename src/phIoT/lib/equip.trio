@@ -12,7 +12,7 @@ def: ^equip
 is: ^entity
 mandatory
 doc: "Equipment asset"
-containedBy: [^site, ^space]
+containedBy: [^site, ^space, ^equip]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
