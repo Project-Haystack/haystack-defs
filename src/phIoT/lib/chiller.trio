@@ -9,6 +9,7 @@
 --------------------------------------------------------------------------
 def: ^chiller
 is: ^equip
+coolsRefrig: ^coolingProcess
 wikipedia: `https://en.wikipedia.org/wiki/Chiller`
 doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor

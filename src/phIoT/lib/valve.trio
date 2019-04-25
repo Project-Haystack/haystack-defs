@@ -10,6 +10,7 @@
 --------------------------------------------------------------------------
 def: ^valve
 is: ^equip
+regulatesFluid: ^mechanicalRegulating
 wikipedia: `https://en.wikipedia.org/wiki/Valve`
 doc: "Equipment used to regulate the flow of fluid."
 containedBy: ^pipe
