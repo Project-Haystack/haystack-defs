@@ -19,6 +19,7 @@
 - Add ground-floor, roof-floor, subterranean-floor, and floorNum
 - Add equipFunction aspects
 - Add airTerminalUnit and cav equip types
+- Add airHandlingEquip, mau, rtu, fcu, uv, heatPump
 
 **Version 3.9.2 (28 Mar 2019)**
 - Public review of new Haystack 4.0 docs and defs

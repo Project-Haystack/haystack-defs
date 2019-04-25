@@ -8,7 +8,7 @@
 //
 
 --------------------------------------------------------------------------
-def: ^ahu
+def: ^airHandlingEquip
 is: ^equip
 ahuZoneDelivery: ^ahuZoneDeliveryType
 cools: ^air
@@ -20,7 +20,43 @@ heatingProcess: ^heatingProcessType
 humidifies: ^air
 ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
-doc: "Air handling unit"
+doc: "Equipment which serves a primary role in an HVAC system."
+--------------------------------------------------------------------------
+def: ^ahu
+is: ^airHandlingEquip
+mandatory
+wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
+doc: "Air handling unit."
+--------------------------------------------------------------------------
+def: ^mau
+is: ^ahu
+doc: "Makeup air unit which uses only outside air"
+--------------------------------------------------------------------------
+def: ^rtu
+is: ^ahu
+doc: "Packaged rooftop air handling unit"
+--------------------------------------------------------------------------
+def: ^fcu
+is: ^airHandlingEquip
+wikipedia: `https://en.wikipedia.org/wiki/Fan_coil_unit`
+doc:
+  Fan coil unit. Fan coils are unitary air handling equipment which
+  use zone itself for supply air.
+--------------------------------------------------------------------------
+def: ^heatPump
+is: ^airHandlingEquip
+wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
+doc:
+  Heat pump.  Heat pumps are air handling equipment which employ a
+  refrigeration cycle but in the opposite direction to deliver heat to the
+  space.
+--------------------------------------------------------------------------
+def: ^uv
+is: ^airHandlingEquip
+doc:
+  Unit ventilator.  Unit ventilators are unitary air handling equipment
+  that have direct access to outside air.  They are commonly installed in
+  hotel rooms.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
