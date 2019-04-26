@@ -1,0 +1,17 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   26 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^thermostat
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/Thermostat`
+doc:
+  Senses and controls temperature of space in HVAC system.  Thermostats
+  may provide an interface for setpoint control.
+--------------------------------------------------------------------------
+

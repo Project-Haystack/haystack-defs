@@ -64,20 +64,23 @@ doc:
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+defx: ^thermostat
+containedBy: ^airHandlingEquip
+--------------------------------------------------------------------------
 defx: ^discharge-duct
-containedBy: ^ahu
+containedBy: ^airHandlingEquip
 --------------------------------------------------------------------------
 defx: ^exhaust-duct
-containedBy: ^ahu
+containedBy: ^airHandlingEquip
 --------------------------------------------------------------------------
 defx: ^mixed-duct
-containedBy: ^ahu
+containedBy: ^airHandlingEquip
 --------------------------------------------------------------------------
 defx: ^outside-duct
-containedBy: ^ahu
+containedBy: ^airHandlingEquip
 --------------------------------------------------------------------------
 defx: ^return-duct
-containedBy: ^ahu
+containedBy: ^airHandlingEquip
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
