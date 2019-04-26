@@ -80,6 +80,10 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Lighting`
 doc: "Systems associated with illumination in the built environment"
 --------------------------------------------------------------------------
+def: ^occupants
+is: ^marker
+doc: "People who use the built ennvironment"
+--------------------------------------------------------------------------
 def: ^makeup
 is: ^marker
 doc: "Restore soemthing missed or lost"

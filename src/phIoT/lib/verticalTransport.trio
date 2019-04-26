@@ -1,0 +1,26 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   26 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^verticalTransport
+is: ^equip
+doc: "Equipment to move humans and materials vertically"
+--------------------------------------------------------------------------
+def: ^elevator
+is: ^verticalTransport
+moves: ^occupants
+wikipedia:`https://en.wikipedia.org/wiki/Elevator`
+doc: "Enclosure used to move people between floors."
+--------------------------------------------------------------------------
+def: ^escalator
+is: ^verticalTransport
+moves: ^occupants
+wikipedia:`https://en.wikipedia.org/wiki/Escalator`
+doc: "Moving staircase used to move people between floors."
+--------------------------------------------------------------------------
+
