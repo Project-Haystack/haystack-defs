@@ -23,6 +23,18 @@ def: ^current
 is: ^marker
 doc: "Movement of fluid or electricity"
 --------------------------------------------------------------------------
+def: ^flux
+is: ^marker
+doc: "Measurement through a given surface"
+--------------------------------------------------------------------------
+def: ^intensity
+is: ^marker
+doc: "Measure of an electromagnetic field"
+--------------------------------------------------------------------------
+def: ^luminous
+is: ^marker
+doc: "Relating to light as perceived by the eye"
+--------------------------------------------------------------------------
 def: ^magnitude
 is: ^marker
 doc: "Size or extent"
