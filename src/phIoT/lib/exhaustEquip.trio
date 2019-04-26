@@ -1,0 +1,16 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   26 Apr 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^fumeHood
+is: ^equip
+ventilates: ^air
+wikipedia: `https://en.wikipedia.org/wiki/Fume_hood`
+doc: "Ventilation equipment to limit exposure to hazardous fumes."
+--------------------------------------------------------------------------
+

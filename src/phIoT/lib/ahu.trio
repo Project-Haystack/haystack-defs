@@ -20,17 +20,17 @@ heatingProcess: ^heatingProcessType
 humidifies: ^air
 ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
-doc: "Equipment which serves a primary role in an HVAC system."
+doc: "HVAC equipment that conditions and delivers air via one or more fans."
 --------------------------------------------------------------------------
 def: ^ahu
 is: ^airHandlingEquip
 mandatory
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
-doc: "Air handling unit."
+doc: "Air handling unit - mixes outside air and return air"
 --------------------------------------------------------------------------
 def: ^mau
 is: ^ahu
-doc: "Makeup air unit which uses only outside air"
+doc: "Makeup air unit - delivers 100% outside air to space"
 --------------------------------------------------------------------------
 def: ^rtu
 is: ^ahu
@@ -41,14 +41,14 @@ is: ^airHandlingEquip
 wikipedia: `https://en.wikipedia.org/wiki/Fan_coil_unit`
 doc:
   Fan coil unit. Fan coils are unitary air handling equipment which
-  use zone itself for supply air.
+  pull air directly from the space before conditioning.
 --------------------------------------------------------------------------
 def: ^heatPump
 is: ^airHandlingEquip
 wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
 doc:
-  Heat pump.  Heat pumps are air handling equipment which employ a
-  refrigeration cycle but in the opposite direction to deliver heat to the
+  Heat pump.  Heat pumps are air handling equipment which employ a vapor
+  compression cycle but in the opposite direction to deliver heat to the
   space.
 --------------------------------------------------------------------------
 def: ^uv
