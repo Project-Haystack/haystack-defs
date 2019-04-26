@@ -1,0 +1,15 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   26 Jan 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^luminaire
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/Light_fixture`
+doc: "Light fixture using electricity to provide illumination"
+--------------------------------------------------------------------------
+

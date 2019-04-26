@@ -46,7 +46,7 @@ doc: "Tags used with this entity"
 def: ^containedBy
 is: ^aspect
 reciprocalOf: ^contains
-doc: "This entity is contained byt the given entity"
+doc: "This entity is logically contained by the given entity"
 --------------------------------------------------------------------------
 def: ^contains
 is: ^aspect
@@ -54,6 +54,6 @@ reciprocalOf: ^containedBy
 computed
 docSection
 transitive
-doc: "Entities contained by this entity"
+doc: "Entities logically contained by this entity"
 --------------------------------------------------------------------------
 
