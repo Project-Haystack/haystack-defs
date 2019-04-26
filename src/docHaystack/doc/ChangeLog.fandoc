@@ -24,6 +24,7 @@
 - Add thermostat
 - Add quantities: illuminance, luminance, luminous-flux, luminous-intensity
 - Add luminaire
+- Add verticalTransport, elevator, escalator
 
 **Version 3.9.2 (28 Mar 2019)**
 - Public review of new Haystack 4.0 docs and defs
