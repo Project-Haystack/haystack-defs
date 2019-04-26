@@ -16,7 +16,6 @@ doc: "Choice specifies an aspect with an single exclusive value"
 --------------------------------------------------------------------------
 def: ^reciprocalOf
 is: ^symbol
-tagOn: ^aspect
 doc: "Specifies the inverse of an aspect relationship"
 --------------------------------------------------------------------------
 

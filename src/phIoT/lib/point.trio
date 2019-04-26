@@ -10,21 +10,11 @@
 --------------------------------------------------------------------------
 def: ^point
 is: ^entity
+pointClassification: ^pointClassificationType
 mandatory
 containedBy: [^space, ^equip]
 doc: "Data point such as a sensor or actuator"
 --------------------------------------------------------------------------
-// def: ^point.equipRef
-// --------------------------------------------------------------------------
-// def: ^point.siteRef
-// --------------------------------------------------------------------------
-// def: ^point.spaceRef
-// --------------------------------------------------------------------------
-// --------------------------------------------------------------------------
-// def: ^point.pointType
-// --------------------------------------------------------------------------
-// def: ^point.pointKind
-// --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Point Tags
@@ -45,6 +35,7 @@ tagOn: ^point
 --------------------------------------------------------------------------
 def: ^pointKind
 is: ^str
+tagOn: ^point
 doc: "Point value type"
 enum:
   - Bool: model digital points as true/false.  Bool points may
@@ -58,24 +49,29 @@ enum:
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Point Type
+// Point Classification
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^pointType
+def: ^pointClassification
+is: ^marker
+of: ^pointClassificationType
+doc: "Classifies the point as a sensor, command, or setpoint"
+--------------------------------------------------------------------------
+def: ^pointClassificationType
 is: ^marker
 doc: "Classifies the point as a sensor, command, or setpoint"
 --------------------------------------------------------------------------
 def: ^sensor
-is: ^pointType
+is: ^pointClassificationType
 doc: "Point is a sensor, input, AI/BI"
 --------------------------------------------------------------------------
 def: ^cmd
-is: ^pointType
+is: ^pointClassificationType
 doc: "Point is a command, actuator, AO/BO"
 --------------------------------------------------------------------------
 def: ^sp
-is: ^pointType
+is: ^pointClassificationType
 doc: "Point is a setpoint, soft point, internal control variable, schedule"
 --------------------------------------------------------------------------
 
