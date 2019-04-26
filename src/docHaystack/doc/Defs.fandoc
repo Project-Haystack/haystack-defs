@@ -60,20 +60,19 @@ knowledge from Haystack data.
 
 Def Types [#types]
 ******************
-There are four types of definitions determined by the format of their
+There are three types of definitions determined by the format of their
 symbol name:
 
   - [tag]`#tags`: definition for a tag name
   - [conjunct]`#conjuncts`: definition for a set of tags such as 'hot-water'
   - [key]`#keys`: definition for a feature specific name such as 'filetype:json'
-  - [compose]`#composes`: associates a tag with a type marker such as 'geoPlace.geoCity'
 
 Collectively we call tags and conjuncts our [terms]`#terms`.
 
 Tag Defs [#tags]
 ****************
-Tag defs are used to formally tag names.  They must have symbol names
-which are valid tag names:
+Tag defs are used to formally define tag names.  They must have
+symbol names which are valid tag names:
 
  - Must start with ASCII lower case letter (a-z)
  - Must contain only ASCII letters, digits, or underbar (a-z, A-Z, 0-9, _)
@@ -163,31 +162,4 @@ Feature keys are [singletons]`https://en.wikipedia.org/wiki/Singleton_pattern`.
 They don't have data instances.  For example, there is no combination of
 tags applied to dicts to [implement]`Reflection` the 'lib:ph' def.  The 'lib:ph'
 def is itself the only instance.
-
-Compose Defs [#composes]
-************************
-Compose defs are used to bind two terms together into a composition.  Their
-symbols are formatted as 'parent.child'.  We use the dot as a separator to
-imply a syntax similar to field accessors in common programming languages.
-
-The simplest use case for compose defs is to associate "property" tags on
-an entity type.  For example to indicate the value tags associated with
-the `geoPlace` entity type:
-
-  def: ^geoPlace.geoCity
-  ---
-  def: ^geoPlace.geoState
-  ---
-  def: ^geoPlace.geoCountry
-
-We also use compose defs to specify parent/child entity relationships to
-guide users and tools a top-down model of the Haystack ontology.  For
-example we can specify the sub-components of an AHU:
-
-  def: ^ahu.discharge-duct
-  doc: "Supply air to the zones"
-
-Compose defs are implied to subtype from the child term.  For example
-the def 'geoPlace.geoCountry' is implied to subtype from 'geoCountry'.
-It is invalid to declare an 'is' tag on a compose def.
 
