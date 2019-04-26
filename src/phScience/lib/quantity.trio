@@ -238,28 +238,40 @@ is: ^quantity
 quantityOf: ^light
 prefUnit: ["lux", "footcandle", "phot"]
 wikipedia: `https://en.wikipedia.org/wiki/Illuminance`
-doc: "Incident light which illuminates a surface"
+doc:
+  Luminous flux hitting the inside of the sphere at a specific point.
+
+  Also see [ies.org]`https://www.ies.org/definitions/illuminance/`
 --------------------------------------------------------------------------
 def: ^luminance
 is: ^quantity
 quantityOf: ^light
 prefUnit: ["candelas_per_square_meter", "candelas_per_square_foot"]
 wikipedia: `https://en.wikipedia.org/wiki/Luminance`
-doc: "Energy of light in a given direction"
+doc:
+  Energy of light in a given direction.
+
+  Also see [ies.org]`https://www.ies.org/definitions/luminance/`
 --------------------------------------------------------------------------
 def: ^luminous-flux
 is: ^quantity
 quantityOf: ^light
 prefUnit: ["lumen"]
 wikipedia: `https://en.wikipedia.org/wiki/Luminous_flux`
-doc: "Total perceived light in all directions"
+doc:
+  Total perceived light in all directions.
+
+  Also see [ies.org]`https://www.ies.org/definitions/luminous-flux/`
 --------------------------------------------------------------------------
 def: ^luminous-intensity
 is: ^quantity
 quantityOf: ^light
 prefUnit: ["candela"]
 wikipedia: `https://en.wikipedia.org/wiki/Luminous_intensity`
-doc: "Perceived light in a particular direction per unit solid angle"
+doc:
+  Perceived light in a particular direction per unit solid angle.
+
+  Also see [ies.org]`https://www.ies.org/definitions/luminous-intensity/`
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
