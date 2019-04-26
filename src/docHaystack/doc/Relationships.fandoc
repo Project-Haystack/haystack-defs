@@ -12,6 +12,8 @@ are related to each other.  Almost all Haystack implementations will model
 the containment of physical spaces and equipment.  It is also typical to
 model the flows of energy and substances such as electricity, air, and water.
 
+NOTE: THIS DESIGN IS AN EARLY PROPOSAL
+
 Entity Relationships [#entities]
 ********************************
 Relationships between entities are modeled by cross-referencing the `id`
