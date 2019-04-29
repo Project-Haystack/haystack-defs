@@ -208,13 +208,13 @@ instances (i.e. Dicts) to RDF.
 
 - All the [general mapping rules]`#genRules` apply, **except** you should not
 write any statements for marker tags. These tags are implied by the ontology.
-- It is currently an open issue how to generate an IRI for an entity. The current
-strategy is to:
-  1. Use the URL of the host serving the instance data
-  2. Append the ref value for that id tag. See the example below.
+- Instances should be blank nodes. If possible, the label for the blank node
+  should be the id of the instance.
 - Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
   'owl:Class'.
 - Encode tag values as defined in the [data types]`#datatypes` section.
+  - Exception: If the tag is a Ref (e.g. 'siteRef') the value should be a
+    blank node with a label that references the corresponding instance.
 - If we don't have a def for a tag, do not export it to RDF.
 
 For example, here is the Trio for a site Dict:
@@ -236,7 +236,7 @@ pre>
 And here is the RDF export of that site instance:
 
 pre>
-  <http://localhost/def/dummy#24192ca1-0c85f75d>
+  _:24192ca1-0c85f75d
       a phIoT:site ;
       phIoT:area 140797 ;
       ph:tz "New_York" ;
@@ -250,7 +250,6 @@ pre>
 Pending Work [#todo]
 ********************
 
-- How to generate IRIs for the 'id' of an instance export?
 - How to handle the unit of numeric tags in instance exports?
 - How to indicate inverse relationships?
 - How to indicate transitive containment?
