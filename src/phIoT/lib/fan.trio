@@ -13,6 +13,5 @@ is: ^equip
 moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 doc: "Equipment used create air flow."
-containedBy: ^duct
 --------------------------------------------------------------------------
 

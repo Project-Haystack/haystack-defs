@@ -8,10 +8,9 @@
 //
 
 --------------------------------------------------------------------------
-def: ^valve
+def: ^vfd
 is: ^equip
-regulates: ^fluid
-wikipedia: `https://en.wikipedia.org/wiki/Valve`
-doc: "Equipment used to regulate the flow of fluid."
+wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
+doc: "Motor with variable frequency drive."
 --------------------------------------------------------------------------
 

@@ -19,35 +19,17 @@ is: ^boiler
 heats: ^hot-water
 supplies: ^hot-water
 doc: "Boiler which outputs hot water"
+children:
+  hot-water-entering-pipe
+  hot-water-leaving-pipe
 --------------------------------------------------------------------------
 def: ^steam-boiler
 is: ^boiler
 heats: ^steam
 supplies: ^steam
 doc: "Boiler which outputs steam"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Hot Water Boiler
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^hot-water-entering-pipe
-containedBy: ^hot-water-boiler
---------------------------------------------------------------------------
-defx: ^hot-water-leaving-pipe
-containedBy: ^hot-water-boiler
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Steam Boiler
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^steam-entering-pipe
-containedBy: ^steam-boiler
---------------------------------------------------------------------------
-defx: ^steam-leaving-pipe
-containedBy: ^steam-boiler
+children:
+  steam-entering-pipe
+  steam-leaving-pipe
 --------------------------------------------------------------------------
 

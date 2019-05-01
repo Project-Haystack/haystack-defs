@@ -20,7 +20,15 @@ heatingProcess: ^heatingProcessType
 humidifies: ^air
 ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
-doc: "HVAC equipment that conditions and delivers air via one or more fans."
+doc:
+  HVAC equipment that conditions and delivers air via one or more fans.
+children:
+  discharge-duct
+  exhaust-duct
+  mixed-duct
+  outside-duct
+  return-duct
+  thermostat
 --------------------------------------------------------------------------
 def: ^ahu
 is: ^airHandlingEquip
@@ -60,36 +68,13 @@ doc:
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Contains
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^thermostat
-containedBy: ^airHandlingEquip
---------------------------------------------------------------------------
-defx: ^discharge-duct
-containedBy: ^airHandlingEquip
---------------------------------------------------------------------------
-defx: ^exhaust-duct
-containedBy: ^airHandlingEquip
---------------------------------------------------------------------------
-defx: ^mixed-duct
-containedBy: ^airHandlingEquip
---------------------------------------------------------------------------
-defx: ^outside-duct
-containedBy: ^airHandlingEquip
---------------------------------------------------------------------------
-defx: ^return-duct
-containedBy: ^airHandlingEquip
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
 // ahuZoneDelivery
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^ahuZoneDelivery
 is: ^choice
+of: ^ahuZoneDeliveryType
 doc: "AHU delivery method of conditioned air to the zone"
 --------------------------------------------------------------------------
 def: ^ahuZoneDeliveryType

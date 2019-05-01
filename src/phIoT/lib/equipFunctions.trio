@@ -13,6 +13,7 @@
 --------------------------------------------------------------------------
 def: ^equipFunction
 is: ^choice
+of: ^phenomenon
 doc: "Models one of the primary functions of an equipment type"
 --------------------------------------------------------------------------
 def: ^cools

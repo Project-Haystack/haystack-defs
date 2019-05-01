@@ -15,82 +15,35 @@ def: ^chilled-water-plant
 is: ^plant
 supplies: ^chilled-water
 doc: "Plant used to generate chilled water for cooling"
+children:
+  chilled-water-bypass-pipe
+  chilled-water-entering-pipe
+  chilled-water-leaving-pipe
+  chiller
+  coolingTower
+  chilled-water-heatExchanger
 --------------------------------------------------------------------------
 def: ^hot-water-plant
 is: ^plant
 supplies: ^hot-water
 doc: "Plant used to generate hot water for heating"
+children:
+  hot-water-bypass-pipe
+  hot-water-entering-pipe
+  hot-water-leaving-pipe
+  hot-water-boiler
+  hot-water-heatExchanger
 --------------------------------------------------------------------------
 def: ^steam-plant
 is: ^plant
 supplies: ^steam
 doc: "Plant used to generate steam for heating"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Chiller Plant
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^chilled-water-bypass-pipe
-containedBy: ^chilled-water-plant
---------------------------------------------------------------------------
-defx: ^chilled-water-entering-pipe
-containedBy: ^chilled-water-plant
---------------------------------------------------------------------------
-defx: ^chilled-water-leaving-pipe
-containedBy: ^chilled-water-plant
---------------------------------------------------------------------------
-defx: ^chiller
-containedBy: ^chilled-water-plant
---------------------------------------------------------------------------
-defx: ^coolingTower
-containedBy: ^chilled-water-plant
---------------------------------------------------------------------------
-defx: ^heatExchanger
-containedBy: ^chilled-water-plant
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Hot Water Plant
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^hot-water-bypass-pipe
-containedBy: ^hot-water-plant
---------------------------------------------------------------------------
-defx: ^hot-water-entering-pipe
-containedBy: ^hot-water-plant
---------------------------------------------------------------------------
-defx: ^hot-water-leaving-pipe
-containedBy: ^hot-water-plant
---------------------------------------------------------------------------
-defx: ^hot-water-boiler
-containedBy: ^hot-water-plant
---------------------------------------------------------------------------
-defx: ^heatExchanger
-containedBy: ^hot-water-plant
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Steam Plant
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^steam-bypass-pipe
-containedBy: ^steam-plant
---------------------------------------------------------------------------
-defx: ^steam-entering-pipe
-containedBy: ^steam-plant
---------------------------------------------------------------------------
-defx: ^steam-leaving-pipe
-containedBy: ^steam-plant
---------------------------------------------------------------------------
-defx: ^steam-boiler
-containedBy: ^steam-plant
---------------------------------------------------------------------------
-defx: ^heatExchanger
-containedBy: ^steam-plant
+children:
+  steam-bypass-pipe
+  steam-entering-pipe
+  steam-leaving-pipe
+  steam-boiler
+  steam-heatExchanger
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

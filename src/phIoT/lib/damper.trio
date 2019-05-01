@@ -13,6 +13,5 @@ is: ^equip
 regulates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
 doc: "Equipment used to regulate the flow of air."
-containedBy: ^duct
 --------------------------------------------------------------------------
 

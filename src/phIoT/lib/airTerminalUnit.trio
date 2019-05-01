@@ -14,20 +14,9 @@ doc:
   Equipment in air distribution system which terminates at the space.
   Terminal units may control the rate, velocity, pressure, or temperature
   of air delivered to the space.
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Contains
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^thermostat
-containedBy: ^airTerminalUnit
---------------------------------------------------------------------------
-defx: ^discharge-duct
-containedBy: ^airTerminalUnit
---------------------------------------------------------------------------
-defx: ^inlet-duct
-containedBy: ^airTerminalUnit
+children:
+  discharge-duct
+  inlet-duct
+  thermostat
 --------------------------------------------------------------------------
 
