@@ -178,6 +178,9 @@ If the tag def is a subtype of `ref`, then declare the def to be an instance of
 If the tag def (or one of its `defx` extensions) declares a `tagOn` aspect,
 then specify the 'rdfs:domain' to be all referent entities.
 
+If the tag def is a `choice` `aspect`, then specify the 'rdfs:range' to the value
+of the `of` tag on the def.
+
 If the def is a basic [Tag Def]`Defs#tags` (e.g. `tz`), then specify the 'rdfs:range'
 to be the appropriate Haystack datatype (see [Datatypes]`#datatypes` section).
 
@@ -197,6 +200,14 @@ pre>
       rdfs:comment "Timezone identifier from standard timezone database" ;
       ph:is ph:str ;
       ph:lib ph:lib:ph .
+
+  // A choice aspect
+  phIoT:conveys a owl:DatatypeProperty ;
+  rdfs:range phScience:phenomenon ;
+    rdfs:comment "Equipment conveys a substance or phenomenon." ;
+    ph:is phIoT:equipFunction ;
+    ph:lib phIoT:lib:phIoT ;
+    ph:of phScience:phenomenon .
 <pre
 
 Exporting Instances [#instances]
