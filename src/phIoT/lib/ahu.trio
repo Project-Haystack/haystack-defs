@@ -46,6 +46,7 @@ doc: "Packaged rooftop air handling unit"
 --------------------------------------------------------------------------
 def: ^fcu
 is: ^airHandlingEquip
+mandatory
 wikipedia: `https://en.wikipedia.org/wiki/Fan_coil_unit`
 doc:
   Fan coil unit. Fan coils are unitary air handling equipment which
@@ -59,8 +60,8 @@ doc:
   compression cycle but in the opposite direction to deliver heat to the
   space.
 --------------------------------------------------------------------------
-def: ^uv
-is: ^airHandlingEquip
+def: ^unitVent
+is: ^fcu
 doc:
   Unit ventilator.  Unit ventilators are unitary air handling equipment
   that have direct access to outside air.  They are commonly installed in
