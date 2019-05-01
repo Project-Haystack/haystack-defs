@@ -126,6 +126,10 @@ def: ^synthesizer
 is: ^str
 doc: "Synthesizes defs for documentation and tooling"
 --------------------------------------------------------------------------
+def: ^synthetic
+is: ^marker
+doc: "Automatically generated"
+--------------------------------------------------------------------------
 def: ^transient
 is: ^marker
 tagOn: ^def
