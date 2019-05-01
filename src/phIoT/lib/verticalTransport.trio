@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------
 def: ^verticalTransport
 is: ^equip
-doc: "Equipment to move humans and materials vertically"
+doc: "Equipment to move humans and materials"
 --------------------------------------------------------------------------
 def: ^elevator
 is: ^verticalTransport
@@ -22,5 +22,11 @@ is: ^verticalTransport
 moves: ^occupants
 wikipedia:`https://en.wikipedia.org/wiki/Escalator`
 doc: "Moving staircase used to move people between floors."
+--------------------------------------------------------------------------
+def: ^movingWalkway
+is: ^verticalTransport
+moves: ^occupants
+wikipedia:`https://en.wikipedia.org/wiki/Moving_walkway`
+doc: "Conveyor to move people across a horizontal or inclined plane."
 --------------------------------------------------------------------------
 

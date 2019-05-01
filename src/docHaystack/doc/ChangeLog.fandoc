@@ -8,6 +8,8 @@
 
 **Version 3.9.4 (working)**
 - New synthesizer design
+- Rename uv to unitVent and subtype from fcu
+- Add movingWalkway
 
 **Version 3.9.3 (26 Apr 2019)**
 - Remove generics
