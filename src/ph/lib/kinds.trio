@@ -111,8 +111,7 @@ doc: "Inclusive maximum for a numeric value."
 
 --------------------------------------------------------------------------
 def: ^of
-is: ^ref
-of: ^def
+is: ^aspect
 doc: "Value type of a collection or reference"
 --------------------------------------------------------------------------
 

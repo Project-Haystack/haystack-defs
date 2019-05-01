@@ -12,24 +12,13 @@ is: ^equip
 cools: ^condenser-water
 wikipedia: `https://en.wikipedia.org/wiki/Cooling_tower`
 doc: "Equipment to transfer waste heat into the atmosphere"
+children:
+  condenser-water-entering-pipe
+  condenser-water-leaving-pipe
+  fan
 --------------------------------------------------------------------------
-// def: ^coolingTower.coolingLoop
+// TODO def: ^coolingTower.coolingLoop
 // --------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Contains
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^condenser-water-entering-pipe
-containedBy: ^coolingTower
---------------------------------------------------------------------------
-defx: ^condenser-water-leaving-pipe
-containedBy: ^coolingTower
---------------------------------------------------------------------------
-defx: ^fan
-containedBy: ^coolingTower
---------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Cooling Tower Loop

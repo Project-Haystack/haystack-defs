@@ -14,7 +14,15 @@ chillerMechanism: ^chillerMechanismType
 wikipedia: `https://en.wikipedia.org/wiki/Chiller`
 doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
-  compression or an absorption refrigeration cycle."
+  compression or an absorption refrigeration cycle.
+children:
+  run-cmd
+  run-sensor
+  enable-cmd
+  chilled-water-leaving-pipe
+  chilled-water-entering-pipe
+  condenser-water-leaving-pipe
+  condenser-water-entering-pipe
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -30,30 +38,13 @@ prefUnit: ["tonref", "BTU/h", "kW"]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Contains
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-defx: ^chilled-water-entering-pipe
-containedBy: ^chiller
---------------------------------------------------------------------------
-defx: ^chilled-water-leaving-pipe
-containedBy: ^chiller
---------------------------------------------------------------------------
-defx: ^condenser-water-entering-pipe
-containedBy: ^chiller
---------------------------------------------------------------------------
-defx: ^condenser-water-leaving-pipe
-containedBy: ^chiller
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
 // chillerMechanism
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^chillerMechanism
 is: ^choice
+of: ^chillerMechanismType
 doc: "Primary mechanism of chiller"
 --------------------------------------------------------------------------
 def: ^chillerMechanismType

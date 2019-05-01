@@ -18,6 +18,9 @@ conveys: ^fluid
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
+children:
+  {conveys}-{pipeSection}-pump
+  {conveys}-{pipeSection}-valve
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
@@ -26,97 +29,14 @@ ductDeck: ^ductDeckType
 ductSection: ^ductSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
+children:
+  {ductSection}-damper
+  {ductSection}-fan
 --------------------------------------------------------------------------
 def: ^wire
 is: ^conduit
 conveys: ^elec
 doc: "Cabling used to convey electricity or data"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Pipes
-//////////////////////////////////////////////////////////////////////////
-
-// Chilled Water
-
---------------------------------------------------------------------------
-def: ^chilled-water-bypass-pipe
-is: ^pipe
-conveys: ^chilled-water
-pipeSection: ^bypass
-doc: "Chilled water bypass pipe"
---------------------------------------------------------------------------
-def: ^chilled-water-entering-pipe
-is: ^pipe
-conveys: ^chilled-water
-pipeSection: ^entering
-doc: "Chilled water return pipe"
---------------------------------------------------------------------------
-def: ^chilled-water-leaving-pipe
-is: ^pipe
-conveys: ^chilled-water
-pipeSection: ^leaving
-doc: "Chilled water supply pipe"
---------------------------------------------------------------------------
-
-// Condenser Water
-
---------------------------------------------------------------------------
-def: ^condenser-water-entering-pipe
-is: ^pipe
-conveys: ^condenser-water
-pipeSection: ^entering
-doc: "Condenser water entering pipe"
---------------------------------------------------------------------------
-def: ^condenser-water-leaving-pipe
-is: ^pipe
-conveys: ^condenser-water
-pipeSection: ^leaving
-doc: "Condenser water leaving pipe"
---------------------------------------------------------------------------
-
-// Hot Water
-
---------------------------------------------------------------------------
-def: ^hot-water-bypass-pipe
-is: ^pipe
-conveys: ^hot-water
-pipeSection: ^bypass
-doc: "Hot water bypass pipe"
---------------------------------------------------------------------------
-def: ^hot-water-entering-pipe
-is: ^pipe
-conveys: ^hot-water
-pipeSection: ^entering
-doc: "Hot water return pipe"
---------------------------------------------------------------------------
-def: ^hot-water-leaving-pipe
-is: ^pipe
-conveys: ^hot-water
-pipeSection: ^leaving
-doc: "Hot water supply pipe"
---------------------------------------------------------------------------
-
-// Steam
-
---------------------------------------------------------------------------
-def: ^steam-bypass-pipe
-is: ^pipe
-conveys: ^steam
-pipeSection: ^bypass
-doc: "Steam bypass pipe"
---------------------------------------------------------------------------
-def: ^steam-entering-pipe
-is: ^pipe
-conveys: ^steam
-pipeSection: ^entering
-doc: "Steam return pipe"
---------------------------------------------------------------------------
-def: ^steam-leaving-pipe
-is: ^pipe
-conveys: ^steam
-pipeSection: ^leaving
-doc: "Steam supply pipe"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -144,42 +64,6 @@ doc: "Pipe conveys fluid out of an equipment"
 def: ^bypass
 is: ^pipeSectionType
 doc: "Pipe used to bypass an equipment"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Ducts
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^discharge-duct
-is: ^duct
-ductSection: ^discharge
-doc: "Supply air discharged from equipment"
---------------------------------------------------------------------------
-def: ^inlet-duct
-is: ^duct
-ductSection: ^inlet
-doc: "Air entering into equipment"
---------------------------------------------------------------------------
-def: ^outside-duct
-is: ^duct
-ductSection: ^outside
-doc: "Fresh outside air intake"
---------------------------------------------------------------------------
-def: ^mixed-duct
-is: ^duct
-ductSection: ^mixed
-doc: "Mixed air between outside and return"
---------------------------------------------------------------------------
-def: ^return-duct
-is: ^duct
-ductSection: ^return
-doc: "Returning air from zone"
---------------------------------------------------------------------------
-def: ^exhaust-duct
-is: ^duct
-ductSection: ^exhaust
-doc: "Exhaust air to the outside"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
