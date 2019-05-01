@@ -21,6 +21,12 @@ doc: "Conduit used to convey a fluid"
 children:
   {conveys}-{pipeSection}-pump
   {conveys}-{pipeSection}-valve
+  {conveys}-{pipeSection}-flow-sensor
+  {conveys}-{pipeSection}-flow-sp
+  {conveys}-{pipeSection}-pressure-sensor
+  {conveys}-{pipeSection}-pressure-sp
+  {conveys}-{pipeSection}-temp-sensor
+  {conveys}-{pipeSection}-temp-sp
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
@@ -32,6 +38,16 @@ doc: "Conduit used to convey air for HVAC"
 children:
   {ductSection}-damper
   {ductSection}-fan
+  {ductSection}-air-co2-sensor
+  {ductSection}-air-co2-sp
+  {ductSection}-air-flow-sensor
+  {ductSection}-air-flow-sp
+  {ductSection}-air-humidity-sensor
+  {ductSection}-air-humidity-sp
+  {ductSection}-air-pressure-sensor
+  {ductSection}-air-pressure-sp
+  {ductSection}-air-temp-sensor
+  {ductSection}-air-temp-sp
 --------------------------------------------------------------------------
 def: ^wire
 is: ^conduit
