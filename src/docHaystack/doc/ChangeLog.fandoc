@@ -8,6 +8,7 @@
 
 **Version 3.9.4 (working)**
 - New synthesizer design
+- Rework fan, damper, pump, valve to be both point and equip
 - Rename uv to unitVent and subtype from fcu
 - Add movingWalkway
 

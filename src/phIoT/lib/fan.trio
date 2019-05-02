@@ -9,9 +9,18 @@
 
 --------------------------------------------------------------------------
 def: ^fan
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
+doc: "Fan equipment or control point"
+--------------------------------------------------------------------------
+def: ^fan-equip
 is: ^equip
 moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
+ductSection: ^ductSectionType
 doc: "Equipment used create air flow."
+children:
+  {ductSection}-fan-run-cmd
+  {ductSection}-fan-run-sensor
 --------------------------------------------------------------------------
 

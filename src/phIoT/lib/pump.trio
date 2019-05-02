@@ -9,9 +9,18 @@
 
 --------------------------------------------------------------------------
 def: ^pump
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Pump`
+doc: "Pump equipment or control point"
+--------------------------------------------------------------------------
+def: ^pump-equip
 is: ^equip
 moves: ^fluid
+pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 doc: "Equipment used move fluid."
+children:
+  {pipeSection}-run-cmd
+  {pipeSection}-run-sensor
 --------------------------------------------------------------------------
 
