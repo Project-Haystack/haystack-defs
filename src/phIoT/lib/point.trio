@@ -53,7 +53,7 @@ enum:
 
 --------------------------------------------------------------------------
 def: ^pointClassification
-is: ^marker
+is: ^choice
 of: ^pointClassificationType
 doc: "Classifies the point as a sensor, command, or setpoint"
 --------------------------------------------------------------------------
