@@ -9,6 +9,7 @@
 --------------------------------------------------------------------------
 def: ^phenomenon
 is: ^marker
+docTaxonomy
 doc: "Aspect of scientific interest with measurable quantities"
 --------------------------------------------------------------------------
 def: ^elec

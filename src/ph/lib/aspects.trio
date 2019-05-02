@@ -8,6 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^aspect
+docTaxonomy
 doc: "Aspects model a relationship between two definitions"
 --------------------------------------------------------------------------
 def: ^choice
