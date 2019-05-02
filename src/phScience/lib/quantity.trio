@@ -13,6 +13,7 @@
 --------------------------------------------------------------------------
 def: ^quantity
 is: ^marker
+docTaxonomy
 doc: "Measurable property of a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^quantityOf

@@ -68,6 +68,11 @@ def: ^docSection
 is: ^marker
 doc: "This tag is documented with its own section."
 --------------------------------------------------------------------------
+def: ^docTaxonomy
+is: ^marker
+notInherited
+doc: "Generate a taxonomy tree for this term in the index."
+--------------------------------------------------------------------------
 def: ^enum
 is: ^str
 doc:
@@ -79,6 +84,7 @@ doc:
    - markdown unordered list formatted as a series of "- key: description\n"
 --------------------------------------------------------------------------
 def: ^feature
+docTaxonomy
 doc: "Feature namespace of definitions formatted as 'feature:name'"
 --------------------------------------------------------------------------
 def: ^lib
