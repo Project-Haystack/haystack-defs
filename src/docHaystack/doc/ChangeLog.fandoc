@@ -10,9 +10,42 @@
 - New synthesizer design
 - Rework mixins to use mixinOn/mixins tags
 - Rework fan, damper, pump, valve to be both point and equip
-- Rework motor/vfd as supertype/mixin for fan, damper, pump, valve
+- Add motor/vfd as supertype/mixin for fan/pump
+- Add actuator as supertyper of damper/valve
 - Rename uv to unitVent and subtype from fcu
 - Add movingWalkway
+
+Points
+
+// VFD
+run cmd
+run sensor
+enable cmd
+speed cmd
+freq cmd
+
+// AHU
+cool stage cmd
+heat stage cmd
+humidifier cmd
+filter sensor
+freezeStat sensor
+heatWheel cmd
+faceBypass cmd
+bypass damper cmd
+
+// ZONE
+zone air temp sensor
+zone air temp effective sp
+zone air temp occ cooling sp
+zone air temp occ heating sp
+zone air temp unocc cooling sp
+zone air temp unocc heating sp
+zone air temp standby cooling sp
+zone air temp standby heating sp
+zone air humidity sensor
+zone air co2 sensor
+zone air co2 sp
 
 **Version 3.9.3 (26 Apr 2019)**
 - Remove generics

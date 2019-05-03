@@ -21,27 +21,9 @@ doc: "Equipment that converts electrical energy into mechanical energy"
 --------------------------------------------------------------------------
 def: ^vfd
 is: ^marker
-mixinOn: ^motor
+mixinOn: [^motor]
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc: "Motor with variable frequency drive."
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Damper
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^damper
-is: ^marker
-wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
-doc: "Damper equipment or control point."
---------------------------------------------------------------------------
-def: ^damper-equip
-is: ^motor
-regulates: ^air
-ductSection: ^ductSectionType
-wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
-doc: "Equipment used to regulate the flow of air."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -59,7 +41,7 @@ is: ^motor
 moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 ductSection: ^ductSectionType
-doc: "Equipment used create air flow."
+doc: "Equipment to create air flow."
 children:
   {ductSection}-fan-run-cmd
   {ductSection}-fan-run-sensor
@@ -80,27 +62,9 @@ is: ^motor
 moves: ^fluid
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
-doc: "Equipment used move fluid."
+doc: "Equipment to move fluid."
 children:
   {pipeSection}-run-cmd
   {pipeSection}-run-sensor
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Valve
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^valve
-is: ^marker
-wikipedia: `https://en.wikipedia.org/wiki/Valve`
-doc: "Valve equipment or control point"
---------------------------------------------------------------------------
-def: ^valve-equip
-is: ^motor
-regulates: ^fluid
-pipeSection: ^pipeSectionType
-wikipedia: `https://en.wikipedia.org/wiki/Valve`
-doc: "Equipment used to regulate the flow of fluid."
 --------------------------------------------------------------------------
 
