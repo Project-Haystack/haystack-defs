@@ -1,0 +1,56 @@
+//
+// Copyright (c) 2011, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Feb 2011  Brian Frank  Creation
+//    3 May 2019  Brian Frank  New design
+//
+
+--------------------------------------------------------------------------
+def: ^actuator
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/Actuator`
+doc:
+  Equipment to move or control a mechanism.  Actuators may be manually
+  operated or automated via a control system to convert an energy source
+  into mechanical energy.  Typically the energy source is electricity,
+  hydraulics, or pneumatics.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Damper
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^damper
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
+doc: "Damper equipment or control point."
+--------------------------------------------------------------------------
+def: ^damper-equip
+is: ^actuator
+regulates: ^air
+ductSection: ^ductSectionType
+wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
+doc: "Actuator to regulate the flow of air."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Valve
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^valve
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Valve`
+doc: "Valve equipment or control point"
+--------------------------------------------------------------------------
+def: ^valve-equip
+is: ^actuator
+regulates: ^fluid
+pipeSection: ^pipeSectionType
+wikipedia: `https://en.wikipedia.org/wiki/Valve`
+doc: "Actuator to regulate the flow of fluid."
+--------------------------------------------------------------------------
+
