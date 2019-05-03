@@ -14,6 +14,7 @@
 - Add actuator as supertyper of damper/valve
 - Rename uv to unitVent and subtype from fcu
 - Add movingWalkway
+- Add coils and associated subtypes as a type of heatExchanger
 
 Points
 

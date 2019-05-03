@@ -25,6 +25,8 @@ doc:
   Conditioning of air includes heating, cooling, humidificiation,
   dehumidification, and ventilation.
 children:
+  coolingCoil
+  heatingCoil
   discharge-duct
   exhaust-duct
   mixed-duct
