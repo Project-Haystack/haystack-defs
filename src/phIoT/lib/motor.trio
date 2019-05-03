@@ -20,11 +20,39 @@ doc: "Equipment that converts electrical energy into mechanical energy"
 
 --------------------------------------------------------------------------
 def: ^vfd
-is: ^marker
+is: ^motor
 mixinOn: [^motor]
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc: "Motor with variable frequency drive."
+children:
+  drive-speed-cmd
+  drive-speed-freq
 --------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// VFD Points
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^drive
+is: ^phenomenon
+doc: "Related to the drive control of a `motor`"
+--------------------------------------------------------------------------
+def: ^drive-speed
+is: ^quantity
+quantityOf: ^drive
+prefUnit: ["%"]
+doc:
+  Motor speed measured in "%"; 0% is off and 100% is the fastest speed.
+--------------------------------------------------------------------------
+def: ^drive-freq
+is: ^quantity
+quantityOf: ^drive
+prefUnit: ["Hz"]
+doc:
+  Motor frequency measured in "Hz".
+--------------------------------------------------------------------------
+
 
 //////////////////////////////////////////////////////////////////////////
 // Fan
@@ -43,8 +71,8 @@ wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 ductSection: ^ductSectionType
 doc: "Equipment to create air flow."
 children:
-  {ductSection}-fan-run-cmd
-  {ductSection}-fan-run-sensor
+  {ductSection}-fan-run-state-cmd
+  {ductSection}-fan-run-state-sensor
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -64,7 +92,7 @@ pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 doc: "Equipment to move fluid."
 children:
-  {pipeSection}-run-cmd
-  {pipeSection}-run-sensor
+  {pipeSection}-run-state-cmd
+  {pipeSection}-run-state-sensor
 --------------------------------------------------------------------------
 
