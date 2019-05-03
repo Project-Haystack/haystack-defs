@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.4 (working)**
+**Version 3.9.4 (3 May 2019)**
 - New synthesizer design
 - Rework mixins to use mixinOn/mixins tags
 - Rework fan, damper, pump, valve to be both point and equip

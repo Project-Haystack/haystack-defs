@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------
 def: ^lib:phIoT
 doc: "Project Haystack definitions for Internet of Things"
-version: "3.9.3"
+version: "3.9.4"
 baseUri: `https://project-haystack.org/def/phIoT/`
 includes: [^lib:ph, ^lib:phScience]
---------------------------------------------------------------------------
+-------------------------------------------------------------------------
