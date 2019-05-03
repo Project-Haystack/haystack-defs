@@ -36,6 +36,8 @@ ductSection: ^ductSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 children:
+  {ductSection}-coolingCoil
+  {ductSection}-heatingCoil
   {ductSection}-damper
   {ductSection}-fan
   {ductSection}-air-co2-sensor
