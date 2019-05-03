@@ -101,17 +101,16 @@ doc: "Enclosed room of a building"
 --------------------------------------------------------------------------
 def: ^zone-space
 is: ^space
-mixin
 doc: "Space associated with a specific system"
 --------------------------------------------------------------------------
 def: ^hvac-zone-space
 is: ^zone-space
-mixin
+mixinOn: ^space
 doc: "Zone related to conditioning of a space's air temperature and quality"
 --------------------------------------------------------------------------
 def: ^lighting-zone-space
 is: ^zone-space
-mixin
+mixinOn: ^space
 doc: "Zone related to lighting system"
 --------------------------------------------------------------------------
 

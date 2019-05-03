@@ -81,8 +81,8 @@ doc: "Point is a setpoint, soft point, internal control variable, schedule"
 
 --------------------------------------------------------------------------
 def: ^cur-point
-is: ^point
-mixin
+is: ^marker
+mixinOn: ^point
 doc:
   Point with support to report a "real-time" current value.  By real-time
   we typically mean freshness within the order of of a few seconds or at
@@ -138,8 +138,8 @@ doc: "Error description when `curStatus` indicates error condition"
 
 --------------------------------------------------------------------------
 def: ^his-point
-is: ^point
-mixin
+is: ^marker
+mixinOn: ^point
 doc:
   Historized point with a history log of timestamp/value pairs.  Points
   marked as historized indicate the system can response to queries via
@@ -208,8 +208,8 @@ doc: "Error description when `hisStatus` indicates error condition"
 
 --------------------------------------------------------------------------
 def: ^writable-point
-is: ^point
-mixin
+is: ^marker
+mixinOn: ^point
 doc:
   Point with writable output using 16-level priority array.  Writable
   points typically are a setpont or actuator command.  Haystack writable

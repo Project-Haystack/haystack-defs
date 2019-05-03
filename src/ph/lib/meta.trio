@@ -114,13 +114,6 @@ doc:
   as 'tank', then the instance must also include the 'equip' tag as a
   mandatory marker.
 --------------------------------------------------------------------------
-def: ^mixin
-is: ^marker
-tagOn: ^def
-doc:
-  Marker added to a def to indicate inclusive subtyping.  Defs without
-  the mixin tag have a default assumption of exclusive subtyping.
---------------------------------------------------------------------------
 def: ^notInherited
 is: ^marker
 tagOn: ^def
