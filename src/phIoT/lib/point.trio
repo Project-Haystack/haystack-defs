@@ -272,7 +272,7 @@ doc:
   is missing then the winning value is null/auto.
 --------------------------------------------------------------------------
 def: ^writeLevel
-is: ^number
+is: ^int
 tagOn: ^writable-point
 transient
 minVal: 1
