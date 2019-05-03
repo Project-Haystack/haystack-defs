@@ -171,14 +171,14 @@ Value Tags [#valTags]
 *********************
 A value tag def is any tag def that is **not** a subtype of `marker`.
 
-If the tag def is a subtype of `ref`, then declare the def to be an instance of
-'owl:ObjectProperty'. All other value tags are declared to be an instance of
-'owl:DatatypeProperty'.
+If the tag def is a subtype of `ref` or is a `choice`, then declare the def to
+be an instance of 'owl:ObjectProperty'. All other value tags are declared to
+be an instance of 'owl:DatatypeProperty'.
 
 If the tag def (or one of its `defx` extensions) declares a `tagOn` aspect,
 then specify the 'rdfs:domain' to be all referent entities.
 
-If the tag def is a `choice` `aspect`, then specify the 'rdfs:range' to the value
+If the tag def is a `ref` or `choice`, then specify the 'rdfs:range' to the value
 of the `of` tag on the def.
 
 If the def is a basic [Tag Def]`Defs#tags` (e.g. `tz`), then specify the 'rdfs:range'
@@ -187,7 +187,7 @@ to be the appropriate Haystack datatype (see [Datatypes]`#datatypes` section).
 pre>
   // A Ref tag
   phIoT:siteRef a owl:ObjectProperty ;
-      rdfs:range ph:ref ;
+      rdfs:range phIoT:site ;
       rdfs:comment "Site which contains the entity" ;
       ph:is ph:ref ;
       ph:lib phIoT:lib:phIoT ;
@@ -202,8 +202,8 @@ pre>
       ph:lib ph:lib:ph .
 
   // A choice aspect
-  phIoT:conveys a owl:DatatypeProperty ;
-  rdfs:range phScience:phenomenon ;
+  phIoT:conveys a owl:ObjectProperty ;
+    rdfs:range phScience:phenomenon ;
     rdfs:comment "Equipment conveys a substance or phenomenon." ;
     ph:is phIoT:equipFunction ;
     ph:lib phIoT:lib:phIoT ;
