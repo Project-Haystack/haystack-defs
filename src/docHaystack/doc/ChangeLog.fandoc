@@ -10,6 +10,7 @@
 - New synthesizer design
 - Rework mixins to use mixinOn/mixins tags
 - Rework fan, damper, pump, valve to be both point and equip
+- Rework motor/vfd as supertype/mixin for fan, damper, pump, valve
 - Rename uv to unitVent and subtype from fcu
 - Add movingWalkway
 
