@@ -22,6 +22,8 @@ ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc:
   HVAC equipment that conditions and delivers air via one or more fans.
+  Conditioning of air includes heating, cooling, humidificiation,
+  dehumidification, and ventilation.
 children:
   discharge-duct
   exhaust-duct
@@ -42,7 +44,10 @@ doc: "Makeup air unit - delivers 100% outside air to space"
 --------------------------------------------------------------------------
 def: ^rtu
 is: ^ahu
-doc: "Packaged rooftop air handling unit"
+doc:
+  Packaged rooftop air handling unit.  RTUs are AHUs which are
+  weatherized for outdoor use.  They are typically mounted on rooftops,
+  but that is not required.
 --------------------------------------------------------------------------
 def: ^fcu
 is: ^airHandlingEquip

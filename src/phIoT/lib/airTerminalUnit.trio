@@ -11,9 +11,10 @@ def: ^airTerminalUnit
 is: ^equip
 ductConfig: ^ductConfigType
 doc:
-  Equipment in air distribution system which terminates at the space.
-  Terminal units may control the rate, velocity, pressure, or temperature
-  of air delivered to the space.
+  Equipment in air distribution systems which terminate at the space.
+  Terminal units receive air from `airHandlingEquip` which have the
+  primarily responsibility to condition air.  Terminal units are primarily
+  responsible for delivery of air to the space and tempering the temperature.
 children:
   discharge-duct
   inlet-duct
