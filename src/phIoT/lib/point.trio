@@ -13,6 +13,7 @@ is: ^entity
 pointSubject: ^phenomenon
 pointQuantity: ^quantity
 pointFunction: ^pointFunctionType
+docTaxonomy
 mandatory
 doc: "Data point such as a sensor or actuator"
 --------------------------------------------------------------------------

@@ -10,6 +10,7 @@
 --------------------------------------------------------------------------
 def: ^space
 is: ^entity
+docTaxonomy
 mandatory
 doc: "Space is a three-dimensional volume in the built environment"
 --------------------------------------------------------------------------

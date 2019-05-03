@@ -10,6 +10,7 @@
 --------------------------------------------------------------------------
 def: ^site
 is: [^entity, ^geoPlace]
+docTaxonomy
 mandatory
 doc: "Site is a geographic location of the built environment"
 --------------------------------------------------------------------------
