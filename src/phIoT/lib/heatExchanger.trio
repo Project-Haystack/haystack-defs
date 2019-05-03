@@ -10,7 +10,59 @@
 def: ^heatExchanger
 is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Heat_exchanger`
-doc: "Equipment to transfer heat between two fluids"
+doc: "Equipment to transfer heat between two working fluids."
+--------------------------------------------------------------------------
+def: ^coil
+is: ^heatExchanger
+wikipedia: `https://en.wikipedia.org/wiki/Heat_exchanger#HVAC_air_coils`
+doc:
+  Heat exchanger used to heat or cool air.  Coils are sub-components
+  of HVAC equipment such as `airHandlingEquip`.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Cooling Coils
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^coolingCoil
+is: ^coil
+cools: ^air
+coolingProcess: ^coolingProcessType
+doc: "Coil used to cool air."
+--------------------------------------------------------------------------
+def: ^chilled-water-coil
+is: ^coolingCoil
+coolingProcess: ^chilledWaterCooling
+doc: "Coil used to transfer heat from air to chilled water."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Heating Coils
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^heatingCoil
+is: ^coil
+heats: ^air
+heatingProcess: ^heatingProcessType
+doc: "Coil used to heat air."
+--------------------------------------------------------------------------
+def: ^hot-water-coil
+is: ^heatingCoil
+heatingProcess: ^hotWaterHeating
+doc: "Coil used to transfer heat from hot-water to air."
+--------------------------------------------------------------------------
+def: ^steam-coil
+is: ^heatingCoil
+heatingProcess: ^steamHeating
+doc: "Coil used to transfer heat from steam to air."
+--------------------------------------------------------------------------
+def: ^elec-coil
+is: ^heatingCoil
+heatingProcess: ^elecHeating
+wikipedia: `https://en.wikipedia.org/wiki/Heating_element`
+doc: "Heating element which converts electricity into heat"
 --------------------------------------------------------------------------
 
 
