@@ -10,7 +10,9 @@
 --------------------------------------------------------------------------
 def: ^point
 is: ^entity
-pointClassification: ^pointClassificationType
+pointSubject: ^phenomenon
+pointQuantity: ^quantity
+pointFunction: ^pointFunctionType
 mandatory
 doc: "Data point such as a sensor or actuator"
 --------------------------------------------------------------------------
@@ -48,32 +50,53 @@ enum:
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Point Classification
+// Point Subject
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^pointClassification
+def: ^pointSubject
 is: ^choice
-of: ^pointClassificationType
+of: ^phenomenon
+doc: "What the point senses or controls"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Point Functions
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pointQuantity
+is: ^choice
+of: ^quantity
+doc: "Quantity the point senses or controls"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Point Function
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pointFunction
+is: ^choice
+of: ^pointFunctionType
 doc: "Classifies the point as a sensor, command, or setpoint"
 --------------------------------------------------------------------------
-def: ^pointClassificationType
+def: ^pointFunctionType
 is: ^marker
 doc: "Classifies the point as a sensor, command, or setpoint"
 --------------------------------------------------------------------------
 def: ^sensor
-is: ^pointClassificationType
+is: ^pointFunctionType
 doc: "Point is a sensor, input, AI/BI"
 --------------------------------------------------------------------------
 def: ^cmd
-is: ^pointClassificationType
+is: ^pointFunctionType
 doc: "Point is a command, actuator, AO/BO"
 --------------------------------------------------------------------------
 def: ^sp
-is: ^pointClassificationType
+is: ^pointFunctionType
 doc: "Point is a setpoint, soft point, internal control variable, schedule"
 --------------------------------------------------------------------------
-
 
 //////////////////////////////////////////////////////////////////////////
 // Cur Point Mixin
@@ -277,31 +300,4 @@ tagOn: ^writable-point
 transient
 doc: "Error description when `writeStatus` indicates error condition"
 --------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Markers
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^enable
-is: ^marker
-tagOn: ^point
-doc:
-  Secondary on/off `point` of an `equip` especially used with a `vfd`.
-  Enable is used with Bool points where true indicates on and false
-  indicates off.  Equip with an enable should always also define a `run`
-  point which indicates the primary on/off state of the equipment.
---------------------------------------------------------------------------
-def: ^run
-is: ^marker
-tagOn: ^point
-doc:
-  Primary on/off `point` of an `equip` especially used with a `vfd`.
-  Run is used with Bool points where true indicates on and false indicates
-  off. When paired with `cmd` this is the commanded state of the equipment.
-  When paired with `sensor` this is the actual status of the equip.  If
-  the equipment also defines an `enable` point then both must be commanded
-  on in order to run the equipment.
---------------------------------------------------------------------------
-
 
