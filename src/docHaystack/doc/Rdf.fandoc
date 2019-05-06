@@ -217,8 +217,6 @@ However, we can also export instance data to RDF. In Haystack, an instance is a 
 with an `id` tag. The following outlines the high-level rules for exporting
 instances (i.e. Dicts) to RDF.
 
-- All the [general mapping rules]`#genRules` apply, **except** you should not
-write any statements for marker tags. These tags are implied by the ontology.
 - Instances should be blank nodes. If possible, the label for the blank node
   should be the id of the instance.
 - Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
