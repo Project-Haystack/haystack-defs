@@ -17,6 +17,7 @@
   [`Defs`,          "Definition meta-model"],
   [`Namespaces`,    "Symbolic namespaces"],
   [`Subtyping`,     "Definition subtyping"],
+  [`Normalization`, "Normalized dict representation of defs"],
   [`Reflection`,    "Mapping between dicts and defs"],
   [`Relationships`, "Modeling relationships"],
 
@@ -26,6 +27,7 @@
   [`Rdf`,           "Resource Description Framework export"],
 
   "Appendix",
+  [`Docs`,          "Guidance on reference documentation"],
   [`ChangeLog`,     "Version history"],
   [`License`,       "Academic Free License 3.0"],
 ]

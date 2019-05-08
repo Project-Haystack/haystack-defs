@@ -71,7 +71,11 @@ doc: "This tag is documented with its own section."
 def: ^docTaxonomy
 is: ^marker
 notInherited
-doc: "Generate a taxonomy tree for this term in the index."
+doc:
+  Generate a taxonomy tree for this term in the documentation index.  If
+  applied to an `entity` subtype then the link will be listed under the
+  [entities]`docHaystack::Docs#entities` section, otherwise its listed
+  in [taxonomies]`docHaystack::Docs#taxonomies` section.
 --------------------------------------------------------------------------
 def: ^enum
 is: ^str
@@ -96,12 +100,6 @@ is: ^list
 of: ^ref
 tagOn: ^lib
 doc: "List of library names to include"
---------------------------------------------------------------------------
-def: ^is
-is: ^list
-of: ^symbol
-tagOn: ^def
-doc: "Defines one or more supertypes of a subtyping relationship"
 --------------------------------------------------------------------------
 def: ^mandatory
 is: ^marker

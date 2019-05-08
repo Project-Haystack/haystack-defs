@@ -6,6 +6,10 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.5 (working)**
+- Add docs on the doc sections
+- Add usage doc section
+
 **Version 3.9.4 (3 May 2019)**
 - New synthesizer design
 - Rework mixins to use mixinOn/mixins tags
