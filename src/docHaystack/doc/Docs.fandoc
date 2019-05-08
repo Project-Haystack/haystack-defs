@@ -1,0 +1,125 @@
+**************************************************************************
+** title:      Docs
+** author:     Brian Frank
+** copyright:  Copyright (c) 2019, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+This chapter provides guidance on how to use the reference documentation.
+Each section used in the documentation is described below.
+
+Index [#index]
+**************
+The main index page is composed of the following sections:
+
+Entities [#entities]
+====================
+This section lists each of the entity base terms.  This includes
+the primary four entity types: `site`, `space`, `equip`, and `point`.
+Each term links to a taxonomy tree for the term's subtypes.  You can add
+new entity terms into this section with the `docTaxonomy` marker.
+
+Taxonomies [#taxonomies]
+========================
+This section lists key terms with a link to an index of the term's
+subtype tree.  You can add new terms into this section with the `docTaxonomy`
+tag (if the term is an entity, it will go into the entities section).
+
+Appendix [#appendix]
+=====================
+This section contains links to miscellaneous listing pages.
+Some of the appendices include:
+  - 'conjuncts': all terms composed of multiple tags
+  - 'tags': all terms composed of an atomic name
+  - 'terms': all tags and conjuncts listed together
+  - 'lib': listing of library modules
+  - 'filetype': listing of Haystack filetype encodings
+
+Terms [#terms]
+==============
+Section within a lib index that lists the terms defined by the lib
+module.
+
+Manuals [#manuals]
+******************
+Manuals are hand written documents that provide design details
+to augment the auto-generated reference documentation.  Manuals
+are composed of chapters which correspond to individual HTML pages.
+
+A manual index is composed of two sections:
+  - manual: summary information including name and brief overview
+  - chapters: index of the manual's chapter pages
+
+Defs [#defs]
+************
+Each def has its own reference page in the documentation composed
+of the following sections:
+
+Def [#def]
+==========
+The 'def' section contains summary information for the definition
+including its identifier formatted `doc` description.
+
+Conjunct [#conjunct]
+====================
+This section is used only for [conjuncts]`Defs#conjuncts`.  It
+provides a link to the definition of each of the conjunct's parts.
+
+Meta [#meta]
+============
+The 'meta' section documents the [normalized]`Normalization`
+tags for the definition's representation as a dict.  Each tag
+present in the definition is listed here, although some values such as
+the 'doc' or 'enum' may reference another section.
+
+Usage [#usage]
+==============
+This section is used only on entity terms.  It lists the required
+marker  tags which must be applied to a dict to correctly
+[implement]`Reflection#implementation` the term.  It takes into
+account conjuncts and supertypes with the `mandatory` marker.
+
+Enum [#enum]
+============
+If the definition has the `enum` tag then this section provides
+a listing of the documented enumerations and their summary.
+
+Supertypes [#supertypes]
+========================
+This section lists the term's [supertypes]`Subtyping`.  The supertypes
+are organized as an indented tree down from most general to most specific.
+The first item is the root type, which is typically `marker` or `val`.  The
+last item will be the definition's declared supertype matching the `is` tag.
+If the term has multiple supertypes then this tree will have multiple leaves.
+
+Subtypes [#subtypes]
+====================
+This section lists the term's [subtypes]`Subtyping`.  The subtypes
+are organized in an indented tree structure.
+
+Tags [#tags]
+============
+This section lists the value tags associated with the entity via
+the `tagOn` aspect.  This section also includes tags which are registered on
+the entity's supertypes.
+
+Mixins [#mixins]
+================
+This section lists terms associated with the entity via the
+`mixinOn` aspect.  Mixins are optional terms which might be applied
+to the entity.
+
+UsedBy [#usedBy]
+================
+This section lists terms which use the given aspect.  Its provides
+a nice mechanism to cross-reference usage of aspect tags.
+
+Children [#children]
+====================
+TODO: this section is a prototype.  It lists children terms which
+are "contained" by the given entity type.  Currently this includes
+declared terms as well as *synthetic* terms which are auto-generated
+by the compiler.
+

@@ -11,7 +11,7 @@
 def: ^meter
 is: ^equip
 meterScope: ^meterScopeType
-doc: "Equipment to meter a substance or electricity"
+doc: "Equipment to meter a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^elec-meter
 is: ^meter

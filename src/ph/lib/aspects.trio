@@ -19,6 +19,12 @@ def: ^reciprocalOf
 is: ^symbol
 doc: "Specifies the inverse of an aspect relationship"
 --------------------------------------------------------------------------
+def: ^is
+is: ^aspect
+doc:
+  Defines one or more supertypes of a subtyping relationship.
+  See `docHaystack::Subtyping`
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Tags/TagOn
