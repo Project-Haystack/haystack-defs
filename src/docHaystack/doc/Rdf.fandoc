@@ -221,6 +221,7 @@ instances (i.e. Dicts) to RDF.
   should be the id of the instance.
 - Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
   'owl:Class'.
+- All marker tags should specified using `hasTag`
 - Encode tag values as defined in the [data types]`#datatypes` section.
   - Exception: If the tag is a Ref (e.g. 'siteRef') the value should be a
     blank node with a label that references the corresponding instance.
@@ -247,6 +248,7 @@ And here is the RDF export of that site instance:
 pre>
   _:24192ca1-0c85f75d
       a phIoT:site ;
+      ph:hasTag site,
       phIoT:area 140797 ;
       ph:tz "New_York" ;
       ph:dis "Headquarters" ;
