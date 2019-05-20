@@ -3,14 +3,14 @@
 // Licensed under the Academic Free License version 3.0
 //
 // History:
-//   21 Jan 2019  Brian Frank  Creation
+//   20 May 2019  Brian Frank  Creation
 //
 
 --------------------------------------------------------------------------
-def: ^tank
-is: ^equip
-stores: ^substance
-wikipedia: `https://en.wikipedia.org/wiki/Storage_tank`
-doc: "Tank used to store a substance for temporary holding"
+def: ^device
+is: ^entity
+doc:
+  Microprocessor based hardware device.  This is the general term for
+  all computers, mobile phones, controllers, and I/O modules.
 --------------------------------------------------------------------------
 

@@ -1,0 +1,116 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   20 May 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^protocol
+is: ^entity
+wikipedia: `https://en.wikipedia.org/wiki/Communication_protocol`
+docTaxonomy
+doc: "Communication protocol used for devices on a network."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Subtypes
+//////////////////////////////////////////////////////////////////////////
+
+
+--------------------------------------------------------------------------
+def: ^bacnet
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/BACnet`
+doc: "ASHRAE building automation and control protocol"
+--------------------------------------------------------------------------
+def: ^bluetooth
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Bluetooth`
+doc: "Short range wireless communication protocol"
+--------------------------------------------------------------------------
+def: ^coap
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Constrained_Application_Protocol`
+doc: "Constrained Application Protocol"
+--------------------------------------------------------------------------
+def: ^dali
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Digital_Addressable_Lighting_Interface`
+doc: "Digital Addressable Lighting Interface protocol for lighting"
+--------------------------------------------------------------------------
+def: ^ftp
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/File_Transfer_Protocol`
+doc: "File Transfer Protocol"
+--------------------------------------------------------------------------
+def: ^haystack
+is: ^protocol
+doc: "Haystack HTTP protocol for exchanging tagged data"
+--------------------------------------------------------------------------
+def: ^http
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol`
+doc: "Hypertext Transfer Protocol which is foundation of the web"
+--------------------------------------------------------------------------
+def: ^imap
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol`
+doc: "Internet Message Access Protocol for retreiving email"
+--------------------------------------------------------------------------
+def: ^knx
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/KNX_(standard)`
+doc: "KNX protocol commonly used for lighting systems"
+--------------------------------------------------------------------------
+def: ^modbus
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Modbus`
+doc: "Register based communication protocol used with industrial devices."
+--------------------------------------------------------------------------
+def: ^mqtt
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/MQTT`
+doc: "Message Queuing Telemetry Transport publish/subscribe protocol"
+--------------------------------------------------------------------------
+def: ^obix
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/OBIX`
+doc: "XML based Open Building Information eXchange protocol."
+--------------------------------------------------------------------------
+def: ^pop3
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Post_Office_Protocol`
+doc: "Post Office Protocol version 3 for retreiving email"
+--------------------------------------------------------------------------
+def: ^sox
+is: ^protocol
+doc: "Sedona Framework UDP based communication protocol"
+--------------------------------------------------------------------------
+def: ^snmp
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol`
+doc: "Simple Network Management Protocol for managing IP devices"
+--------------------------------------------------------------------------
+def: ^smtp
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol`
+doc: "Simple Mail Transfer Protocol for sending email"
+--------------------------------------------------------------------------
+def: ^thread
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Thread_(network_protocol)`
+doc: "Low power wireless IoT protocol"
+--------------------------------------------------------------------------
+def: ^zigbee
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Zigbee`
+doc: "Low power wireless communication protocol for home automation"
+--------------------------------------------------------------------------
+def: ^zwave
+is: ^protocol
+wikipedia: `https://en.wikipedia.org/wiki/Z-Wave`
+doc: "Low power wireless communication protocol for home automation"
+--------------------------------------------------------------------------
+

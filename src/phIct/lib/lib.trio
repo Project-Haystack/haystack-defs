@@ -1,0 +1,19 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   20 May 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^lib:phIct
+version: "3.9.4"
+baseUri: `https://project-haystack.org/def/phIct/`
+includes: [^lib:ph]
+wikipedia: `https://en.wikipedia.org/wiki/Information_and_communications_technology`
+doc:
+  Project Haystack definitions for Information and Communications Technology.
+  This includes microprocessor based hardware, software, and networking
+  technologies.
+-------------------------------------------------------------------------
