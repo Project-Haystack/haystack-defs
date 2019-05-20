@@ -21,6 +21,7 @@ class Build : BuildGroup
       `ph/build.fan`,
       `phScience/build.fan`,
       `phIoT/build.fan`,
+      `phIct/build.fan`,
       `docHaystack/build.fan`,
     ]
   }
