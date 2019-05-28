@@ -8,6 +8,7 @@
 
 **Version 3.9.5 (working)**
 - Add phIct library for hardware, software, and networking
+- Rework motor/actuator conjuncts for fan, pump, damper, and valve
 - Add docs on the doc sections
 - Add usage doc section
 

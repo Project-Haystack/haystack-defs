@@ -64,12 +64,12 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 doc: "Fan equipment or control point"
 --------------------------------------------------------------------------
-def: ^fan-equip
+def: ^fan-motor
 is: ^motor
 moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 ductSection: ^ductSectionType
-doc: "Equipment to create air flow."
+doc: "Motor used with a fan to create air flow."
 children:
   {ductSection}-fan-run-state-cmd
   {ductSection}-fan-run-state-sensor
@@ -85,12 +85,12 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 doc: "Pump equipment or control point"
 --------------------------------------------------------------------------
-def: ^pump-equip
+def: ^pump-motor
 is: ^motor
 moves: ^fluid
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
-doc: "Equipment to move fluid."
+doc: "Motor used with a pump to move fluid."
 children:
   {pipeSection}-run-state-cmd
   {pipeSection}-run-state-sensor
