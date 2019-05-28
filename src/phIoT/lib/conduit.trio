@@ -132,7 +132,10 @@ doc: "Duct returning air back to equipment"
 def: ^ductDeck
 is: ^choice
 of: ^ductDeckType
-doc: "Cold, hot, or neutral deck"
+doc:
+  Cold, hot, or neutral deck. Can be applied to 'ahu' equip if the AHU
+  is part of a 'dualDuct' or 'tripleDuct' system but only serves a single
+  deck type.
 --------------------------------------------------------------------------
 def: ^ductDeckType
 is: ^marker
@@ -177,4 +180,3 @@ def: ^tripleDuct
 is: ^ductConfigType
 doc: "Three ducts: hotDeck, coldDeck, or neutralDeck"
 --------------------------------------------------------------------------
-

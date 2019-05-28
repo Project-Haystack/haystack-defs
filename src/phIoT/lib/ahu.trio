@@ -15,6 +15,7 @@ cools: ^air
 coolingProcess: ^coolingProcessType
 dehumidifies: ^air
 ductConfig: ^ductConfigType
+ductDeck: ^ductDeckType
 heats: ^air
 heatingProcess: ^heatingProcessType
 humidifies: ^air
@@ -36,41 +37,51 @@ def: ^ahu
 is: ^airHandlingEquip
 mandatory
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
-doc: "Air handling unit - mixes outside air and return air"
+doc:
+  Air Handler Unit: An enclosure with a fan that delivers air to a space
+  via ductwork and performs one or more of the functions of cleaning,
+  heating, cooling, humidifying, dehumidifying, ventilating or circulating
+  the air.
 --------------------------------------------------------------------------
 def: ^mau
 is: ^ahu
-doc: "Makeup air unit - delivers 100% outside air to space"
+doc:
+  Makeup Air Unit: An AHU that brings in 100% outside air and no
+  recirculated air.
 --------------------------------------------------------------------------
 def: ^rtu
 is: ^ahu
 doc:
-  Packaged rooftop air handling unit.  RTUs are AHUs which are
-  weatherized for outdoor use.  They are typically mounted on rooftops,
-  but that is not required.
+  Roof Top Unit: A unitary AHU that is weatherized for outdoor use.
 --------------------------------------------------------------------------
 def: ^fcu
 is: ^airHandlingEquip
 mandatory
 wikipedia: `https://en.wikipedia.org/wiki/Fan_coil_unit`
 doc:
-  Fan coil unit. Fan coils are unitary air handling equipment which
-  pull air directly from the space before conditioning.
+  Fan Coil Unit: A unitary, factory-made enclosure with a fan and coil
+  that recirculates air in a space and performs one or more of the
+  functions of cleaning, heating, cooling, humidifying, dehumidifying,
+  or ventilating the air. Unit heaters are examples of FCUs.
 --------------------------------------------------------------------------
 def: ^heatPump
 is: ^airHandlingEquip
 wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
 doc:
-  Heat pump.  Heat pumps are air handling equipment which employ a vapor
-  compression cycle but in the opposite direction to deliver heat to the
-  space.
+  Heat pump: An air handling equipment which employs a vapor compression
+  cycle with a reversing valve to provide heating or cooling to a space.
 --------------------------------------------------------------------------
 def: ^unitVent
 is: ^fcu
 doc:
-  Unit ventilator.  Unit ventilators are unitary air handling equipment
-  that have direct access to outside air.  They are commonly installed in
-  hotel rooms.
+  Unit Ventilator: An FCU that has direct access to outside air to provide
+  the space with ventilation.
+--------------------------------------------------------------------------
+def: ^crac
+is: ^fcu
+doc:
+  Computer Room Air Conditioner: An FCU designed to condition a computer
+  room.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -115,7 +126,3 @@ of: ^ahu
 receives: ^air
 doc: "AHU which supplies air to an equipment or space"
 --------------------------------------------------------------------------
-
-
-
-
