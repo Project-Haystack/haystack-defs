@@ -19,14 +19,11 @@ pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
 children:
-  {conveys}-{pipeSection}-pump
-  {conveys}-{pipeSection}-valve
-  {conveys}-{pipeSection}-flow-sensor
-  {conveys}-{pipeSection}-flow-sp
-  {conveys}-{pipeSection}-pressure-sensor
-  {conveys}-{pipeSection}-pressure-sp
-  {conveys}-{pipeSection}-temp-sensor
-  {conveys}-{pipeSection}-temp-sp
+  pump motor equip
+  valve actuator equip
+  flow point
+  pressure point
+  temp point
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
@@ -36,20 +33,15 @@ ductSection: ^ductSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 children:
-  {ductSection}-coolingCoil
-  {ductSection}-heatingCoil
-  {ductSection}-damper
-  {ductSection}-fan
-  {ductSection}-air-co2-sensor
-  {ductSection}-air-co2-sp
-  {ductSection}-air-flow-sensor
-  {ductSection}-air-flow-sp
-  {ductSection}-air-humidity-sensor
-  {ductSection}-air-humidity-sp
-  {ductSection}-air-pressure-sensor
-  {ductSection}-air-pressure-sp
-  {ductSection}-air-temp-sensor
-  {ductSection}-air-temp-sp
+  coolingCoil equip
+  heatingCoil equip
+  damper actuator equip
+  fan motor equip
+  air co2 point
+  air flow point
+  air humidity point
+  air pressure point
+  air temp point
 --------------------------------------------------------------------------
 def: ^wire
 is: ^conduit

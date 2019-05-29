@@ -16,8 +16,8 @@ doc:
   primarily responsibility to condition air.  Terminal units are primarily
   responsible for delivery of air to the space and tempering the temperature.
 children:
-  discharge-duct
-  inlet-duct
-  thermostat
+  discharge duct equip
+  inlet duct equip
+  thermostat equip
 --------------------------------------------------------------------------
 
