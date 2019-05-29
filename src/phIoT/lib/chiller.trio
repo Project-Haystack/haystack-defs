@@ -16,13 +16,12 @@ doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
   compression or an absorption refrigeration cycle.
 children:
-  state-run-cmd
-  state-run-sensor
-  state-enable-cmd
-  chilled-water-leaving-pipe
-  chilled-water-entering-pipe
-  condenser-water-leaving-pipe
-  condenser-water-entering-pipe
+  run state point
+  enable state point
+  chilled water leaving pipe equip
+  chilled water entering pipe equip
+  condenser water leaving pipe equip
+  condenser water entering pipe equip
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

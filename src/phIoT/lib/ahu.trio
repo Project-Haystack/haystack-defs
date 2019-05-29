@@ -26,12 +26,12 @@ doc:
   Conditioning of air includes heating, cooling, humidificiation,
   dehumidification, and ventilation.
 children:
-  discharge-duct
-  exhaust-duct
-  mixed-duct
-  outside-duct
-  return-duct
-  thermostat
+  discharge duct equip
+  exhaust duct equip
+  mixed duct equip
+  outside duct equip
+  return duct equip
+  thermostat equip
 --------------------------------------------------------------------------
 def: ^ahu
 is: ^airHandlingEquip

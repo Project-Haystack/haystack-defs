@@ -123,3 +123,15 @@ are "contained" by the given entity type.  Currently this includes
 declared terms as well as *synthetic* terms which are auto-generated
 by the compiler.
 
+Protos [#protos]
+****************
+Prototypes are dict instances which model a predefined collection of tags.
+
+Proto [#proto]
+==============
+The 'proto' section defines the prototypes tags.
+
+Implements [#implements]
+========================
+The definitions [implemented]`Reflection#implementation` by the prototype.
+

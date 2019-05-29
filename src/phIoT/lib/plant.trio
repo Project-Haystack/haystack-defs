@@ -16,34 +16,34 @@ is: ^plant
 supplies: ^chilled-water
 doc: "Plant used to generate chilled water for cooling"
 children:
-  chilled-water-bypass-pipe
-  chilled-water-entering-pipe
-  chilled-water-leaving-pipe
-  chiller
-  coolingTower
-  chilled-water-heatExchanger
+  chilled water bypass pipe equip
+  chilled water entering pipe equip
+  chilled water leaving pipe equip
+  chiller equip
+  coolingTower equip
+  chilled water heatExchanger equip
 --------------------------------------------------------------------------
 def: ^hot-water-plant
 is: ^plant
 supplies: ^hot-water
 doc: "Plant used to generate hot water for heating"
 children:
-  hot-water-bypass-pipe
-  hot-water-entering-pipe
-  hot-water-leaving-pipe
-  hot-water-boiler
-  hot-water-heatExchanger
+  hot water bypass pipe equip
+  hot water entering pipe equip
+  hot water leaving pipe equip
+  hot water boiler equip
+  hot water heatExchanger equip
 --------------------------------------------------------------------------
 def: ^steam-plant
 is: ^plant
 supplies: ^steam
 doc: "Plant used to generate steam for heating"
 children:
-  steam-bypass-pipe
-  steam-entering-pipe
-  steam-leaving-pipe
-  steam-boiler
-  steam-heatExchanger
+  steam bypass pipe equip
+  steam entering pipe equip
+  steam leaving pipe equip
+  steam boiler equip
+  steam heatExchanger equip
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

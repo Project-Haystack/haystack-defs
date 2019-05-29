@@ -20,8 +20,8 @@ heats: ^hot-water
 supplies: ^hot-water
 doc: "Boiler which outputs hot water"
 children:
-  hot-water-entering-pipe
-  hot-water-leaving-pipe
+  hot water entering pipe equip
+  hot water leaving pipe equip
 --------------------------------------------------------------------------
 def: ^steam-boiler
 is: ^boiler
@@ -29,7 +29,7 @@ heats: ^steam
 supplies: ^steam
 doc: "Boiler which outputs steam"
 children:
-  steam-entering-pipe
-  steam-leaving-pipe
+  steam entering pipe equip
+  steam leaving pipe equip
 --------------------------------------------------------------------------
 

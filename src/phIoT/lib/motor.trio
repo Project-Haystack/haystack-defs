@@ -12,6 +12,9 @@ def: ^motor
 is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Electric_motor`
 doc: "Equipment that converts electrical energy into mechanical energy"
+children:
+  run state point
+  enable state point
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -25,8 +28,8 @@ mixinOn: [^motor]
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc: "Motor with variable frequency drive."
 children:
-  drive-speed-cmd
-  drive-speed-freq
+  drive speed point
+  drive freq point
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -70,9 +73,6 @@ moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 ductSection: ^ductSectionType
 doc: "Motor used with a fan to create air flow."
-children:
-  {ductSection}-fan-run-state-cmd
-  {ductSection}-fan-run-state-sensor
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -91,8 +91,5 @@ moves: ^fluid
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 doc: "Motor used with a pump to move fluid."
-children:
-  {pipeSection}-run-state-cmd
-  {pipeSection}-run-state-sensor
 --------------------------------------------------------------------------
 

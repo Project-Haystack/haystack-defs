@@ -14,8 +14,8 @@ tagOn: ^lib
 doc: "Base URI for normalizing relative URIs"
 --------------------------------------------------------------------------
 def: ^children
-is: ^synthesizer
-doc: "Types contained by this entity"
+is: ^str
+doc: "Prototypes contained by this entity"
 --------------------------------------------------------------------------
 def: ^computed
 is: ^marker
@@ -118,14 +118,6 @@ tagOn: ^def
 doc:
   Marker applied to a def to indicate that is not inherited into
   subtype definitions.
---------------------------------------------------------------------------
-def: ^synthesizer
-is: ^str
-doc: "Synthesizes defs for documentation and tooling"
---------------------------------------------------------------------------
-def: ^synthetic
-is: ^marker
-doc: "Automatically generated"
 --------------------------------------------------------------------------
 def: ^transient
 is: ^marker
