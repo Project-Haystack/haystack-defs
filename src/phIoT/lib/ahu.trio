@@ -38,7 +38,7 @@ is: ^airHandlingEquip
 mandatory
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc:
-  Air Handler Unit: An enclosure with a fan that delivers air to a space
+  Air Handling Unit: An enclosure with a fan that delivers air to a space
   via ductwork and performs one or more of the functions of cleaning,
   heating, cooling, humidifying, dehumidifying, ventilating or circulating
   the air.
