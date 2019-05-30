@@ -17,6 +17,11 @@ def: ^children
 is: ^str
 doc: "Prototypes contained by this entity"
 --------------------------------------------------------------------------
+def: ^childrenFlatten
+is: ^list
+of: ^symbol
+doc: "Support for flatten the children contained by this entity."
+--------------------------------------------------------------------------
 def: ^computed
 is: ^marker
 doc:
