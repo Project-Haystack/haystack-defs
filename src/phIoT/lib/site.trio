@@ -140,6 +140,7 @@ enum:
 def: ^siteRef
 is: ^ref
 of: ^site
+containedBy: ^site
 doc: "Site which contains the entity"
 --------------------------------------------------------------------------
 
