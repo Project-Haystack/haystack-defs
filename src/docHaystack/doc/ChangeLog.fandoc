@@ -7,6 +7,8 @@
 **************************************************************************
 
 **Version 3.9.5 (working)**
+- Refactor site/weatherStation to be closer to current design
+- Remove building tag
 - Add phIct library for hardware, software, and networking
 - Redesign children using dict prototype instances
 - Rework motor/actuator conjuncts for fan, pump, damper, and valve

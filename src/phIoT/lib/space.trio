@@ -13,11 +13,15 @@ is: ^entity
 docTaxonomy
 mandatory
 doc: "Space is a three-dimensional volume in the built environment"
+children:
+  space
+  equip
+  point
 --------------------------------------------------------------------------
 def: ^area
 is: ^number
 prefUnit: ["ft²", "m²"]
-tagOn: ^space
+tagOn: [^site, ^space]
 doc: "Area of a shape or floor space"
 --------------------------------------------------------------------------
 
