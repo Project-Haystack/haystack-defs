@@ -78,7 +78,6 @@ def: ^contains
 is: ^aspect
 reciprocalOf: ^containedBy
 computed
-docSection
 transitive
 doc: "Entities logically contained by this entity"
 --------------------------------------------------------------------------

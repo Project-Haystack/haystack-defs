@@ -12,18 +12,13 @@ def: ^site
 is: [^entity, ^geoPlace]
 docTaxonomy
 mandatory
-doc: "Site is a geographic location of the built environment"
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Building
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^building
-is: [^site, ^space]
-wikipedia: `https://en.wikipedia.org/wiki/Building`
-doc: "Site which is a building"
+doc:
+  Site is a geographic location of the built environment.
+  Typically site maps to one building with its own unique
+  street address.
+children:
+  space
+  equip
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -41,7 +36,7 @@ doc: "Original year of construction as four digit year such as 1980"
 --------------------------------------------------------------------------
 def: ^primaryFunction
 is: ^str
-tagOn: ^building
+tagOn: ^site
 doc: "Primary function of building as US Energy Star key"
 enum:
   Adult Education

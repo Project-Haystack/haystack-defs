@@ -45,11 +45,11 @@ If we want to apply the `point` def to a dict, then we apply rule 1a.  There
 are no supertypes marked as 'mandatory' so we are done.  Thus we apply
 only '{point}' to fully implement the `point` def.
 
-If we wish to apply the `building` def, then we apply rule 1a.  However when
-we walk the supertype tree we see that there are two defs marked as 'mandatory':
-both `site` and `space`.  Therefore to implement `building` requires adding
-all three tags: '{site, space, building}'.  As a general rule top-level
-entity markers such as `site`, `space`, `equip`, `point` are always required.
+If we wish to apply the `rtu` def, then we apply rule 1a.  However when
+we walk the supertype tree we see that it subtypes from two 'mandatory'
+defs: `ahu` and `equip`.  Therefore to implement `rtu` requires adding
+all three tags: '{rtu, ahu, equip}'.  As a general rule top-level entity
+markers such as `site`, `space`, `equip`, `point` are always required.
 This makes it easy to query your tag based data.
 
 If we wish to apply the `hot-water-plant` def then we will apply rule 1b.
