@@ -72,7 +72,7 @@ is: ^motor
 moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 ductSection: ^ductSectionType
-childrenFlatten: [^fan]
+childrenFlatten: [^ductSectionType, ^fan]
 doc: "Motor used with a fan to create air flow."
 --------------------------------------------------------------------------
 
