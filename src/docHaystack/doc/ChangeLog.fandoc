@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.5 (working)**
+**Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design
 - Remove building tag
 - Add phIct library for hardware, software, and networking
