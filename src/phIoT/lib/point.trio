@@ -35,19 +35,8 @@ tagOn: ^point
 defx: ^maxVal
 tagOn: ^point
 --------------------------------------------------------------------------
-def: ^pointKind
-is: ^str
+defx: ^kind
 tagOn: ^point
-doc: "Point value type"
-enum:
-  - Bool: model digital points as true/false.  Bool points may
-    also define an `enum` tag for the text to use for the true/false states
-  - Number: model analog points such as temperature or pressure.
-    These points should also include the `unit` to indicate the point's
-    unit of measurement.
-  - Str: models an enumerated point with a mode such as "Off, Slow, Fast".
-    Enumeraed points should also define an `enum` tag.
-  - Coord: models a point tracking geolocation coordinates
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
