@@ -8,6 +8,31 @@
 //
 
 --------------------------------------------------------------------------
+def: ^kind
+is: ^str
+doc:
+  Kind name used before Haystack 4.0 to identity data types
+enum:
+  - Marker: is-a label
+  - Bool: true or false
+  - NA: not available
+  - Number: floating point with optional unit
+  - Str: Unicode string
+  - Uri: Universal resource identifier
+  - Ref: reference to an entity
+  - Date: an ISO 8601 date as year, month, day: 2011-06-07
+  - Time: an ISO 8601 time as hour, minute, seconds: 09:51:27.354
+  - DateTime: an ISO 8601 timestamp followed by timezone name
+  - Coord: geographic coordinate in latitude/longitude formatted as C(lat,lng)
+  - XStr: extended string with type name
+  - List: ordered sequence
+  - Dict: key/value map
+  - Grid: two dimensional tabular data collection
+--------------------------------------------------------------------------
+def: ^filter
+is: ^str
+doc: "Haystack filter string.  See `docHaystack::Filters`"
+--------------------------------------------------------------------------
 def: ^tz
 is: ^str
 doc: "Timezone identifier from standard timezone database"
@@ -15,10 +40,6 @@ doc: "Timezone identifier from standard timezone database"
 def: ^unit
 is: ^str
 doc: "Unit identifier from standard unit database"
---------------------------------------------------------------------------
-def: ^filter
-is: ^str
-doc: "Haystack filter string.  See `docHaystack::Filters`"
 --------------------------------------------------------------------------
 
 
