@@ -9,18 +9,29 @@
 --------------------------------------------------------------------------
 def: ^aspect
 docTaxonomy
-doc: "Aspects model a relationship between two definitions"
+doc:
+  Aspects model a relationship between two definitions.
+
+  There are two subtypes of aspects:
+     - `choice`: a relationship to exactly one def
+     - `trait`: a relationship to zero or more defs
 --------------------------------------------------------------------------
 def: ^choice
-is: ^aspect
+is: [^aspect, ^symbol]
 doc: "Choice specifies an aspect with an single exclusive value"
+--------------------------------------------------------------------------
+def: ^trait
+is: [^aspect, ^list]
+of: ^symbol
+doc: "Trait specifies a relationship between a def to zero or more defs"
 --------------------------------------------------------------------------
 def: ^reciprocalOf
 is: ^symbol
-doc: "Specifies the inverse of an aspect relationship"
+doc: "Specifies the inverse of a trait relationship"
 --------------------------------------------------------------------------
 def: ^is
-is: ^aspect
+is: ^trait
+tagOn: ^def
 doc:
   Defines one or more supertypes of a subtyping relationship.
   See `docHaystack::Subtyping`
@@ -32,12 +43,13 @@ doc:
 
 --------------------------------------------------------------------------
 def: ^tagOn
-is: ^aspect
+is: ^trait
+tagOn: ^def
 reciprocalOf: ^tags
 doc: "This tag is used on the given entity"
 --------------------------------------------------------------------------
 def: ^tags
-is: ^aspect
+is: ^trait
 reciprocalOf: ^tagOn
 computed
 docSection
@@ -50,14 +62,15 @@ doc: "Tags used with this entity"
 
 --------------------------------------------------------------------------
 def: ^mixinOn
-is: ^aspect
+is: ^trait
+tagOn: ^def
 reciprocalOf: ^mixins
 doc:
   Optional set of definitions to add to an entity.
   Mixins provide a mechanism of inclusive subtyping.
 --------------------------------------------------------------------------
 def: ^mixins
-is: ^aspect
+is: ^trait
 reciprocalOf: ^mixinOn
 computed
 docSection
@@ -70,12 +83,15 @@ doc: "Mixins available to add to this entity"
 
 --------------------------------------------------------------------------
 def: ^containedBy
-is: ^aspect
+is: ^trait
+tagOn: ^def
 reciprocalOf: ^contains
-doc: "This entity is logically contained by the given entity"
+doc:
+  This entity is logically contained by the given entity. This
+  trait is applied to ref tags that reference a parent entity.
 --------------------------------------------------------------------------
 def: ^contains
-is: ^aspect
+is: ^trait
 reciprocalOf: ^containedBy
 computed
 transitive
