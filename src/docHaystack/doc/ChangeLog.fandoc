@@ -8,6 +8,7 @@
 
 **Version 3.9.6 (working)**
 - Remove pointKind and use kind to keep it back compatibile
+- Polish def and aspects
 
 **Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design

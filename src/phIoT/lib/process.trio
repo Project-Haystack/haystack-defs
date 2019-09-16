@@ -13,7 +13,7 @@ docTaxonomy
 doc: "Industrial or HVAC process"
 --------------------------------------------------------------------------
 def: ^processUses
-is: ^aspect
+is: ^trait
 of: ^phenomenon
 doc: "Input to a process, usually energy source"
 --------------------------------------------------------------------------

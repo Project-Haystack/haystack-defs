@@ -113,7 +113,7 @@ doc: "Inclusive maximum for a numeric value."
 
 --------------------------------------------------------------------------
 def: ^of
-is: ^aspect
+is: ^symbol
 doc: "Value type of a collection or reference"
 --------------------------------------------------------------------------
 
