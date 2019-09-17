@@ -49,8 +49,8 @@ from a single def, we typically use just a symbol:
 
 In cases where multiple supertypes are required, use a list of symbols:
 
-  def: ^building
-  is: [^site, ^space]
+  def: ^site
+  is: [^entity, ^geoPlace]
 
 All terms are required to have an 'is' tag with the exception of the *root
 terms* which are `marker`, `val`, `aspect`, and `feature`.  [Feature keys]`Defs#keys`
@@ -61,7 +61,7 @@ result in a strict tree structure.
 
 Inheritance [#inheritance]
 **************************
-Defs are themselves specified a set of tag name/value pairs.  Subtypes
+Defs are themselves specified as a set of tag name/value pairs.  Subtypes
 automatically inherit these tags into their own definitions.  We call
 this process *inheritance* and it works similar to inheritance in
 traditional object-oriented languages.

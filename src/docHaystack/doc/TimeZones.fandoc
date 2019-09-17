@@ -8,7 +8,7 @@
 
 Overview [#overview]
 ********************
-Time-series data is the foundation for the sensor and operational data.
+Time-series data is the foundation for sensor and operational data.
 This makes it critical to define a proper, unambiguous representation
 of time and timezones.  Timezones are identified using the `tz` tag with a city
 name from the [zoneinfo database]`http://en.wikipedia.org/wiki/Tz_database` (discussed

@@ -23,7 +23,7 @@ be used on a definition.
 
 Semantic Layers [#layers]
 *************************
-Defs allow us to build up layers of our information model:
+Defs allow us to build up the layers of our information model:
   - **No Defs**: using dict as simple name/value pairs without formal defs
   - **Vocabulary**: giving our tag names formal definitions as terms
   - **Taxonomy**: organizing our terms into a subtype tree
@@ -47,16 +47,15 @@ through [subtyping]`Subtyping`.  Subtyping allows us to relate terms as
 For example we define that `water` is a subtype of `liquid`.  Subtyping
 allows us to infer semantics beyond the presence of tags.
 
-Ontologies extend taxonomies to include the relationships between concepts.
+Ontologies extend taxonomies to include relationships between concepts.
 In Haystack we build out this ontological information using symbolic tags
-on defs to cross-reference other defs.  For example, we can model that a duct
-conveys air:
+on defs to cross-reference other defs.  We call these cross references
+[Aspects]`Aspects`.  For example, we can model that a duct conveys air:
 
   def: ^duct
   conveys: ^air
 
-Ontological relationships provide tremendous power to query the
-knowledge from Haystack data.
+Aspects enable inference when querying knowledge from Haystack data.
 
 Def Types [#types]
 ******************
@@ -86,8 +85,8 @@ Here is an example:
 
 Conjuncts [#conjuncts]
 **********************
-Conjuncts are used to define a set of two or more tags used together in
-combination.  Conjuncts are like the compound words used in English and
+Conjuncts are used to define a set of two or more marker tags used together
+in combination.  Conjuncts are like the compound words used in English and
 other languages.  We coin a new term from existing terms.
 
 Conjunct symbols are formatted as individual names separated by a dash.
@@ -159,7 +158,7 @@ automatically subtypes from `lib`.  It is invalid to declare an 'is' tag
 on a feature key def.
 
 Feature keys are [singletons]`https://en.wikipedia.org/wiki/Singleton_pattern`.
-They don't have data instances.  For example, there is no combination of
-tags applied to dicts to [implement]`Reflection` the 'lib:ph' def.  The 'lib:ph'
-def is itself the only instance.
+They don't have data instances.  For example, the 'lib:ph' def is itself the
+only instance.
+
 

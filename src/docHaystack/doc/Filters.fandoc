@@ -53,6 +53,8 @@ The way to read the above expression is match an entity if:
   - and what the siteRef tag points to has the geoCity tag
   - and that the site's geoCity tag is equal to "Chicago"
 
+The arrow operator may also be used if the tag value is a nested Dict.
+
 Def Operator [#def]
 *******************
 You can use the '?' operator to filter based on the defs which the
