@@ -18,8 +18,10 @@
   [`Namespaces`,    "Symbolic namespaces"],
   [`Subtyping`,     "Definition subtyping"],
   [`Normalization`, "Normalized dict representation of defs"],
+  [`Aspects`,       "Ontological relationships"],
   [`Reflection`,    "Mapping between dicts and defs"],
   [`Relationships`, "Modeling relationships"],
+  [`Protos`,        "Dict prototypes"],
 
   "Filetype Formats",
   [`Zinc`,          "Zinc plain text format"],

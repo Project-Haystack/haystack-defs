@@ -118,10 +118,8 @@ a nice mechanism to cross-reference usage of aspect tags.
 
 Children [#children]
 ====================
-TODO: this section is a prototype.  It lists children terms which
-are "contained" by the given entity type.  Currently this includes
-declared terms as well as *synthetic* terms which are auto-generated
-by the compiler.
+This section lists children [prototypes]`Protos` which are "contained" by
+the given entity type.
 
 Protos [#protos]
 ****************

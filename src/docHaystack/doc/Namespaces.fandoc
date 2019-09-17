@@ -8,9 +8,9 @@
 Overview [#overview]
 *********************
 All defs are declared within a *lib* or library module.  A *namespace* is a
-set of libs which define a namespace of defs.  All applications using Haystack
-are performed within the context of a namespace.  Namespaces define the defs
-in scope for reflection, querying, and symbolic linking.
+set of libs which define a mapping of symbols to defs.  All applications using
+Haystack are performed within the context of a namespace.  Namespaces define
+the defs in scope for reflection, querying, and symbolic linking.
 
 Libs [#libs]
 ************
@@ -18,7 +18,7 @@ Libs or libraries are the fundamental unit of modularity in Project Haystack.
 Every def must be defined inside a parent lib.  The normalized representation
 of every def has a `lib` tag with a symbolic link to its parent library.
 However the 'lib' tag itself is never declared explicitly, rather it is
-always implied during load time.
+always implied during load time as part of [normalization]`Normalization`.
 
 Libs are defined as a zip file with one or more `Trio` files under the "lib/"
 directory.  There must be a file named "lib/lib.trio" which specifies exactly
@@ -28,7 +28,7 @@ following tags:
   - `def`: must be a feature key under the `lib` feature
   - `doc`: must provide a description of the library
   - `version`: identifies the version as series of integers separated by dot
-  - `baseUri`: an absolute URI used to map symbols to URIs (used by `Rdf`)
+  - `baseUri`: an absolute URI used to map symbols to URIs (used by [RDF]`Rdf`)
   - `includes`: a list symbolic names for libs to import
 
 Any other Trio files under "lib/" contain the lib's defs.  These files may
@@ -47,13 +47,15 @@ Project Haystack reserves lib names prefixed with "ph".
 
 Project Haystack Libs [#phLibs]
 *******************************
-Project Haystack currently defines three standardized libs:
+Project Haystack currently defines four standardized libs:
 
   - `lib:ph`: core definitions
   - `lib:phScience`: definitions related to scientific phenomenon
     and quantities
   - `lib:phIoT`: definitions related to domain of Internet of Things
     and the built environment
+  - `lib:phIct`: definitions related to Information and Communication
+    Technology
 
 Future Project Haystack lib names will be always be prefixed with "ph".
 
