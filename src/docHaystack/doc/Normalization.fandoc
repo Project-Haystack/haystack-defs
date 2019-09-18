@@ -7,4 +7,257 @@
 
 Overview [#overview]
 ********************
-TODO
+Normalization is the process of compiling [libs]`Namespaces#libs` to
+a [namespace]`Namespaces`.  Remember that every [def]`Defs` is modeled as a
+dict - just a normal collection of name/value pairs.  The defs packaged
+inside libs are called *declared* defs.  Normalization will modify the tags
+of each def yielding a new dict which we call the *effective* def.  Effective
+defs are  used to compute documentation, reflection, def aware
+filters, etc.
+
+Note: normalization is only required for software which wishes to build
+a namespace from source libs.  Pre-normalized defs can be downloaded from
+[Project-Haystack]`https://project-haystack.dev/download#defs`.  These
+downloads may also be used as test cases to verify your own normalization
+software.
+
+Pipeline [#pipeline]
+********************
+The process to compile libs to a namespace is composed of the following
+ordered steps:
+
+  1. **[Scan]`#scan`**: traverse input libs to find trio files
+  2. **[Parse]`#parse`**: parse each trio file to discover def and defx dicts
+  3. **[Resolve]`#resolve`**: ensure every symbol tag maps to def
+  4. **[Defx]`#defx`**: add defx tags to each declared def
+  5. **[Infer Lib]`#inferLib`**: infer 'lib' tag from containing lib
+  6. **[Traits]`#traits`**: ensure traits are symbol lists
+  7. **[Infer Is]`#inferIs`**: infer 'is' tag for features
+  8. **[Inherit]`#inherit`**: recursively apply supertype tags into subtypes
+  9. **[Validation]`#validate`**: perform additional sanity checks
+  10. **[Generate]`#generate`**: output Namespace
+
+Each of these steps is discussed in detail in the following sections.
+
+Scan [#scan]
+************
+The input to normalization is list of [lib]`Namespaces#libs` files.  These
+are the zip files that contain the declared defs.  Each zip file is opened
+and searched for applicable `Trio` files in the "lib/" directory.  There
+must be exactly one dict defined in "lib/lib.trio" with the lib's meta.
+
+Parse [#parse]
+**************
+Every input `Trio` file found during scan is parsed to discover the declared
+def dicts identified with the 'def' tag.  This phase is also used to
+discover our *def extensions* which are identified by the 'defx' tag.
+Every dict parsed must have either the 'def' or 'defx' tag and the value
+must be a symbol.  During this phase we detect and report illegal
+duplicate symbols - a given symbol must be mapped to only one def in
+all the input libs.
+
+Resolve [#resolve]
+******************
+During this phase we walk every tag in every def and defx to resolve
+symbolic references.  For each def, the following  must resolve in
+its [lib namespace]`Namespaces#lib`:
+  1. Every tag name must resolve to a tag def
+  2. Every symbol used as a tag value must resolve
+  3. Every list of symbols in a tag value must individually resolve
+
+We compute each lib namespace by computing only the symbols in the lib's
+scope.  These are the symbols defined by the lib itself and those imported
+via its `includes`.  Includes are **not** transitive - a given include does
+not imply including their referenced lib's includes.
+
+Example:
+
+  // lib alpha
+  def: ^lib:alpha
+  includes: [^lib:ph]
+  --
+  def: ^alphaTag
+  is: ^marker
+
+  // lib beta
+  def: ^lib:beta
+  includes: [^lib:ph, ^lib:alpha]
+  --
+  def: ^betaTag
+  is: ^marker
+
+  // lib gamma
+  def: ^lib:beta
+  includes: [^lib:ph, ^lib:beta]
+
+The lib namespace to use for resolution would be as follows:
+
+  alpha: all symbols in ph, alphaTag (in its own lib)
+  beta: all symbols in ph, betaTag (in its own lib), alphaTag (from include)
+  gamma: all symbols in ph, betaTag (from include)
+
+Note that gamma does not have visibility to alphaTag because alpha is not
+explicitly included.
+
+Resolution is performed on def and defx dicts separately.  This allows
+defx dicts to reference symbols which aren't in scope of the source def.
+
+Defx [#defx]
+************
+After resolution is complete, we can apply our defx extensions to their
+respective defs.  Each defx is used to add one or more tags to a source
+def identified by the `defx` tag.  The defx mechanism provides for late
+binding of def metadata.  Just like RDF allows anyone to add a triple
+to a given subject, anyone can add tags to a def using a defx.
+
+Every defx must reference a def within its scope and must only add new tags.
+It is illegal for a defx to specify a tag declared by the def itself or by
+another defx.
+
+Here is example to illustrate:
+
+  // source def
+  def: ^date
+  is: ^scalar
+
+  // two defx dicts declared in separate libs
+  defx: ^date
+  acmeTerm: "ISODate"
+  --
+  defx: ^date
+  wombatFormatter: "DateFormatter"
+
+  // after defx are merged, effective def is
+  def: ^date
+  is: ^scalar
+  acmeTerm: "ISODate"
+  wombatFormatter: "DateFormatter"
+
+Infer Lib [#inferLib]
+*********************
+Every def has in inferred `lib` tag which is a reference to its declaring
+lib.  It is invalid for any def to declare its own 'lib' tag.  The lib meta
+itself also receives a 'lib' tag referencing itself.  Example:
+
+  // before (within phIoT lib)
+  def: ^equip
+  is: ^entity
+
+  // after
+  def: ^equip
+  is: ^entity
+  lib: ^lib:phIoT
+
+Traits [#traits]
+****************
+As a convenience traits such as `is`, `tagOn`, `mixinOn` can use a single
+symbol instead of list of symbols.  However, their normalized representation
+must always be a list of symbols.  This phase should iterate every def
+and normalize any tag which subtypes from `trait`.  Example:
+
+  // before
+  def: ^geoCity
+  is: ^str
+  tagOn: ^geoPlace
+
+  // after
+  def: ^geoCity
+  is: [^str]
+  tagOn: [^geoPlace]
+
+Infer Is [#inferIs]
+*******************
+This phase performs the following transformations:
+
+  1. infer the 'is' on feature [key]`Defs#keys` defs
+
+  2. verify every non-feature key has 'is' tag with exception of following
+     root tags: `marker`, `val`, `aspect`, and `feature`
+
+Example:
+
+  // before
+  def: ^filetype:json
+  mime: "application/json"
+
+  // after
+  def: ^filetype:json
+  mime: "application/json"
+  is: [^filetype]
+
+Inherit [#inherit]
+******************
+The inherit phase applies tag [inheritance]`Subtyping#inheritance` from
+supertypes:
+
+  1. Start with the def tags from previous steps
+
+  2. Each supertype is processed in order of declaration in the 'is' tag
+
+  3. The supertype must recursively have its own inheritance normalized
+
+  4. Filter out any tags from the supertype marked as `notInherited`
+
+  5. Inherit all tags from previous step which are not yet declared
+     nor inherited from other supertypes
+
+  6. Trait tag values are aggregated together
+
+In the case of ambiguity via multiple inheritance, a subtype should
+explicitly declare the tag value.
+
+Here is a fictitious example for an [El Camino]`https://en.wikipedia.org/wiki/Chevrolet_El_Camino`
+which is a hybrid between a car and a pickup truck:
+
+  // declarations
+  def: ^car
+  numDoors: 4
+  color: "red"
+  engine: "V8"
+  mixinOn: ^vehicle
+  ----
+  def: ^pickup
+  numDoors: 2
+  color: "blue"
+  bedLength: 80in
+  mixinOn: ^truck
+  ----
+  def: ^elCamino
+  is: [^pickup, ^car]
+  color: "purple"
+
+The normalized definition with inheritance would be:
+
+  def: ^elCamino               // declared
+  is: [^pickup, ^car]          // declared
+  color: "purple"              // declared
+  numDoors: 2                  // inherited from pickup first
+  engine: "V8"                 // inherited from car
+  bedLength: 80in              // inherited from pickup
+  mixinOn: [^vehicle, ^truck]  // traits are aggregated
+
+Validation [#validate]
+************************
+Before generation, normalization software should validate tag rules to flag
+errors not caught in previous steps:
+
+  1. Verify every 'lib' meta def has [required tags]`Namespaces#libs`
+
+  2. Verify tag values match their def's declared types
+
+  3. Verify no def named 'index' which is reserved for documentation purposes
+
+  4. Verify every term in a conjunct is a marker
+
+  5. Verify no defs declare a `computed` tag
+
+Generate [#generate]
+********************
+Once all previous steps have completed successfully, we can generate our
+namespace.  From a logical perspective a namespace is a map of symbols to
+effective def dicts.  In actual implementations this probably yields specific
+data structures.  These data structures can then be used to perform additional
+computations such as [reflection]`Reflection` and [def aware filters]`Filters#def`.
+
+
+
