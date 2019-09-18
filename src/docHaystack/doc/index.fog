@@ -17,9 +17,9 @@
   [`Defs`,          "Definition meta-model"],
   [`Namespaces`,    "Symbolic namespaces"],
   [`Subtyping`,     "Definition subtyping"],
+  [`Reflection`,    "Mapping between dicts and defs"],
   [`Normalization`, "Normalized dict representation of defs"],
   [`Aspects`,       "Ontological relationships"],
-  [`Reflection`,    "Mapping between dicts and defs"],
   [`Relationships`, "Modeling relationships"],
   [`Protos`,        "Dict prototypes"],
 
