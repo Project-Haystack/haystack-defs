@@ -17,7 +17,7 @@ def: ^children
 is: ^str
 doc:
   Prototypes contained by this entity.  The value is a string where
-  each line defines a child prototype Dict encoded as [Zinc]`docHaystack::Zinc`.
+  each line defines a child prototype dict encoded as [Zinc]`docHaystack::Zinc`.
   See [Protos chatper]`docHaystack::Protos` for more details.
 --------------------------------------------------------------------------
 def: ^childrenFlatten

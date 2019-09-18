@@ -10,6 +10,7 @@
 - Remove pointKind and use kind to keep it back compatibile
 - Polish def and aspects
 - New Normalization chapter
+- New Protos chapter
 
 **Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design
