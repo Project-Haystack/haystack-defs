@@ -39,7 +39,9 @@ doc: "Create a new definition bound to the given symbol"
 --------------------------------------------------------------------------
 def: ^defx
 is: ^symbol
-doc: "Extends the given definition with additional meta tags"
+doc:
+  Extends the given definition with additional meta tags.
+  See [Normalization]`docHaystack::Normalization#defx`.
 --------------------------------------------------------------------------
 def: ^doc
 is: ^str
@@ -109,7 +111,9 @@ def: ^includes
 is: ^list
 of: ^ref
 tagOn: ^lib
-doc: "List of library names to include"
+doc:
+  List of libraries to include into a [lib namespace]`docHaystack::Namespaces#lib`.
+  Also see [Normalization]`docHaystack::Normalization#resolve`.
 --------------------------------------------------------------------------
 def: ^mandatory
 is: ^marker
