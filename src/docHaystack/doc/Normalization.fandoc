@@ -251,6 +251,11 @@ errors not caught in previous steps:
 
   5. Verify no defs declare a `computed` tag
 
+  6. Verify nothing subtypes directly from `aspect` with exception of `trait`
+     and `choice`
+
+  7. Verify choice values are markers
+
 Generate [#generate]
 ********************
 Once all previous steps have completed successfully, we can generate our

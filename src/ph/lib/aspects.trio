@@ -10,31 +10,34 @@
 def: ^aspect
 docTaxonomy
 doc:
-  Aspects model a relationship between two definitions.
-
-  There are two subtypes of aspects:
-     - `choice`: a relationship to exactly one def
-     - `trait`: a relationship to zero or more defs
+  Aspects model ontological relationships between definitions.
+  See [Aspects]`docHaystack::Aspects` chapter.
 --------------------------------------------------------------------------
 def: ^choice
 is: [^aspect, ^symbol]
-doc: "Choice specifies an aspect with an single exclusive value"
+doc:
+  Choice specifies an aspect with an single exclusive value.
+  See [Aspects]`docHaystack::Aspects#choices` chapter.
 --------------------------------------------------------------------------
 def: ^trait
 is: [^aspect, ^list]
 of: ^symbol
-doc: "Trait specifies a relationship between a def to zero or more defs"
+doc:
+  Trait specifies a relationship between a def to zero or more defs.
+  See [Aspects]`docHaystack::Aspects#traits` chapter.
 --------------------------------------------------------------------------
 def: ^reciprocalOf
 is: ^symbol
-doc: "Specifies the inverse of a trait relationship"
+doc:
+  Specifies the inverse of a trait relationship
+  See [Aspects]`docHaystack::Aspects#reciprocalOf` chapter.
 --------------------------------------------------------------------------
 def: ^is
 is: ^trait
 tagOn: ^def
 doc:
   Defines one or more supertypes of a subtyping relationship.
-  See `docHaystack::Subtyping`
+  See [Subtyping]`docHaystack::Subtyping` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
