@@ -24,7 +24,7 @@ children:
 --------------------------------------------------------------------------
 def: ^vfd
 is: ^motor
-mixinOn: [^motor]
+tagOn: ^motor
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc: "Motor with variable frequency drive."
 children:

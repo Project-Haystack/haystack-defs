@@ -12,6 +12,7 @@
 - New Normalization chapter
 - New Protos chapter
 - New Aspects chapter
+- Replace mixinOn concept with tagOn
 
 **Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design
