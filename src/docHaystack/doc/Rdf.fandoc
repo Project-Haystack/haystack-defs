@@ -175,7 +175,7 @@ If the tag def is a subtype of `ref` or is a `choice`, then declare the def to
 be an instance of 'owl:ObjectProperty'. All other value tags are declared to
 be an instance of 'owl:DatatypeProperty'.
 
-If the tag def (or one of its `defx` extensions) declares a `tagOn` aspect,
+If the tag def (or one of its `defx` extensions) declares a `tagOn` association,
 then specify the 'rdfs:domain' to be all referent entities.
 
 If the tag def is a `ref` or `choice`, then specify the 'rdfs:range' to the value
@@ -201,7 +201,7 @@ pre>
       ph:is ph:str ;
       ph:lib ph:lib:ph .
 
-  // A choice aspect
+  // A choice
   phIoT:conveys a owl:ObjectProperty ;
     rdfs:range phScience:phenomenon ;
     rdfs:comment "Equipment conveys a substance or phenomenon." ;

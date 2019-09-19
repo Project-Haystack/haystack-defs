@@ -31,7 +31,7 @@ ordered steps:
   3. **[Resolve]`#resolve`**: ensure every symbol tag maps to def
   4. **[Defx]`#defx`**: add defx tags to each declared def
   5. **[Infer Lib]`#inferLib`**: infer 'lib' tag from containing lib
-  6. **[Traits]`#traits`**: ensure traits are symbol lists
+  6. **[Associations]`#associations`**: ensure associations are symbol lists
   7. **[Infer Is]`#inferIs`**: infer 'is' tag for features
   8. **[Inherit]`#inherit`**: recursively apply supertype tags into subtypes
   9. **[Validation]`#validate`**: perform additional sanity checks
@@ -148,12 +148,12 @@ itself also receives a 'lib' tag referencing itself.  Example:
   is: ^entity
   lib: ^lib:phIoT
 
-Traits [#traits]
-****************
-As a convenience traits such as `is` and `tagOn` can use a single
+Association [#associations]
+***************************
+As a convenience associations such as `is` and `tagOn` can use a single
 symbol instead of list of symbols.  However, their normalized representation
 must always be a list of symbols.  This phase should iterate every def
-and normalize any tag which subtypes from `trait`.  Example:
+and normalize any tag which subtypes from `association`.  Example:
 
   // before
   def: ^geoCity
@@ -172,7 +172,7 @@ This phase performs the following transformations:
   1. infer the 'is' on feature [key]`Defs#keys` defs
 
   2. verify every non-feature key has 'is' tag with exception of following
-     root tags: `marker`, `val`, `aspect`, and `feature`
+     root tags: `marker`, `val`, and `feature`
 
 Example:
 
@@ -201,7 +201,7 @@ supertypes:
   5. Inherit all tags from previous step which are not yet declared
      nor inherited from other supertypes
 
-  6. Trait tag values are aggregated together
+  6. Association tag values are aggregated together
 
 In the case of ambiguity via multiple inheritance, a subtype should
 explicitly declare the tag value.
@@ -210,17 +210,20 @@ Here is a fictitious example for an [El Camino]`https://en.wikipedia.org/wiki/Ch
 which is a hybrid between a car and a pickup truck:
 
   // declarations
+  def: ^transports
+  is: ^association
+  ----
   def: ^car
   numDoors: 4
   color: "red"
   engine: "V8"
-  mixinOn: ^vehicle
+  transports: ^people
   ----
   def: ^pickup
   numDoors: 2
   color: "blue"
   bedLength: 80in
-  mixinOn: ^truck
+  transports: ^cargo
   ----
   def: ^elCamino
   is: [^pickup, ^car]
@@ -228,13 +231,13 @@ which is a hybrid between a car and a pickup truck:
 
 The normalized definition with inheritance would be:
 
-  def: ^elCamino               // declared
-  is: [^pickup, ^car]          // declared
-  color: "purple"              // declared
-  numDoors: 2                  // inherited from pickup first
-  engine: "V8"                 // inherited from car
-  bedLength: 80in              // inherited from pickup
-  mixinOn: [^vehicle, ^truck]  // traits are aggregated
+  def: ^elCamino                 // declared
+  is: [^pickup, ^car]            // declared
+  color: "purple"                // declared
+  numDoors: 2                    // inherited from pickup first
+  engine: "V8"                   // inherited from car
+  bedLength: 80in                // inherited from pickup
+  transports: [^people, ^cargo]  // associations are aggregated
 
 Validation [#validate]
 ************************
@@ -251,10 +254,7 @@ errors not caught in previous steps:
 
   5. Verify no defs declare a `computed` tag
 
-  6. Verify nothing subtypes directly from `aspect` with exception of `trait`
-     and `choice`
-
-  7. Verify choice values are markers
+  6. Verify choice values are markers
 
 Generate [#generate]
 ********************

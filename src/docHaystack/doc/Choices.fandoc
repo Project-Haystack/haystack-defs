@@ -46,7 +46,7 @@ value.  Examples:
   def: ^wire
   conveys: ^elec
 
-The `pipe` def indicates it supports the `conveys` aspect, and further
+The `pipe` def indicates it supports the `conveys` choice, and further
 narrows what is conveyed to be a subtype of `fluid`.  Likewise `duct`
 conveys `air` and `wire` convey `elec`.
 

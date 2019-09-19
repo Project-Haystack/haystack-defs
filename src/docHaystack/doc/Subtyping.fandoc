@@ -53,7 +53,7 @@ In cases where multiple supertypes are required, use a list of symbols:
   is: [^entity, ^geoPlace]
 
 All terms are required to have an 'is' tag with the exception of the *root
-terms* which are `marker`, `val`, `aspect`, and `feature`.  [Feature keys]`Defs#keys`
+terms* which are `marker`, `val`, and `feature`.  [Feature keys]`Defs#keys`
 have implied subtyping rules and must not declare an 'is' tag.
 
 It is invalid to create cyclic subtyping relationships.  Subtyping must
