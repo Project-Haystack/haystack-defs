@@ -7,27 +7,22 @@
 //
 
 --------------------------------------------------------------------------
-def: ^aspect
+def: ^association
+is: ^list
+of: ^symbol
 docTaxonomy
 doc:
-  Aspects model ontological relationships between definitions.
-  See [Aspects]`docHaystack::Aspects` chapter.
---------------------------------------------------------------------------
-def: ^trait
-is: [^aspect, ^list]
-of: ^symbol
-doc:
-  Trait specifies a relationship between a def to zero or more defs.
-  See [Aspects]`docHaystack::Aspects#traits` chapter.
+  Associations model ontological relationships between definitions.
+  See [Associations]`docHaystack::Associations` chapter.
 --------------------------------------------------------------------------
 def: ^reciprocalOf
 is: ^symbol
 doc:
-  Specifies the inverse of a trait relationship
-  See [Aspects]`docHaystack::Aspects#reciprocalOf` chapter.
+  Specifies the inverse of an association.
+  See [Associations]`docHaystack::Associations#reciprocalOf` chapter.
 --------------------------------------------------------------------------
 def: ^is
-is: ^trait
+is: ^association
 tagOn: ^def
 doc:
   Defines one or more supertypes of a subtyping relationship.
@@ -40,13 +35,13 @@ doc:
 
 --------------------------------------------------------------------------
 def: ^tagOn
-is: ^trait
+is: ^association
 tagOn: ^def
 reciprocalOf: ^tags
 doc: "This tag is used on the given entity"
 --------------------------------------------------------------------------
 def: ^tags
-is: ^trait
+is: ^association
 reciprocalOf: ^tagOn
 computed
 docSection
@@ -59,15 +54,15 @@ doc: "Tags used with this entity"
 
 --------------------------------------------------------------------------
 def: ^containedBy
-is: ^trait
+is: ^association
 tagOn: ^def
 reciprocalOf: ^contains
 doc:
   This entity is logically contained by the given entity. This
-  trait is applied to ref tags that reference a parent entity.
+  association is applied to ref tags that reference a parent entity.
 --------------------------------------------------------------------------
 def: ^contains
-is: ^trait
+is: ^association
 reciprocalOf: ^containedBy
 computed
 transitive

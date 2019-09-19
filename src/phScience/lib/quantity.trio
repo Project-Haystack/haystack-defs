@@ -17,13 +17,13 @@ docTaxonomy
 doc: "Measurable property of a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^quantityOf
-is: ^trait
+is: ^association
 of: ^phenomenon
 reciprocalOf: ^quantities
 doc: "Associates quantity as measurement of a phenomenon"
 --------------------------------------------------------------------------
 def: ^quantities
-is: ^trait
+is: ^association
 reciprocalOf: ^quantityOf
 computed
 docSection

@@ -1,5 +1,5 @@
 **************************************************************************
-** title:      Aspects
+** title:      Associations
 ** author:     Brian Frank
 ** created:    17 Sep 2019
 ** copyright:  Copyright (c) 2019, Project-Haystack
@@ -7,37 +7,35 @@
 
 Overview [#overview]
 ********************
-Aspects define ontological relationships between defs.  An `aspect` is a tag
-used on defs to cross-reference related defs via symbols.  We use the
-term *aspect* to denote def-to-def relationships versus instance
+Associations define ontological relationships between defs.  An `association`
+is a tag used on defs to cross-reference related defs via symbols.  We use
+the term *association* to denote def-to-def relationships versus instance
 data [relationships]`Relationships` which utilize ref tags.
 
-Traits [#traits]
-****************
-Traits are def metadata tags where the value is a list of symbols.
-Most foundational def relationships are traits including:
+Associations are def tags where the value is a list of symbols.
+Most foundational def relationships are associations including:
   - `is`: defines supertypes used to build taxonomy tree
   - `tagOn`: annotates a tag to be used with a given type
   - `containedBy`: mechanism to define part/sub-part relationships
 
-As a convenience trait tags can use as a simple symbol value.  But they
-are always [normalized]`Normalization#traits` to a list.  Trait tags are
-never used on instance data, they are strictly used only on defs.
+As a convenience association tags can use as a simple symbol value.  But they
+are always [normalized]`Normalization#associations` to a list.  Association
+tags are never used on instance data, they are strictly used only on defs.
 
 Reciprocal Of [#reciprocalOf]
 *****************************
-The `reciprocalOf` tag is applied to a trait to define its inverse term.
+The `reciprocalOf` tag is applied to an association to define its inverse term.
 For example:
   - `tags` is reciprocalOf of `tagOn` (and vise versa)
   - `contains` is reciprocalOf of `containedBy` (and vise versa)
 
 Reciprocals are used to coin terms which are intuitive for bi-directional
 [relationship queries]`Relationships#inverse`.  However to promote
-consistency it is desirable to only declare traits in one direction.
-Typically "child-to-parent" is the preferred direction for declaring traits.
+consistency it is desirable to only declare associations in one direction.
+Typically "child-to-parent" is the preferred direction for declaring associations.
 For example, its more convenience to declare 'tagOn' for value tags than to
-enumerate all the 'tags' for a given entity type.  That design also
-provides more flexibility for late binding of traits in separate libs.
+enumerate all the 'tags' for a given entity type.  This design also
+provides more flexibility for late binding of associations in separate libs.
 We use the `computed` tag to capture this concept.  For example `tags` is
 annotated with the 'computed' marker.  This means it 'tags' must be not used
 directly as a def tag (it exists only to provide an inverse term

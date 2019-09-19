@@ -102,13 +102,13 @@ are organized in an indented tree structure.
 Tags [#tags]
 ============
 This section lists the value tags associated with the entity via
-the `tagOn` aspect.  This section also includes tags which are registered on
-the entity's supertypes.
+the `tagOn` association.  This section also includes tags which are
+registered on the entity's supertypes.
 
 UsedBy [#usedBy]
 ================
-This section lists terms which use the given aspect.  Its provides
-a nice mechanism to cross-reference usage of aspect tags.
+This section lists terms which use the given association.  Its provides
+a nice mechanism to cross-reference usage of association tags.
 
 Children [#children]
 ====================
