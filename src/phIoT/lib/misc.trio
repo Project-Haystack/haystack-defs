@@ -44,7 +44,8 @@ doc: "Cooled"
 --------------------------------------------------------------------------
 def: ^cur
 is: ^marker
-doc: "Related to a current value"
+tagOn: ^point
+doc: "Supports current value"
 --------------------------------------------------------------------------
 def: ^domestic
 is: ^marker
@@ -60,7 +61,8 @@ doc: "Related to the surface of the earth"
 --------------------------------------------------------------------------
 def: ^his
 is: ^marker
-doc: "Related to historization of data"
+tagOn: ^point
+doc: "Supports historization of data"
 --------------------------------------------------------------------------
 def: ^hot
 is: ^marker
@@ -128,7 +130,8 @@ doc: "Total harmonic distortion"
 --------------------------------------------------------------------------
 def: ^writable
 is: ^marker
-doc: "Related to data which can written"
+tagOn: ^point
+doc: "Supports writing data"
 --------------------------------------------------------------------------
 def: ^zone
 is: ^marker

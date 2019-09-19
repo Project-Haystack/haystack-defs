@@ -89,19 +89,18 @@ doc: "Point is a setpoint, soft point, internal control variable, schedule"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Cur Point Mixin
+// Cur Point
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^cur-point
-is: ^marker
-mixinOn: ^point
+is: ^point
 doc:
   Point with support to report a "real-time" current value.  By real-time
   we typically mean freshness within the order of of a few seconds or at
   most a few minutes.  For systems with direct I/O the current value is
   typically driven by the I/O scan rate. For overlay systems which acquire
-  data over a protocol such as BACnet or Modbus then the current value
+  data via a protocol such as BACnet or Modbus then the current value
   is typically refreshed using polling or subscription over a network.
 --------------------------------------------------------------------------
 
@@ -146,13 +145,12 @@ doc: "Error description when `curStatus` indicates error condition"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// His Point Mixin
+// His Point
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^his-point
-is: ^marker
-mixinOn: ^point
+is: ^point
 doc:
   Historized point with a history log of timestamp/value pairs.  Points
   marked as historized indicate the system can response to queries via
@@ -216,13 +214,12 @@ doc: "Error description when `hisStatus` indicates error condition"
 
 
 //////////////////////////////////////////////////////////////////////////
-// Writable Point Mixin
+// Writable Point
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^writable-point
-is: ^marker
-mixinOn: ^point
+is: ^point
 doc:
   Point with writable output using 16-level priority array.  Writable
   points typically are a setpont or actuator command.  Haystack writable

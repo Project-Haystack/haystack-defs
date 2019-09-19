@@ -150,7 +150,7 @@ itself also receives a 'lib' tag referencing itself.  Example:
 
 Traits [#traits]
 ****************
-As a convenience traits such as `is`, `tagOn`, `mixinOn` can use a single
+As a convenience traits such as `is` and `tagOn` can use a single
 symbol instead of list of symbols.  However, their normalized representation
 must always be a list of symbols.  This phase should iterate every def
 and normalize any tag which subtypes from `trait`.  Example:

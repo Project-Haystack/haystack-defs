@@ -95,12 +95,10 @@ doc: "Space associated with a specific system"
 --------------------------------------------------------------------------
 def: ^hvac-zone-space
 is: ^zone-space
-mixinOn: ^space
 doc: "Zone related to conditioning of a space's air temperature and quality"
 --------------------------------------------------------------------------
 def: ^lighting-zone-space
 is: ^zone-space
-mixinOn: ^space
 doc: "Zone related to lighting system"
 --------------------------------------------------------------------------
 

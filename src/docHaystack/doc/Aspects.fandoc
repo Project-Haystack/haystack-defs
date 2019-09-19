@@ -23,7 +23,6 @@ Traits are def metadata tags where the value is a list of symbols.
 Most foundational def relationships are traits including:
   - `is`: defines supertypes used to build taxonomy tree
   - `tagOn`: annotates a tag to be used with a given type
-  - `mixinOn`: mechanism for inclusive subtyping
   - `containedBy`: mechanism to define part/sub-part relationships
 
 As a convenience trait tags can use as a simple symbol value.  But they
@@ -35,7 +34,6 @@ Reciprocal Of [#reciprocalOf]
 The `reciprocalOf` tag is applied to a trait to define its inverse term.
 For example:
   - `tags` is reciprocalOf of `tagOn` (and vise versa)
-  - `mixins` is reciprocalOf of `mixinOn` (and vise versa)
   - `contains` is reciprocalOf of `containedBy` (and vise versa)
 
 Reciprocals are used to coin terms which are intuitive for bi-directional
@@ -133,16 +131,6 @@ we define the choice value only as marker tags.
 Choices without subtypes should not be flattened into instances.  They
 can be inferred through [reflection]`Reflection`.
 
-Mixins [#mixins]
-****************
-Mixins are a special trait which work similar to choices except they
-are inclusive, not exclusive.  Mixins are optional terms which may be
-applied to the instances of specific entities.
-
-For example we can annotating [points]`point` with the following mixins:
-  - `cur-point`
-  - `his-point`
-  - `writable-point`
 
 
 
