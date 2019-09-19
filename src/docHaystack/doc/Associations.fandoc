@@ -18,6 +18,13 @@ Most foundational def relationships are associations including:
   - `tagOn`: annotates a tag to be used with a given type
   - `containedBy`: mechanism to define part/sub-part relationships
 
+In the following example both 'is' and 'tagOn' are associations which
+create a relationship between defs:
+
+  def: ^yearBuilt
+  is: ^number
+  tagOn: ^site
+
 As a convenience association tags can use as a simple symbol value.  But they
 are always [normalized]`Normalization#associations` to a list.  Association
 tags are never used on instance data, they are strictly used only on defs.
