@@ -20,6 +20,7 @@
   [`Reflection`,    "Mapping between dicts and defs"],
   [`Normalization`, "Normalized dict representation of defs"],
   [`Aspects`,       "Ontological relationships"],
+  [`Choices`,       "Exclusive marker choices"],
   [`Relationships`, "Modeling relationships"],
   [`Protos`,        "Dict prototypes"],
 

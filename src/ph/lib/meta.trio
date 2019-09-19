@@ -27,6 +27,12 @@ doc:
   List of aspects to flatten into children prototypes.
   See [Protos chatper]`docHaystack::Protos` for more details.
 --------------------------------------------------------------------------
+def: ^choice
+is: ^symbol
+doc:
+  Choice specifies an exclusive marker selection.
+  See [Choices]`docHaystack::Choices` chapter.
+--------------------------------------------------------------------------
 def: ^computed
 is: ^marker
 doc:
