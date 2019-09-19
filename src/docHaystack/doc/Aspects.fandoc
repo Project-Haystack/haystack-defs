@@ -12,11 +12,6 @@ used on defs to cross-reference related defs via symbols.  We use the
 term *aspect* to denote def-to-def relationships versus instance
 data [relationships]`Relationships` which utilize ref tags.
 
-There are two subtypes of aspects:
-  - **[Traits]`#traits`**: non-exclusive many-to-many relationship between defs
-  - **[Choices]`#choices`**: an exclusive relationship with one def which
-    may narrowed by subtypes or instances
-
 Traits [#traits]
 ****************
 Traits are def metadata tags where the value is a list of symbols.
@@ -47,90 +42,5 @@ We use the `computed` tag to capture this concept.  For example `tags` is
 annotated with the 'computed' marker.  This means it 'tags' must be not used
 directly as a def tag (it exists only to provide an inverse term
 for 'tagOn').
-
-Choices [#choices]
-******************
-Choices define exclusive subtyping relationships.  For example `ductSection`
-is an exclusive choose of `ductSectionType`.  The subtypes of `ductSectionType`
-are *exclusive* - you choice one option such `discharge` or `return`.  But
-you cannot use `discharge` and `return` together.
-
-Many common concepts in our ontology fit this pattern:
-  - `conveys`
-  - `stores`
-  - `coolingProcess`
-  - `heatingProcess`
-  - `ductSection`
-  - `pipeSection`
-
-All choices are composed of two different terms.  The primary choice term
-subtypes from `choice` to name the exclusive relationship.  The expected
-choice value is specified by the `of` tag.
-
-For example:
-
-  def: ^conveys
-  is: ^choice     // example only, actual supertype is equipFunction
-  of: ^phenomenon
-
-The `conveys` def indicates it is a choice and its value must be a subtype
-of `phenomenon`.  We can then apply this choice to our defs to indicate
-support of this relationship.  We can optionally narrow the expected
-value.  Examples:
-
-  def: ^pipe
-  conveys: ^fluid
-  ---
-  def: ^duct
-  conveys: ^air
-  ---
-  def: ^wire
-  conveys: ^elec
-
-The `pipe` def indicates it supports the `conveys` aspect, and further
-narrows what is conveyed to be a subtype of `fluid`.  Likewise `duct`
-conveys `air` and `wire` convey `elec`.
-
-In our example above the 'conveys' choice was naturally independent
-from the 'phenomenon' taxonomy (in fact they are defined in different
-libs).  But there are many choices which don't have a natural separation.
-In these cases we use the convention of 'foo' and 'fooType' to indicate
-the choice and taxonomy supertype respectively.  Examples include:
-  - `ductSection` of `ductSectionType`
-  - `pipeSection` of `pipeSectionType`
-  - `coolingProcess` of `coolingProcessType`
-  - `heatingProcess` of `heatingProcessType`
-
-Instance Choices [#instanceChoices]
-***********************************
-When a def's choices are open ended then we can select the choice
-on a per instance basis.  Lets use a snippet of `ahu` to illustrate:
-
-  def: ^ahu
-  doc: "Air Handling Unit"
-  heats: ^air
-  heatingProcess: ^heatingProcessType
-
-This informs us that air handlers heat air using a heating process (steam,
-gas, elec, etc).  The `heats` choice  is defined to be `air`.  Since 'air'
-has no subtypes it cannot be narrowed further.  However the `heatingProcess`
-choice of `heatingProcessType` has several subtypes.  In this case we
-should make the choice on a *per instance basis*.
-
-Per instance choice selection is performed by flattening the choice value
-into the instance as markers.  For example if we wish to annotate that
-a specific instance of ahu uses steam heating, then we would model our
-data as follows:
-
-  dis: "AHU Floor 2", ahu, steamHeating
-
-Note the difference in how choices are applied on defs versus instances.
-On defs we define the choice as a tag with a symbol value.  On instances
-we define the choice value only as marker tags.
-
-Choices without subtypes should not be flattened into instances.  They
-can be inferred through [reflection]`Reflection`.
-
-
 
 

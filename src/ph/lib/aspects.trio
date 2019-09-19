@@ -13,12 +13,6 @@ doc:
   Aspects model ontological relationships between definitions.
   See [Aspects]`docHaystack::Aspects` chapter.
 --------------------------------------------------------------------------
-def: ^choice
-is: [^aspect, ^symbol]
-doc:
-  Choice specifies an aspect with an single exclusive value.
-  See [Aspects]`docHaystack::Aspects#choices` chapter.
---------------------------------------------------------------------------
 def: ^trait
 is: [^aspect, ^list]
 of: ^symbol
