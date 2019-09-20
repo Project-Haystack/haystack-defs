@@ -97,7 +97,7 @@ This is a valid RDF export, but it lacks the necessary statements to convey
 semantic and ontological meaning. The remaining sections refine the export
 rules for different def types to address this issue.
 
-**NOTE**: for the remaining examples I am omitting RDF '@prefix' statements for brevity.
+**NOTE**: for the remaining examples we omit the RDF '@prefix' statements for brevity.
 
 Marker Tags [#markers]
 **********************
