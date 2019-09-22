@@ -26,6 +26,7 @@ doc:
   Conditioning of air includes heating, cooling, humidificiation,
   dehumidification, and ventilation.
 children:
+  hvac zone space
   discharge duct equip
   exhaust duct equip
   mixed duct equip

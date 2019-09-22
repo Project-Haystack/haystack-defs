@@ -23,6 +23,10 @@ doc: "Input to a process, usually energy source"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^heating
+is: ^marker
+doc: "Heating mode or process"
+--------------------------------------------------------------------------
 def: ^heatingProcess
 is: ^choice
 of: ^heatingProcessType
@@ -63,6 +67,10 @@ doc: "Heating by the conversion of electrical energy"
 // Cooling
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^cooling
+is: ^marker
+doc: "Cooling mode or process"
 --------------------------------------------------------------------------
 def: ^coolingProcess
 is: ^choice
