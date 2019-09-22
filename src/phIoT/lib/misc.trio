@@ -51,6 +51,10 @@ def: ^domestic
 is: ^marker
 doc: "For human use"
 --------------------------------------------------------------------------
+def: ^effective
+is: ^marker
+doc: "Current control setpoint in effect taking into account other factors"
+--------------------------------------------------------------------------
 def: ^fanPowered
 is: ^marker
 doc: "Device with a fan"
@@ -86,9 +90,17 @@ def: ^occupants
 is: ^marker
 doc: "People who use the built ennvironment"
 --------------------------------------------------------------------------
+def: ^occupied
+is: ^marker
+doc: "Setpoint or sensor indicating occupancy of a space"
+--------------------------------------------------------------------------
 def: ^makeup
 is: ^marker
 doc: "Restore soemthing missed or lost"
+--------------------------------------------------------------------------
+def: ^occ
+is: ^marker
+doc: "Occupied mode of a space"
 --------------------------------------------------------------------------
 def: ^parallel
 is: ^marker
@@ -116,6 +128,10 @@ def: ^series
 is: ^marker
 doc: "Circuit with single path of flow"
 --------------------------------------------------------------------------
+def: ^standby
+is: ^marker
+doc: "Readiness mode of a space"
+--------------------------------------------------------------------------
 def: ^subterranean
 is: ^marker
 doc: "Below the surface of the earth"
@@ -127,6 +143,10 @@ doc: "Related to energy of heat"
 def: ^thd
 is: ^marker
 doc: "Total harmonic distortion"
+--------------------------------------------------------------------------
+def: ^unocc
+is: ^marker
+doc: "Unoccupied mode of a space"
 --------------------------------------------------------------------------
 def: ^writable
 is: ^marker
