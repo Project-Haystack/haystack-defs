@@ -16,7 +16,7 @@ doc:
   primarily responsibility to condition air.  Terminal units are primarily
   responsible for delivery of air to the space and tempering the temperature.
 children:
-  hvac zone space
+  thermostat equip
   discharge duct equip
   inlet duct equip
   thermostat equip
