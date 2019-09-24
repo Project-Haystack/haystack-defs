@@ -9,8 +9,69 @@
 --------------------------------------------------------------------------
 def: ^device
 is: ^entity
+mandatory
+docTaxonomy
 doc:
   Microprocessor based hardware device.  This is the general term for
   all computers, mobile phones, controllers, and I/O modules.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// General Purpose
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^phone
+is: ^device
+wikipedia: `https://en.wikipedia.org/wiki/Telephone`
+doc: "Telephone used for voice telecommunication."
+--------------------------------------------------------------------------
+def: ^mobile-phone
+is: ^phone
+wikipedia: `https://en.wikipedia.org/wiki/Mobile_phone`
+doc: "Cellular phone providing telecommunication over radio links."
+--------------------------------------------------------------------------
+def: ^server
+is: ^device
+wikipedia: `https://en.wikipedia.org/wiki/Server_(computing)`
+doc: "General purpose computer."
+--------------------------------------------------------------------------
+def: ^tablet
+is: ^device
+wikipedia: `https://en.wikipedia.org/wiki/Tablet_computer`
+doc: "Mobile device with touch screen for user input."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Networking
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^networking-device
+is: ^device
+doc: "Microprocessor device used to establish networks."
+--------------------------------------------------------------------------
+def: ^networking-router
+is: ^networking-device
+wikipedia: `https://en.wikipedia.org/wiki/Router_(computing)`
+doc: "Networking device used to route data between different networks."
+--------------------------------------------------------------------------
+def: ^networking-switch
+is: ^networking-device
+wikipedia: `https://en.wikipedia.org/wiki/Network_switch`
+doc: "Networking device used to connect devices on the same network."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Controllers
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^controller
+is: ^device
+doc:
+  Microprocessor based device used in a control system.  Controllers
+  interact with the physical world through direct I/O to sensors and
+  actuators or via network [protocols]`protocol`.
 --------------------------------------------------------------------------
 
