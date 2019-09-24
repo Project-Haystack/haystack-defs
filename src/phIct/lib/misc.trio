@@ -1,0 +1,23 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Sep 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^mobile
+is: ^marker
+doc: "Relating to mobile phones, handheld computers, and similar technology"
+--------------------------------------------------------------------------
+def: ^networking
+is: ^marker
+doc: "Related to data communication networks"
+--------------------------------------------------------------------------
+def: ^router
+is: ^marker
+doc: "Device used to route data packets"
+--------------------------------------------------------------------------
+
+

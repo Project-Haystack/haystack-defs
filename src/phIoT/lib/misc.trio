@@ -137,6 +137,10 @@ def: ^standby
 is: ^marker
 doc: "Readiness mode of a space"
 --------------------------------------------------------------------------
+def: ^switch
+is: ^marker
+doc: "Device for toggling state or routing data"
+--------------------------------------------------------------------------
 def: ^subterranean
 is: ^marker
 doc: "Below the surface of the earth"

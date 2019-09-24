@@ -10,6 +10,9 @@
 def: ^controls-panel
 is: ^panel
 doc: "Panel housing controllers and networking gear"
+children:
+  controller device
+  networking device
 --------------------------------------------------------------------------
 
 
