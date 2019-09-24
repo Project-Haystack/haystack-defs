@@ -76,7 +76,7 @@ The formal grammar of the filter langauge:
    <has>        :=  <path>
    <missing>    :=  "not" <path>
    <cmp>        :=  <path> <cmpOp> <val>
-   <cmpOp>      :=  "=" | "!=" | "<" | "<=" | ">" | ">="
+   <cmpOp>      :=  "==" | "!=" | "<" | "<=" | ">" | ">="
    <path>       :=  <name> ("->" <name>)*
 
    <val>        :=  <bool> | <ref> | <str> | <uri> |

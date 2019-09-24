@@ -15,6 +15,9 @@
 - New Protos chapter
 - New Associations chapter
 - Zone setpoint ontology
+- Space subtypes appendix
+- Point protos appendix
+- Add panel, elec-panel, controls-panel
 
 **Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design

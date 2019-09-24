@@ -1,0 +1,15 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Sep 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^controls-panel
+is: ^panel
+doc: "Panel housing controllers and networking gear"
+--------------------------------------------------------------------------
+
+

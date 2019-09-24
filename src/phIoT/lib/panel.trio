@@ -1,0 +1,22 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Sep 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^panel
+is: ^equip
+doc:
+  Enclosure for electrical and control equipment.  Panels may be
+  used to isolate electrical connections and provide environmental
+  protection.
+--------------------------------------------------------------------------
+def: ^elec-panel
+is: ^panel
+wikipedia: `https://en.wikipedia.org/wiki/Distribution_board`
+doc: "Physical housing for electrical circuits, fuses, and breakers"
+--------------------------------------------------------------------------
+
