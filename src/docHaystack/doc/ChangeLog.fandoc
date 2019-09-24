@@ -18,6 +18,8 @@
 - Space subtypes appendix
 - Point protos appendix
 - Add panel, elec-panel, controls-panel
+- Stub simple device taxonomy
+- Stub simple dataCenter, rack tags
 
 **Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design

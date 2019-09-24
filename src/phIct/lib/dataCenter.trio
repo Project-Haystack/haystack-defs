@@ -1,0 +1,31 @@
+//
+// Copyright (c) 2019, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Sep 2019  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^dataCenter
+is: ^space
+doc: "Space used to house computer and networking gear."
+wikipedia: `https://en.wikipedia.org/wiki/Data_center`
+children:
+  rack equip
+  crac fcu equip
+--------------------------------------------------------------------------
+def: ^rack
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/19-inch_rack`
+doc:
+  Enclosure or chassis used to mount computer and networking gear.
+  Devices are mounted to rails of a standard width, typically 19 or 23
+  inches.  Height is measured in *rack units* where one 1U is 1.75 inches.
+  A full rack has a height of 42U.
+children:
+  server device
+  networking device
+--------------------------------------------------------------------------
+
+
