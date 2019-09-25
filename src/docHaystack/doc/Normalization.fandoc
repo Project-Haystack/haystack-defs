@@ -248,7 +248,9 @@ errors not caught in previous steps:
 
   5. Verify no defs declare a `computed` tag
 
-  6. Verify choice values are markers
+  6. Verify choice 'of' is subtype of marker
+
+  7. Verify 'tagOn' only used on a tag defs (not conjuncts or feature keys)
 
 Generate [#generate]
 ********************
