@@ -126,6 +126,7 @@ def: ^spaceRef
 is: ^ref
 of: ^space
 containedBy: ^space
+tagOn: [^equip, ^point]
 doc: "Reference to space which contains this entity"
 --------------------------------------------------------------------------
 
