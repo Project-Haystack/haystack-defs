@@ -201,7 +201,7 @@ supertypes:
   5. Inherit all tags from previous step which are not yet declared
      nor inherited from other supertypes
 
-  6. Association tag values are aggregated together
+  6. Aggregate inherited 'children' tag values together
 
 In the case of ambiguity via multiple inheritance, a subtype should
 explicitly declare the tag value.
@@ -210,20 +210,15 @@ Here is a fictitious example for an [El Camino]`https://en.wikipedia.org/wiki/Ch
 which is a hybrid between a car and a pickup truck:
 
   // declarations
-  def: ^transports
-  is: ^association
-  ----
   def: ^car
   numDoors: 4
   color: "red"
   engine: "V8"
-  transports: ^people
   ----
   def: ^pickup
   numDoors: 2
   color: "blue"
   bedLength: 80in
-  transports: ^cargo
   ----
   def: ^elCamino
   is: [^pickup, ^car]
@@ -231,13 +226,12 @@ which is a hybrid between a car and a pickup truck:
 
 The normalized definition with inheritance would be:
 
-  def: ^elCamino                 // declared
-  is: [^pickup, ^car]            // declared
-  color: "purple"                // declared
-  numDoors: 2                    // inherited from pickup first
-  engine: "V8"                   // inherited from car
-  bedLength: 80in                // inherited from pickup
-  transports: [^people, ^cargo]  // associations are aggregated
+  def: ^elCamino          // declared
+  is: [^pickup, ^car]     // declared
+  color: "purple"         // declared
+  numDoors: 2             // inherited from pickup first
+  engine: "V8"            // inherited from car
+  bedLength: 80in         // inherited from pickup
 
 Validation [#validate]
 ************************
