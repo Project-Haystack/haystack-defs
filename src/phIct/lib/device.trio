@@ -74,4 +74,7 @@ doc:
   interact with the physical world through direct I/O to sensors and
   actuators or via network [protocols]`protocol`.
 --------------------------------------------------------------------------
+defx: ^equipRef
+tagOn: ^controller
+--------------------------------------------------------------------------
 

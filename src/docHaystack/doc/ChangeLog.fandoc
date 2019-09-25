@@ -20,6 +20,7 @@
 - Add panel, elec-panel, controls-panel
 - Stub simple device taxonomy
 - Stub simple dataCenter, rack tags
+- Apply tagOn to ref tags
 
 **Version 3.9.5 (12 Jun 2019)**
 - Refactor site/weatherStation to be closer to current design
