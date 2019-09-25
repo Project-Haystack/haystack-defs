@@ -48,7 +48,7 @@ value.  Examples:
 
 The `pipe` def indicates it supports the `conveys` choice, and further
 narrows what is conveyed to be a subtype of `fluid`.  Likewise `duct`
-conveys `air` and `wire` convey `elec`.
+conveys `air` and `wire` conveys `elec`.
 
 In our example above the 'conveys' choice was naturally independent
 from the 'phenomenon' taxonomy (in fact they are defined in different
