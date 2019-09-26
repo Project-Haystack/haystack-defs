@@ -12,6 +12,7 @@
 - Use produces instead of supplies for equip level functionality
 - Electric meter points
 - Actuator points
+- Finish AHU points/tags: freezeStat, heatWheel, faceBypass
 
 **Version 3.9.6 (25 Sep 2019)**
 - Remove pointKind and use kind to keep it back compatible

@@ -64,13 +64,34 @@ def: ^export
 is: ^marker
 doc: "Supplied out of a system"
 --------------------------------------------------------------------------
+def: ^faceBypass
+is: ^marker
+doc:
+  Point of an ahu indicating air flow is by-passing the heating/cooling
+  coils. If a boolean point, then true indicates the unit is in by-pass
+  mode and false indicates by-pass is disabled. If the point is an analog
+  point then 100% indicates full by-pass mode and 0% indicates by-pass is
+  completely disabled.
+--------------------------------------------------------------------------
 def: ^fanPowered
 is: ^marker
 doc: "Device with a fan"
 --------------------------------------------------------------------------
+def: ^freezeStat
+is: ^marker
+doc:
+  A boolean point of an ahu indicating a freezing condition.  This
+  might require a control sequence to protect the equipment. If true
+  then a freeze condition is deteted, or false if not.
+--------------------------------------------------------------------------
 def: ^ground
 is: ^marker
 doc: "Related to the surface of the earth"
+--------------------------------------------------------------------------
+def: ^heatWheel
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Thermal_wheel`
+doc: "Boolean point indicating command state of AHU's heat wheel."
 --------------------------------------------------------------------------
 def: ^his
 is: ^marker
