@@ -77,6 +77,10 @@ def: ^bypass
 is: ^pipeSectionType
 doc: "Pipe used to bypass an equipment"
 --------------------------------------------------------------------------
+def: ^circ
+is: ^pipeSectionType
+doc: "Pipe used to circulate fluid through an equipment or system"
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Duct Section

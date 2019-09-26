@@ -23,6 +23,7 @@ children:
   hot water entering pipe equip
   hot water leaving pipe equip
   makeup water entering pipe equip
+  circ pipe equip
   outside duct equip
   flue duct equip
 --------------------------------------------------------------------------
@@ -35,6 +36,7 @@ children:
   steam entering pipe equip
   steam leaving pipe equip
   makeup water entering pipe equip
+  circ pipe equip
   outside duct equip
   flue duct equip
 --------------------------------------------------------------------------
