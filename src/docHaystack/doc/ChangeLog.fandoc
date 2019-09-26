@@ -6,8 +6,13 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.7 (working)**
+- Cleanup relationship defs
+- Make containedBy, contains relationships, not associations
+- Use produces instead of supplies for equip level functionality
+
 **Version 3.9.6 (25 Sep 2019)**
-- Remove pointKind and use kind to keep it back compatibile
+- Remove pointKind and use kind to keep it back compatible
 - Replace mixinOn concept with tagOn
 - Refactor choice to subtype directly from symbol
 - Rename aspects to associations

@@ -13,7 +13,7 @@ doc: "Central plant used to generate a substance for a process"
 --------------------------------------------------------------------------
 def: ^chilled-water-plant
 is: ^plant
-supplies: ^chilled-water
+produces: ^chilled-water
 doc: "Plant used to generate chilled water for cooling"
 children:
   chilled water bypass pipe equip
@@ -25,7 +25,7 @@ children:
 --------------------------------------------------------------------------
 def: ^hot-water-plant
 is: ^plant
-supplies: ^hot-water
+produces: ^hot-water
 doc: "Plant used to generate hot water for heating"
 children:
   hot water bypass pipe equip
@@ -36,7 +36,7 @@ children:
 --------------------------------------------------------------------------
 def: ^steam-plant
 is: ^plant
-supplies: ^steam
+produces: ^steam
 doc: "Plant used to generate steam for heating"
 children:
   steam bypass pipe equip

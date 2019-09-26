@@ -46,6 +46,11 @@ is: ^equipFunction
 of: ^substance
 doc: "Equipment moves a substance."
 --------------------------------------------------------------------------
+def: ^produces
+is: ^equipFunction
+of: ^phenomenon
+doc: "Equipment produces a substance or phenomenon."
+--------------------------------------------------------------------------
 def: ^regulates
 is: ^equipFunction
 of: ^phenomenon

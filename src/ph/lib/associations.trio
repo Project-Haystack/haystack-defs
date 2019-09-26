@@ -18,8 +18,9 @@ doc:
 def: ^reciprocalOf
 is: ^symbol
 doc:
-  Specifies the inverse of an association.
-  See [Associations]`docHaystack::Associations#reciprocalOf` chapter.
+  Specifies the inverse of an association or relationships.
+  See [Associations]`docHaystack::Associations#reciprocalOf` and
+  [Relationships]`docHaystack::Relationships#reciprocalOf` chapter.
 --------------------------------------------------------------------------
 def: ^is
 is: ^association
@@ -48,24 +49,5 @@ docSection
 doc: "Tags used with this entity"
 --------------------------------------------------------------------------
 
-//////////////////////////////////////////////////////////////////////////
-// Contains/ContainedBy
-//////////////////////////////////////////////////////////////////////////
 
---------------------------------------------------------------------------
-def: ^containedBy
-is: ^association
-tagOn: ^def
-reciprocalOf: ^contains
-doc:
-  This entity is logically contained by the given entity. This
-  association is applied to ref tags that reference a parent entity.
---------------------------------------------------------------------------
-def: ^contains
-is: ^association
-reciprocalOf: ^containedBy
-computed
-transitive
-doc: "Entities logically contained by this entity"
---------------------------------------------------------------------------
 

@@ -16,7 +16,6 @@ Associations are def tags where the value is a list of symbols.
 Most foundational def relationships are associations including:
   - `is`: defines supertypes used to build taxonomy tree
   - `tagOn`: annotates a tag to be used with a given type
-  - `containedBy`: mechanism to define part/sub-part relationships
 
 In the following example both 'is' and 'tagOn' are associations which
 create a relationship between defs:
@@ -34,10 +33,10 @@ Reciprocal Of [#reciprocalOf]
 The `reciprocalOf` tag is applied to an association to define its inverse term.
 For example:
   - `tags` is reciprocalOf of `tagOn` (and vise versa)
-  - `contains` is reciprocalOf of `containedBy` (and vise versa)
+  - `quantities` is reciprocalOf of `quantityOf` (and vise versa)
 
 Reciprocals are used to coin terms which are intuitive for bi-directional
-[relationship queries]`Relationships#inverse`.  However to promote
+[relationship queries]`Relationships#reciprocalOf`.  However to promote
 consistency it is desirable to only declare associations in one direction.
 Typically "child-to-parent" is the preferred direction for declaring associations.
 For example, its more convenience to declare 'tagOn' for value tags than to

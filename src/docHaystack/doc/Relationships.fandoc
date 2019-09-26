@@ -7,18 +7,17 @@
 
 Overview [#overview]
 ********************
-Relationships enable us to model how spaces, equip, points, and processes
-are related to each other.  Almost all Haystack implementations will model
-the containment of physical spaces and equipment.  It is also typical to
-model the flows of energy and substances such as electricity, air, and water.
+Relationships model how entities are related to one another.  A `relationship`
+tag is applied to ref tag definitions to inform what the ref implies.  Entities
+cross reference each other with ref tags using the `id` tag as the primary
+identifier.  This design is just like the relational model with primary
+key (the 'id' tag) and foreign keys (other ref tags).  We use the term
+*relationship* to denote instance-to-instance relationships versus
+def-to-def [associations]`Associations`.
 
-NOTE: THIS DESIGN IS AN EARLY PROPOSAL
-
-Entity Relationships [#entities]
-********************************
-Relationships between entities are modeled by cross-referencing the `id`
-identifier.  Lets look at how to establish a relationships between
-an AHU and the plant which supplies it hot water:
+Example [#example]
+******************
+Lets look at a simple example:
 
   // hot water plant entity
   id: @hwp, hot, water, plant, equip
@@ -29,15 +28,9 @@ an AHU and the plant which supplies it hot water:
 The plant's primary identifier is modeled by the `id` tag with a ref
 value of '@hwp'.  The id tag uniquely identifies this plant within the
 data set.  The second dict models an `ahu` which has the reference
-tag `hotWaterPlantRef` referencing the plant by its id.  This model
-of cross-referencing is similar to the use of primary/foreign keys in a
-relational database.
+tag `hotWaterPlantRef` referencing the plant by its id.
 
-Def Relationships [#defs]
-*************************
-We use a similar model to create relationships between defs.  However
-instead of cross-referencing the `id` tag, we use `def` and its symbolic
-name.  For an example let us consider the def of `hotWaterPlantRef`:
+The actual definition of `hotWaterPlantRef` looks like this:
 
   def: ^hotWaterPlantRef
   is: ^ref
@@ -45,17 +38,15 @@ name.  For an example let us consider the def of `hotWaterPlantRef`:
   receives: ^hot-water
   doc: "Plant which supplies hot water to the entity"
 
-The `def` tag specifies the primary key for the definition which is
-a symbolic name.  We also have three other tags with a symbolic value:
-  - `is`: specifies a subtyping relationship
-  - `of`: specifies the entity type this tag should reference
-  - `receives`: specifies the substance received by this relationship
-
-Relationships on the definition side provide the deep semantics
-used to infer knowledge from our entity relationships.
+This definition tells us that the 'hotWaterPlantRef' tag is a 'ref'
+subtype which should reference a 'hot-water-plant'.  When applied
+to an instance it implies that the entity receives 'hot-water'
+from the referenced plant.
 
 Querying Relationships [#querying]
 **********************************
+NOTE: THIS DESIGN IS AN EARLY STRAW-MAN PROPOSAL
+
 Project Haystack uses [filters]`Filters` as its simple declarative query
 language.  The most basic way to query relationships is by tags.  The following
 filter queries AHUs which receive hot water from our plant in the example
@@ -163,8 +154,8 @@ Transitive relationships don't require the same reference tag is used.  For
 example we might traverse a `equipRef` first, and a `spaceRef` tag second.
 What matters that there is a recursive set of matching relationships.
 
-Inverse Relationships [#inverse]
-********************************
+Reciprocal Of [#reciprocalOf]
+*****************************
 Its also desirable to query relationships from either endpoint without
 regard to which endpoint actually declares the reference tag.  Using
 our plant example we want to be able to query both sides as follows:
@@ -172,8 +163,8 @@ our plant example we want to be able to query both sides as follows:
   receives-hot-water? @hwp  // receives hot water from the plant
   supplies-hot-water? @ahu  // supplies hot water to the AHU
 
-We call these *inverse* relationships.  They are explicitly configured
-on the relationship defs via the `inverseOf` tag.
+We call these *reciprocal* relationships.  They are explicitly configured
+on the relationship defs via the `reciprocalOf` tag.
 
 Lets follow the process for this filter which should match
 the '@hwp' entity:
