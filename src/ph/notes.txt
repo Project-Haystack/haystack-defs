@@ -16,6 +16,7 @@ Notes for re-modeling the ontology using the new def tree design
 - wikipedia hyperlinks in defs where applicable
 - temp versioning scheme 3.9.YYYYMMDD
 - daytime replaces sunrise
+- magnitude replaces mag
 
 - filetype defs
 

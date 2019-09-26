@@ -11,6 +11,10 @@ def: ^angle
 is: ^marker
 doc: "Measurement of the relative difference in direction between two vectors or phasors"
 --------------------------------------------------------------------------
+def: ^avg
+is: ^marker
+doc: "Average; central or typical value; median"
+--------------------------------------------------------------------------
 def: ^apparent
 is: ^marker
 doc: "Perceived quantity"
@@ -42,6 +46,10 @@ doc: "Size or extent"
 def: ^quality
 is: ^marker
 doc: "Quantity measured against standard metric"
+--------------------------------------------------------------------------
+def: ^total
+is: ^marker
+doc: "Complete or absolute"
 --------------------------------------------------------------------------
 def: ^volt
 is: ^marker

@@ -20,6 +20,45 @@ doc: "Electricity meter"
 def: ^ac-elec-meter
 is: ^elec-meter
 doc: "AC Electricity meter"
+children:
+  // TODO: how to deal with explosion?
+  // energy
+  total net energy sensor point
+  total import energy sensor point
+  total export energy sensor point
+  phase:"A" net energy sensor point
+
+  // power
+  total active power sensor point
+  total reactive power sensor point
+  total apparent power sensor point
+  phase:"A" active power sensor point
+  phase:"A" reactive power sensor point
+  phase:"A" apparent power sensor point
+
+  // current
+  avg current magnitude sensor point
+  avg current angle sensor point
+  avg current imbalance sensor point
+  avg current thd sensor point
+  phase:"A" current magnitude sensor point
+  phase:"A" current angle sensor point
+  phase:"A" current imbalance sensor point
+  phase:"A" current thd sensor point
+
+  // volt
+  avg volt magnitude sensor point
+  avg volt angle sensor point
+  avg volt imbalance sensor point
+  avg volt thd sensor point
+  phase:"A" volt magnitude sensor point
+  phase:"A" volt angle sensor point
+  phase:"A" volt imbalance sensor point
+  phase:"A" volt thd sensor point
+
+  // power factor
+  avg pf sensor point
+  phase:"A" pf sensor point
 --------------------------------------------------------------------------
 def: ^dc-elec-meter
 is: ^elec-meter
