@@ -252,6 +252,8 @@ errors not caught in previous steps:
 
   7. Verify 'tagOn' only used on a tag defs (not conjuncts or feature keys)
 
+  8. Verify 'relationship' tags are only used on defs which subtype from def
+
 Generate [#generate]
 ********************
 Once all previous steps have completed successfully, we can generate our

@@ -8,7 +8,7 @@
 Overview [#overview]
 ********************
 Choices define exclusive subtyping relationships.  For example `ductSection`
-is an exclusive choose of `ductSectionType`.  The subtypes of `ductSectionType`
+is an exclusive choice of `ductSectionType`.  The subtypes of `ductSectionType`
 are *exclusive* - you choose one option such `discharge` or `return`.  But
 you cannot use `discharge` and `return` together.
 

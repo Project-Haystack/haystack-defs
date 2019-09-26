@@ -9,11 +9,10 @@
 --------------------------------------------------------------------------
 def: ^relationship
 is: ^symbol
-doc: "Supertype for tags which model relationships"
---------------------------------------------------------------------------
-def: ^inverseOf
-is: ^symbol
-doc: "Specifies the inverse of a relationship"
+docTaxonomy
+doc:
+  Ref tags used to model entity-to-entity relationships.
+  See [Relationships]`docHaystack::Relationships` chapter.
 --------------------------------------------------------------------------
 def: ^transitive
 is: ^marker
@@ -24,20 +23,40 @@ doc:
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
+// Contains/ContainedBy
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^containedBy
+is: ^relationship
+reciprocalOf: ^contains
+transitive
+doc: "The entity is logically contained by the referent."
+--------------------------------------------------------------------------
+def: ^contains
+is: ^relationship
+reciprocalOf: ^containedBy
+computed
+transitive
+doc: "Entities logically contained by this entity"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
 // Receives/Supplies
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^receives
 is: ^relationship
-inverseOf: ^supplies
+reciprocalOf: ^supplies
+transitive
 doc:
   The entity receives from the referent.
   The value of this tag is what is received.
 --------------------------------------------------------------------------
 def: ^supplies
 is: ^relationship
-inverseOf: ^receives
+reciprocalOf: ^receives
 transitive
 doc:
   The entity supplies to the referent.
