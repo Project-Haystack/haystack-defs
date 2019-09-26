@@ -52,6 +52,10 @@ is: ^marker
 tagOn: ^point
 doc: "Supports current value"
 --------------------------------------------------------------------------
+def: ^delta
+is: ^marker
+doc: "Differential of fluid between entering and leaving sensors."
+--------------------------------------------------------------------------
 def: ^domestic
 is: ^marker
 doc: "For human use"
@@ -59,6 +63,10 @@ doc: "For human use"
 def: ^effective
 is: ^marker
 doc: "Current control setpoint in effect taking into account other factors"
+--------------------------------------------------------------------------
+def: ^evaporator
+is: ^marker
+doc: "Mechanism used to convert a refrigerant from its liquid to gaseous state."
 --------------------------------------------------------------------------
 def: ^export
 is: ^marker
@@ -114,6 +122,10 @@ doc: "Lacking balance"
 def: ^import
 is: ^marker
 doc: "Received into a system"
+--------------------------------------------------------------------------
+def: ^isolation
+is: ^marker
+doc: "Actuator used to isolate an equipment from a pipe or ductwork system"
 --------------------------------------------------------------------------
 def: ^lighting
 is: ^marker
