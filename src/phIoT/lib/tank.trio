@@ -11,6 +11,11 @@ def: ^tank
 is: ^equip
 stores: ^substance
 wikipedia: `https://en.wikipedia.org/wiki/Storage_tank`
+childrenFlatten: [^substance]
 doc: "Tank used to store a substance for temporary holding"
+children:
+  level sensor point
+  temp sensor point
+  pressure sensor point
 --------------------------------------------------------------------------
 
