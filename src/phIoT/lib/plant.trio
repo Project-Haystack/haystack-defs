@@ -22,6 +22,7 @@ children:
   chilled water bypass pipe equip
   chilled water entering pipe equip
   chilled water leaving pipe equip
+  chilled water header pipe equip
   chilled water heatExchanger equip
   chilled water delta flow point
   chilled water delta pressure point
@@ -42,6 +43,7 @@ children:
   hot water bypass pipe equip
   hot water entering pipe equip
   hot water leaving pipe equip
+  hot water header pipe equip
   hot water heatExchanger equip
   hot water delta pressure sensor point
   hot water delta flow sensor point
@@ -59,9 +61,10 @@ doc: "Plant used to generate steam for heating"
 children:
   steam boiler equip
 
-  steam bypass pipe equip
-  steam entering pipe equip
   steam leaving pipe equip
+  condensate entering pipe equip
+  steam bypass pipe equip
+  steam header pipe equip
   steam heatExchanger equip
   steam delta pressure sensor point
   steam delta flow sensor point

@@ -20,8 +20,8 @@ heats: ^hot-water
 produces: ^hot-water
 doc: "Boiler which outputs hot water"
 children:
-  hot water entering pipe equip
   hot water leaving pipe equip
+  hot water entering pipe equip
   makeup water entering pipe equip
   circ pipe equip
   outside duct equip
@@ -33,8 +33,8 @@ heats: ^steam
 produces: ^steam
 doc: "Boiler which outputs steam"
 children:
-  steam entering pipe equip
   steam leaving pipe equip
+  condensate entering pipe equip
   makeup water entering pipe equip
   circ pipe equip
   outside duct equip

@@ -65,14 +65,6 @@ def: ^pipeSectionType
 is: ^marker
 doc: "Equipment section of piping"
 --------------------------------------------------------------------------
-def: ^entering
-is: ^pipeSectionType
-doc: "Pipe conveys fluid into an equipment"
---------------------------------------------------------------------------
-def: ^leaving
-is: ^pipeSectionType
-doc: "Pipe conveys fluid out of an equipment"
---------------------------------------------------------------------------
 def: ^bypass
 is: ^pipeSectionType
 doc: "Pipe used to bypass an equipment"
@@ -80,6 +72,18 @@ doc: "Pipe used to bypass an equipment"
 def: ^circ
 is: ^pipeSectionType
 doc: "Pipe used to circulate fluid through an equipment or system"
+--------------------------------------------------------------------------
+def: ^entering
+is: ^pipeSectionType
+doc: "Pipe conveys fluid into an equipment"
+--------------------------------------------------------------------------
+def: ^header
+is: ^pipeSectionType
+doc: "Pipe used as central connection or manifold for other piping runs."
+--------------------------------------------------------------------------
+def: ^leaving
+is: ^pipeSectionType
+doc: "Pipe conveys fluid out of an equipment"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

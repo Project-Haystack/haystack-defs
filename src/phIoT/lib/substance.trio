@@ -13,6 +13,10 @@
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^condensate
+is: ^liquid
+doc: "Liquid phase produced by the condensation of steam or other gas"
+--------------------------------------------------------------------------
 def: ^fuelOil
 is: ^liquid
 wikipedia: `https://en.wikipedia.org/wiki/Fuel_oil`
