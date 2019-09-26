@@ -29,6 +29,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^choice
 is: ^symbol
+docTaxonomy
 doc:
   Choice specifies an exclusive marker selection.
   See [Choices]`docHaystack::Choices` chapter.

@@ -45,7 +45,7 @@ doc: "Device without heating"
 --------------------------------------------------------------------------
 def: ^chilled
 is: ^marker
-doc: "Cooled"
+doc: "Substance is cooled using cooling process"
 --------------------------------------------------------------------------
 def: ^cur
 is: ^marker

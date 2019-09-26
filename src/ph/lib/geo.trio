@@ -106,9 +106,9 @@ enum:
   - TN: Tennessee
   - TX: Texas
   - UT: Utah
-  - VT: Vermont
-  - VI: Virgin Islands
   - VA: Virginia
+  - VI: Virgin Islands
+  - VT: Vermont
   - WA: Washington
   - WV: West Virginia
   - WI: Wisconsin
