@@ -10,10 +10,11 @@
 - Cleanup relationship defs
 - Make containedBy, contains relationships, not associations
 - Use produces instead of supplies for equip level functionality
-- Electric meter points
-- Actuator points
-- Finish AHU points/tags: freezeStat, heatWheel, faceBypass
-- Finish VAV points: reheat, ductArea, perimeterHeat, vavMode
+- Finish elec-meter points
+- Finish actuator points
+- Finish ahu points/tags: freezeStat, heatWheel, faceBypass
+- Finish vav points: reheat, ductArea, perimeterHeat, vavMode
+- Finish plant points: flue, mixing
 
 **Version 3.9.6 (25 Sep 2019)**
 - Remove pointKind and use kind to keep it back compatible

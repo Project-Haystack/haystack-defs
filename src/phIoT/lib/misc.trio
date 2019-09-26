@@ -144,6 +144,12 @@ def: ^makeup
 is: ^marker
 doc: "Restore soemthing missed or lost"
 --------------------------------------------------------------------------
+def: ^mixing
+is: ^marker
+doc:
+  Three way valve which inputs two pipes and outputs a mixture
+  between the two to a single output pipe.
+--------------------------------------------------------------------------
 def: ^net
 is: ^marker
 doc: "Difference between import and export"

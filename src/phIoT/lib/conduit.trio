@@ -100,6 +100,11 @@ def: ^inlet
 is: ^ductSectionType
 doc: "Duct with air entering an equipment"
 --------------------------------------------------------------------------
+def: ^flue
+is: ^ductSectionType
+wikipedia: `https://en.wikipedia.org/wiki/Flue`
+doc: "Duct for exhausting combustion"
+--------------------------------------------------------------------------
 def: ^exhaust
 is: ^ductSectionType
 doc: "Duct used to expel air back outside"
