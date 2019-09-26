@@ -34,6 +34,25 @@ doc: "Direct current electricity"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
+// Phase
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^phase
+is: ^enum
+wikipedia: `https://en.wikipedia.org/wiki/Three-phase_electric_power`
+doc: "Phase measurement in a three-phase electrical system"
+enum:
+  - A: line-to-neutral measurement
+  - B: line-to-neutral measurement
+  - C: line-to-neutral measurement
+  - AB: line-to-line measurement
+  - BC: line-to-line measurement
+  - CA: line-to-line measurement
+  - N: neutral current
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
 // AC Quantities
 //////////////////////////////////////////////////////////////////////////
 
@@ -92,7 +111,6 @@ quantityOf: ^ac-elec
 prefUnit: ["deg"]
 doc: "AC current phase angle"
 --------------------------------------------------------------------------
-
 def: ^current-imbalance
 is: ^quantity
 quantityOf: ^ac-elec

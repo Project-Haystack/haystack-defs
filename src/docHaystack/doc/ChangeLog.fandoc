@@ -10,6 +10,7 @@
 - Cleanup relationship defs
 - Make containedBy, contains relationships, not associations
 - Use produces instead of supplies for equip level functionality
+- Electric meter points
 - Actuator points
 
 **Version 3.9.6 (25 Sep 2019)**

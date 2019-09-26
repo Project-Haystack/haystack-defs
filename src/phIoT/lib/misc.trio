@@ -60,6 +60,10 @@ def: ^effective
 is: ^marker
 doc: "Current control setpoint in effect taking into account other factors"
 --------------------------------------------------------------------------
+def: ^export
+is: ^marker
+doc: "Supplied out of a system"
+--------------------------------------------------------------------------
 def: ^fanPowered
 is: ^marker
 doc: "Device with a fan"
@@ -86,6 +90,10 @@ def: ^imbalance
 is: ^marker
 doc: "Lacking balance"
 --------------------------------------------------------------------------
+def: ^import
+is: ^marker
+doc: "Received into a system"
+--------------------------------------------------------------------------
 def: ^lighting
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Lighting`
@@ -102,6 +110,10 @@ doc: "Setpoint or sensor indicating occupancy of a space"
 def: ^makeup
 is: ^marker
 doc: "Restore soemthing missed or lost"
+--------------------------------------------------------------------------
+def: ^net
+is: ^marker
+doc: "Difference between import and export"
 --------------------------------------------------------------------------
 def: ^occ
 is: ^marker
