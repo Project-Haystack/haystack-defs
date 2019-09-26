@@ -148,6 +148,10 @@ def: ^reactive
 is: ^marker
 doc: "Relating to reactance"
 --------------------------------------------------------------------------
+def: ^reheat
+is: ^marker
+doc: "Command point for `reheats` process"
+--------------------------------------------------------------------------
 def: ^reciprocal
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Reciprocating_compressor`
