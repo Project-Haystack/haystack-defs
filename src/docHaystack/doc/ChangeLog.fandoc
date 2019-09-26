@@ -14,7 +14,8 @@
 - Finish actuator points
 - Finish ahu points/tags: freezeStat, heatWheel, faceBypass
 - Finish vav points: reheat, ductArea, perimeterHeat, vavMode
-- Finish plant points: flue, mixing
+- Finish boiler points: circ (pipeType)
+- Finish plant points: flue (ductType), mixing
 - Finish tank points
 
 **Version 3.9.6 (25 Sep 2019)**
