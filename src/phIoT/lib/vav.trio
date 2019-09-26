@@ -15,6 +15,11 @@ wikipedia: `https://en.wikipedia.org/wiki/Variable_air_volume`
 doc:
   Variable air volume terminal unit.  VAV systems use a constant
   air temperature with a variable air flow rate.
+children:
+  reheat cmd point
+  vavMode sp point
+  ductArea sp point
+  perimeterHeat cmd point
 --------------------------------------------------------------------------
 def: ^coolingOnly-vav
 is: ^vav
@@ -76,6 +81,33 @@ doc: "VAV pulls air from the primary air flow"
 def: ^vav-parallel
 is: ^vavAirCircuitType
 doc: "VAV pulls air from outside the primary air flow"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// VAV Misc
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ductArea
+is: ^marker
+doc: "Config point on a `vav` for duct area measured in ft² or m²"
+--------------------------------------------------------------------------
+def: ^perimeterHeat
+is: ^marker
+doc: "Auxiliary heating points associated with a `vav`"
+--------------------------------------------------------------------------
+def: ^vavMode
+is: ^str
+doc: "Standardized `vav` operational mode enumeration"
+enum:
+ - cooling:
+ - heating:
+ - reheat:
+ - warmup: morning warmup where AHU is supplying warm air
+ - purge: night purge when AHU is supplying 100% fresh air
+ - pressurize:
+ - depressurize:
+ - manual:
 --------------------------------------------------------------------------
 
 

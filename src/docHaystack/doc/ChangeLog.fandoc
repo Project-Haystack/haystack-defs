@@ -13,6 +13,7 @@
 - Electric meter points
 - Actuator points
 - Finish AHU points/tags: freezeStat, heatWheel, faceBypass
+- Finish VAV points: reheat, ductArea, perimeterHeat, vavMode
 
 **Version 3.9.6 (25 Sep 2019)**
 - Remove pointKind and use kind to keep it back compatible
