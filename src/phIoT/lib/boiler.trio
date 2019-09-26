@@ -22,6 +22,9 @@ doc: "Boiler which outputs hot water"
 children:
   hot water entering pipe equip
   hot water leaving pipe equip
+  makeup water entering pipe equip
+  outside duct equip
+  flue duct equip
 --------------------------------------------------------------------------
 def: ^steam-boiler
 is: ^boiler
@@ -31,5 +34,8 @@ doc: "Boiler which outputs steam"
 children:
   steam entering pipe equip
   steam leaving pipe equip
+  makeup water entering pipe equip
+  outside duct equip
+  flue duct equip
 --------------------------------------------------------------------------
 
