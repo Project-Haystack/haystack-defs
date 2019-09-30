@@ -28,14 +28,13 @@ ordered steps:
 
   1. **[Scan]`#scan`**: traverse input libs to find trio files
   2. **[Parse]`#parse`**: parse each trio file to discover def and defx dicts
-  3. **[Resolve]`#resolve`**: ensure every symbol tag maps to def
-  4. **[Defx]`#defx`**: add defx tags to each declared def
-  5. **[Infer Lib]`#inferLib`**: infer 'lib' tag from containing lib
-  6. **[Associations]`#associations`**: ensure associations are symbol lists
-  7. **[Infer Is]`#inferIs`**: infer 'is' tag for features
-  8. **[Inherit]`#inherit`**: recursively apply supertype tags into subtypes
-  9. **[Validation]`#validate`**: perform additional sanity checks
-  10. **[Generate]`#generate`**: output Namespace
+  3. **[Resolve]`#resolve`**: ensure every symbol tag maps to a def
+  4. **[Taxonify]`#taxonify`**: compute taxonomy tree of supertype/subtypes
+  5. **[Defx]`#defx`**: add defx tags to each declared def
+  6. **[Normalize Tags]`#normalizeTags`**: normalize def tags
+  7. **[Inherit]`#inherit`**: recursively apply supertype tags into subtypes
+  8. **[Validation]`#validate`**: perform additional sanity checks
+  9. **[Generate]`#generate`**: output Namespace
 
 Each of these steps is discussed in detail in the following sections.
 
@@ -102,6 +101,31 @@ explicitly included.
 Resolution is performed on def and defx dicts separately.  This allows
 defx dicts to reference symbols which aren't in scope of the source def.
 
+Taxonify [#taxonify]
+********************
+All of the following steps require knowing the taxonomy tree to determine
+each tag's supertypes.  This phase should walk through each def and recusively
+derive its supertypes based on each def's 'is' tag.  Specifically:
+
+  1. compute the supertype/subtype tree based on the `is` tag
+
+  2. infer the 'is' on feature [key]`Defs#keys` defs
+
+  3. verify every non-feature key has 'is' tag with exception of following
+     root tags: `marker`, `val`, and `feature`
+
+Example:
+
+  // before
+  def: ^filetype:json
+  mime: "application/json"
+
+  // after
+  def: ^filetype:json
+  mime: "application/json"
+  is: [^filetype]
+
+
 Defx [#defx]
 ************
 After resolution is complete, we can apply our defx extensions to their
@@ -133,9 +157,15 @@ Here is example to illustrate:
   acmeTerm: "ISODate"
   wombatFormatter: "DateFormatter"
 
-Infer Lib [#inferLib]
-*********************
-Every def has in inferred `lib` tag which is a reference to its declaring
+Normalize Tags [#normalizeTags]
+*******************************
+This step normalizes specific tags according to the following rules:
+
+  1. Add the inferrred `lib` tag to each def
+
+  2. Normalize def tags which subtype from list
+
+Every def has an inferred `lib` tag which is a reference to its declaring
 lib.  It is invalid for any def to declare its own 'lib' tag.  The lib meta
 itself also receives a 'lib' tag referencing itself.  Example:
 
@@ -148,12 +178,10 @@ itself also receives a 'lib' tag referencing itself.  Example:
   is: ^entity
   lib: ^lib:phIoT
 
-Association [#associations]
-***************************
-As a convenience associations such as `is` and `tagOn` can use a single
-symbol instead of list of symbols.  However, their normalized representation
-must always be a list of symbols.  This phase should iterate every def
-and normalize any tag which subtypes from `association`.  Example:
+As a convenience tags such as `is` and `tagOn` can use a single symbol
+instead of list of symbols.  However, their normalized representation
+must always be a list.  This phase should iterate every def and
+normalize any tag which subtypes from `list`.  Example:
 
   // before
   def: ^geoCity
@@ -164,26 +192,6 @@ and normalize any tag which subtypes from `association`.  Example:
   def: ^geoCity
   is: [^str]
   tagOn: [^geoPlace]
-
-Infer Is [#inferIs]
-*******************
-This phase performs the following transformations:
-
-  1. infer the 'is' on feature [key]`Defs#keys` defs
-
-  2. verify every non-feature key has 'is' tag with exception of following
-     root tags: `marker`, `val`, and `feature`
-
-Example:
-
-  // before
-  def: ^filetype:json
-  mime: "application/json"
-
-  // after
-  def: ^filetype:json
-  mime: "application/json"
-  is: [^filetype]
 
 Inherit [#inherit]
 ******************

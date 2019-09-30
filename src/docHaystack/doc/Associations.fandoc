@@ -25,7 +25,7 @@ create a relationship between defs:
   tagOn: ^site
 
 As a convenience association tags can use as a simple symbol value.  But they
-are always [normalized]`Normalization#associations` to a list.  Association
+are always [normalized]`Normalization#normalizeTags` to a list.  Association
 tags are never used on instance data, they are strictly used only on defs.
 
 Reciprocal Of [#reciprocalOf]
