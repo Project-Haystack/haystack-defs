@@ -27,7 +27,7 @@ def: ^equipRef
 is: ^ref
 of: ^equip
 containedBy: ^equip
-tagOn: ^point
+tagOn: [^equip, ^point]
 doc: "Reference to equip which contains this entity"
 --------------------------------------------------------------------------
 
