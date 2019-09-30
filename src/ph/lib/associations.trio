@@ -38,6 +38,7 @@ doc:
 def: ^tagOn
 is: ^association
 tagOn: ^def
+accumulate
 reciprocalOf: ^tags
 doc: "This tag is used on the given entity"
 --------------------------------------------------------------------------

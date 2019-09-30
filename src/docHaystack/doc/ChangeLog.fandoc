@@ -9,6 +9,7 @@
 **Version 3.9.7 (working)**
 - Cleanup relationship defs
 - Make containedBy, contains relationships, not associations
+- Add accumulate marker for normalization
 - Use produces instead of supplies for equip level functionality
 - Finish elec-meter points
 - Finish actuator points

@@ -8,6 +8,14 @@
 //
 
 --------------------------------------------------------------------------
+def: ^accumulate
+is: ^marker
+doc:
+  Accumulate the tag's value during [inheritance]`docHaystack::Normalization#inherit`
+  and [defx]`docHaystack::Normalization#defx`.  Tags marked as accumulate
+  are aggregated together during normalization and deduplicated.  This
+  marker must only be used on tags which expect a list value.
+--------------------------------------------------------------------------
 def: ^baseUri
 is: ^uri
 tagOn: ^lib

@@ -136,7 +136,8 @@ to a given subject, anyone can add tags to a def using a defx.
 
 Every defx must reference a def within its scope and must only add new tags.
 It is illegal for a defx to specify a tag declared by the def itself or by
-another defx.
+another defx.  The exception to this rule is tags annotated as `accumulate`
+which should be aggregated into a list.
 
 Here is example to illustrate:
 
@@ -207,9 +208,9 @@ supertypes:
   4. Filter out any tags from the supertype marked as `notInherited`
 
   5. Inherit all tags from previous step which are not yet declared
-     nor inherited from other supertypes
+     nor inherited from other supertypes.
 
-  6. Aggregate inherited 'children' tag values together
+  6. If the tag is marked as `accumulate` then inheritance is aggregated.
 
 In the case of ambiguity via multiple inheritance, a subtype should
 explicitly declare the tag value.
