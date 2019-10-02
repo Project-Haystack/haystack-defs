@@ -21,35 +21,23 @@ doc:
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Tags
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^stage
-is: ^int
-tagOn: ^coil
-minVal: 1
-doc:
-  Stage number of an AHU cooling or heating coil.
-  The first stage is 1, second stage 2, etc.
---------------------------------------------------------------------------
-
-
-//////////////////////////////////////////////////////////////////////////
 // Cooling Coils
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^cool
+is: ^marker
+doc: "Point used to command equipment cooling"
 --------------------------------------------------------------------------
 def: ^coolingCoil
 is: ^coil
 cools: ^air
 coolingProcess: ^coolingProcessType
+childrenFlatten: [^ductDeckType, ^ductSectionType]
 doc: "Coil used to cool air."
---------------------------------------------------------------------------
-def: ^chilled-water-coil
-is: ^coolingCoil
-coolingProcess: ^chilledWaterCooling
-doc: "Coil used to transfer heat from air to chilled water."
+children:
+   stage:1 cool enable cmd point
+   chilled water cool valve cmd point
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -57,27 +45,20 @@ doc: "Coil used to transfer heat from air to chilled water."
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^heat
+is: ^marker
+doc: "Point used to command equipment heating"
+--------------------------------------------------------------------------
 def: ^heatingCoil
 is: ^coil
 heats: ^air
 heatingProcess: ^heatingProcessType
+childrenFlatten: [^ductDeckType, ^ductSectionType]
 doc: "Coil used to heat air."
---------------------------------------------------------------------------
-def: ^hot-water-coil
-is: ^heatingCoil
-heatingProcess: ^hotWaterHeating
-doc: "Coil used to transfer heat from hot-water to air."
---------------------------------------------------------------------------
-def: ^steam-coil
-is: ^heatingCoil
-heatingProcess: ^steamHeating
-doc: "Coil used to transfer heat from steam to air."
---------------------------------------------------------------------------
-def: ^elec-coil
-is: ^heatingCoil
-heatingProcess: ^elecHeating
-wikipedia: `https://en.wikipedia.org/wiki/Heating_element`
-doc: "Heating element which converts electricity into heat"
+children:
+  stage:1 heat enable cmd point
+  hot water heat valve cmd point
+  steam heat valve cmd point
 --------------------------------------------------------------------------
 
 
