@@ -35,10 +35,10 @@ wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 childrenFlatten: [^ductDeckType, ^ductSectionType]
 children:
-  coolingCoil equip
-  heatingCoil equip
   damper actuator equip
   fan motor equip
+  coolingCoil equip
+  heatingCoil equip
   air co2 point
   air flow point
   air humidity point

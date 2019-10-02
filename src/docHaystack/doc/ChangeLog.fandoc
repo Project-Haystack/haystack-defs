@@ -18,6 +18,7 @@
 - Finish boiler points: circ (pipeType)
 - Finish plant points: flue (ductType), mixing
 - Finish tank points
+- Simplify cooling/heating coils taxonomy and add children points
 
 **Version 3.9.6 (25 Sep 2019)**
 - Remove pointKind and use kind to keep it back compatible
