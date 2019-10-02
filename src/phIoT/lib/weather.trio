@@ -9,7 +9,7 @@
 
 --------------------------------------------------------------------------
 def: ^weatherStation
-is: ^entity
+is: [^entity, ^geoPlace]
 docTaxonomy
 mandatory
 doc: "Logical weather station and its measurement points"
@@ -30,16 +30,23 @@ children:
   weather wind direction sensor point
   weather visibility sensor point
 --------------------------------------------------------------------------
+defx: ^tz
+tagOn: ^weatherStation
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Refs
+// Misc
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^weather-point
+is: ^point
+doc: "Weather station sensor point"
 --------------------------------------------------------------------------
 def: ^weatherRef
 is: ^ref
 of: ^weatherStation
-tagOn: ^site
+tagOn: [^site, ^weather-point]
 doc: "Reference to weather station for to use this entity"
 --------------------------------------------------------------------------
 
