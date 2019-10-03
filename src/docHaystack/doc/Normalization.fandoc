@@ -9,7 +9,7 @@ Overview [#overview]
 ********************
 Normalization is the process of compiling [libs]`Namespaces#libs` to
 a [namespace]`Namespaces`.  Remember that every [def]`Defs` is modeled as a
-dict - just a normal collection of name/value pairs.  The defs packaged
+dict (just a normal collection of name/value pairs).  The defs packaged
 inside libs are called *declared* defs.  Normalization will modify the tags
 of each def yielding a new dict which we call the *effective* def.  Effective
 defs are  used to compute documentation, reflection, def aware
@@ -128,8 +128,8 @@ Example:
 
 Defx [#defx]
 ************
-After resolution is complete, we can apply our defx extensions to their
-respective defs.  Each defx is used to add one or more tags to a source
+After the resolve and taxonify steps complete, we can apply our defx extensions
+to their respective defs.  Each defx is used to add one or more tags to a source
 def identified by the `defx` tag.  The defx mechanism provides for late
 binding of def metadata.  Just like RDF allows anyone to add a triple
 to a given subject, anyone can add tags to a def using a defx.
@@ -261,7 +261,7 @@ errors not caught in previous steps:
 
   7. Verify 'tagOn' only used on a tag defs (not conjuncts or feature keys)
 
-  8. Verify 'relationship' tags are only used on defs which subtype from def
+  8. Verify 'relationship' tags are only used on defs which subtype from ref
 
 Generate [#generate]
 ********************
