@@ -30,7 +30,7 @@ defx: ^tz
 tagOn: ^site
 --------------------------------------------------------------------------
 def: ^yearBuilt
-is: ^number
+is: ^int
 tagOn: ^site
 doc: "Original year of construction as four digit year such as 1980"
 --------------------------------------------------------------------------
