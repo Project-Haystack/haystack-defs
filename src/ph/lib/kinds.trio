@@ -101,12 +101,12 @@ doc: "Number with a unit of time"
 def: ^maxVal
 is: ^number
 tagOn: ^def
-doc: "Inclusive minimum for a numeric value."
+doc: "Inclusive maximum for a numeric value."
 --------------------------------------------------------------------------
 def: ^minVal
 is: ^number
 tagOn: ^def
-doc: "Inclusive maximum for a numeric value."
+doc: "Inclusive minimum for a numeric value."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
