@@ -37,6 +37,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^tagOn
 is: ^association
+notInherited
 tagOn: ^def
 accumulate
 reciprocalOf: ^tags
