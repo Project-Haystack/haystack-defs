@@ -11,6 +11,6 @@ def: ^lib:phIoT
 version: "3.9.7"
 baseUri: `https://project-haystack.org/def/phIoT/`
 wikipedia: `https://en.wikipedia.org/wiki/Internet_of_things`
-includes: [^lib:ph, ^lib:phScience]
+depends: [^lib:ph, ^lib:phScience]
 doc: "Project Haystack definitions for Internet of Things"
 ----------------------------------------------------------------------

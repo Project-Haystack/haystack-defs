@@ -122,13 +122,14 @@ def: ^lib
 is: ^feature
 doc: "Library module of symbolic definitions"
 --------------------------------------------------------------------------
-def: ^includes
+def: ^depends
 is: ^list
 of: ^ref
 tagOn: ^lib
 doc:
-  List of libraries to include into a [lib namespace]`docHaystack::Namespaces#lib`.
-  Also see [Normalization]`docHaystack::Normalization#resolve`.
+  List of this library's dependencies.  The dependent libs define the
+  [lib namespace]`docHaystack::Namespaces#lib`. Also see
+  [Normalization]`docHaystack::Normalization#resolve`.
 --------------------------------------------------------------------------
 def: ^mandatory
 is: ^marker
