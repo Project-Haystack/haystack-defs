@@ -61,7 +61,7 @@ pre>
   doc: "Project Haystack definitions for Internet of Things"
   version: "4.0"
   baseUri: `https://project-haystack.org/def/phIoT/`
-  includes: [^lib:ph, ^lib:phScience]
+  depends: [^lib:ph, ^lib:phScience]
 <pre
 
 Therefore, the full IRI for the site def based on the above lib def is

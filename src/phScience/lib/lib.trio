@@ -11,5 +11,5 @@ def: ^lib:phScience
 doc: "Project Haystack scientific definitions"
 version: "3.9.7"
 baseUri: `https://project-haystack.org/def/phScience/`
-includes: [^lib:ph]
+depends: [^lib:ph]
 ----------------------------------------------------------------------

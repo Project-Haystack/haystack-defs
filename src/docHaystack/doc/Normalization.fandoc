@@ -66,28 +66,28 @@ its [lib namespace]`Namespaces#lib`:
 
 We compute each lib namespace by computing only the symbols in the lib's
 scope.  These are the symbols defined by the lib itself and those imported
-via its `includes`.  Includes are **not** transitive - a given include does
-not imply including their referenced lib's includes.
+via its `depends`.  Dependencies are **not** transitive - a given depend does
+not imply including the referenced lib's dependencies.
 
 Example:
 
   // lib alpha
   def: ^lib:alpha
-  includes: [^lib:ph]
+  depends: [^lib:ph]
   --
   def: ^alphaTag
   is: ^marker
 
   // lib beta
   def: ^lib:beta
-  includes: [^lib:ph, ^lib:alpha]
+  depends: [^lib:ph, ^lib:alpha]
   --
   def: ^betaTag
   is: ^marker
 
   // lib gamma
   def: ^lib:beta
-  includes: [^lib:ph, ^lib:beta]
+  depends: [^lib:ph, ^lib:beta]
 
 The lib namespace to use for resolution would be as follows:
 

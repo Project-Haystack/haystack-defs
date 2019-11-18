@@ -29,7 +29,7 @@ following tags:
   - `doc`: must provide a description of the library
   - `version`: identifies the version as series of integers separated by dot
   - `baseUri`: an absolute URI used to map symbols to URIs (used by [RDF]`Rdf`)
-  - `includes`: a list symbolic names for libs to import
+  - `depends`: a list symbolic names to libs specifying dependencies
 
 Any other Trio files under "lib/" contain the lib's defs.  These files may
 be named anything you like, but must have the ".trio" file extension (all lower case).
@@ -40,7 +40,7 @@ Here is an example for `lib:phIoT`:
   doc: "Project Haystack definitions for Internet of Things"
   version: "4.0.2"
   baseUri: `https://project-haystack.org/def/phIoT/`
-  includes: [^lib:ph, ^lib:phScience]
+  depends: [^lib:ph, ^lib:phScience]
 
 Lib name must be globally unique and should be chosen carefully.
 Project Haystack reserves lib names prefixed with "ph".
@@ -61,7 +61,7 @@ Future Project Haystack lib names will be always be prefixed with "ph".
 
 Lib Namespaces [#lib]
 *********************
-Libs import external names into their local namespace via the `includes`
+Libs import external names into their local namespace via the `depends`
 tag.  All libs must include 'lib:ph' (with the exception of 'lib:ph' itself).
 The namespace of all included defs and locally defined defs in a library
 is called the *lib namespace*.
