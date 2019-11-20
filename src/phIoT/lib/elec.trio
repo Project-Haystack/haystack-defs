@@ -39,7 +39,7 @@ doc: "Direct current electricity"
 
 --------------------------------------------------------------------------
 def: ^phase
-is: ^enum
+is: ^str
 wikipedia: `https://en.wikipedia.org/wiki/Three-phase_electric_power`
 doc: "Phase measurement in a three-phase electrical system"
 enum:
