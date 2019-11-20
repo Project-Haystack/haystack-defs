@@ -21,7 +21,10 @@ class Build : BuildPod
     meta    = ["org.name":     "Project Haystack",
                "org.uri":      "https://project-haystack.org/",
                "proj.name":    "Project Haystack Defs",
-               "license.name": "Academic Free License 3.0"]
+               "license.name": "Academic Free License 3.0"
+               ]
     resDirs = [`lib/`]
+    index   = [ "ph.lib": "phIoT"]
+
   }
 }
