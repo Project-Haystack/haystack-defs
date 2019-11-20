@@ -23,5 +23,6 @@ class Build : BuildPod
                "proj.name":    "Project Haystack Defs",
                "license.name": "Academic Free License 3.0"]
     resDirs = [`lib/`]
+    index   = [ "ph.lib": "phScience"]
   }
 }
