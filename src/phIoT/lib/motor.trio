@@ -12,9 +12,10 @@ def: ^motor
 is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Electric_motor`
 doc: "Equipment that converts electrical energy into mechanical energy"
-children:
-  run state point
-  enable state point
+children: [
+  {run state point},
+  {enable state point},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -27,9 +28,10 @@ is: ^motor
 tagOn: ^motor
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc: "Motor with variable frequency drive."
-children:
-  drive speed point
-  drive freq point
+children: [
+  {drive speed point},
+  {drive freq point},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

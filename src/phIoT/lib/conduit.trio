@@ -19,12 +19,13 @@ pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
 childrenFlatten: [^fluid, ^pipeSectionType]
-children:
-  pump motor equip
-  valve actuator equip
-  flow point
-  pressure point
-  temp point
+children: [
+  {pump motor equip},
+  {valve actuator equip},
+  {flow point},
+  {pressure point},
+  {temp point},
+  ]
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
@@ -34,16 +35,17 @@ ductSection: ^ductSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 childrenFlatten: [^ductDeckType, ^ductSectionType]
-children:
-  damper actuator equip
-  fan motor equip
-  coolingCoil equip
-  heatingCoil equip
-  air co2 point
-  air flow point
-  air humidity point
-  air pressure point
-  air temp point
+children: [
+  {damper actuator equip},
+  {fan motor equip},
+  {coolingCoil equip},
+  {heatingCoil equip},
+  {air co2 point},
+  {air flow point},
+  {air humidity point},
+  {air pressure point},
+  {air temp point},
+  ]
 --------------------------------------------------------------------------
 def: ^wire
 is: ^conduit

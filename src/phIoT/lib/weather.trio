@@ -14,21 +14,22 @@ docTaxonomy
 mandatory
 doc: "Logical weather station and its measurement points"
 wikipedia: `https://en.wikipedia.org/wiki/Weather_station`
-children:
-  weather air temp sensor point
-  weather air webBulb sensor point
-  weather air feelsLike sensor point
-  weather air dewPoint sensor point
-  weather air humidity sensor point
-  weather atmospheric pressure sensor point
-  weather cloudage sensor point
-  weather daytime sensor point
-  weather precipitation sensor point
-  weather solar irradiance sensor point
-  weather weatherCond sensor point
-  weather wind speed sensor point
-  weather wind direction sensor point
-  weather visibility sensor point
+children: [
+  {weather air temp sensor point},
+  {weather air webBulb sensor point},
+  {weather air feelsLike sensor point},
+  {weather air dewPoint sensor point},
+  {weather air humidity sensor point},
+  {weather atmospheric pressure sensor point},
+  {weather cloudage sensor point},
+  {weather daytime sensor point},
+  {weather precipitation sensor point},
+  {weather solar irradiance sensor point},
+  {weather weatherCond sensor point},
+  {weather wind speed sensor point},
+  {weather wind direction sensor point},
+  {weather visibility sensor point},
+  ]
 --------------------------------------------------------------------------
 defx: ^tz
 tagOn: ^weatherStation

@@ -13,9 +13,10 @@ is: ^entity
 docTaxonomy
 mandatory
 doc: "Equipment asset"
-children:
-  equip
-  point
+children: [
+  {equip},
+  {point},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

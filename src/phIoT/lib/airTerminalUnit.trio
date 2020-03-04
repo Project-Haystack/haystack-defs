@@ -15,10 +15,11 @@ doc:
   Terminal units receive air from `airHandlingEquip` which have the
   primarily responsibility to condition air.  Terminal units are primarily
   responsible for delivery of air to the space and tempering the temperature.
-children:
-  thermostat equip
-  discharge duct equip
-  inlet duct equip
-  thermostat equip
+children: [
+  {thermostat equip},
+  {discharge duct equip},
+  {inlet duct equip},
+  {thermostat equip},
+  ]
 --------------------------------------------------------------------------
 

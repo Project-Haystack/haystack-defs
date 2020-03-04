@@ -25,18 +25,20 @@ doc:
   HVAC equipment that conditions and delivers air via one or more fans.
   Conditioning of air includes heating, cooling, humidificiation,
   dehumidification, and ventilation.
-children:
-  thermostat equip
-  discharge duct equip
-  exhaust duct equip
-  mixed duct equip
-  outside duct equip
-  return duct equip
-  thermostat equip
-  freezeStat sensor point
-  heatWheel cmd point
-  faceBypass cmd point
-  bypass damper cmd point
+children: [
+  {thermostat equip},
+  {discharge duct equip},
+  {exhaust duct equip},
+  {mixed duct equip},
+  {outside duct equip},
+  {return duct equip},
+  {thermostat equip},
+  {filter sensor point},
+  {freezeStat sensor point},
+  {heatWheel cmd point},
+  {faceBypass cmd point},
+  {bypass damper cmd point},
+  ]
 --------------------------------------------------------------------------
 def: ^ahu
 is: ^airHandlingEquip

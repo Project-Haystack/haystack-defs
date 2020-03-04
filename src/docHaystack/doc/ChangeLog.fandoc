@@ -8,6 +8,7 @@
 
 **Version 3.9.8 (working)**
 - Rename lib includes to depends
+- Rework children to be lists of dicts instead of Zinc strings
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs

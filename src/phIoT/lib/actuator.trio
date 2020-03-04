@@ -35,9 +35,10 @@ ductSection: ^ductSectionType
 childrenFlatten: [^ductSectionType]
 wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
 doc: "Actuator to regulate the flow of air."
-children:
-  damper cmd point
-  damper sensor point
+children: [
+  {damper cmd point},
+  {damper sensor point},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -57,8 +58,9 @@ pipeSection: ^pipeSectionType
 childrenFlatten: [^fluid, ^pipeSectionType]
 wikipedia: `https://en.wikipedia.org/wiki/Valve`
 doc: "Actuator to regulate the flow of fluid."
-children:
-  valve cmd point
-  valve sensor point
+children: [
+  {valve cmd point},
+  {valve sensor point},
+  ]
 --------------------------------------------------------------------------
 
