@@ -32,8 +32,8 @@ Reciprocal Of [#reciprocalOf]
 *****************************
 The `reciprocalOf` tag is applied to an association to define its inverse term.
 For example:
-  - `tags` is reciprocalOf of `tagOn` (and vise versa)
-  - `quantities` is reciprocalOf of `quantityOf` (and vise versa)
+  - `tags` is reciprocalOf of `tagOn` (and vice versa)
+  - `quantities` is reciprocalOf of `quantityOf` (and vice versa)
 
 Reciprocals are used to coin terms which are intuitive for bi-directional
 [relationship queries]`Relationships#reciprocalOf`.  However to promote
