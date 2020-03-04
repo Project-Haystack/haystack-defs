@@ -15,65 +15,68 @@ def: ^chilled-water-plant
 is: ^plant
 produces: ^chilled-water
 doc: "Plant used to generate chilled water for cooling"
-children:
-  chiller equip
-  coolingTower equip
+children: [
+  {chiller equip},
+  {coolingTower equip},
 
-  chilled water bypass pipe equip
-  chilled water entering pipe equip
-  chilled water leaving pipe equip
-  chilled water header pipe equip
-  chilled water heatExchanger equip
-  chilled water delta flow point
-  chilled water delta pressure point
-  chilled water delta temp point
+  {chilled water bypass pipe equip},
+  {chilled water entering pipe equip},
+  {chilled water leaving pipe equip},
+  {chilled water header pipe equip},
+  {chilled water heatExchanger equip},
+  {chilled water delta flow point},
+  {chilled water delta pressure point},
+  {chilled water delta temp point},
 
-  condenser water bypass pipe equip
-  condenser water delta flow point
-  condenser water delta pressure point
-  condenser water delta temp point
+  {condenser water bypass pipe equip},
+  {condenser water delta flow point},
+  {condenser water delta pressure point},
+  {condenser water delta temp point},
+  ]
 --------------------------------------------------------------------------
 def: ^hot-water-plant
 is: ^plant
 produces: ^hot-water
 doc: "Plant used to generate hot water for heating"
-children:
-  hot water boiler equip
+children: [
+  {hot water boiler equip},
 
-  hot water bypass pipe equip
-  hot water entering pipe equip
-  hot water leaving pipe equip
-  hot water header pipe equip
-  hot water heatExchanger equip
-  hot water delta pressure sensor point
-  hot water delta flow sensor point
-  hot water delta temp sensor point
-  hot water mixing valve cmd point
+  {hot water bypass pipe equip},
+  {hot water entering pipe equip},
+  {hot water leaving pipe equip},
+  {hot water header pipe equip},
+  {hot water heatExchanger equip},
+  {hot water delta pressure sensor point},
+  {hot water delta flow sensor point},
+  {hot water delta temp sensor point},
+  {hot water mixing valve cmd point},
 
-  makeup water entering pipe equip
-  outside duct equip
-  flue duct equip
+  {makeup water entering pipe equip},
+  {outside duct equip},
+  {flue duct equip},
+  ]
 --------------------------------------------------------------------------
 def: ^steam-plant
 is: ^plant
 produces: ^steam
 doc: "Plant used to generate steam for heating"
-children:
-  steam boiler equip
+children: [
+  {steam boiler equip},
 
-  steam leaving pipe equip
-  condensate entering pipe equip
-  steam bypass pipe equip
-  steam header pipe equip
-  steam heatExchanger equip
-  steam delta pressure sensor point
-  steam delta flow sensor point
-  steam delta temp sensor point
-  steam mixing valve cmd point
+  {steam leaving pipe equip},
+  {condensate entering pipe equip},
+  {steam bypass pipe equip},
+  {steam header pipe equip},
+  {steam heatExchanger equip},
+  {steam delta pressure sensor point},
+  {steam delta flow sensor point},
+  {steam delta temp sensor point},
+  {steam mixing valve cmd point},
 
-  makeup water entering pipe equip
-  outside duct equip
-  flue duct equip
+  {makeup water entering pipe equip},
+  {outside duct equip},
+  {flue duct equip},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

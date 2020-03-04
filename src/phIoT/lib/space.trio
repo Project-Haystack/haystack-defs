@@ -13,10 +13,11 @@ is: ^entity
 docTaxonomy
 mandatory
 doc: "Space is a three-dimensional volume in the built environment"
-children:
-  space
-  equip
-  point
+children: [
+  {space},
+  {equip},
+  {point},
+  ]
 --------------------------------------------------------------------------
 def: ^area
 is: ^number
@@ -92,25 +93,27 @@ doc: "Enclosed room of a building"
 def: ^zone-space
 is: ^space
 doc: "Space associated with a specific system"
-children:
-  occupied point
+children: [
+  {occupied point},
+  ]
 --------------------------------------------------------------------------
 def: ^hvac-zone-space
 is: ^zone-space
 doc:
   Zone related to conditioning of a space's air temperature and quality.
-children:
+children: [
   // NOTE: this list should be kept in sync with thermostat
-  zone air temp sensor point
-  zone air temp effective sp point
-  zone air temp occ cooling sp point
-  zone air temp occ heating sp point
-  zone air temp unocc cooling sp point
-  zone air temp unocc heating sp point
-  zone air temp standby cooling sp point
-  zone air temp standby heating sp point
-  zone air humidity point
-  zone air co2 point
+  {zone air temp sensor point},
+  {zone air temp effective sp point},
+  {zone air temp occ cooling sp point},
+  {zone air temp occ heating sp point},
+  {zone air temp unocc cooling sp point},
+  {zone air temp unocc heating sp point},
+  {zone air temp standby cooling sp point},
+  {zone air temp standby heating sp point},
+  {zone air humidity point},
+  {zone air co2 point},
+  ]
 --------------------------------------------------------------------------
 def: ^lighting-zone-space
 is: ^zone-space

@@ -16,9 +16,10 @@ doc:
   Site is a geographic location of the built environment.
   Typically site maps to one building with its own unique
   street address.
-children:
-  space
-  equip
+children: [
+  {space},
+  {equip},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

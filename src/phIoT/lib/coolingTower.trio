@@ -12,10 +12,11 @@ is: ^equip
 cools: ^condenser-water
 wikipedia: `https://en.wikipedia.org/wiki/Cooling_tower`
 doc: "Equipment to transfer waste heat into the atmosphere"
-children:
-  condenser water entering pipe equip
-  condenser water leaving pipe equip
-  fan motor equip
+children: [
+  {condenser water entering pipe equip},
+  {condenser water leaving pipe equip},
+  {fan motor equip},
+  ]
 --------------------------------------------------------------------------
 // TODO def: ^coolingTower.coolingLoop
 // --------------------------------------------------------------------------

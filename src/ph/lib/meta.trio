@@ -22,10 +22,10 @@ tagOn: ^lib
 doc: "Base URI for normalizing relative URIs"
 --------------------------------------------------------------------------
 def: ^children
-is: ^str
+is: ^list
+of: ^dict
 doc:
-  Prototypes contained by this entity.  The value is a string where
-  each line defines a child prototype dict encoded as [Zinc]`docHaystack::Zinc`.
+  List of prototypes contained by this entity.
   See [Protos chatper]`docHaystack::Protos` for more details.
 --------------------------------------------------------------------------
 def: ^childrenFlatten

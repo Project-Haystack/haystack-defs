@@ -15,28 +15,29 @@ wikipedia: `https://en.wikipedia.org/wiki/Chiller`
 doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
   compression or an absorption refrigeration cycle.
-children:
-  run state point
-  enable state point
-  load cmd point
-  load sensor point
-  efficiency sensor point
+children: [
+  {run state point},
+  {enable state point},
+  {load cmd point},
+  {load sensor point},
+  {efficiency sensor point},
 
-  chilled water leaving pipe equip
-  chilled water entering pipe equip
-  chilled water delta temp sensor point
-  chilled water delta flow sensor point
-  chilled water valve isolation cmd point
+  {chilled water leaving pipe equip},
+  {chilled water entering pipe equip},
+  {chilled water delta temp sensor point},
+  {chilled water delta flow sensor point},
+  {chilled water valve isolation cmd point},
 
-  condenser water leaving pipe equip
-  condenser water entering pipe equip
-  condenser water valve isolation cmd point
+  {condenser water leaving pipe equip},
+  {condenser water entering pipe equip},
+  {condenser water valve isolation cmd point},
 
-  condenser run state point
-  condenser refrig temp sensor point
-  condenser refrig pressure sensor point
-  evaporator refrig temp sensor point
-  evaporator refrig pressure sensor point
+  {condenser run state point},
+  {condenser refrig temp sensor point},
+  {condenser refrig pressure sensor point},
+  {evaporator refrig temp sensor point},
+  {evaporator refrig pressure sensor point},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

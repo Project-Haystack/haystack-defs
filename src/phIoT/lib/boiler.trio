@@ -19,25 +19,27 @@ is: ^boiler
 heats: ^hot-water
 produces: ^hot-water
 doc: "Boiler which outputs hot water"
-children:
-  hot water leaving pipe equip
-  hot water entering pipe equip
-  makeup water entering pipe equip
-  circ pipe equip
-  outside duct equip
-  flue duct equip
+children: [
+  {hot water leaving pipe equip},
+  {hot water entering pipe equip},
+  {makeup water entering pipe equip},
+  {circ pipe equip},
+  {outside duct equip},
+  {flue duct equip},
+  ]
 --------------------------------------------------------------------------
 def: ^steam-boiler
 is: ^boiler
 heats: ^steam
 produces: ^steam
 doc: "Boiler which outputs steam"
-children:
-  steam leaving pipe equip
-  condensate entering pipe equip
-  makeup water entering pipe equip
-  circ pipe equip
-  outside duct equip
-  flue duct equip
+children: [
+  {steam leaving pipe equip},
+  {condensate entering pipe equip},
+  {makeup water entering pipe equip},
+  {circ pipe equip},
+  {outside duct equip},
+  {flue duct equip},
+  ]
 --------------------------------------------------------------------------
 
