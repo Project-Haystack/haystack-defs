@@ -24,6 +24,7 @@ doc: "Base URI for normalizing relative URIs"
 def: ^children
 is: ^list
 of: ^dict
+accumulate
 doc:
   List of prototypes contained by this entity.
   See [Protos chatper]`docHaystack::Protos` for more details.
