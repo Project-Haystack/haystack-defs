@@ -1,0 +1,7 @@
+# ignore files for fan
+
+Thumbs.db
+.DS_Store
+fan.props
+
+lib/
