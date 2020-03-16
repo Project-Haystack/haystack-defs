@@ -85,6 +85,10 @@ def: ^fanPowered
 is: ^marker
 doc: "Device with a fan"
 --------------------------------------------------------------------------
+def: ^filter
+is: ^marker
+doc: "Related to an air or fluid filter."
+--------------------------------------------------------------------------
 def: ^freezeStat
 is: ^marker
 doc:
