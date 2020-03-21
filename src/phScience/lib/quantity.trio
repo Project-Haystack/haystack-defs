@@ -46,6 +46,12 @@ quantityOf: ^substance
 doc: "Temperature - measure of hot and cold"
 prefUnit: ["°C", "°F"]
 --------------------------------------------------------------------------
+def: ^volume
+is: ^quantity
+quantityOf: ^substance
+doc: "Three dimensional space occupied by a substance"
+prefUnit: ["m³", "ft³", "L", "gal"]
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Fluids
@@ -109,6 +115,11 @@ def: ^airQuality
 is: ^quantity
 quantityOf: ^air
 doc: "Measurement of contaminants in the air"
+--------------------------------------------------------------------------
+def: ^co
+doc: "Carbon monoxide level"
+is: ^airQuality
+prefUnit: ["ppm"]
 --------------------------------------------------------------------------
 def: ^co2
 doc: "Carbon dioxide level"

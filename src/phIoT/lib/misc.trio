@@ -52,6 +52,10 @@ is: ^marker
 tagOn: ^point
 doc: "Supports current value"
 --------------------------------------------------------------------------
+def: ^diverting
+is: ^marker
+doc: "Three way valve which inputs one pipe and diverts between two output pipes."
+--------------------------------------------------------------------------
 def: ^delta
 is: ^marker
 doc: "Differential of fluid between entering and leaving sensors."
