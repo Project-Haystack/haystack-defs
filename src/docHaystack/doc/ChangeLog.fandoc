@@ -14,6 +14,9 @@
 - Zinc and JSON support for symbol literals
 - Zinc support for optional commas in nested dict literals
 - Trio support for nested lists
+- Add tags: co, diverting, volume
+- Add choice airVolumeAdjustability - constantAirVolume, variableAirVolume
+- Add choice pipeLoop - primaryLoop, secondaryLoop
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs

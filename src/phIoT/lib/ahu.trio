@@ -10,6 +10,7 @@
 --------------------------------------------------------------------------
 def: ^airHandlingEquip
 is: ^equip
+airVolumeAdjustability: ^airVolumeAdjustabilityType
 ahuZoneDelivery: ^ahuZoneDeliveryType
 cools: ^air
 coolingProcess: ^coolingProcessType
@@ -89,6 +90,34 @@ is: ^fcu
 doc:
   Computer Room Air Conditioner: An FCU designed to condition a computer
   room.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// airVolume
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^airVolumeAdjustability
+is: ^choice
+of: ^airVolumeAdjustabilityType
+doc: "Ability of air handling equip to adjust volume of air flow"
+--------------------------------------------------------------------------
+def: ^airVolumeAdjustabilityType
+is: ^marker
+doc: "Ability of air handling equip to adjust volume of air flow"
+--------------------------------------------------------------------------
+def: ^constantAirVolume
+is: ^airVolumeAdjustabilityType
+doc:
+  Delivers a constant volume of air flow.  Typically this means
+  equipment with a single speed fan.
+--------------------------------------------------------------------------
+def: ^variableAirVolume
+is: ^airVolumeAdjustabilityType
+doc:
+  Delivers a variable volume of air flow.   Most variable volume systems
+  are powered by a VFD fan. However other techniques such as inlet vanes
+  may be used in older systems.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
