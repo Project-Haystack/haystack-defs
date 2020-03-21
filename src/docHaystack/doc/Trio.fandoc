@@ -37,8 +37,14 @@ Trio uses a simple plain text format designed for easy editing by hand:
   - if a newline follows the colon, then the value is an indented
     multi-line string terminated by the first non-indented line
 
-  - nested grids are encoded as a multi-line string prefixed with
-    the string value "Zinc:" on the tag line
+  - nested data may be encoded with Zinc or Trio as a multi-line
+    string prefixed with the string value "Zinc:" or "Trio:" on
+    the tag line
+
+  - nested lists may be encoded in Zinc as a multi-line string
+    prefixed with "[" on the tag line; the multi-line string should
+    be parsed as follows: 1) skip lines starting with "//", 2) strip
+    newlines, and 3) parse a zinc '<val>' production
 
   - can use '//' as line comment
 
@@ -59,7 +65,7 @@ Here is a simple example:
   summary:
     Entities are separated by one more dashes
 
-Here is an example with a nested list, dict, and grid value:
+Here are examples with nested data values:
 
   // Zinc
   ver:"3.0"
@@ -87,3 +93,9 @@ Here is an example with a nested list, dict, and grid value:
     b,a
     20,10
 
+  // nested list
+  def: ^myEquip
+  children: [
+    {fan, motor, equip},
+    {damper, actuator, equip},
+    ]
