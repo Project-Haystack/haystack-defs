@@ -26,7 +26,9 @@
 
   "Filetype Formats",
   [`Zinc`,          "Zinc plain text format"],
+  [`Json`,          "JavaScript object notation format"],
   [`Trio`,          "Tag record I/O format"],
+  [`Csv`,           "Comma separated valus format"],
   [`Rdf`,           "Resource Description Framework export"],
 
   "Appendix",

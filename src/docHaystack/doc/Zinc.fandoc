@@ -1,17 +1,224 @@
 **************************************************************************
 ** title:      Zinc
 ** author:     Brian Frank
+** created:    28 Dec 2009
 ** copyright:  Copyright (c) 2015, Project-Haystack
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
 Overview [#overview]
 ********************
-Stub for current documentation found at `https://project-haystack.org/doc/Zinc`.
+Zinc stands for "Zinc Is Not CSV".  Zinc is a plaintext syntax for serializing
+Haystack grids using a souped up CSV format.  Unlike [CSV]`Csv`, Zinc
+supports typed scalar values (such as Bool, Int, Float, Str, Date, etc)
+and arbitrary meta-data at the grid and column level.  Unlike JSON,
+Zinc results in much higher compression for tabular data.
 
-Also see `filetype:zinc`
+Zinc is represented by the def `filetype:zinc`.
+
+Literals [#literals]
+********************
+The basic syntax of Zinc uses a custom literal syntax for each type:
+
+  - Null: 'N'
+  - Marker: 'M'
+  - Remove: 'R'
+  - NA: 'NA'
+  - Bool: 'T' or 'F' (for true, false)
+  - Number: '1', '-34', '10_000', '5.4e-45', '9.23kg', '74.2°F', '4min', 'INF', '-INF', 'NaN'
+  - Str: '"hello"' '"foo\nbar\"' (uses all standard escape chars as C like languages)
+  - Uri: '`http://project-haystack.com/`'
+  - Ref: '@17eb0f3a-ad607713'
+  - Date: '2010-03-13' (YYYY-MM-DD)
+  - Time: '08:12:05' (hh:mm:ss.FFF)
+  - DateTime: '2010-03-11T23:55:00-05:00 New_York' or '2009-11-09T15:39:00Z'
+  - Coord: 'C(37.55,-77.45)'
+  - XStr: 'Type("value")'
+  - List: '[1, 2, 3]'
+  - Dict: '{dis:"Building" site area:35000ft²}'
+  - Grid: '<<ver:"3.0" ... >>'
+
+Syntax [#syntx]
+***************
+Every grid has one line of meta-data applied to the entire grid, followed
+by one line of column definitions, then zero or more lines of rows.  Each
+line is separated by a "\n" newline character.
+
+The meta-data line must always begin with a 'ver' tag and a value of "3.0".
+Let's look at a simple example:
+
+  ver:"3.0"
+  firstName,bday
+  "Jack",1973-07-23
+  "Jill",1975-11-15
+
+Note the first line defines the grid meta-data which is just the version
+tag.  The second line defines two columns named 'firstName' and 'bday'.  There
+are two data rows each with a Str value for 'firstName' and a Date value for
+'bday'.
+
+Metadata may be specified on the grid itself or on each column
+as a set of name/value tags.  Tags are specified as "name: val" or if value
+is omitted, then it is a marker tag.  Tags are separated by a space. Here
+is an example:
+
+  ver:"3.0" database:"test" dis:"Site Energy Summary"
+  siteName dis:"Sites", val dis:"Value" unit:"kW"
+  "Site 1", 356.214kW
+  "Site 2", 463.028kW
+
+It is common to have sparse tables where rows have a null value for a given
+column.  This is indicated either using the 'N' literal or by omitting a
+the cell entirely.  For example these two rows are semantically identical:
+
+  "a",N,2,N,N,"z"
+  "a",,2,,,"z"
+
+If there is only one column, then a null row must be represented with the 'N'
+character.
+
+Nested lists, dicts, or grids may be used for any meta data value or cell:
+
+  ver:"3.0"
+  type,val
+  "list",[1,2,3]
+  "dict",{dis:"Dict!" foo}
+  "grid",<<
+    ver:"2.0"
+    a,b
+    1,2
+    3,4
+    >>
+  "scalar","simple string"
 
 Grammar [#grammar]
 ******************
-Stub for `https://project-haystack.org/doc/Zinc#grammar`.
+The formal BNF grammar for Zinc:
+
+  <grid>        :=  <gridMeta> <cols> [<row>]*
+  <gridMeta>    :=  <ver> <tags> <nl>
+  <ver>         :=  "ver:" <str>
+  <tags>        :=  [<tag>]*   // separated by one space (0x20)
+  <tag>         :=  <tagMarker> | <tagPair>
+  <tagMarker>   :=  <id>  // val is assumed to be Marker
+  <tagPair>     :=  <id> ":" <val>
+  <cols>        :=  <col> ["," <col>]* <nl>
+  <col>         :=  <id> <tags>
+  <row>         :=  <cell> ["," <cell>]* <nl>
+  <cell>        :=  <val>  // empty cell is same as null
+  <val>         :=  <scalar> | <list> | <dict> | <grid>
+  <list>        :=  "[" (<val> ",")* "]"  // trailing comma allowed/optional
+  <dict>        :=  "{" <tags> "}"
+  <grid>        :=  "<<" <grid> ">>"
+
+Zinc tokens:
+
+  <id>          :=  <alphaLo> (<alphaLo> | <alphaHi> | <digit> | '_')*
+
+  <scalar>      :=  <null> | <marker> | <remove> | <na> | <bool> | <ref> | <str> |
+                    <uri> | <number> | <date> | <time> | <dateTime> | <coord> | <xstr>
+
+  <null>        := "N"
+  <marker>      := "M"
+  <remove>      := "R"
+  <na>          := "NA"
+  <bool>        := "T" | "F"
+
+  <ref>         := "@" <refChar>* [ " " <str> ]
+  <refChar>     := <alpha> | <digit> | "_" | ":" | "-" | "." | "~"
+
+  <str>         := """ <strChar>* """
+  <uri>         := "`" <uriChar>* "`"
+  <strChar>     := <unicodeChar> | <strEscChar>
+  <uriChar>     := <unicodeChar> | <uriEscChar>
+  <unicodeChar> := any 16-bit Unicode char >= 0x20 (except str/uri quote)
+  <strEscChar>  := "\b" | "\f" | "\n" | "\r" | "\r" | "\t" | "\"" | "\\" | "\$" | <uEscChar>
+  <uriEscChar>  := "\:" | "\/" | "\?" | "\#" | "\[" | "\]" | "\@" | "\`" | "\\" | "\&" | "\=" | "\;" | <uEscChar>
+  <uEscChar>    := "\u" <hexDigit> <hexDigit> <hexDigit> <hexDigit>
+
+  <xstr>        := <xstrType> "(" <str> ")"
+  <xstrType>    := <alphaHi> (<alphaLo> | <alphaHi> | <digit> | '_')*
+
+  <number>      := <decimal> | "INF" | "-INF" | "NaN"
+  <decimal>     := ["-"] <digits> ["." <digits>] [<exp>] [<unit>]
+  <exp>         := ("e"|"E") ["+"|"-"] <digits>
+  <unit>        := <unitChar>*
+  <unitChar>    := <alpha> | "%" | "_" | "/" | "$" | any char > 128  // see Units
+
+  <date>        := YYYY-MM-DD
+  <time>        := hh:mm:ss.FFFFFFFFF
+  <dateTime>    := YYYY-MM-DD'T'hh:mm:ss.FFFFFFFFFz zzzz
+
+  <coord>       := "C(" <coordDeg> "," <coordDeg> ")"
+  <coordDeg>    := ["-"] <digits> ["." <digits>]
+
+  <alphaLo>     := ('a' - 'z')
+  <alphaHi>     := ('A' - 'Z')
+  <alpha>       := <alphaLo> | <alphaHi>
+  <digit>       := ('0' - '9')
+  <digits>      := <digit> (<digit> | "_")*
+  <hexDigit>    := ('a'-'f') | ('A'-'F') | digit
+
+The space charater 0x20 is allowed between tokens.
+
+Notes [#notes]
+**************
+The following are notes for implementators:
+
+Identifiers vs Keywords [#idNotes]
+==================================
+Identifiers must start with a lower case letter. Keywords begin with
+an upper case letter: "N", "T", "F", "M", "NA", "INF", "NaN", etc
+
+URIs [#uriNotes]
+================
+Escape chars in URIs are used to remove special meaning for reserved
+characters.  For example if a filename contains the '#' character, then
+it must be escaped so that the '#' is not treated as a fragment identifier:
+
+   `file \#2`
+
+Parsers should be prepared to encounter and preserve the backslash
+in these cases.
+
+Number Tokens [#numberNotes]
+============================
+When parsing, a leading digit may be a number, date, time, or datetime.
+You can use the following technique to consume these scalars:
+  1. consume all the various chars into a string
+  2. if dashes and no colons must be date
+  3. if colons and no dashes must be time
+  4. if colons and dashes must be dateTime, check for 'Z' or timezone
+  5. must be number with optional unit
+
+DateTime [#dateTimeNotes]
+=========================
+DateTime scalars are encoded using both offset and the timezone name:
+
+  2010-11-28T07:23:02.773-08:00 Los_Angeles // negative offset and timezone
+  2010-11-28T23:19:29.741+08:00 Taipei      // positive offset and timezone
+  2010-11-28T18:21:58+03:00 GMT-3           // timezone may include '-'
+  2010-11-28T12:22:27-03:00 GMT+3           // timezone may include '+'
+  2010-01-08T05:00:00Z UTC                  // UTC example
+  2010-01-08T05:00:00Z                      // UTC may omit timezone name
+
+Version History [#versionHistory]
+*********************************
+
+**Zinc 1.0**
+  - initial version
+  - Bin format: 'Bin mime:"text/plain"'
+
+**Zinc 2.0**
+  - change hex RecId syntax to @ Ref syntax
+  - remove support for cell display strings and metadata
+  - remove support for column display strings (use dis metadata tag)
+  - update Bin format: 'Bin(text/plain)'
+
+**Zinc 3.0**
+  - add nested lists, dicts, grids
+  - add NA
+  - add XStr
+  - remove Bin format to use XStr syntax
+
 

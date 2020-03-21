@@ -10,6 +10,7 @@
 - Rename lib includes to depends
 - Rework children to be lists of dicts instead of Zinc strings
 - Rename 'filter' to 'filterStr' and add 'filter' marker tag
+- Port file type docs: Zinc, Json, Trio, Csv
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs
