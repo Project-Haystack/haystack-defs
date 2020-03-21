@@ -15,6 +15,7 @@ doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 def: ^pipe
 is: ^conduit
 conveys: ^fluid
+pipeLoop: ^pipeLoopType
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
@@ -86,6 +87,29 @@ doc: "Pipe used as central connection or manifold for other piping runs."
 def: ^leaving
 is: ^pipeSectionType
 doc: "Pipe conveys fluid out of an equipment"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Pipe Loop
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^pipeLoop
+is: ^choice
+of: ^pipeLoopType
+doc: "Primary of secondary loop"
+--------------------------------------------------------------------------
+def: ^pipeLoopType
+is: ^marker
+doc: "Primary of secondary loop"
+--------------------------------------------------------------------------
+def: ^primaryLoop
+is: ^pipeLoopType
+doc: "Pipework within the central plant"
+--------------------------------------------------------------------------
+def: ^secondaryLoop
+is: ^pipeLoopType
+doc: "Pipework from central plant to the building"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
