@@ -9,9 +9,9 @@
 Overview [#overview]
 ********************
 Trio stands for "Text Record Input/Output".  Trio is a simple plain text
-format used for hand authoring record definitions and other Haystack tagged
-data.  It is the primary format for authoring the tag definitions on the
-Project Haystack site itself.
+format used for hand authoring Haystack data.  It is derived as a subset
+of [YAML]`https://en.wikipedia.org/wiki/YAML`.  It is the primary format
+for authoring the tag definitions on the Project Haystack site itself.
 
 Trio is represented by the def `filetype:trio`.
 

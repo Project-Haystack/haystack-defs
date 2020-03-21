@@ -11,6 +11,8 @@
 - Rework children to be lists of dicts instead of Zinc strings
 - Rename 'filter' to 'filterStr' and add 'filter' marker tag
 - Port file type docs: Zinc, Json, Trio, Csv
+- Zinc and JSON support for symbol literals
+- Zinc support for optional commas in nested dict literals
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs

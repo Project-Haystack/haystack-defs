@@ -29,6 +29,7 @@ The basic syntax of Zinc uses a custom literal syntax for each type:
   - Str: '"hello"' '"foo\nbar\"' (uses all standard escape chars as C like languages)
   - Uri: '`http://project-haystack.com/`'
   - Ref: '@17eb0f3a-ad607713'
+  - Symbol: '^hot-water'
   - Date: '2010-03-13' (YYYY-MM-DD)
   - Time: '08:12:05' (hh:mm:ss.FFF)
   - DateTime: '2010-03-11T23:55:00-05:00 New_York' or '2009-11-09T15:39:00Z'
@@ -55,7 +56,7 @@ Let's look at a simple example:
 Note the first line defines the grid meta-data which is just the version
 tag.  The second line defines two columns named 'firstName' and 'bday'.  There
 are two data rows each with a Str value for 'firstName' and a Date value for
-'bday'.
+'bday'.  Every row must define a cell value for each column.
 
 Metadata may be specified on the grid itself or on each column
 as a set of name/value tags.  Tags are specified as "name: val" or if value
@@ -91,31 +92,45 @@ Nested lists, dicts, or grids may be used for any meta data value or cell:
     >>
   "scalar","simple string"
 
+Nested dicts are optionally allowed to use a comma between name value pairs.
+However, commas are *not* allowed for grid and column meta-data.
+
 Grammar [#grammar]
 ******************
-The formal BNF grammar for Zinc:
+Grammar legend:
+  :=      is defined as
+  <x>     non-terminal
+  "x"     literal
+  [x]     optional
+  (x)     grouping
+  x+      one or more times
+  x*      zero or more times
+  x|x     or
+
+The formal grammar for Zinc:
 
   <grid>        :=  <gridMeta> <cols> [<row>]*
-  <gridMeta>    :=  <ver> <tags> <nl>
-  <ver>         :=  "ver:" <str>
-  <tags>        :=  [<tag>]*   // separated by one space (0x20)
+  <gridMeta>    :=  <ver> <tagsNoComma> <nl>
+  <ver>         :=  "ver:" <str>  // must be "3.0"
+  <tagsNoComma> :=  <tag>*   // separated by one space (0x20)
+  <tagsCommaOk> :=  (<tag>, [","])*  // trailing comma allowed/optional
   <tag>         :=  <tagMarker> | <tagPair>
   <tagMarker>   :=  <id>  // val is assumed to be Marker
   <tagPair>     :=  <id> ":" <val>
-  <cols>        :=  <col> ["," <col>]* <nl>
-  <col>         :=  <id> <tags>
+  <cols>        :=  <col> ("," <col>)* <nl>
+  <col>         :=  <id> <tagsNoComma>
   <row>         :=  <cell> ["," <cell>]* <nl>
   <cell>        :=  <val>  // empty cell is same as null
   <val>         :=  <scalar> | <list> | <dict> | <grid>
   <list>        :=  "[" (<val> ",")* "]"  // trailing comma allowed/optional
-  <dict>        :=  "{" <tags> "}"
+  <dict>        :=  "{" <tagsCommaOk> "}"
   <grid>        :=  "<<" <grid> ">>"
 
 Zinc tokens:
 
   <id>          :=  <alphaLo> (<alphaLo> | <alphaHi> | <digit> | '_')*
 
-  <scalar>      :=  <null> | <marker> | <remove> | <na> | <bool> | <ref> | <str> |
+  <scalar>      :=  <null> | <marker> | <remove> | <na> | <bool> | <ref> | <symbol> | <str> |
                     <uri> | <number> | <date> | <time> | <dateTime> | <coord> | <xstr>
 
   <null>        := "N"
@@ -124,7 +139,8 @@ Zinc tokens:
   <na>          := "NA"
   <bool>        := "T" | "F"
 
-  <ref>         := "@" <refChar>* [ " " <str> ]
+  <symbol>      := "^" <refChar>+
+  <ref>         := "@" <refChar>+ [ " " <str> ]
   <refChar>     := <alpha> | <digit> | "_" | ":" | "-" | "." | "~"
 
   <str>         := """ <strChar>* """
@@ -220,5 +236,10 @@ Version History [#versionHistory]
   - add NA
   - add XStr
   - remove Bin format to use XStr syntax
+
+**Zinc 3.0 Haysatck 4 features**
+  - Version remains the same "3.0"
+  - Symbol literals
+  - Allow commas in nested dict literals
 
 

@@ -31,6 +31,7 @@ The following is the mapping between Haystack and JSON types:
   NA            "z:"
   Number        "n:<float> [unit]" "n:45.5" "n:73.2 °F" "n:-INF"
   Ref           "r:<id> [dis]"  "r:abc-123" "r:abc-123 RTU #3"
+  Symbol        "y:<id>"  "y:hot-water", "y:lib:ph"
   Str           "hello" "s:hello"
   Date          "d:2014-01-03"
   Time          "h:23:59"
