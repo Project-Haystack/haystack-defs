@@ -93,6 +93,13 @@ quantityOf: ^ac-elec
 prefUnit: ["kVA"]
 doc: "Apparent power is perceived magnitude of power due to the combination of active and reactive power"
 --------------------------------------------------------------------------
+def: ^elec-demand
+is: ^active-power
+quantityOf: ^ac-elec
+doc:
+  Active power averaged over a rolling interval.  For utility meters
+  the demand interval is based on the billing period.
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // AC Energy Quantities

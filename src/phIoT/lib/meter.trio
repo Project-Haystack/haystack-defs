@@ -22,42 +22,45 @@ is: ^elec-meter
 doc: "AC Electricity meter"
 children: [
   // energy
-  {total net active energy sensor point},
-  {total import active energy sensor point},
-  {total export active energy sensor point},
-  {phase:"A" net active energy sensor point},
+  {total net ac elec active energy sensor point},
+  {total import ac elec active energy sensor point},
+  {total export ac elec active energy sensor point},
+  {phase:"A" net ac elec active energy sensor point},
+
+  // demand
+  {total ac elec demand sensor point},
 
   // power
-  {total active power sensor point},
-  {total reactive power sensor point},
-  {total apparent power sensor point},
-  {phase:"A" active power sensor point},
-  {phase:"A" reactive power sensor point},
-  {phase:"A" apparent power sensor point},
+  {total active ac elec power sensor point},
+  {total reactive ac elec power sensor point},
+  {total apparent ac elec power sensor point},
+  {phase:"A" active ac elec power sensor point},
+  {phase:"A" reactive ac elec power sensor point},
+  {phase:"A" apparent ac elec power sensor point},
 
   // current
-  {avg current magnitude sensor point},
-  {avg current angle sensor point},
-  {avg current imbalance sensor point},
-  {avg current thd sensor point},
-  {phase:"A" current magnitude sensor point},
-  {phase:"A" current angle sensor point},
-  {phase:"A" current imbalance sensor point},
-  {phase:"A" current thd sensor point},
+  {avg ac elec current magnitude sensor point},
+  {avg ac elec current angle sensor point},
+  {avg ac elec current imbalance sensor point},
+  {avg ac elec current thd sensor point},
+  {phase:"A" ac elec current magnitude sensor point},
+  {phase:"A" ac elec current angle sensor point},
+  {phase:"A" ac elec current imbalance sensor point},
+  {phase:"A" ac elec current thd sensor point},
 
   // volt
-  {avg volt magnitude sensor point},
-  {avg volt angle sensor point},
-  {avg volt imbalance sensor point},
-  {avg volt thd sensor point},
-  {phase:"A" volt magnitude sensor point},
-  {phase:"A" volt angle sensor point},
-  {phase:"A" volt imbalance sensor point},
-  {phase:"A" volt thd sensor point},
+  {avg ac elec volt magnitude sensor point},
+  {avg ac elec volt angle sensor point},
+  {avg ac elec volt imbalance sensor point},
+  {avg ac elec volt thd sensor point},
+  {phase:"A" ac elec volt magnitude sensor point},
+  {phase:"A" ac elec volt angle sensor point},
+  {phase:"A" ac elec volt imbalance sensor point},
+  {phase:"A" ac elec volt thd sensor point},
 
   // power factor
-  {avg pf sensor point},
-  {phase:"A" pf sensor point},
+  {avg ac elec pf sensor point},
+  {phase:"A" ac elec pf sensor point},
   ]
 --------------------------------------------------------------------------
 def: ^dc-elec-meter
