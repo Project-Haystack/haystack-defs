@@ -22,10 +22,10 @@ is: ^elec-meter
 doc: "AC Electricity meter"
 children: [
   // energy
-  {total net energy sensor point},
-  {total import energy sensor point},
-  {total export energy sensor point},
-  {phase:"A" net energy sensor point},
+  {total net active energy sensor point},
+  {total import active energy sensor point},
+  {total export active energy sensor point},
+  {phase:"A" net active energy sensor point},
 
   // power
   {total active power sensor point},

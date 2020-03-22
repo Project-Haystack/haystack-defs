@@ -95,6 +95,27 @@ doc: "Apparent power is perceived magnitude of power due to the combination of a
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
+// AC Energy Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^active-energy
+is: ^elec-energy
+quantityOf: ^ac-elec
+doc: "Integral of `active-power` over time"
+--------------------------------------------------------------------------
+def: ^reactive-energy
+is: ^quantity
+quantityOf: ^ac-elec
+doc: "Integral of `reactive-power` over time"
+--------------------------------------------------------------------------
+def: ^apparent-energy
+is: ^quantity
+quantityOf: ^ac-elec
+doc: "Integral of `apparent-power` over time"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
 // AC Current Quantities
 //////////////////////////////////////////////////////////////////////////
 
