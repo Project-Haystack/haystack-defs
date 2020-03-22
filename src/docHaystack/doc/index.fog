@@ -9,6 +9,7 @@
   [`Intro`,         "Introduction to Project Haystack"],
 
   "Data Model",
+  [`Grids`,         "Two dimensional tabular data"],
   [`TimeZones`,     "Respresentation of timezones"],
   [`Units`,         "Respresentation  of units of measurement"],
   [`Filters`,       "Predicates for querying Haystack data"],
@@ -30,6 +31,11 @@
   [`Trio`,          "Tag record I/O format"],
   [`Csv`,           "Comma separated valus format"],
   [`Rdf`,           "Resource Description Framework export"],
+
+  "HTTP API",
+  [`HttpApi`,       "Haystack HTTP API"],
+  [`Ops`,           "HTTP API operations"],
+  [`Auth`,          "HTTP API authentication"],
 
   "Appendix",
   [`Docs`,          "Guidance on reference documentation"],
