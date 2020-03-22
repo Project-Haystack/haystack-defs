@@ -17,6 +17,10 @@ docTaxonomy
 mandatory
 doc: "Data point such as a sensor or actuator"
 --------------------------------------------------------------------------
+def: ^pointGroup
+is: ^entity
+doc: "Grouping of children points used by spaces and equipment"
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Point Tags
