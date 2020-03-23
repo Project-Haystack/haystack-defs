@@ -18,24 +18,27 @@ children: [
   {fan motor equip},
   ]
 --------------------------------------------------------------------------
-// TODO def: ^coolingTower.coolingLoop
-// --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Cooling Tower Loop
+// Condenser Loop Type
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^coolingLoop
+def: ^condenserLoop
+is: ^choice
+of: ^condenserLoopType
+doc: "Open or closed loop for condenser working fluid"
+--------------------------------------------------------------------------
+def: ^condenserLoopType
 is: ^marker
-doc: "Open or closed loop"
+doc: "Open or closed loop for condenser working fluid"
 --------------------------------------------------------------------------
-def: ^openLoop
-is: ^coolingLoop
+def: ^condenserOpenLoop
+is: ^condenserLoopType
 doc: "Uses working fluid itself for evaporation into the atmosphere"
 --------------------------------------------------------------------------
-def: ^closedLoop
-is: ^coolingLoop
+def: ^condenserClosedLoop
+is: ^condenserLoopType
 doc: "Working fluid is kept separate from fluid used for heat transfer into the atmosphere"
 --------------------------------------------------------------------------
 

@@ -7,7 +7,7 @@
 
 Overview [#overview]
 ********************
-Haystack 3 defined a total of 230 tags. Of these 181 remain unchanged.
+Haystack 3 defined a total of 230 tags. Of these 179 remain unchanged.
 The other 47 have been modified as follows.
 
 These are renamed or turned into conjuncts:
@@ -15,6 +15,7 @@ These are renamed or turned into conjuncts:
   - airCooled => `airCooling`
   - chilledWaterCool => `chilledWaterCooling`
   - chilledWaterPlant => `chilled-water-plant`
+  - closedLoop => `condenserClosedLoop`
   - constantVolume  => `constantAirVolume`
   - coolOnly => `coolingOnly`
   - dew => `dewPoint`
@@ -28,6 +29,7 @@ These are renamed or turned into conjuncts:
   - hotWaterReheat => `hotWaterHeating`
   - mag => `magnitude`
   - oil => `fuelOil`
+  - openLoop => `condenserOpenLoop`
   - primaryLoop => `plantPrimaryLoop`
   - rooftop => `rtu`
   - secondaryLoop => `plantSecondaryLoop`
@@ -64,7 +66,6 @@ These tags are not ported yet:
   - waterCooled
   - waterMeterLoad
   - weatherPoint => [see weather]`#weather`
-
 
 Weather [#weather]
 ******************

@@ -14,6 +14,7 @@ doc: "Central plant used to generate a substance for a process"
 def: ^chilled-water-plant
 is: ^plant
 produces: ^chilled-water
+condenserLoop: ^condenserLoopType
 doc: "Plant used to generate chilled water for cooling"
 children: [
   {chiller equip},
