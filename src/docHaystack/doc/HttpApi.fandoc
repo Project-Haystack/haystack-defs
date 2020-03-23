@@ -158,6 +158,23 @@ Example of an error grid encoded as Zinc:
 Clients must always check for the present of the 'err' grid marker tag
 to determine if the reponse is an error or a valid result.
 
+Incomplete Data [#incompleteData]
+*********************************
+Sometimes a HTTP request will be successfully processed, but will return
+incomplete data.  This will often happen because of throttling based on
+timeouts or limits on the amount of data returned by one request. When this
+occurs, the response should add an 'incomplete' tag to the response grid meta.
+The value of 'incomplete' must be a Dict and should use the following tags:
+  - 'dis': Str message to display to the user about why data is incomplete 
+  - 'limit': Number if incomplete because of threshold limit 
+  - 'timeout': Number duration if complete because of timeout
+
+Example in Zinc:
+
+  ver:"3.0" incomplete:{dis:"Request timeout exceeded!" timeout:1min}
+  colA, colB, colC
+  ....
+
 Content Negotiation [#contentNegotiation]
 *****************************************
 The default for all HTTP API operations is to return the result as a

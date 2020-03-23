@@ -9,12 +9,13 @@
 **Version 3.9.8 (working)**
 - Port file type docs: Zinc, Json, Trio, Csv
 - Port docs: Grid, HttpApi (was Rest), Ops, and Auth
-- Rename lib includes to depends
-- Rework children to be lists of dicts instead of Zinc strings
-- Rename 'filter' to 'filterStr' and add 'filter' marker tag
+- HttpApi incomplete data
 - Zinc and JSON support for symbol literals
 - Zinc support for optional commas in nested dict literals
 - Trio support for nested lists
+- Rename lib includes to depends
+- Rework children to be lists of dicts instead of Zinc strings
+- Rename 'filter' to 'filterStr' and add 'filter' marker tag
 - Add tags: co, diverting, volume
 - Add choice airVolumeAdjustability - constantAirVolume, variableAirVolume
 - Add choice pipeLoop - primaryLoop, secondaryLoop
