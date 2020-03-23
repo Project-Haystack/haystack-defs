@@ -23,6 +23,7 @@
 - Add pointGroup, zoneAirPoints as supertype for hvac-zone-space, thermostat
 - Add active-energy, reactive-energy, apparent-energy
 - Add elec-demand
+- Add openEnum marker for geoState
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs

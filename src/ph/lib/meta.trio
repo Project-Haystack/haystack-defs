@@ -150,6 +150,13 @@ doc:
   Marker applied to a def to indicate that is not inherited into
   subtype definitions.
 --------------------------------------------------------------------------
+def: ^openEnum
+is: ^marker
+doc:
+  Apply to str enum tags where the enumeration range is open ended.
+  User interfaces should support data entry for arbitrary strings, but
+  also provide a dropdown for the predefined enumeration.
+--------------------------------------------------------------------------
 def: ^transient
 is: ^marker
 tagOn: ^def
