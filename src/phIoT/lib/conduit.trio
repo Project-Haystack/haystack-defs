@@ -15,11 +15,11 @@ doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 def: ^pipe
 is: ^conduit
 conveys: ^fluid
-pipeLoop: ^pipeLoopType
+plantLoop: ^plantLoopType
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
-childrenFlatten: [^fluid, ^pipeSectionType]
+childrenFlatten: [^fluid, ^pipeSectionType, ^plantLoopType]
 children: [
   {pump motor equip},
   {valve actuator equip},
@@ -94,21 +94,21 @@ doc: "Pipe conveys fluid out of an equipment"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^pipeLoop
+def: ^plantLoop
 is: ^choice
-of: ^pipeLoopType
+of: ^plantLoopType
 doc: "Primary of secondary loop"
 --------------------------------------------------------------------------
-def: ^pipeLoopType
+def: ^plantLoopType
 is: ^marker
 doc: "Primary of secondary loop"
 --------------------------------------------------------------------------
-def: ^primaryLoop
-is: ^pipeLoopType
+def: ^plantPrimaryLoop
+is: ^plantLoopType
 doc: "Pipework within the central plant"
 --------------------------------------------------------------------------
-def: ^secondaryLoop
-is: ^pipeLoopType
+def: ^plantSecondaryLoop
+is: ^plantLoopType
 doc: "Pipework from central plant to the building"
 --------------------------------------------------------------------------
 

@@ -19,7 +19,7 @@
 - Rename 'filter' to 'filterStr' and add 'filter' marker tag
 - Add tags: co, diverting, volume
 - Add choice airVolumeAdjustability - constantAirVolume, variableAirVolume
-- Add choice pipeLoop - primaryLoop, secondaryLoop
+- Add choice plantLoop - plantPrimaryLoop, plantSecondaryLoop
 - Add pointGroup, zoneAirPoints as supertype for hvac-zone-space, thermostat
 - Add active-energy, reactive-energy, apparent-energy
 - Add elec-demand

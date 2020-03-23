@@ -7,7 +7,7 @@
 
 Overview [#overview]
 ********************
-Haystack 3 defined a total of 230 tags. Of these 183 remain unchanged.
+Haystack 3 defined a total of 230 tags. Of these 181 remain unchanged.
 The other 47 have been modified as follows.
 
 These are renamed or turned into conjuncts:
@@ -28,7 +28,9 @@ These are renamed or turned into conjuncts:
   - hotWaterReheat => `hotWaterHeating`
   - mag => `magnitude`
   - oil => `fuelOil`
+  - primaryLoop => `plantPrimaryLoop`
   - rooftop => `rtu`
+  - secondaryLoop => `plantSecondaryLoop`
   - screw => `rotaryScrew`
   - steamHeat => `steamHeating`
   - steamPlant > `steam-plant`
