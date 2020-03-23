@@ -87,7 +87,7 @@ is: ^temp
 quantityOf: ^air
 doc: "Dry bulb temperature"
 --------------------------------------------------------------------------
-def: ^webBulb
+def: ^wetBulb
 is: ^quantity
 quantityOf: ^air
 prefUnit: ["°C", "°F"]
