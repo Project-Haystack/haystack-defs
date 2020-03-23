@@ -1,0 +1,118 @@
+**************************************************************************
+** title:      Changes3to4
+** author:     Brian Frank
+** created:    23 Mar 2020
+** copyright:  Copyright (c) 2019, Project-Haystack
+**************************************************************************
+
+Overview [#overview]
+********************
+Haystack 3 defined a total of 230 tags. Of these 183 remain unchanged.
+The other 47 have been modified as follows.
+
+These are renamed or turned into conjuncts:
+
+  - airCooled => `airCooling`
+  - chilledWaterCool => `chilledWaterCooling`
+  - chilledWaterPlant => `chilled-water-plant`
+  - constantVolume  => `constantAirVolume`
+  - coolOnly => `coolingOnly`
+  - dew => `dewPoint`
+  - dxCool => `dxCooling`
+  - elecHeat => `elecHeating`
+  - elecPanel = `elec-panel`
+  - gasHeat => `gasHeating`
+  - hisInterpolate => `hisMode`
+  - hotWaterHeat => `hotWaterHeating`
+  - hotWaterPlant => `hot-water-plant`
+  - hotWaterReheat => `hotWaterHeating`
+  - mag => `magnitude`
+  - oil => `fuelOil`
+  - rooftop => `rtu`
+  - screw => `rotaryScrew`
+  - steamHeat => `steamHeating`
+  - steamPlant > `steam-plant`
+  - sunrise => `daytime`
+  - uv => `unitVent`
+  - variableVolume => `variableAirVolume`
+
+These tags are not ported yet:
+
+  - circuit => [see networks]`#networks`
+  - connection => [see networks]`#networks`
+  - device1Ref => [see networks]`#networks`
+  - device2Ref => [see networks]`#networks`
+  - elecMeterLoad
+  - elecMeterRef
+  - elecPanelOf
+  - elecReheat
+  - gasMeterLoad
+  - humidifier
+  - lightLevel => [see lighting]`#lighting`
+  - lights => [see lighting]`#lighting`
+  - lightsGroup => [see lighting]`#lighting`
+  - max
+  - min
+  - networkRef => [see networks]`#networks`
+  - occupancyIndicator => [see lighting]`#lighting`
+  - reheating
+  - sitePanel
+  - steamMeterLoad
+  - subPanelOf
+  - waterCooled
+  - waterMeterLoad
+  - weatherPoint => [see weather]`#weather`
+
+
+Weather [#weather]
+******************
+In Hasytack 3 weather stations were modeled via the 'weather' tag and
+their points were modeled via the 'weatherPoint' tag.  In Haystack 4 we
+use the `weather` marker on the points as the `pointSubject`.  And stations
+are modeled via the `weatherStation` tag.
+
+Weather points are mapped from Haystack 3 to Haystack 4 as follows:
+
+  Haystack 3            Haystack 4             Notes
+  -------------------   --------------------   ------------------------
+  weatherCond           weatherCond            same
+  air temp              air temp               same
+  wetBulb temp          air wetBulb            pair with air not temp
+  apparent temp         air feelsLike          renamed, pair with air not temp
+  dew temp              air dewPoint           pair with air not temp
+  humidity              air humidity           pair with air
+  barometric pressure   atmospheric pressure   renamed
+  sunrise               daytime                renamed
+  precipitation         precipitation          same
+  cloudage              cloudage               same
+  solar irradiance      solar irradiance       same
+  wind direction        wind direction         same
+  wind speed            wind speed             same
+  visibility            visibility             same
+
+See `weatherStation` children section for full list of points.
+
+Lighting [#lighting]
+********************
+Most tags related to lighting have not been included pending the work
+under [WG 705]`https://project-haystack.org/forum/topic/705`
+
+Networks [#networks]
+********************
+Haystack 3 included a prototype for modeling networks, devices, and
+connections between them.  It was never implemented by any vendors and
+was not complete, so it has not been ported to Haystack 4.  However, some
+of the core concepts are found in the 'phIct' library including:
+  - `network`
+  - `device`
+  - `protocol`
+
+Symbols [#symbols]
+******************
+Symbol is added as a new scalar type in Haystack 4.  In Zinc it is represented
+as '^name' and in JSON with the "y:" prefix.  The format version was left
+as "3.0" to minimize ecosystem distruption since symbols are only used with
+defs and unlikely to occur in normal Haystack data.
+
+
+
