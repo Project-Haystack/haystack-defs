@@ -25,6 +25,7 @@
 - Add elec-demand
 - Add openEnum marker for geoState
 - Add humidifier equip and points [WG 609]
+- Add economizing ahu point [WG 609]
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs

@@ -68,6 +68,10 @@ def: ^domestic
 is: ^marker
 doc: "For human use"
 --------------------------------------------------------------------------
+def: ^economizing
+is: ^marker
+doc: "Energy reduction mode which augments heating/cooling with outside air."
+--------------------------------------------------------------------------
 def: ^effective
 is: ^marker
 doc: "Current control setpoint in effect taking into account other factors"
