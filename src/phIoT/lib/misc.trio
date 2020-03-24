@@ -127,6 +127,10 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/HVAC`
 doc: "Heating, ventilation, and air conditioning"
 --------------------------------------------------------------------------
+def: ^humidifier
+is: ^marker
+doc: "Adding moisture to air"
+--------------------------------------------------------------------------
 def: ^imbalance
 is: ^marker
 doc: "Lacking balance"

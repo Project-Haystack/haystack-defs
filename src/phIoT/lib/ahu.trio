@@ -33,6 +33,7 @@ children: [
   {mixed duct equip},
   {outside duct equip},
   {return duct equip},
+  {humidifier equip},
   {thermostat equip},
   {filter sensor point},
   {freezeStat sensor point},
@@ -149,6 +150,23 @@ doc: "AHU supplies air to chilled beam terminal units"
 def: ^multiZone
 is: ^ahuZoneDeliveryType
 doc: "AHU discharge air is split into a duct per zone"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Humidifier
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^humidifier-equip
+is: ^equip
+humidifies: ^air
+wikipedia: `https://en.wikipedia.org/wiki/Humidifier`
+doc: "Equipment which adds moisture to air to increase humidity"
+childrenFlatten: []
+children: [
+  {humidifier run state point},
+  {humidifier enable state point},
+  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

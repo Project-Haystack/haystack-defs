@@ -7,7 +7,7 @@
 
 Overview [#overview]
 ********************
-Haystack 3 defined a total of 230 tags. Of these 179 remain unchanged.
+Haystack 3 defined a total of 230 tags. Of these 180 remain unchanged.
 The other 47 have been modified as follows.
 
 These are renamed or turned into conjuncts:
@@ -51,7 +51,6 @@ These tags are not ported yet:
   - elecPanelOf
   - elecReheat
   - gasMeterLoad
-  - humidifier
   - lightLevel => [see lighting]`#lighting`
   - lights => [see lighting]`#lighting`
   - lightsGroup => [see lighting]`#lighting`
