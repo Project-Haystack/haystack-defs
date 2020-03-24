@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.8 (working)**
+**Version 3.9.8 (24 Mar 2020)**
 - New Changes3to4 chapter
 - Port file type docs: Zinc, Json, Trio, Csv
 - Port docs: Grid, HttpApi (was Rest), Ops, and Auth
