@@ -60,6 +60,10 @@ def: ^demand
 is: ^marker
 doc: "Rate required for a process."
 --------------------------------------------------------------------------
+def: ^dessicantDehumidifier
+is: ^marker
+doc: "Decreases humidity from air using a substance which absorbs moisture."
+--------------------------------------------------------------------------
 def: ^diverting
 is: ^marker
 doc: "Three way valve which inputs one pipe and diverts between two output pipes."

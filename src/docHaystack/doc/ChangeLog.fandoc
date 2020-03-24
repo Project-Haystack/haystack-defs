@@ -10,7 +10,6 @@
 - New Changes3to4 chapter
 - Port file type docs: Zinc, Json, Trio, Csv
 - Port docs: Grid, HttpApi (was Rest), Ops, and Auth
-- HttpApi incomplete data
 - Zinc and JSON support for symbol literals
 - Zinc support for optional commas in nested dict literals
 - Trio support for nested lists
@@ -20,12 +19,14 @@
 - Add tags: co, diverting, volume
 - Add choice airVolumeAdjustability - constantAirVolume, variableAirVolume
 - Add choice plantLoop - plantPrimaryLoop, plantSecondaryLoop
-- Add pointGroup, zoneAirPoints as supertype for hvac-zone-space, thermostat
-- Add active-energy, reactive-energy, apparent-energy
-- Add elec-demand
 - Add openEnum marker for geoState
-- Add humidifier equip and points [WG 609]
-- Add economizing ahu point [WG 609]
+- 609: Add humidifier equip and points
+- 609: Add economizing ahu point
+- 609: Add dessicantDehumidifier ahu point
+- 705: Add active-energy, reactive-energy, apparent-energy
+- 741: HttpApi incomplete data
+- 749: Add pointGroup, zoneAirPoints as supertype for hvac-zone-space, thermostat
+- 778: Add elec-demand
 
 **Version 3.9.7 (3 Oct 2019)**
 - Cleanup relationship defs

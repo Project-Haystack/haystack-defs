@@ -35,10 +35,11 @@ children: [
   {return duct equip},
   {humidifier equip},
   {thermostat equip},
-  {economizing sp point},
   {filter sensor point},
   {freezeStat sensor point},
+  {economizing cmd point},
   {heatWheel cmd point},
+  {dessicantDehumidifier cmd point},
   {faceBypass cmd point},
   {bypass damper cmd point},
   ]
