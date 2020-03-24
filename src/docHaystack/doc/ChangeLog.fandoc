@@ -19,6 +19,7 @@
 - Add tags: co, diverting, volume
 - Add choice airVolumeAdjustability - constantAirVolume, variableAirVolume
 - Add choice plantLoop - plantPrimaryLoop, plantSecondaryLoop
+- Rename openLoop/closedLoop to condenserOpenLoop/condenserClosedLoop as choice
 - Add openEnum marker for geoState
 - 609: Add humidifier equip and points
 - 609: Add economizing ahu point
