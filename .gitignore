@@ -4,4 +4,4 @@ Thumbs.db
 .DS_Store
 fan.props
 
-lib/
+/lib/
