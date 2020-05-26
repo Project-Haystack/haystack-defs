@@ -152,11 +152,6 @@ is: ^ductSectionType
 doc: "Duct to access fresh outside air. If a 'ventilation' or 'economizer'
 tag is not included, this is implied to perform both operations."
 --------------------------------------------------------------------------
-def: ^outside
-is: ^ductSectionType
-doc: "Duct to access fresh outside air. If a 'ventilation' or 'economizer'
-tag is not included, this is implied to perform both operations."
---------------------------------------------------------------------------
 def: ^return
 is: ^ductSectionType
 doc: "Duct returning air back to equipment"
