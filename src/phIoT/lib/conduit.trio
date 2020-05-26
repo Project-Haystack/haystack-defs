@@ -149,7 +149,13 @@ doc: "Duct where fresh outside and return air is mixed together"
 --------------------------------------------------------------------------
 def: ^outside
 is: ^ductSectionType
-doc: "Duct to access fresh outside air"
+doc: "Duct to access fresh outside air. If a 'ventilation' or 'economizer'
+tag is not included, this is implied to perform both operations."
+--------------------------------------------------------------------------
+def: ^outside
+is: ^ductSectionType
+doc: "Duct to access fresh outside air. If a 'ventilation' or 'economizer'
+tag is not included, this is implied to perform both operations."
 --------------------------------------------------------------------------
 def: ^return
 is: ^ductSectionType
