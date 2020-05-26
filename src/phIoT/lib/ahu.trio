@@ -77,6 +77,8 @@ doc:
 --------------------------------------------------------------------------
 def: ^heatPump
 is: ^airHandlingEquip
+coolingProcess: ^dxCooling
+heatingProcess: ^dxHeating
 wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
 doc:
   Heat pump: An air handling equipment which employs a vapor compression
