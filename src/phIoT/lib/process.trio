@@ -36,6 +36,12 @@ def: ^heatingProcessType
 is: ^process
 doc: "Processed used to heat a substance"
 --------------------------------------------------------------------------
+def: ^dxHeating
+is: ^coolingProcessType
+doc:
+  Heating using direct expansion of a refrigerant vapor, using a
+  refrigeration cycle
+--------------------------------------------------------------------------
 def: ^hotWaterHeating
 is: ^heatingProcessType
 processUses: ^hot-water
@@ -93,11 +99,12 @@ doc: "Removal of heat through the process of water condensation"
 --------------------------------------------------------------------------
 def: ^dxCooling
 is: ^coolingProcessType
-doc: "Cooling using direct expansion of a refrigerant vapar"
+doc:
+  Cooling using direct expansion of a refrigerant vapor, using a
+  refrigeration cycle
 --------------------------------------------------------------------------
 def: ^chilledWaterCooling
 is: ^coolingProcessType
 processUses: ^chilled-water
 doc: "Cooling using transfer of heat to chilled water"
 --------------------------------------------------------------------------
-
