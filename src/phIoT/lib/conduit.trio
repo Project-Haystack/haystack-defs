@@ -148,6 +148,7 @@ is: ^ductSectionType
 doc: "Duct where fresh outside and return air is mixed together"
 --------------------------------------------------------------------------
 def: ^outside
+outsideFunction: ^outsideFunctionType
 is: ^ductSectionType
 doc:
   Duct to access fresh outside air. If a 'ventilation' or 'economizer'
@@ -214,4 +215,30 @@ doc: "Two ducts: combination of hotDeck, coldDeck, or neutralDeck"
 def: ^tripleDuct
 is: ^ductConfigType
 doc: "Three ducts: hotDeck, coldDeck, or neutralDeck"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// outsideFunction
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^outsideFunction
+is: ^choice
+of: ^outsideFunctionType
+doc: "Function of the outside air delivery system"
+--------------------------------------------------------------------------
+def: ^outsideFunctionType
+is: ^marker
+doc: "Function of the outside air delivery system"
+--------------------------------------------------------------------------
+def: ^economizer
+is: ^outsideFunctionType
+doc:
+  Denotes outside air that is used to reduce conditioning energy
+  requirements
+--------------------------------------------------------------------------
+def: ^ventilation
+is: ^outsideFunctionType
+doc:
+  Denotes outside air is used for ventilation purposes, not economizing
 --------------------------------------------------------------------------

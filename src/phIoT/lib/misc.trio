@@ -72,13 +72,6 @@ def: ^domestic
 is: ^marker
 doc: "For human use"
 --------------------------------------------------------------------------
-def: ^economizer
-is: ^marker
-doc:
-  Denotes an outside duct that is used to reduce conditioning energy
-  requirements.
-tagOn: ^outside-duct
---------------------------------------------------------------------------
 def: ^economizing
 is: ^marker
 doc: "Energy reduction mode which augments heating/cooling with outside air."
@@ -249,12 +242,6 @@ doc: "Total harmonic distortion"
 def: ^unocc
 is: ^marker
 doc: "Unoccupied mode of a space"
---------------------------------------------------------------------------
-def: ^ventilation
-is: ^marker
-doc:
-  Denotes an outside duct is used for ventilation purposes, not economizing.
-tagOn: ^outside-duct
 --------------------------------------------------------------------------
 def: ^writable
 is: ^marker
