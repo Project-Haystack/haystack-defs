@@ -108,12 +108,19 @@ doc:
 def: ^enum
 is: ^str
 doc:
-  Defines an eumeration of string keys.  The range may also be applied
-  to format a Bool ordered as "false,true".  The string may be formatted
-  in one of three ways:
-   - comma separated keys on one line
-   - keys separated by a "\n" newline character
-   - markdown unordered list formatted as a series of "- key: description\n"
+  Defines an eumeration of string key names.  The range may also be applied
+  to format a Bool ordered as "false,true".  The string value of this tag
+  may be formatted in one of five ways:
+   - list of dicts with 'name' tag and additional meta such as 'doc' tag
+   - list of string names
+   - comma separated names on one line
+   - names separated by a "\n" newline character
+   - markdown unordered list formatted as a series of "- name: description\n"
+
+  Enum names *should* follow valid tag naming rules (start with lowercase
+  ASCII letter and contain only ASCII letters and numbers).  However in
+  cases where mapping directly to external enumerations enum names can
+  contain arbitrary characters such as space.
 --------------------------------------------------------------------------
 def: ^feature
 docTaxonomy
