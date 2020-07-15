@@ -46,12 +46,12 @@ is: ^heatingProcessType
 processUses: ^steam
 doc: "Heating using energy of steam"
 --------------------------------------------------------------------------
-def: ^gasHeating
+def: ^naturalGasHeating
 is: ^heatingProcessType
 processUses: ^naturalGas
 doc: "Heating by the combustion of natural gas"
 --------------------------------------------------------------------------
-def: ^oilHeating
+def: ^fuelOilHeating
 is: ^heatingProcessType
 processUses: ^fuelOil
 doc: "Heating by the combustion of fuel oil"
