@@ -97,19 +97,23 @@ doc: "Pipe conveys fluid out of an equipment"
 def: ^plantLoop
 is: ^choice
 of: ^plantLoopType
-doc: "Primary of secondary loop"
+doc: "Plant piping loop: primary, secondary, or tertiary"
 --------------------------------------------------------------------------
 def: ^plantLoopType
 is: ^marker
-doc: "Primary of secondary loop"
+doc: "Plant piping loop: primary, secondary, or tertiary"
 --------------------------------------------------------------------------
 def: ^plantPrimaryLoop
 is: ^plantLoopType
-doc: "Pipework within the central plant"
+doc: "Pipework which circulates within the central plant"
 --------------------------------------------------------------------------
 def: ^plantSecondaryLoop
 is: ^plantLoopType
-doc: "Pipework from central plant to the building"
+doc: "Pipework which circulates between the central plant and building"
+--------------------------------------------------------------------------
+def: ^plantTertiaryLoop
+is: ^plantLoopType
+doc: "Pipework which circulates within the building"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

@@ -8,6 +8,7 @@
 
 **Version 3.9.9 (working)**
 - Enhance enum value spec to allow list of dicts
+- Add plantTertiaryLoop tag
 - 808: Rename gasHeating, oilHeating to naturalGasHeating, fuelOilHeating
 
 **Version 3.9.8 (24 Mar 2020)**

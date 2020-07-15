@@ -22,7 +22,7 @@ These are renamed or turned into conjuncts:
   - dxCool => `dxCooling`
   - elecHeat => `elecHeating`
   - elecPanel = `elec-panel`
-  - gasHeat => `gasHeating`
+  - gasHeat => `naturalGasHeating`
   - hisInterpolate => `hisMode`
   - hotWaterHeat => `hotWaterHeating`
   - hotWaterPlant => `hot-water-plant`
