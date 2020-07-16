@@ -12,20 +12,26 @@ The other 47 have been modified as follows.
 
 These are renamed or turned into conjuncts:
 
+  - ahuRef => `airRef`
   - airCooled => `airCooling`
   - chilledWaterCool => `chilledWaterCooling`
   - chilledWaterPlant => `chilled-water-plant`
+  - chilledWaterPlantRef => `chilledWaterRef`
   - closedLoop => `condenserClosedLoop`
   - constantVolume  => `constantAirVolume`
   - coolOnly => `coolingOnly`
   - dew => `dewPoint`
   - dxCool => `dxCooling`
   - elecHeat => `elecHeating`
+  - elecMeterLoad => `elecRef`
+  - elecMeterRef => `elecRef`
   - elecPanel = `elec-panel`
   - gasHeat => `naturalGasHeating`
+  - gasMeterLoad => `naturalGasRef`
   - hisInterpolate => `hisMode`
   - hotWaterHeat => `hotWaterHeating`
   - hotWaterPlant => `hot-water-plant`
+  - hotWaterPlantRef => `hotWaterRef`
   - hotWaterReheat => `hotWaterHeating`
   - mag => `magnitude`
   - oil => `fuelOil`
@@ -35,22 +41,22 @@ These are renamed or turned into conjuncts:
   - secondaryLoop => `plantSecondaryLoop`
   - screw => `rotaryScrew`
   - steamHeat => `steamHeating`
+  - steamMeterLoad => `steamRef`
   - steamPlant > `steam-plant`
+  - steamPlantRef => `steamRef`
   - sunrise => `daytime`
   - uv => `unitVent`
   - variableVolume => `variableAirVolume`
+  - waterMeterLoad => 'xxxWaterRef' such as `chilledWaterRef`
 
-These tags are not ported yet:
+These tags are not ported:
 
   - circuit => [see networks]`#networks`
   - connection => [see networks]`#networks`
   - device1Ref => [see networks]`#networks`
   - device2Ref => [see networks]`#networks`
-  - elecMeterLoad
-  - elecMeterRef
   - elecPanelOf
   - elecReheat
-  - gasMeterLoad
   - lightLevel => [see lighting]`#lighting`
   - lights => [see lighting]`#lighting`
   - lightsGroup => [see lighting]`#lighting`
@@ -60,10 +66,8 @@ These tags are not ported yet:
   - occupancyIndicator => [see lighting]`#lighting`
   - reheating
   - sitePanel
-  - steamMeterLoad
   - subPanelOf
   - waterCooled
-  - waterMeterLoad
   - weatherPoint => [see weather]`#weather`
 
 Weather [#weather]

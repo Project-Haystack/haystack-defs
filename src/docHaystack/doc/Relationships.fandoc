@@ -24,25 +24,26 @@ Lets look at a simple example:
   id: @hwp, hot, water, plant, equip
 
   // AHU entity which receives hot water from the plant above
-  id: @ahu, ahu, equip, hotWaterPlantRef: @hwp
+  id: @ahu, ahu, equip, hotWaterHeating, hotWaterRef: @hwp
 
 The plant's primary identifier is modeled by the `id` tag with a ref
 value of '@hwp'.  The id tag uniquely identifies this plant within the
 data set.  The second dict models an `ahu` which has the reference
-tag `hotWaterPlantRef` referencing the plant by its id.
+tag `hotWaterRef` referencing the plant by its id.
 
-The actual definition of `hotWaterPlantRef` looks like this:
+The actual definition of `hotWaterRef` looks like this:
 
-  def: ^hotWaterPlantRef
+  def: ^hotWaterRef
   is: ^ref
-  of: ^hot-water-plant
+  of: ^hot-water-output
+  tagOn: ^hot-water-input
   receives: ^hot-water
-  doc: "Plant which supplies hot water to the entity"
+  doc: "Hot water flows from the the referent to this entity"
 
-This definition tells us that the 'hotWaterPlantRef' tag is a 'ref'
-subtype which should reference a 'hot-water-plant'.  When applied
+This definition tells us that the 'hotWaterRef' tag is a 'ref'
+subtype which should reference a 'hot-water-output'.  When applied
 to an instance it implies that the entity receives 'hot-water'
-from the referenced plant.
+from the referenced entity.
 
 Querying Relationships [#querying]
 **********************************
@@ -53,9 +54,9 @@ language.  The most basic way to query relationships is by tags.  The following
 filter queries AHUs which receive hot water from our plant in the example
 above:
 
-  ahu and hotWaterPlantRef == @hwp
+  ahu and hotWaterRef == @hwp
 
-This filter would match any dict which has the `ahu` tag and the `hotWaterPlantRef`
+This filter would match any dict which has the `ahu` tag and the `hotWaterRef`
 tag with a value equal to the identifier '@hwp'.
 
 This technique is also heavily used to match points associated with a given
@@ -102,7 +103,7 @@ We can also give the '?' operator a value on the right hand side as follows:
 The filter above matches using the rules discussed with one new requirement:
 the tag's value must be equal to '@hwp'.  We can break down the steps as
 follows:
-  1. Does the dict implement a def with `receives` (it does: `hotWaterPlantRef`)
+  1. Does the dict implement a def with `receives` (it does: `hotWaterRef`)
   2. Does the value of that tag *in the def* subtype from `hot-water` (it does)
   3. Does the value of that tag *in the dict* equal '@hwp' (it does)
   4. If all of the above are true, the overall filter is a match
