@@ -54,11 +54,17 @@ doc:
   heating, cooling, humidifying, dehumidifying, ventilating or circulating
   the air.
 --------------------------------------------------------------------------
-def: ^mau
+def: ^doas
 is: ^ahu
 doc:
-  Makeup Air Unit: An AHU that brings in 100% outside air and no
-  recirculated air.
+  Dedicated Outside Air System: An AHU that brings in 100% outside air and
+  no recirculated air in order to provide ventilation to spaces.
+--------------------------------------------------------------------------
+def: ^mau
+is: ^doas
+doc:
+  Makeup Air Unit: A DOAS that provides make-up air for a separate, dedicated
+  exhaust system. That is, this equip does not contain an exhaust air section.
 --------------------------------------------------------------------------
 def: ^rtu
 is: ^ahu
@@ -77,6 +83,8 @@ doc:
 --------------------------------------------------------------------------
 def: ^heatPump
 is: ^airHandlingEquip
+coolingProcess: ^dxCooling
+heatingProcess: ^dxHeating
 wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
 doc:
   Heat pump: An air handling equipment which employs a vapor compression
