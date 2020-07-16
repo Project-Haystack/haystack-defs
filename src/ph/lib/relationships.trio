@@ -42,25 +42,37 @@ doc: "Entities logically contained by this entity"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// Receives/Supplies
+// Input/Output
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^receives
+def: ^inputs
 is: ^relationship
-reciprocalOf: ^supplies
+reciprocalOf: ^outputs
 transitive
 doc:
-  The entity receives from the referent.
+  The entity inputs a substance from the referent.
   The value of this tag is what is received.
 --------------------------------------------------------------------------
-def: ^supplies
+def: ^outputs
 is: ^relationship
-reciprocalOf: ^receives
+reciprocalOf: ^inputs
 transitive
 doc:
-  The entity supplies to the referent.
+  The entity outputs a substance to the referent.
   The value of this tag is what is supplied.
+--------------------------------------------------------------------------
+
+// Markers for input/output entities
+
+--------------------------------------------------------------------------
+def: ^input
+is: ^marker
+doc: "Entity inputs a substance which flows from another entity"
+--------------------------------------------------------------------------
+def: ^output
+is: ^marker
+doc: "Entity outputs a substance with flows to other entities"
 --------------------------------------------------------------------------
 
 

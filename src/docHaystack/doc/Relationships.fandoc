@@ -16,6 +16,29 @@ key (the 'id' tag) and foreign keys (other ref tags).  We use the term
 *relationship* to denote instance-to-instance relationships versus
 def-to-def [associations]`Associations`.
 
+Relationship Types [#types]
+***************************
+Haystack defines two primary types of relationships:
+
+- [Containment relationships]`#containment`: model physical and logical containment
+- [Flow relationships]`#flow`: model the flow of air, water, steam, and electricity
+
+Containment Relationships [#containment]
+========================================
+Containment relationships are defined by the `contains` and `containedBy`
+tags. Refs which model containment follow a naming convention
+of '{parent}Ref' and are applied on the child entity to refer to the
+parent entity.  Refs which implement the containment relationship include
+`siteRef`, `spaceRef`, and `equipRef`.
+
+Flow Relationships [#flow]
+==========================
+Flow relationships are defined by the `inputs` and `outputs` tags.
+Refs which model flow follow a naming convention of '{substance}Ref'
+and are applied on the inputting entity to refer to the source of the substance.
+Refs which implement flow relationships include `airRef`, `elecRef`,
+`chilledWaterRef`, and `steamRef`.
+
 Example [#example]
 ******************
 Lets look at a simple example:
@@ -23,7 +46,7 @@ Lets look at a simple example:
   // hot water plant entity
   id: @hwp, hot, water, plant, equip
 
-  // AHU entity which receives hot water from the plant above
+  // AHU entity which inputs hot water from the plant above
   id: @ahu, ahu, equip, hotWaterHeating, hotWaterRef: @hwp
 
 The plant's primary identifier is modeled by the `id` tag with a ref
@@ -37,7 +60,7 @@ The actual definition of `hotWaterRef` looks like this:
   is: ^ref
   of: ^hot-water-output
   tagOn: ^hot-water-input
-  receives: ^hot-water
+  inputs: ^hot-water
   doc: "Hot water flows from the the referent to this entity"
 
 This definition tells us that the 'hotWaterRef' tag is a 'ref'
@@ -71,39 +94,39 @@ inference to construct queries which don't require detailed knowledge of how
 a system was tagged.  Using our plant example above we can query AHUs that
 receive anything:
 
-  ahu and receives?
+  ahu and inputs?
 
 This query matches dicts that have the `ahu` tag and any reflected def with
-the `receives` tag.  The '?' operator performs indirection to query the tags
+the `inputs` tag.  The '?' operator performs indirection to query the tags
 on the defs.  For example:
 
-  receives   // does the dict have a tag named "receives"
-  receives?  // does the dict implement a def with a tag name "receives"
+  inputs   // does the dict have a tag named "inputs"
+  inputs?  // does the dict implement a def with a tag name "inputs"
 
 The rules to map a dict to its implemented defs is specified in
 the [reflection]`Reflection#reflection` chapter.
 
 We can enhance our query to filter dicts which receive hot water like this:
 
-  receives-hot-water?
+  inputs-hot-water?
 
 The term to the right of the first dash is used to match the value of
-the def's `receives` tag.  We can read the filter above as follows: does
-the dict implement a def with the `receives` tag where the value which
+the def's `inputs` tag.  We can read the filter above as follows: does
+the dict implement a def with the `inputs` tag where the value which
 fits `hot-water`.  Subtyping may be used too; any of the following
 filters would match our AHU also:
 
-  receives-water?   // hot-water is a subtype of water
-  receives-liquid?  // hot-water is a subtype of liquid
+  inputs-water?   // hot-water is a subtype of water
+  inputs-liquid?  // hot-water is a subtype of liquid
 
 We can also give the '?' operator a value on the right hand side as follows:
 
-  receives-hot-water? @hwp
+  inputs-hot-water? @hwp
 
 The filter above matches using the rules discussed with one new requirement:
 the tag's value must be equal to '@hwp'.  We can break down the steps as
 follows:
-  1. Does the dict implement a def with `receives` (it does: `hotWaterRef`)
+  1. Does the dict implement a def with `inputs` (it does: `hotWaterRef`)
   2. Does the value of that tag *in the def* subtype from `hot-water` (it does)
   3. Does the value of that tag *in the dict* equal '@hwp' (it does)
   4. If all of the above are true, the overall filter is a match
@@ -162,8 +185,8 @@ Its also desirable to query relationships from either endpoint without
 regard to which endpoint actually declares the reference tag.  Using
 our plant example we want to be able to query both sides as follows:
 
-  receives-hot-water? @hwp  // receives hot water from the plant
-  supplies-hot-water? @ahu  // supplies hot water to the AHU
+  inputs-hot-water? @hwp   // inputs hot water from the plant
+  outputs-hot-water? @ahu  // outputs hot water to the AHU
 
 We call these *reciprocal* relationships.  They are explicitly configured
 on the relationship defs via the `reciprocalOf` tag.
@@ -171,15 +194,15 @@ on the relationship defs via the `reciprocalOf` tag.
 Lets follow the process for this filter which should match
 the '@hwp' entity:
 
-  supplies-hot-water? @ahu
+  outputs-hot-water? @ahu
 
 Following the rules we have discussed above so far, we would not find a
 match.  There is no tag on the plant that directly references the AHU.
-However because `supplies` specifies it is an inverse of `receives`, we
+However because `outputs` specifies it is an inverse of `inputs`, we
 would then have to check for a match in the reverse direction.  The
 inverse is constructed as follows when matching the '@hwp' entity:
 
-  1. Replace 'supplies' with its inverse which is 'receives'
+  1. Replace 'outputs' with its inverse which is 'inputs'
   2. Leave the subject term to the right of the first dash
   3. Replace the reference value '@ahu' with the dict being processed which is '@hwp'
   4. Replace the dict being processed with entity identified by '@ahu'
@@ -187,7 +210,7 @@ inverse is constructed as follows when matching the '@hwp' entity:
 Following those rules we would end up with an inverse filter which
 looks just the one we have already examined and we know will match:
 
-  receives-hot-water? @hwp
+  inputs-hot-water? @hwp
 
 Together transitive and inverse relationships provide tremendous flexibility
 to query Haystack data without regard to the underlying reference tags used.

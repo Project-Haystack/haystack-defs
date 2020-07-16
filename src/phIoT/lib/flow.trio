@@ -15,98 +15,98 @@ def: ^airRef
 is: ^ref
 of: ^air-output
 tagOn: ^air-input
-receives: ^air
+inputs: ^air
 doc: "Air flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^blowdownWaterRef
 is: ^ref
 of: ^blowdown-water-output
 tagOn: ^blowdown-water-input
-receives: ^blowdown-water
+inputs: ^blowdown-water
 doc: "Blowdown water flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^condensateRef
 is: ^ref
 of: ^condensate-output
 tagOn: ^condensate-input
-receives: ^condensate
+inputs: ^condensate
 doc: "Condensate flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^chilledWaterRef
 is: ^ref
 of: ^chilled-water-output
 tagOn: ^chilled-water-input
-receives: ^chilled-water
+inputs: ^chilled-water
 doc: "Chilled water flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^condenserWaterRef
 is: ^ref
 of: ^condenser-water-output
 tagOn: ^condenser-water-input
-receives: ^condenser-water
+inputs: ^condenser-water
 doc: "Condenser water flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^domesticWaterRef
 is: ^ref
 of: ^domestic-water-output
 tagOn: ^domestic-water-input
-receives: ^domestic-water
+inputs: ^domestic-water
 doc: "Domestic water flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^elecRef
 is: ^ref
 of: ^elec-output
 tagOn: ^elec-input
-receives: ^elec
+inputs: ^elec
 doc: "Electricity flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^fuelOilRef
 is: ^ref
 of: ^fuelOil-output
 tagOn: ^fuelOil-input
-receives: ^fuelOil
+inputs: ^fuelOil
 doc: "Fuel oil flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^hotWaterRef
 is: ^ref
 of: ^hot-water-output
 tagOn: ^hot-water-input
-receives: ^hot-water
+inputs: ^hot-water
 doc: "Hot water flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^gasolineRef
 is: ^ref
 of: ^gasoline-output
 tagOn: ^gasoline-input
-receives: ^gasoline
+inputs: ^gasoline
 doc: "Gasoline flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^makeupWaterRef
 is: ^ref
 of: ^makeup-water-output
 tagOn: ^makeup-water-input
-receives: ^makeup-water
+inputs: ^makeup-water
 doc: "Makeup water flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^naturalGasRef
 is: ^ref
 of: ^naturalGas-output
 tagOn: ^naturalGas-input
-receives: ^naturalGas
+inputs: ^naturalGas
 doc: "Natural gas flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^refrigRef
 is: ^ref
 of: ^refrig-output
 tagOn: ^refrig-input
-receives: ^refrig
+inputs: ^refrig
 doc: "Refrigerant flows from the the referent to this entity"
 --------------------------------------------------------------------------
 def: ^steamRef
 is: ^ref
 of: ^steam-output
 tagOn: ^steam-input
-receives: ^steam
+inputs: ^steam
 doc: "Steam flows from the the referent to this entity"
 --------------------------------------------------------------------------
 
@@ -114,10 +114,6 @@ doc: "Steam flows from the the referent to this entity"
 // Outputs
 //////////////////////////////////////////////////////////////////////////
 
---------------------------------------------------------------------------
-def: ^output
-is: ^marker
-doc: "Entity outputs a substance with flows to other entities"
 --------------------------------------------------------------------------
 def: ^air-output
 is: ^output
@@ -180,10 +176,6 @@ doc: "Entity outputs steam to other entities"
 // Inputs
 //////////////////////////////////////////////////////////////////////////
 
---------------------------------------------------------------------------
-def: ^input
-is: ^marker
-doc: "Entity inputs a substance which flows from another entity"
 --------------------------------------------------------------------------
 def: ^air-input
 is: ^input
