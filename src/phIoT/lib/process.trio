@@ -37,7 +37,7 @@ is: ^process
 doc: "Processed used to heat a substance"
 --------------------------------------------------------------------------
 def: ^dxHeating
-is: ^coolingProcessType
+is: ^heatingProcessType
 doc:
   Heating using direct expansion of a refrigerant vapor, using a
   refrigeration cycle

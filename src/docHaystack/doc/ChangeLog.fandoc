@@ -10,6 +10,9 @@
 - Enhance enum value spec to allow list of dicts
 - Add plantTertiaryLoop tag
 - 808: Rename gasHeating, oilHeating to naturalGasHeating, fuelOilHeating
+- Add doas tag for Dedicated Outside Air System
+- Change mau to subtype from doas
+- Add outsideFunctionType choice to outside duct
 
 **Version 3.9.8 (24 Mar 2020)**
 - New Changes3to4 chapter

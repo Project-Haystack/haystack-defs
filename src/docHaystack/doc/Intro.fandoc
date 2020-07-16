@@ -33,7 +33,7 @@ Key new concepts to review:
   - `Rdf`: prototype support for exporting Haystack data to RDF
 
 This documentation and the definitions is managed in a Mercial repo
-located at `https://bitbucket.org/project-haystack/haystack-defs`.
+located at `https://github.com/Project-Haystack/haystack-defs`.
 
 
 
