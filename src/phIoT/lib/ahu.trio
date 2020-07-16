@@ -9,7 +9,7 @@
 
 --------------------------------------------------------------------------
 def: ^airHandlingEquip
-is: ^equip
+is: [^equip, ^air-output]
 airVolumeAdjustability: ^airVolumeAdjustabilityType
 ahuZoneDelivery: ^ahuZoneDeliveryType
 cools: ^air
@@ -179,14 +179,3 @@ children: [
   ]
 --------------------------------------------------------------------------
 
-//////////////////////////////////////////////////////////////////////////
-// Relationships
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^ahuRef
-is: ^ref
-of: ^ahu
-receives: ^air
-doc: "AHU which supplies air to an equipment or space"
---------------------------------------------------------------------------

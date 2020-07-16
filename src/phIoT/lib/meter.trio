@@ -14,7 +14,7 @@ meterScope: ^meterScopeType
 doc: "Equipment to meter a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^elec-meter
-is: ^meter
+is: [^meter, ^elec-input, ^elec-output]
 doc: "Electricity meter"
 --------------------------------------------------------------------------
 def: ^ac-elec-meter

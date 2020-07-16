@@ -1,0 +1,246 @@
+//
+// Copyright (c) 2020, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   16 Jul 2020  Brian Frank  Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Refs
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^airRef
+is: ^ref
+of: ^air-output
+tagOn: ^air-input
+receives: ^air
+doc: "Air flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^blowdownWaterRef
+is: ^ref
+of: ^blowdown-water-output
+tagOn: ^blowdown-water-input
+receives: ^blowdown-water
+doc: "Blowdown water flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^condensateRef
+is: ^ref
+of: ^condensate-output
+tagOn: ^condensate-input
+receives: ^condensate
+doc: "Condensate flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^chilledWaterRef
+is: ^ref
+of: ^chilled-water-output
+tagOn: ^chilled-water-input
+receives: ^chilled-water
+doc: "Chilled water flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^condenserWaterRef
+is: ^ref
+of: ^condenser-water-output
+tagOn: ^condenser-water-input
+receives: ^condenser-water
+doc: "Condenser water flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^domesticWaterRef
+is: ^ref
+of: ^domestic-water-output
+tagOn: ^domestic-water-input
+receives: ^domestic-water
+doc: "Domestic water flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^elecRef
+is: ^ref
+of: ^elec-output
+tagOn: ^elec-input
+receives: ^elec
+doc: "Electricity flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^fuelOilRef
+is: ^ref
+of: ^fuelOil-output
+tagOn: ^fuelOil-input
+receives: ^fuelOil
+doc: "Fuel oil flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^hotWaterRef
+is: ^ref
+of: ^hot-water-output
+tagOn: ^hot-water-input
+receives: ^hot-water
+doc: "Hot water flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^gasolineRef
+is: ^ref
+of: ^gasoline-output
+tagOn: ^gasoline-input
+receives: ^gasoline
+doc: "Gasoline flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^makeupWaterRef
+is: ^ref
+of: ^makeup-water-output
+tagOn: ^makeup-water-input
+receives: ^makeup-water
+doc: "Makeup water flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^naturalGasRef
+is: ^ref
+of: ^naturalGas-output
+tagOn: ^naturalGas-input
+receives: ^naturalGas
+doc: "Natural gas flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^refrigRef
+is: ^ref
+of: ^refrig-output
+tagOn: ^refrig-input
+receives: ^refrig
+doc: "Refrigerant flows from the the referent to this entity"
+--------------------------------------------------------------------------
+def: ^steamRef
+is: ^ref
+of: ^steam-output
+tagOn: ^steam-input
+receives: ^steam
+doc: "Steam flows from the the referent to this entity"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Outputs
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^output
+is: ^marker
+doc: "Entity outputs a substance with flows to other entities"
+--------------------------------------------------------------------------
+def: ^air-output
+is: ^output
+doc: "Entity outputs air to other entities"
+--------------------------------------------------------------------------
+def: ^blowdown-water-output
+is: ^output
+doc: "Entity outputs blowdown water to other entities"
+--------------------------------------------------------------------------
+def: ^condensate-output
+is: ^output
+doc: "Entity outputs condensate to other entities"
+--------------------------------------------------------------------------
+def: ^chilled-water-output
+is: ^output
+doc: "Entity outputs chilled water to other entities"
+--------------------------------------------------------------------------
+def: ^condenser-water-output
+is: ^output
+doc: "Entity outputs condenser water to other entities"
+--------------------------------------------------------------------------
+def: ^domestic-water-output
+is: ^output
+doc: "Entity outputs domestic water to other entities"
+--------------------------------------------------------------------------
+def: ^elec-output
+is: ^output
+doc: "Entity outputs electricity to other entities"
+--------------------------------------------------------------------------
+def: ^fuelOil-output
+is: ^output
+doc: "Entity outputs fuel oil to other entities"
+--------------------------------------------------------------------------
+def: ^hot-water-output
+is: ^output
+doc: "Entity outputs hot water to other entities"
+--------------------------------------------------------------------------
+def: ^gasoline-output
+is: ^output
+doc: "Entity outputs gasoline to other entities"
+--------------------------------------------------------------------------
+def: ^makeup-water-output
+is: ^output
+doc: "Entity outputs makeup water to other entities"
+--------------------------------------------------------------------------
+def: ^naturalGas-output
+is: ^output
+doc: "Entity outputs natural gas to other entities"
+--------------------------------------------------------------------------
+def: ^refrig-output
+is: ^output
+doc: "Entity outputs refrigerant to other entities"
+--------------------------------------------------------------------------
+def: ^steam-output
+is: ^output
+doc: "Entity outputs steam to other entities"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Inputs
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^input
+is: ^marker
+doc: "Entity inputs a substance which flows from another entity"
+--------------------------------------------------------------------------
+def: ^air-input
+is: ^input
+doc: "Entity inputs air which flows from another entity"
+--------------------------------------------------------------------------
+def: ^blowdown-water-input
+is: ^input
+doc: "Entity inputs blowdown water which flows from another entity"
+--------------------------------------------------------------------------
+def: ^condensate-input
+is: ^input
+doc: "Entity inputs condensate which flows from another entity"
+--------------------------------------------------------------------------
+def: ^chilled-water-input
+is: ^input
+doc: "Entity inputs chilled water which flows from another entity"
+--------------------------------------------------------------------------
+def: ^condenser-water-input
+is: ^input
+doc: "Entity inputs condenser water which flows from another entity"
+--------------------------------------------------------------------------
+def: ^domestic-water-input
+is: ^input
+doc: "Entity inputs domestic water which flows from another entity"
+--------------------------------------------------------------------------
+def: ^elec-input
+is: ^input
+doc: "Entity inputs electricity which flows from another entity"
+--------------------------------------------------------------------------
+def: ^fuelOil-input
+is: ^input
+doc: "Entity inputs fuel oil which flows from another entity"
+--------------------------------------------------------------------------
+def: ^hot-water-input
+is: ^input
+doc: "Entity inputs hot water which flows from another entity"
+--------------------------------------------------------------------------
+def: ^gasoline-input
+is: ^input
+doc: "Entity inputs gasoline which flows from another entity"
+--------------------------------------------------------------------------
+def: ^makeup-water-input
+is: ^input
+doc: "Entity inputs makeup water which flows from another entity"
+--------------------------------------------------------------------------
+def: ^naturalGas-input
+is: ^input
+doc: "Entity inputs natural gas which flows from another entity"
+--------------------------------------------------------------------------
+def: ^refrig-input
+is: ^input
+doc: "Entity inputs refrigerant which flows from another entity"
+--------------------------------------------------------------------------
+def: ^steam-input
+is: ^input
+doc: "Entity inputs steam which flows from another entity"
+--------------------------------------------------------------------------
+
+
+

@@ -12,7 +12,7 @@ is: ^equip
 doc: "Central plant used to generate a substance for a process"
 --------------------------------------------------------------------------
 def: ^chilled-water-plant
-is: ^plant
+is: [^plant, ^chilled-water-output]
 produces: ^chilled-water
 condenserLoop: ^condenserLoopType
 doc: "Plant used to generate chilled water for cooling"
@@ -36,7 +36,7 @@ children: [
   ]
 --------------------------------------------------------------------------
 def: ^hot-water-plant
-is: ^plant
+is: [^plant, ^hot-water-output]
 produces: ^hot-water
 doc: "Plant used to generate hot water for heating"
 children: [
@@ -58,7 +58,7 @@ children: [
   ]
 --------------------------------------------------------------------------
 def: ^steam-plant
-is: ^plant
+is: [^plant, ^steam-output]
 produces: ^steam
 doc: "Plant used to generate steam for heating"
 children: [
@@ -78,29 +78,5 @@ children: [
   {outside duct equip},
   {flue duct equip},
   ]
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Refs
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^chilledWaterPlantRef
-is: ^ref
-of: ^chilled-water-plant
-receives: ^chilled-water
-doc: "Plant which supplies chilled water to the entity"
---------------------------------------------------------------------------
-def: ^hotWaterPlantRef
-is: ^ref
-of: ^hot-water-plant
-receives: ^hot-water
-doc: "Plant which supplies hot water to the entity"
---------------------------------------------------------------------------
-def: ^steamPlantRef
-is: ^ref
-of: ^steam-plant
-receives: ^steam
-doc: "Plant which supplies steam to the entity"
 --------------------------------------------------------------------------
 

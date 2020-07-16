@@ -98,7 +98,7 @@ children: [
   ]
 --------------------------------------------------------------------------
 def: ^hvac-zone-space
-is: [^zone-space, ^zoneAirPoints]
+is: [^zone-space, ^zoneAirPoints, ^air-input]
 doc: "Zone related to conditioning of a space's air temperature and quality."
 --------------------------------------------------------------------------
 def: ^lighting-zone-space

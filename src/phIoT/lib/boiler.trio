@@ -15,7 +15,7 @@ wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
 --------------------------------------------------------------------------
 def: ^hot-water-boiler
-is: ^boiler
+is: [^boiler, ^hot-water-output]
 heats: ^hot-water
 produces: ^hot-water
 doc: "Boiler which outputs hot water"
@@ -29,7 +29,7 @@ children: [
   ]
 --------------------------------------------------------------------------
 def: ^steam-boiler
-is: ^boiler
+is: [^boiler, ^steam-output]
 heats: ^steam
 produces: ^steam
 doc: "Boiler which outputs steam"

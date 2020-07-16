@@ -12,11 +12,6 @@ is: ^marker
 docTaxonomy
 doc: "Industrial or HVAC process"
 --------------------------------------------------------------------------
-def: ^processUses
-is: ^association
-of: ^phenomenon
-doc: "Input to a process, usually energy source"
---------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Heating
@@ -43,28 +38,23 @@ doc:
   refrigeration cycle
 --------------------------------------------------------------------------
 def: ^hotWaterHeating
-is: ^heatingProcessType
-processUses: ^hot-water
+is: [^heatingProcessType, ^hot-water-input]
 doc: "Heating using energy of hot water"
 --------------------------------------------------------------------------
 def: ^steamHeating
-is: ^heatingProcessType
-processUses: ^steam
+is: [^heatingProcessType, ^steam-input]
 doc: "Heating using energy of steam"
 --------------------------------------------------------------------------
 def: ^naturalGasHeating
-is: ^heatingProcessType
-processUses: ^naturalGas
+is: [^heatingProcessType, ^naturalGas-input]
 doc: "Heating by the combustion of natural gas"
 --------------------------------------------------------------------------
 def: ^fuelOilHeating
-is: ^heatingProcessType
-processUses: ^fuelOil
+is: [^heatingProcessType, ^fuelOil-input]
 doc: "Heating by the combustion of fuel oil"
 --------------------------------------------------------------------------
 def: ^elecHeating
-is: ^heatingProcessType
-processUses: ^elec
+is: [^heatingProcessType, ^elec-input]
 wikipedia: `https://en.wikipedia.org/wiki/Electric_heating`
 doc: "Heating by the conversion of electrical energy"
 --------------------------------------------------------------------------
@@ -88,8 +78,7 @@ is: ^process
 doc: "Processed used to cool a substance"
 --------------------------------------------------------------------------
 def: ^airCooling
-is: ^coolingProcessType
-processUses: ^air
+is: [^coolingProcessType, ^air-input]
 wikipedia: `https://en.wikipedia.org/wiki/Air_cooling`
 doc: "Cooling by dissipating heat into the surrounding air"
 --------------------------------------------------------------------------
@@ -104,7 +93,6 @@ doc:
   refrigeration cycle
 --------------------------------------------------------------------------
 def: ^chilledWaterCooling
-is: ^coolingProcessType
-processUses: ^chilled-water
+is: [^coolingProcessType, ^chilled-water-input]
 doc: "Cooling using transfer of heat to chilled water"
 --------------------------------------------------------------------------
