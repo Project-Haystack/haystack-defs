@@ -25,7 +25,7 @@ specific column.
 
 Columns and rows are used to model a list of Haystack tagged entities.  Columns
 are computed by the union of all unique tag names in a list of entities.  Each
-column is composed of a programmatic name which must be a valid [tag name]`TagModel#tagNames`.
+column is composed of a programmatic name which must be a valid [tag name]`Kinds#names`.
 Columns may also specify metadata using tags.  The `dis` column tag may be
 used to provide a human friendly display name for the column (since the programmatic
 name will likely be camel case).
