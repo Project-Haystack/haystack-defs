@@ -15,7 +15,9 @@ def: ^zone-space
 is: ^space
 doc: "Space associated with a specific system"
 children: [
-  {occupied point},
+  {occupied sensor point},
+  {occupied sp point},
+  {occupancy sensor point},
   ]
 --------------------------------------------------------------------------
 def: ^hvac-zone-space

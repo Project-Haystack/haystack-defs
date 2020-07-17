@@ -18,6 +18,7 @@
 - Rename receives/supplies to inputs/outputs
 - Rename zoneAirPoints to hvacZonePoints
 - 705: Add lightingZonePoints
+- 705: Add occupancy sensor for number of occupants
 
 **Version 3.9.8 (24 Mar 2020)**
 - New Changes3to4 chapter

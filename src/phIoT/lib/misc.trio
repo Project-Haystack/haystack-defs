@@ -156,6 +156,10 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Lighting`
 doc: "Systems associated with illumination in the built environment"
 --------------------------------------------------------------------------
+def: ^occupancy
+is: ^marker
+doc: "Number of occupants in a space."
+--------------------------------------------------------------------------
 def: ^occupants
 is: ^marker
 doc: "People who use the built ennvironment"
