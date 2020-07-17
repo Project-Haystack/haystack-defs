@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^luminaire
-is: ^equip
+is: [^equip, ^lightingZonePoints]
 wikipedia: `https://en.wikipedia.org/wiki/Light_fixture`
 doc: "Light fixture using electricity to provide illumination"
 --------------------------------------------------------------------------

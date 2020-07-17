@@ -72,9 +72,12 @@ doc: "Measure of volumetric flow of fluid"
 --------------------------------------------------------------------------
 def: ^level
 is: ^quantity
-quantityOf: ^fluid
+quantityOf: [^fluid, ^light]
 prefUnit: ["%"]
-doc: "Fill level of a vessel containing a fluid where 0% is empty and 100% is filled"
+doc:
+  Range from 0% to 100%.  When paired with a fluid this implies a fill
+  level where 0% is empty and 100% is full.  When paired with light it
+  impliies the dimming level where 0% is off and 100% is full output.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

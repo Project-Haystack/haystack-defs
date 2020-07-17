@@ -16,6 +16,8 @@
 - 808: New flow relationship tags: airRef, elecRef, chilledWaterRef, etc
 - Remove processUses in favor of xxx-input subtyping
 - Rename receives/supplies to inputs/outputs
+- Rename zoneAirPoints to hvacZonePoints
+- 705: Add lightingZonePoints
 
 **Version 3.9.8 (24 Mar 2020)**
 - New Changes3to4 chapter
