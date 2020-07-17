@@ -15,7 +15,15 @@ doc: "Geographic place"
 def: ^geoAddr
 is: ^str
 tagOn: ^geoPlace
-doc: "Free form street address"
+doc:
+  Free form street address.  Best practice is to follow local
+  norms for a postal address.  Typically this string includes
+  the `geoStreet`, `geoCity`, `geoState` (in US), and `geoPostalCode`:
+
+  Examples:
+    1600 Pennsylvania Avenue NW, Washington, DC 20500
+    10 Downing St, Westminster, London SW1A 2AA, United Kingdom
+    Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France
 --------------------------------------------------------------------------
 def: ^geoCoord
 is: ^coord

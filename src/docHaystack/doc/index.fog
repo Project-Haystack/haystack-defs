@@ -9,10 +9,14 @@
   [`Intro`,         "Introduction to Project Haystack"],
 
   "Data Model",
+  [`Kinds`,         "Data types"],
   [`Grids`,         "Two dimensional tabular data"],
   [`TimeZones`,     "Respresentation of timezones"],
   [`Units`,         "Respresentation  of units of measurement"],
   [`Filters`,       "Predicates for querying Haystack data"],
+
+  "Ontology",
+  [`Ontology`,      "Overview of entity types"],
 
   "Defs",
   [`Defs`,          "Definition meta-model"],
@@ -26,6 +30,7 @@
   [`Protos`,        "Dict prototypes"],
 
   "Filetype Formats",
+  [`Filetypes`,     "Data encoding formats"],
   [`Zinc`,          "Zinc plain text format"],
   [`Json`,          "JavaScript object notation format"],
   [`Trio`,          "Tag record I/O format"],
