@@ -18,7 +18,7 @@ subscriptions, or read/write history time-series data.  Operations are pluggable
 so that vendors can enhance their API interface with their own customized,
 value-added functionality.
 
-Both requests and responses are modeled as [grids]`Grids`.  Grids
+Both requests and responses are modeled as [grids]`Kinds#grid`.  Grids
 are encoded using one the standard MIME types for grid serialization,
 or may be pluggable using HTTP content negotiation.
 
@@ -178,15 +178,18 @@ Example in Zinc:
 Content Negotiation [#contentNegotiation]
 *****************************************
 The default for all HTTP API operations is to return the result as a
-grid (or grids) with the MIME type "text/plain" formatted
+grid (or grids) with the MIME type "text/zinc" formatted
 using `Zinc`.  You can request to receive the results in alternate
 formats by specifying the "Accept" header in your HTTP request.
 
 The following "Accept" header MIME types are standardized:
 
-  - `Zinc`: 'text/plain', 'text/zinc', '*/*', or unspecified
-  - `Csv`: 'text/csv'
+  - `Zinc`: 'text/zinc', '*/*', or unspecified
   - `Json`: 'application/json'
+  - `Trio`: 'text/trio'
+  - `Csv`: 'text/csv'
+  - [Turtle]`Rdf`: 'text/turtle'
+  - [JSON-LD]`Rdf`: 'application/ld+json'
 
 If you specify an "Accept" header for an unsupported MIME type, then
 the 406 Unacceptable error code is returned.
@@ -194,7 +197,6 @@ the 406 Unacceptable error code is returned.
 Example for reading all site entities as CSV:
 
   GET /haystack/read?filter=site
-  Content-Type: text/plain; charset=utf-8
   Accept: text/csv
 
 Response:
@@ -206,7 +208,7 @@ Response:
   Site A,2000ft²,"1000 Main St,Richmond,VA"
   Site B,3000ft²,"2000 Cary St,Richmond,VA"
 
-All "text/" media type must be be encoded using UTF-8.
+All text media type must be be encoded using UTF-8.
 
 Watches [#watches]
 ******************

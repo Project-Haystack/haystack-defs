@@ -60,9 +60,9 @@ Encodings:
 
 NA [#na]
 ********
-NA is a singleton which means not available.  It fills a similar role as
-the 'NA' constant in the R language as a place holding for missing or invalid
-data values.  In Haystack it is most often used in historized data to indicate
+NA is a singleton for not available.  It fills a similar role as the 'NA'
+constant in the R language as a place holding for missing or invalid data
+values.  In Haystack it is most often used in historized data to indicate
 that a timestamp sample is in error.
 
 Encodings:
@@ -126,7 +126,7 @@ all the 16-bit code points.  All text formats must be encoded using UTF-8
 unless explicitly specified otherwise (such as via a charset parameter in
 an HTTP Content-Type).
 
-Strings are encoded using C style backslash escapes:
+Strings are encoded using double quotes and C style backslash escapes:
   "haystack"         // Zinc, Trio, JSON
   "Line 1\nLine 2"   // Zinc, Trio, JSON with backslash escape newline
   "s:a:b"            // JSON requires s: prefix if content contains colon
@@ -147,11 +147,10 @@ Encodings:
 
 Ref [#ref]
 **********
-Refs are the data type used to represent instance data identifiers.  All
-entities are identified via the `id` tag and a unique ref data value.
-Relationships cross-reference the entity with ref tags.  And operations
-such as the 'read' or 'hisRead' ops will identify the entity with its
-ref id.
+Refs are the data type for instance data identifiers.  All entities are
+identified via the `id` tag and a unique ref data value.  Relationships
+cross-reference the entity with ref tags.  And operations such as the 'read'
+or 'hisRead' ops will identify the entity with its ref id.
 
 Refs must adhere to the following limited set of ASCII characters:
   - ASCII lower case letter a-z
@@ -183,7 +182,7 @@ the display name of the entity with a quoted string literal:
 
 Symbol [#symbol]
 ****************
-Symbols are the data type used to represent [defs]`Defs` identifiers.
+Symbols are the data type for [def]`Defs` identifiers.
 
 Symbols follow the same naming conventions as [refs]`#ref` - only ASCII letters,
 digits, underbar, colon, dash, period, or tilde.  Although only a subset of these
@@ -232,7 +231,7 @@ Implementations should support precision down to the micro-degree (6 decimal
 places) which provides accuracy to ~100mm and can be packed into a 64-bit
 integer.
 
-Coord is encoded using positive/negative latitude, longitude decimal degree:
+Coord is encoded using positive/negative latitude, longitude in decimal degrees:
   C(37.5458266,-77.4491888)   // Trio, Zinc
   "c: 37.5458266,-77.4491888  // JSON
 
@@ -253,7 +252,7 @@ Encodings:
 
 List [#list]
 ************
-List is a collection data type.  Lists are ordered sequences and may be contain
+List is a collection data type.  Lists are ordered sequences and may contain
 any other valid Haystack data types.
 
 Lists are encoded using square brackets exactly like JSON arrays:
@@ -265,7 +264,7 @@ Dict [#dict]
 Dict (or dictionary) is the primary collection data type in Haystack.  Dicts
 are an unordered collection of name/value pairs which we call *tags*.  The
 name keys of a dict are restricted to ASCII letters, digits and underbar
-as discussed in [names section]`#names`.  The values may be be any other valid
+as discussed in the [names section]`#names`.  The values may be be any other valid
 Haystack data type.
 
 Dicts are encoded using curly braces similiar to JSON objects:
@@ -274,13 +273,13 @@ Dicts are encoded using curly braces similiar to JSON objects:
 
 Grid [#grid]
 ************
-Grids are two dimensional tabular data types.  Grids are essentially a list
+Grid is a two dimensional tabular data type.  Grids are essentially a list
 of dicts.  However grids may include grid level and column level meta data
 which is modeled as a dict.  Grids are the fundamental unit of data exchange
 over the [HTTP API]`HttpApi`.
 
-Grids are commonly used a list of dicts which represent entity data into a
-single table.  Consider three dicts which model buildings:
+Grids are commonly used to encode a list of dicts into a single table.
+Consider three dicts which model buildings:
 
   id: @site-a
   dis: "Site A"

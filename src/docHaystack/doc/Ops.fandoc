@@ -73,7 +73,6 @@ Example of response in Zinc:
   ver:"3.0"
   mime,receive,send
   "text/csv",,M
-  "text/plain",M,M
   "text/zinc",M,M
 
 Read [#read]

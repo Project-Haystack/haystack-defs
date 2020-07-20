@@ -10,7 +10,6 @@
 
   "Data Model",
   [`Kinds`,         "Data types"],
-  [`Grids`,         "Two dimensional tabular data"],
   [`TimeZones`,     "Respresentation of timezones"],
   [`Units`,         "Respresentation  of units of measurement"],
   [`Filters`,       "Predicates for querying Haystack data"],

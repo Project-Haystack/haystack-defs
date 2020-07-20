@@ -67,7 +67,7 @@ special type code prefix.
 Grid Format [#grid]
 *******************
 In addition to the flexible type mapping defined above, we have
-a standard mapping of [Grid]`Grids` into JSON which is used by
+a standard mapping of [grid]`Kinds#grid` into JSON which is used by
 the REST API.
 
 The Grid to JSON mapping is as follows:
