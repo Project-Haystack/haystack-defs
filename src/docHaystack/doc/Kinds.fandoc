@@ -320,3 +320,28 @@ The data above is encoded into Zinc as follows:
 
 See `Zinc` and `Json` chapters for the details for grid encoding.
 
+Defs [#defs]
+************
+All the data types are formally defined by name with a [def]`Defs`:
+  - `marker`
+  - `na`
+  - `remove`
+  - `bool`
+  - `number`
+  - `str`
+  - `uri`
+  - `ref`
+  - `symbol`
+  - `date`
+  - `time`
+  - `dateTime`
+  - `coord`
+  - `xstr`
+  - `list`
+  - `dict`
+  - `grid`
+
+[Subtyping]`Subtyping` is used to narrow the core kinds into tag definitions.  For
+example all ref tags will subtype from `ref`.
+
+

@@ -10,7 +10,9 @@
 --------------------------------------------------------------------------
 def: ^marker
 docTaxonomy
-doc: "Marker labels a dict with typing information"
+doc:
+  Marker labels a dict with typing information.
+  See [Kinds chatper]`docHaystack::Kinds#marker`.
 --------------------------------------------------------------------------
 def: ^val
 docTaxonomy
@@ -22,67 +24,101 @@ doc: "Scalar is an atomic value kind"
 --------------------------------------------------------------------------
 def: ^na
 is: ^scalar
-doc: "Not available used to indicate invalid or missing data"
+doc:
+  Not available used to indicate invalid or missing data.
+  See [Kinds chatper]`docHaystack::Kinds#na`.
+--------------------------------------------------------------------------
+def: ^remove
+is: ^scalar
+doc:
+  Singleton for remove operation.
+  See [Kinds chatper]`docHaystack::Kinds#remove`.
 --------------------------------------------------------------------------
 def: ^bool
 is: ^scalar
-doc: "Boolean value 'true' or 'false'"
+doc:
+  Boolean value 'true' or 'false'.
+  See [Kinds chatper]`docHaystack::Kinds#bool`.
 --------------------------------------------------------------------------
 def: ^number
 is: ^scalar
-doc: "Integer or floating point numbers annotated with an optional unit"
+doc:
+  Integer or floating point numbers annotated with an optional unit.
+  See [Kinds chatper]`docHaystack::Kinds#number`.
 --------------------------------------------------------------------------
 def: ^str
 is: ^scalar
-doc: "Unicode string of characters"
+doc:
+  Unicode string of characters.
+  See [Kinds chatper]`docHaystack::Kinds#str`.
 --------------------------------------------------------------------------
 def: ^uri
 is: ^scalar
-doc: "Unverisal resource identifier"
+doc:
+  Unverisal resource identifier.
+  See [Kinds chatper]`docHaystack::Kinds#uri`.
 --------------------------------------------------------------------------
 def: ^ref
 is: ^scalar
 doc:
   Reference to an entity. Ref values are ASCII strings limited to the
   following chars: a-z, A-Z, 0-9, underbar, colon, dash, dot, or tilde.
+  See [Kinds chatper]`docHaystack::Kinds#ref`.
 --------------------------------------------------------------------------
 def: ^symbol
 is: ^scalar
 doc:
   Symbol to a def. Symbol values are ASCII strings limited to the
   following chars: a-z, A-Z, 0-9, underbar, colon, dash, dot.
+  See [Kinds chatper]`docHaystack::Kinds#symbol`.
 --------------------------------------------------------------------------
 def: ^date
 is: ^scalar
-doc: "ISO 8601 date as year, month, day: '2011-06-07'"
+doc:
+  ISO 8601 date as year, month, day: '2011-06-07'.
+  See [Kinds chatper]`docHaystack::Kinds#date`.
 --------------------------------------------------------------------------
 def: ^time
 is: ^scalar
-doc: "ISO 8601 time as hour, minute, seconds: '09:51:27.354'"
+doc:
+  ISO 8601 time as hour, minute, seconds: '09:51:27.354'.
+  See [Kinds chatper]`docHaystack::Kinds#time`.
 --------------------------------------------------------------------------
 def: ^dateTime
 is: ^scalar
-doc: "ISO 8601 timestamp followed by timezone identifier"
+doc:
+  ISO 8601 timestamp followed by timezone identifier.
+  See [Kinds chatper]`docHaystack::Kinds#dateTime`.
 --------------------------------------------------------------------------
 def: ^coord
 is: ^scalar
-doc: "Geographic coordinate in latitude/longitude formatted as 'C(lat,lng)'"
+doc:
+  Geographic coordinate in latitude/longitude in decimal degrees.
+  See [Kinds chatper]`docHaystack::Kinds#coord`.
 --------------------------------------------------------------------------
 def: ^xstr
 is: ^scalar
-doc: "Extended string - type name and string value encoding"
+doc:
+  Extended string - type name and string value encoding.
+  See [Kinds chatper]`docHaystack::Kinds#xstr`.
 --------------------------------------------------------------------------
 def: ^list
 is: ^val
-doc: "Ordered list of zero or more values."
+doc:
+  Ordered list of zero or more values.
+  See [Kinds chatper]`docHaystack::Kinds#list`.
 --------------------------------------------------------------------------
 def: ^dict
 is: ^val
-doc: "Map of name/value tag pairs"
+doc:
+  Map of name/value tag pairs.
+  See [Kinds chatper]`docHaystack::Kinds#dict`.
 --------------------------------------------------------------------------
 def: ^grid
 is: ^val
-doc: "Two dimension table of columns and rows"
+doc:
+  Two dimension table of columns and rows.
+  See [Kinds chatper]`docHaystack::Kinds#grid`.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
