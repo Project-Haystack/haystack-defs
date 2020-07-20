@@ -32,6 +32,8 @@ children: [
   {exhaust duct equip},
   {mixed duct equip},
   {outside duct equip},
+  {ventilation duct equip},
+  {economizer duct equip},
   {return duct equip},
   {humidifier equip},
   {thermostat equip},
