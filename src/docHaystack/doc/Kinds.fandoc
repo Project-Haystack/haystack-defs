@@ -133,6 +133,9 @@ Strings are encoded using C style backslash escapes:
 
 Note that Zinc requires the "$" character to be backslash escaped.
 
+Strings are also used for enumerated types.  Enumerations define their
+range via the `enum` type.
+
 Uri [#uri]
 **********
 Uri is the data type to represent Universal Resource Identifiers according
@@ -215,6 +218,7 @@ and the timezone name:
 
   2020-07-17T16:55:42.977-04:00 New_York       // Zinc, Trio
   "t:2020-07-17T16:55:42.977-04:00 New_York"   // JSON
+  2020-07-17T23:30:00Z                         // May omit UTC timezone if offset is Z
 
 Coord [#coord]
 **************
@@ -247,15 +251,73 @@ Encodings:
   "x:Type:value"  // JSON
   "x:Color:red"   // JSON
 
-Dict [#dict]
-************
-TODO
-
 List [#list]
 ************
-TODO
+List is a collection data type.  Lists are ordered sequences and may be contain
+any other valid Haystack data types.
+
+Lists are encoded using square brackets exactly like JSON arrays:
+  [1, "two", 3]    // Zinc, Trio, JSON
+  []               // empty list
+
+Dict [#dict]
+************
+Dict (or dictionary) is the primary collection data type in Haystack.  Dicts
+are an unordered collection of name/value pairs which we call *tags*.  The
+name keys of a dict are restricted to ASCII letters, digits and underbar
+as discussed in [names section]`#names`.  The values may be be any other valid
+Haystack data type.
+
+Dicts are encoded using curly braces similiar to JSON objects:
+  {x:123, y:456}       // Zinc, Trio (commas are optional)
+  {"x":123, "y":456}   // JSON object
 
 Grid [#grid]
 ************
-TODO
+Grids are two dimensional tabular data types.  Grids are essentially a list
+of dicts.  However grids may include grid level and column level meta data
+which is modeled as a dict.  Grids are the fundamental unit of data exchange
+over the [HTTP API]`HttpApi`.
+
+Grids are commonly used a list of dicts which represent entity data into a
+single table.  Consider three dicts which model buildings:
+
+  id: @site-a
+  dis: "Site A"
+  site
+  area: 45000ft²
+
+  id: @site-b
+  dis: "Site B"
+  site
+
+  id: @site-c
+  dis: "Site C"
+  site
+  area: 62000ft²
+  phone: "(804) 555-1234"
+
+Our three entities all have an 'id', 'dis', and 'site' tags.  In addition two
+have the 'area' tag, and one has a 'phone' tag.  To combine these three entities
+into a grid we end up with five columns and three rows:
+
+  id       dis       site  area      phone
+  -------  -------   ----  --------  ------
+  @site-a  "Site A"  ✓     45000ft²
+  @site-b  "Site B"  ✓
+  @site-c  "Site C"  ✓     62000ft²  "(804) 555-1234"
+
+Note the columns are union of all tags shared by the entities.  Because not every
+entity shares the same columns, we have sparse or null cells.  We could further
+add grid level or column level meta.
+
+The data above is encoded into Zinc as follows:
+
+  ver:"3.0"
+  id,       dis,       site,  area,      phone
+  @site-a,  "Site A",  M,     45000ft²,  N
+  @site-b,  "Site B",  M,     N,         N
+  @site-c,  "Site C",  M,     62000ft²  "(804) 555-1234"
+
+See `Zinc` and `Json` chapters for the details for grid encoding.
 

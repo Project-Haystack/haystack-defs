@@ -50,11 +50,11 @@ allows us to infer semantics beyond the presence of tags.
 Ontologies extend taxonomies to include relationships between concepts.
 In Haystack we build out this ontological information using symbolic tags
 on defs to cross-reference other defs.  We call these relationships
-[associations]`Associations`. For example, we can model that the gas
-heating process uses natural gas
+[associations]`Associations`. For example, we can model that a steam boiler
+produces steam:
 
-  def: ^gasHeating
-  processUses: ^naturalGas
+  def: ^steam-boiler
+  produces: ^steam
 
 Associations enable inference when querying knowledge from Haystack data.
 

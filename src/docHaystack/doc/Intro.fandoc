@@ -47,9 +47,9 @@ The stack of technologies includes:
     equipment, and sensors
   - [Defs]`#defs`: a standard way to define and extend the ontology
 
-Individual parts of the stack can be used on their own.  For example you
-can use the Haystack data types as a "better JSON".  Or you could use just
-the terms in the ontology without the Haystack data types.
+Individual aspects of the technology stack can be used on their own.  For
+example you can use the Haystack data types as an "enhanced JSON".  Or you
+could use just the terms in the ontology without the Haystack data types.
 
 Data Types [#dataTypes]
 ***********************
@@ -65,9 +65,9 @@ measurement.
 
 The primary collection type is the *dict* (short for dictionary) which is a
 set of name/value pairs we call *tags*.  Dict is the Haystack term for an
-associative array, hashmap, or JSON object.  Haystack models things like a
-building or a sensor using a dict.  The tags of the dict inform what thing
-the dict models and facts about that thing.
+associative array, hashmap, or JSON object.  Haystack models entities like
+buildings and sensors using dicts.  The tags of the dict inform what type
+of entity is modeled and facts about that entity.
 
 Haystack includes a special data type we call *marker*.  Markers are tag names
 without a value.  Instead it is the presence of the marker name which is semantically
@@ -102,10 +102,10 @@ Included in the specification is a pluggable SCRAM based [authentication]`Auth`
 protocol.
 
 Some of the standard ops used for common IoT data exchanges:
-  - read: query data about buildings, rooms, or sensors
-  - hisRead: read historized time-series point data
-  - hisWrite: push historized time-series to a remote system
-  - watchSub: subscribe to real-time sensor data
+  - 'read': query entity data about buildings, rooms, or sensors
+  - 'hisRead': read historized time-series point data
+  - 'hisWrite': push historized time-series to a remote system
+  - 'watchSub': subscribe to real-time sensor data
 
 Ontology [#ontology]
 ********************
@@ -119,7 +119,7 @@ concepts in this domain including:
   - `space`: a floor, room, HVAC zone, lighting zone, etc
   - `equip`: a physical asset such as a meter, air handler, boiler, etc
   - `point`: a sensor, setpoint, or actuator
-  - `device`: microprocessor based hardware like controllers or networking gear
+  - `device`: microprocessor based hardware such as controllers, networking gear, etc
   - `weatherStation`: weather observations for temperature, humidity, precipitation, etc
 
 Each of these top-level concepts includes a taxonomy tree for more specific types.
@@ -152,7 +152,7 @@ individual chapters for specific systems.
 
 Defs [#defs]
 ************
-Defs or definitions are the mechanism by which we formally define our
+Defs (or definitions) are the mechanism by which we formally define our
 ontology.  Defs are used to define the semantics for each tag including:
   - value type (marker, string, number, etc)
   - the supertype (for example a more specific type of space, equip, etc)
@@ -160,7 +160,7 @@ ontology.  Defs are used to define the semantics for each tag including:
   - ontological relationships for how tags relate to one another
 
 By precisely defining every tag, we ensure that there is a common understanding
-for the semantics of a Haystack.  In our example above, we know that dict
+for the semantics of a Haystack data model.  In our example above, we know that dict
 represents a building (the site tag) and that the area tag tells us the
 square footage of the building.
 

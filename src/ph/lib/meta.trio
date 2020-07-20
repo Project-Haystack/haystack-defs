@@ -51,7 +51,9 @@ doc:
 --------------------------------------------------------------------------
 def: ^def
 is: ^symbol
-doc: "Create a new definition bound to the given symbol"
+doc:
+  Create a new definition bound to the given symbol.
+  See [Defs chapter]`docHaystack::Defs`.
 --------------------------------------------------------------------------
 def: ^defx
 is: ^symbol
