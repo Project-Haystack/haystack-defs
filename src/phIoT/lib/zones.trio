@@ -72,7 +72,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^lightingZonePoints
 is: ^pointGroup
-doc: "Entity with logical grouping lighting points"
+doc: "Entity with logical grouping of lighting points"
 children: [
   {light level sensor point},
   {light level sp point},
