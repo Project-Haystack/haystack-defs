@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.9 (working)**
+**Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts
 - Add plantTertiaryLoop tag
 - Add doas tag for Dedicated Outside Air System
