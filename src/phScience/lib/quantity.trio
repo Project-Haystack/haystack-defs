@@ -72,12 +72,11 @@ doc: "Measure of volumetric flow of fluid"
 --------------------------------------------------------------------------
 def: ^level
 is: ^quantity
-quantityOf: [^fluid, ^light]
+quantityOf: ^fluid
 prefUnit: ["%"]
 doc:
   Range from 0% to 100%.  When paired with a fluid this implies a fill
-  level where 0% is empty and 100% is full.  When paired with light it
-  impliies the dimming level where 0% is off and 100% is full output.
+  level where 0% is empty and 100% is full.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -257,6 +256,14 @@ doc:
   Luminous flux hitting the inside of the sphere at a specific point.
 
   Also see [ies.org]`https://www.ies.org/definitions/illuminance/`
+--------------------------------------------------------------------------
+def: ^light-level
+is: ^level
+quantityOf: ^light
+doc:
+  Sensed or controlled dimming level of electrical lighting.
+  Level is measured as a percentage where 0% is off and 100%
+  is full brightness.
 --------------------------------------------------------------------------
 def: ^luminance
 is: ^quantity

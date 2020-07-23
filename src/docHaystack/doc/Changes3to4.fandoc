@@ -33,7 +33,12 @@ These are renamed or turned into conjuncts:
   - hotWaterPlant => `hot-water-plant`
   - hotWaterPlantRef => `hotWaterRef`
   - hotWaterReheat => `hotWaterHeating`
+  - lights => `light-level`
+  - lightLevel => `illuminance`
+  - lightsGroup => `lighting-zone-space` or `luminaire`
   - mag => `magnitude`
+  - max => `maxVal`
+  - min => `minVal`
   - oil => `fuelOil`
   - openLoop => `condenserOpenLoop`
   - primaryLoop => `plantPrimaryLoop`
@@ -47,7 +52,9 @@ These are renamed or turned into conjuncts:
   - sunrise => `daytime`
   - uv => `unitVent`
   - variableVolume => `variableAirVolume`
+  - waterCooled => `waterCooling`
   - waterMeterLoad => 'xxxWaterRef' such as `chilledWaterRef`
+  - weatherPoint => [see weather]`#weather`
 
 These tags are not ported:
 
@@ -57,18 +64,11 @@ These tags are not ported:
   - device2Ref => [see networks]`#networks`
   - elecPanelOf
   - elecReheat
-  - lightLevel => [see lighting]`#lighting`
-  - lights => [see lighting]`#lighting`
-  - lightsGroup => [see lighting]`#lighting`
-  - max
-  - min
   - networkRef => [see networks]`#networks`
   - occupancyIndicator => [see lighting]`#lighting`
   - reheating
   - sitePanel
   - subPanelOf
-  - waterCooled
-  - weatherPoint => [see weather]`#weather`
 
 Weather [#weather]
 ******************

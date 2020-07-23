@@ -92,3 +92,9 @@ def: ^chilledWaterCooling
 is: [^coolingProcessType, ^chilled-water-input]
 doc: "Cooling using transfer of heat to chilled water"
 --------------------------------------------------------------------------
+def: ^waterCooling
+is: [^coolingProcessType]
+wikipedia: `https://en.wikipedia.org/wiki/Water_cooling`
+doc: "Cooling using transfer of heat to water which is not explicitly chilled"
+--------------------------------------------------------------------------
+
