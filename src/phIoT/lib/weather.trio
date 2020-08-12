@@ -44,7 +44,7 @@ def: ^weather-point
 is: ^point
 doc: "Weather station sensor point"
 --------------------------------------------------------------------------
-def: ^weatherRef
+def: ^weatherStationRef
 is: ^ref
 of: ^weatherStation
 tagOn: [^site, ^weather-point]

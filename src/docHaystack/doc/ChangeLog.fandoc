@@ -6,6 +6,9 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.10 (working)**
+- Rename weatherRef to weatherStationRef for consistency
+
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts
 - Add plantTertiaryLoop tag

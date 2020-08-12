@@ -135,7 +135,7 @@ Let's illustrate with a simple example.  This a dict which models a building:
   area: 55000ft²
   geoAddr: "1600 Pennsylvania Avenue NW,  Washington, DC"
   tz: "New_York"
-  weatherRef: @weather.washington
+  weatherStationRef: @weather.washington
 
 Each line represents a tag (name/value) pair. Each tags tells us
 something about this entity:
@@ -145,7 +145,7 @@ something about this entity:
   - `area`: square footage of the building
   - `geoAddr`: street address of the building
   - `tz`: timezone to use for this building
-  - `weatherRef`: relationship for which weather station to use for this building
+  - `weatherStationRef`: relationship for which weather station to use for this building
 
 These concepts are explored further in the `Ontology` chapter and the
 individual chapters for specific systems.

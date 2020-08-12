@@ -54,6 +54,8 @@ These are renamed or turned into conjuncts:
   - variableVolume => `variableAirVolume`
   - waterCooled => `waterCooling`
   - waterMeterLoad => 'xxxWaterRef' such as `chilledWaterRef`
+  - weather => [see weather]`#weather`
+  - weatherRef => [see weather]`#weather`
   - weatherPoint => [see weather]`#weather`
 
 These tags are not ported:
@@ -75,7 +77,8 @@ Weather [#weather]
 In Hasytack 3 weather stations were modeled via the 'weather' tag and
 their points were modeled via the 'weatherPoint' tag.  In Haystack 4 we
 use the `weather` marker on the points as the `pointSubject`.  And stations
-are modeled via the `weatherStation` tag.
+are modeled via the `weatherStation` tag.  Likewise the 'weatherRef' tag
+is now renamed to 'weatherStationRef'.
 
 Weather points are mapped from Haystack 3 to Haystack 4 as follows:
 
