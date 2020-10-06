@@ -109,6 +109,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^enum
 is: ^str
+tagOn: ^def
 doc:
   Defines an eumeration of string key names.  The range may also be applied
   to format a Bool ordered as "false,true".  The string value of this tag

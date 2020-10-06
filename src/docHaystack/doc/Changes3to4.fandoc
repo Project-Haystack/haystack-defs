@@ -25,7 +25,7 @@ These are renamed or turned into conjuncts:
   - elecHeat => `elecHeating`
   - elecMeterLoad => `elecRef`
   - elecMeterRef => `elecRef`
-  - elecPanel = `elec-panel`
+  - elecPanel => `elec-panel`
   - gasHeat => `naturalGasHeating`
   - gasMeterLoad => `naturalGasRef`
   - hisInterpolate => `hisMode`
@@ -47,7 +47,7 @@ These are renamed or turned into conjuncts:
   - screw => `rotaryScrew`
   - steamHeat => `steamHeating`
   - steamMeterLoad => `steamRef`
-  - steamPlant > `steam-plant`
+  - steamPlant => `steam-plant`
   - steamPlantRef => `steamRef`
   - sunrise => `daytime`
   - uv => `unitVent`

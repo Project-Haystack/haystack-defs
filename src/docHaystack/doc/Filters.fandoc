@@ -89,6 +89,7 @@ The formal grammar of the filter langauge:
    <uri>        := same as Zinc
    <date>       := same as Zinc
    <time>       := same as Zinc
+   <name>       := same as Zinc <id>
 
 See [Zinc grammar]`Zinc#grammar` for productions reused from Zinc.  Bools
 are encoded as "true" or "false" (Zinc encodes as "T" or "F").
