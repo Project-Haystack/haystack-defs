@@ -120,7 +120,7 @@ tagOn: ^cur-point
 transient
 doc:
   Current value of a point.  The current value is only available when
-  the the `curStatus` is "ok" or "stale".
+  the `curStatus` is "ok" or "stale".
 --------------------------------------------------------------------------
 def: ^curStatus
 is: ^str

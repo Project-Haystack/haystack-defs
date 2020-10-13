@@ -16,98 +16,98 @@ is: ^ref
 of: ^air-output
 tagOn: ^air-input
 inputs: ^air
-doc: "Air flows from the the referent to this entity"
+doc: "Air flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^blowdownWaterRef
 is: ^ref
 of: ^blowdown-water-output
 tagOn: ^blowdown-water-input
 inputs: ^blowdown-water
-doc: "Blowdown water flows from the the referent to this entity"
+doc: "Blowdown water flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^condensateRef
 is: ^ref
 of: ^condensate-output
 tagOn: ^condensate-input
 inputs: ^condensate
-doc: "Condensate flows from the the referent to this entity"
+doc: "Condensate flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^chilledWaterRef
 is: ^ref
 of: ^chilled-water-output
 tagOn: ^chilled-water-input
 inputs: ^chilled-water
-doc: "Chilled water flows from the the referent to this entity"
+doc: "Chilled water flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^condenserWaterRef
 is: ^ref
 of: ^condenser-water-output
 tagOn: ^condenser-water-input
 inputs: ^condenser-water
-doc: "Condenser water flows from the the referent to this entity"
+doc: "Condenser water flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^domesticWaterRef
 is: ^ref
 of: ^domestic-water-output
 tagOn: ^domestic-water-input
 inputs: ^domestic-water
-doc: "Domestic water flows from the the referent to this entity"
+doc: "Domestic water flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^elecRef
 is: ^ref
 of: ^elec-output
 tagOn: ^elec-input
 inputs: ^elec
-doc: "Electricity flows from the the referent to this entity"
+doc: "Electricity flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^fuelOilRef
 is: ^ref
 of: ^fuelOil-output
 tagOn: ^fuelOil-input
 inputs: ^fuelOil
-doc: "Fuel oil flows from the the referent to this entity"
+doc: "Fuel oil flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^hotWaterRef
 is: ^ref
 of: ^hot-water-output
 tagOn: ^hot-water-input
 inputs: ^hot-water
-doc: "Hot water flows from the the referent to this entity"
+doc: "Hot water flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^gasolineRef
 is: ^ref
 of: ^gasoline-output
 tagOn: ^gasoline-input
 inputs: ^gasoline
-doc: "Gasoline flows from the the referent to this entity"
+doc: "Gasoline flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^makeupWaterRef
 is: ^ref
 of: ^makeup-water-output
 tagOn: ^makeup-water-input
 inputs: ^makeup-water
-doc: "Makeup water flows from the the referent to this entity"
+doc: "Makeup water flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^naturalGasRef
 is: ^ref
 of: ^naturalGas-output
 tagOn: ^naturalGas-input
 inputs: ^naturalGas
-doc: "Natural gas flows from the the referent to this entity"
+doc: "Natural gas flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^refrigRef
 is: ^ref
 of: ^refrig-output
 tagOn: ^refrig-input
 inputs: ^refrig
-doc: "Refrigerant flows from the the referent to this entity"
+doc: "Refrigerant flows from the referent to this entity"
 --------------------------------------------------------------------------
 def: ^steamRef
 is: ^ref
 of: ^steam-output
 tagOn: ^steam-input
 inputs: ^steam
-doc: "Steam flows from the the referent to this entity"
+doc: "Steam flows from the referent to this entity"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
