@@ -9,7 +9,7 @@
 
 --------------------------------------------------------------------------
 def: ^motor
-is: ^equip
+is: [^equip, ^elec-input]
 wikipedia: `https://en.wikipedia.org/wiki/Electric_motor`
 doc: "Equipment that converts electrical energy into mechanical energy"
 children: [

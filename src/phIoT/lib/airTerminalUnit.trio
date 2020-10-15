@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^airTerminalUnit
-is: [^equip, ^air-input, ^air-output]
+is: [^equip, ^air-input, ^air-output, ^elec-input]
 ductConfig: ^ductConfigType
 doc:
   Equipment in air distribution systems which terminate at the space.

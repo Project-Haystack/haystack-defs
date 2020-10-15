@@ -15,7 +15,7 @@ doc:
   protection.
 --------------------------------------------------------------------------
 def: ^elec-panel
-is: ^panel
+is: [^panel, ^elec-input, ^elec-output]
 wikipedia: `https://en.wikipedia.org/wiki/Distribution_board`
 doc: "Physical housing for electrical circuits, fuses, and breakers"
 --------------------------------------------------------------------------

@@ -9,7 +9,7 @@
 
 --------------------------------------------------------------------------
 def: ^actuator
-is: ^equip
+is: [^equip, ^elec-input]
 wikipedia: `https://en.wikipedia.org/wiki/Actuator`
 doc:
   Equipment to move or control a mechanism.  Actuators may be manually

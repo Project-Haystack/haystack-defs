@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^coolingTower
-is: ^equip
+is: [^equip, ^elec-input]
 cools: ^condenser-water
 wikipedia: `https://en.wikipedia.org/wiki/Cooling_tower`
 doc: "Equipment to transfer waste heat into the atmosphere"

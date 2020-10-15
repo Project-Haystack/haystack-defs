@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^chiller
-is: ^equip
+is: [^equip, ^elec-input]
 cools: ^chilled-water
 chillerMechanism: ^chillerMechanismType
 wikipedia: `https://en.wikipedia.org/wiki/Chiller`

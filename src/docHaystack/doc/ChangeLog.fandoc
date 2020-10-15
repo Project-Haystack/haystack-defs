@@ -8,6 +8,7 @@
 
 **Version 3.9.10 (working)**
 - Rename weatherRef to weatherStationRef for consistency
+- Annotate equip which typically uses electricity as elec-input
 
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts

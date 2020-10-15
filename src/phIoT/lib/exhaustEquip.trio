@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^fumeHood
-is: ^equip
+is: [^equip, ^elec-input]
 ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fume_hood`
 doc: "Ventilation equipment to limit exposure to hazardous fumes."

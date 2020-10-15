@@ -12,19 +12,19 @@ is: ^equip
 doc: "Equipment to move humans and materials"
 --------------------------------------------------------------------------
 def: ^elevator
-is: ^verticalTransport
+is: [^verticalTransport, ^elec-input]
 moves: ^occupants
 wikipedia:`https://en.wikipedia.org/wiki/Elevator`
 doc: "Enclosure used to move people between floors."
 --------------------------------------------------------------------------
 def: ^escalator
-is: ^verticalTransport
+is: [^verticalTransport, ^elec-input]
 moves: ^occupants
 wikipedia:`https://en.wikipedia.org/wiki/Escalator`
 doc: "Moving staircase used to move people between floors."
 --------------------------------------------------------------------------
 def: ^movingWalkway
-is: ^verticalTransport
+is: [^verticalTransport, ^elec-input]
 moves: ^occupants
 wikipedia:`https://en.wikipedia.org/wiki/Moving_walkway`
 doc: "Conveyor to move people across a horizontal or inclined plane."

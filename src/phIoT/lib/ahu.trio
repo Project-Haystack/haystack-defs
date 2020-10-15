@@ -9,7 +9,7 @@
 
 --------------------------------------------------------------------------
 def: ^airHandlingEquip
-is: [^equip, ^air-output]
+is: [^equip, ^air-output, ^elec-input]
 airVolumeAdjustability: ^airVolumeAdjustabilityType
 ahuZoneDelivery: ^ahuZoneDeliveryType
 cools: ^air

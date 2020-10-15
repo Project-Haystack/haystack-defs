@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^boiler
-is: ^equip
+is: [^equip, ^elec-input]
 heats: ^fluid
 heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
