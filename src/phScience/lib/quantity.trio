@@ -141,7 +141,7 @@ doc: "Particulate Matter 10; atmospheric pollutant of fine particles with an aer
 def: ^tvoc
 is: ^airQuality
 prefUnit: ["µg/m³", "ppb"]
-doc: "Total volatile organic compound (TVOC).  This is a general term applied to the overall total volatile organic compouns (VOCs) detected."
+doc: "Total volatile organic compound (TVOC).  This is a general term applied to the overall total volatile organic compounds (VOCs) detected."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -159,7 +159,7 @@ def: ^cloudage
 is: ^quantity
 quantityOf: ^weather
 prefUnit: ["%"]
-doc: "Percentage of sky obscurred by clouds. This is also known as cloudiness, or cloud amount."
+doc: "Percentage of sky obscured by clouds. This is also known as cloudiness, or cloud amount."
 --------------------------------------------------------------------------
 def: ^daytime
 is: ^quantity

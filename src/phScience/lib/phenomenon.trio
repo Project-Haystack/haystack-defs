@@ -20,7 +20,7 @@ doc: "Associated with electricity, electric charge"
 def: ^light
 is: ^phenomenon
 wikipedia: `https://en.wikipedia.org/wiki/Light`
-doc: "Electromagnetic radiation in the visibile spectrum"
+doc: "Electromagnetic radiation in the visible spectrum"
 --------------------------------------------------------------------------
 def: ^solar
 is: ^phenomenon

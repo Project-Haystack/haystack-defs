@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------
 def: ^mobile
 is: ^marker
-doc: "Relating to mobile phones, handheld computers, and similar technology"
+doc: "Relating to mobile phones, hand-held computers, and similar technology"
 --------------------------------------------------------------------------
 def: ^networking
 is: ^marker

@@ -57,7 +57,7 @@ doc: "Hypertext Transfer Protocol which is foundation of the web"
 def: ^imap
 is: ^protocol
 wikipedia: `https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol`
-doc: "Internet Message Access Protocol for retreiving email"
+doc: "Internet Message Access Protocol for retrieving email"
 --------------------------------------------------------------------------
 def: ^knx
 is: ^protocol
@@ -82,7 +82,7 @@ doc: "XML based Open Building Information eXchange protocol."
 def: ^pop3
 is: ^protocol
 wikipedia: `https://en.wikipedia.org/wiki/Post_Office_Protocol`
-doc: "Post Office Protocol version 3 for retreiving email"
+doc: "Post Office Protocol version 3 for retrieving email"
 --------------------------------------------------------------------------
 def: ^sox
 is: ^protocol

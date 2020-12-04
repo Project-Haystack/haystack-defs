@@ -27,14 +27,14 @@ of: ^dict
 accumulate
 doc:
   List of prototypes contained by this entity.
-  See [Protos chatper]`docHaystack::Protos` for more details.
+  See [Protos chapter]`docHaystack::Protos` for more details.
 --------------------------------------------------------------------------
 def: ^childrenFlatten
 is: ^list
 of: ^symbol
 doc:
   List of aspects to flatten into children prototypes.
-  See [Protos chatper]`docHaystack::Protos` for more details.
+  See [Protos chapter]`docHaystack::Protos` for more details.
 --------------------------------------------------------------------------
 def: ^choice
 is: ^symbol

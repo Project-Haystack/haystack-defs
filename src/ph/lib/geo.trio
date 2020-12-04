@@ -63,7 +63,7 @@ tagOn: ^geoPlace
 openEnum
 doc:
   State or province name; for US this is two letter state code. May be
-  used in other countries to model adminstrative area betwen the geoCity
+  used in other countries to model administrative area between the geoCity
   and geoCountry level.
 enum:
   - AL: Alabama
