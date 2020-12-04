@@ -110,7 +110,7 @@ is: ^marker
 doc:
   A boolean point of an ahu indicating a freezing condition.  This
   might require a control sequence to protect the equipment. If true
-  then a freeze condition is deteted, or false if not.
+  then a freeze condition is detected, or false if not.
 --------------------------------------------------------------------------
 def: ^ground
 is: ^marker
@@ -162,7 +162,7 @@ doc: "Number of occupants in a space."
 --------------------------------------------------------------------------
 def: ^occupants
 is: ^marker
-doc: "People who use the built ennvironment"
+doc: "People who use the built environment"
 --------------------------------------------------------------------------
 def: ^occupied
 is: ^marker
@@ -170,7 +170,7 @@ doc: "Setpoint or sensor indicating occupancy of a space"
 --------------------------------------------------------------------------
 def: ^makeup
 is: ^marker
-doc: "Restore soemthing missed or lost"
+doc: "Restore something missed or lost"
 --------------------------------------------------------------------------
 def: ^mixing
 is: ^marker

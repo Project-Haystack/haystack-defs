@@ -229,7 +229,7 @@ def: ^writable-point
 is: ^point
 doc:
   Point with writable output using 16-level priority array.  Writable
-  points typically are a setpont or actuator command.  Haystack writable
+  points typically are a setpoint or actuator command.  Haystack writable
   points are modeled on the BACnet 16-level priority array with a
   relinquish default which effectively acts as level 17.
 

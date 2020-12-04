@@ -47,7 +47,7 @@ doc: "Petroleum derived liquid used as a fuel source"
 --------------------------------------------------------------------------
 def: ^domestic-water
 is: ^water
-doc: "Tap water for drinking, washing, cooking, and flushing of toliets"
+doc: "Tap water for drinking, washing, cooking, and flushing of toilets"
 --------------------------------------------------------------------------
 def: ^hot-water
 is: ^water

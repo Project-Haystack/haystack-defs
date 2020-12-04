@@ -24,7 +24,7 @@ ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc:
   HVAC equipment that conditions and delivers air via one or more fans.
-  Conditioning of air includes heating, cooling, humidificiation,
+  Conditioning of air includes heating, cooling, humidification,
   dehumidification, and ventilation.
 children: [
   {thermostat equip},

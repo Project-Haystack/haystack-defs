@@ -40,7 +40,7 @@ def: ^ground-floor
 is: ^floor
 doc:
   Floor at ground level.  In North America this is typically called
-  the first floor, but in Europe its often labelled as floor zero.
+  the first floor, but in Europe its often labeled as floor zero.
   If `floorNum` is defined, then it must be set to zero.
 --------------------------------------------------------------------------
 def: ^subterranean-floor
