@@ -47,7 +47,7 @@ def: ^tags
 is: ^association
 reciprocalOf: ^tagOn
 computed
-docSection
+docAssociations
 doc: "Tags used with this entity"
 --------------------------------------------------------------------------
 

@@ -94,9 +94,9 @@ doc:
     - absolute http/https URIs
     - def symbol such as "site" or "hot-water"
 --------------------------------------------------------------------------
-def: ^docSection
+def: ^docAssociations
 is: ^marker
-doc: "This tag is documented with its own section."
+doc: "Generate a section in the docs for this association."
 --------------------------------------------------------------------------
 def: ^docTaxonomy
 is: ^marker

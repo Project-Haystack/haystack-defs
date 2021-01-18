@@ -10,7 +10,6 @@
 --------------------------------------------------------------------------
 def: ^weatherStation
 is: [^entity, ^geoPlace]
-docTaxonomy
 mandatory
 doc: "Logical weather station and its measurement points"
 wikipedia: `https://en.wikipedia.org/wiki/Weather_station`
