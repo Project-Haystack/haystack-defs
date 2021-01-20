@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^protocol
-is: ^entity
+is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Communication_protocol`
 docTaxonomy
 doc: "Communication protocol used for devices on a network."
