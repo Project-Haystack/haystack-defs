@@ -102,10 +102,9 @@ def: ^docTaxonomy
 is: ^marker
 notInherited
 doc:
-  Generate a taxonomy tree for this term in the documentation index.  If
-  applied to an `entity` subtype then the link will be listed under the
-  [entities]`docHaystack::Docs#entities` section, otherwise its listed
-  in [taxonomies]`docHaystack::Docs#taxonomies` section.
+  Generate a taxonomy tree for this term in the documentationindex.
+  When applied to a def, then it will will be listed in the docs
+  under the [taxonomies]`docHaystack::Docs#taxonomies` section.
 --------------------------------------------------------------------------
 def: ^enum
 is: ^str

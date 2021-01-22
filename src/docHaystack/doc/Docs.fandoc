@@ -14,33 +14,24 @@ Index [#index]
 **************
 The main index page is composed of the following sections:
 
-Entities [#entities]
-====================
-This section lists each of the entity base terms.  This includes
-the primary four entity types: `site`, `space`, `equip`, and `point`.
-Each term links to a taxonomy tree for the term's subtypes.  You can add
-new entity terms into this section with the `docTaxonomy` marker.
-
 Taxonomies [#taxonomies]
 ========================
 This section lists key terms with a link to an index of the term's
 subtype tree.  You can add new terms into this section with the `docTaxonomy`
-tag (if the term is an entity, it will go into the entities section).
+tag.
 
-Appendix [#appendix]
+Listings [#listings]
 =====================
-This section contains links to miscellaneous listing pages.
-Some of the appendices include:
-  - 'conjuncts': all terms composed of multiple tags
+This section contains links to miscellaneous listing pages including:
   - 'tags': all terms composed of an atomic name
-  - 'terms': all tags and conjuncts listed together
-  - 'lib': listing of library modules
-  - 'filetype': listing of Haystack filetype encodings
+  - 'conjuncts': all terms composed of multiple tags
+  - 'libs': listing of library modules
+  - 'filetypes': listing of Haystack filetype encodings
 
-Terms [#terms]
-==============
+Tags [#tags-index]
+==================
 Section within a lib index that lists the terms defined by the lib
-module.
+module (both atomic tags and conjuncts).
 
 Manuals [#manuals]
 ******************
@@ -104,11 +95,6 @@ Tags [#tags]
 This section lists the value tags associated with the entity via
 the `tagOn` association.  This section also includes tags which are
 registered on the entity's supertypes.
-
-UsedBy [#usedBy]
-================
-This section lists terms which use the given association.  Its provides
-a nice mechanism to cross-reference usage of association tags.
 
 Children [#children]
 ====================
