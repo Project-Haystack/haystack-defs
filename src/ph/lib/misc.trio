@@ -8,6 +8,14 @@
 //
 
 --------------------------------------------------------------------------
+def: ^deprecated
+is: ^marker
+doc: "Obsoleted"
+--------------------------------------------------------------------------
+def: ^filterStr
+is: ^str
+doc: "Haystack filter string.  See `docHaystack::Filters`"
+--------------------------------------------------------------------------
 def: ^kind
 is: ^str
 doc:
@@ -29,9 +37,13 @@ enum:
   - Dict: key/value map
   - Grid: two dimensional tabular data collection
 --------------------------------------------------------------------------
-def: ^filterStr
-is: ^str
-doc: "Haystack filter string.  See `docHaystack::Filters`"
+def: ^nodoc
+is: ^marker
+doc: "Undocumented and not officially supported"
+--------------------------------------------------------------------------
+def: ^nosrc
+is: ^marker
+doc: "Do not include source code in documentation"
 --------------------------------------------------------------------------
 def: ^tz
 is: ^str

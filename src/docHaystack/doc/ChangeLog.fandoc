@@ -11,6 +11,7 @@
 - Annotate equip which typically uses electricity as elec-input
 - Rename docSection to docAssociations
 - Change protocol to subtype from marker, not entity
+- Add nodoc, nosrc, deprecated
 
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts
