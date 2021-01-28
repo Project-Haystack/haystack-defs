@@ -25,7 +25,12 @@ doc: "Petroleum based oil burned for energy"
 def: ^naturalGas
 is: ^gas
 wikipedia: `https://en.wikipedia.org/wiki/Natural_gas`
-doc: "Fossil fuel energy source consisting largely of methane and other hydrocarbons"
+doc:
+  Fossil fuel energy source consisting largely of methane and other hydrocarbons.
+
+  The energy content of natural gas varies by region within a range determined
+  on impurities in the gas.  You can find a table of these conversions
+  [here]`https://en.wikipedia.org/wiki/Heat_of_combustion#Higher_heating_values_of_natural_gases_from_various_sources`
 --------------------------------------------------------------------------
 def: ^refrig
 is: ^fluid
