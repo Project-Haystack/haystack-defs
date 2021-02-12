@@ -26,9 +26,9 @@ The basic syntax of Zinc uses a custom literal syntax for each type:
   - NA: 'NA'
   - Bool: 'T' or 'F' (for true, false)
   - Number: '1', '-34', '10_000', '5.4e-45', '9.23kg', '74.2°F', '4min', 'INF', '-INF', 'NaN'
-  - Str: '"hello"' '"foo\nbar\"' (uses all standard escape chars as C like languages)
+  - Str: '"hello"', '"foo\nbar\"' (uses all standard escape chars as C like languages)
   - Uri: '`http://project-haystack.com/`'
-  - Ref: '@17eb0f3a-ad607713'
+  - Ref: '@17eb0f3a-ad607713', '@xyz "Display Name"'
   - Symbol: '^hot-water'
   - Date: '2010-03-13' (YYYY-MM-DD)
   - Time: '08:12:05' (hh:mm:ss.FFF)

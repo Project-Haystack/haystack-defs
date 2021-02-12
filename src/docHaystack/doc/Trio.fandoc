@@ -32,7 +32,7 @@ Trio uses a simple plain text format designed for easy editing by hand:
 
   - string values may be left unquoted if they begin with a non-ASCII
     Unicode character or contain only the "safe" chars: 'A-Z', 'a-z',
-    underbar, dash, or space
+    or underbar
 
   - if a newline follows the colon, then the value is an indented
     multi-line string terminated by the first non-indented line
