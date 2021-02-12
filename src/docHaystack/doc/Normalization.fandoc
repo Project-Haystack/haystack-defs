@@ -269,7 +269,7 @@ Once all previous steps have completed successfully, we can generate our
 namespace.  From a logical perspective a namespace is a map of symbols to
 effective def dicts.  In actual implementations this probably yields specific
 data structures.  These data structures can then be used to perform additional
-computations such as [reflection]`Reflection` and [def aware filters]`Filters#def`.
+computations such as [reflection]`Reflection`.
 
 
 

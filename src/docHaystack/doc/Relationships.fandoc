@@ -88,7 +88,7 @@ as '@ahu' would be:
 
   discharge and temp and sensor and point and equipRef == @ahu
 
-We can use the [def operator]`Filters#def` to perform more abstract relationship
+We can use the proposed def operator '?' to perform more abstract relationship
 queries.  This operator lets us use [reflection]`Reflection` and [subtype]`Subtyping`
 inference to construct queries which don't require detailed knowledge of how
 a system was tagged.  Using our plant example above we can query AHUs that

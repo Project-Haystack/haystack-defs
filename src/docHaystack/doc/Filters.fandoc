@@ -55,14 +55,31 @@ The way to read the above expression is match an entity if:
 
 The arrow operator may also be used if the tag value is a nested Dict.
 
-Def Operator [#def]
-*******************
-You can use the '?' operator to filter based on the defs which the
-dict [implements]`Reflection`.
+Ref Lists [#refLists]
+*********************
+Haystack allows a list of refs to be used for relationships where
+a single ref might be used.  When a tag value is configured as a list
+of refs, then a filter will match if any one of the refs match.
 
-TODO
+Consider an example with a VAV which has an 'airRef' configured with as
+list of two refs:
 
-Also see [relationship queries]`Relationships#querying`.
+  // records
+  id:@ahu1, dis:"AHU-1", ahu, equip
+  id:@ahu2, dis:"AHU-2", ahu, equip
+  id:@vav, airRef:[@ahu1, @ahu2], vav, equip
+
+  // all of these filters will match the VAV record
+  airRef == @ahu1
+  airRef == @ahu2
+  airRef->dis == "AHU-1"
+  airRef->dis == "AHU-2"
+
+Note that pathing through a list of refs using "->" will check
+the path on each ref recursively.
+
+This technique should **never** be used for the fundamental
+containment tags 'siteRef', 'equipRef', or 'spaceRef'.
 
 Grammar [#grammar]
 ******************

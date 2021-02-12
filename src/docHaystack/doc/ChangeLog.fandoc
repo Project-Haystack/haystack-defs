@@ -13,6 +13,7 @@
 - Change protocol to subtype from marker, not entity
 - Add nodoc, nosrc, deprecated
 - Generate children prototypes as RDF blank nodes
+- Update filters chapter for ref list handling
 
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts
