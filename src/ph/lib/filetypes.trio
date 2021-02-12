@@ -75,5 +75,5 @@ def:       ^filetype:hayson
 dis:       "Hayson"
 mime:      "application/vnd.haystack.v4+json"
 fileExt:   "json"
-doc:       "Hayson encoding of Haystack data - see [Hayson]`https://bitbucket.org/finproducts/hayson/src/master/`"
+doc:       "Hayson encoding of Haystack data - see `docHaystack::Hayson`"
 --------------------------------------------------------------------------
