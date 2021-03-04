@@ -107,7 +107,7 @@ doc:
   under the [taxonomies]`docHaystack::Docs#taxonomies` section.
 --------------------------------------------------------------------------
 def: ^enum
-is: ^str
+is: [^str, ^dict]
 tagOn: ^def
 doc:
   Defines an eumeration of string key names.  The range may also be applied
