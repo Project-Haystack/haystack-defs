@@ -71,9 +71,3 @@ mime:      "text/zinc"
 fileExt:   "zinc"
 doc:       "Haystack typed CSV format - see `docHaystack::Zinc`"
 --------------------------------------------------------------------------
-def:       ^filetype:hayson
-dis:       "Hayson"
-mime:      "application/vnd.haystack.v4+json"
-fileExt:   "json"
-doc:       "Hayson encoding of Haystack data - see `docHaystack::Hayson`"
---------------------------------------------------------------------------
