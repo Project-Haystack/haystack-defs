@@ -98,22 +98,30 @@ unit must be a symbol defined in the standard [unit database]`Units`.
 Encodings:
   45             // Zinc, Trio, JSON - unitless integer
   45°F           // Zinc, Trio - integer with unit
-  {              // JSON - integer with unit
+
+  // JSON - integer with unit
+  {
     "_kind": "number",
     "val": 45,
     "unit": "°F"
   }
+
   -23.45         // Zinc, Trio, JSON - unitless floating point
   -23.45m²       // Zinc, Trio - floating point with unit
-  {              // JSON - floating point with unit
+
+  // JSON - floating point with unit
+  {
     "_kind": "number",
     "val": -23.45
     "unit": "m²"
   }
+
   10_000         // Zinc, Trio - underbar separate is allowed
   5.4e-7         // Zinc, Trio, JSON - unitless exponent format
   5.4E+8kW       // Zinc, Trio - exponent format with unit
-  {              // JSON - exponent format with unit
+
+  // JSON - exponent format with unit
+  {
     "_kind": "number",
     "val": 5.4E+8,
     "unit": "kW"
@@ -154,7 +162,9 @@ to [RFC 3986]`http://tools.ietf.org/html/rfc3986`.
 
 Encodings:
   `http://project-haystack.org/`    // Zinc, Trio use back tick quotes
-  {                                 // JSON
+
+  // JSON
+  {
     "_kind": "uri",
     "val": "http://project-haystack.org/"
   }
@@ -191,11 +201,15 @@ Refs are encoded using "@" as a prefix and may optionally include
 the display name of the entity with a quoted string literal:
   @foo-bar                  // Zinc, Trio
   @foo-bar "Display Name"   // Zinc, Trio with display name
-  {                         // JSON
+
+  // JSON
+  {
     "_kind": "ref",
     "val": "foo-bar"
   }
-  {                         // JSON with display name
+
+  // JSON with display name
+  {
     "_kind": "ref",
     "val": "foo-bar",
     "dis": "Display Name"
@@ -212,7 +226,9 @@ and the colon is used for [feature key symbols]`Defs#keys`.
 
 Symbols are encoded using "^" as a prefix:
   ^elec-meter      // Zinc, Trio
-  {                // JSON
+
+  // JSON
+  {
     "_kind": "symbol",
     "val": "elec-meter"
   }
@@ -221,7 +237,9 @@ Date [#date]
 ************
 Date is an ISO 8601 calendar date.  It is encoded as YYYY-MM-DD:
   2020-07-17      // Zinc, Trio
-  {               // JSON
+
+  // JSON
+  {
     "_kind": "date",
     "val": "2020-07-17"
   }
@@ -230,7 +248,9 @@ Time [#time]
 ************
 Time is an ISO 8601 time of day.  It is encoded as hh:mm:ss.sss:
   14:30:00      // Zinc, Trio for 2:30pm
-  {             // JSON
+
+  // JSON
+  {
     "_kind": "time",
     "val": "14:30:00"
   }
@@ -247,7 +267,9 @@ and the timezone name:
 
   2020-07-17T16:55:42.977-04:00 New_York       // Zinc, Trio
   2020-07-17T23:30:00Z                         // May omit UTC timezone if offset is Z
-  {                                            // JSON
+
+  // JSON
+  {
     "_kind": "dateTime",
     "val": "2020-07-17T16:55:42.977-04:00",
     "tz": "New_York"
@@ -267,7 +289,9 @@ integer.
 
 Coord is encoded using positive/negative latitude, longitude in decimal degrees:
   C(37.5458266,-77.4491888)   // Trio, Zinc
-  {                           // JSON
+
+  // JSON
+  {
     "_kind": "coord",
     "lat": 37.548266,
     "lng": -77.4491888
@@ -285,7 +309,9 @@ versions of this specification may standardize a set of XStr type names.
 Encodings:
   Type("value")   // Zinc, Trio
   Color("red")    // Zinc, Trio
-  {               // JSON
+
+  // JSON
+  {
     "_kind": "xstr",
     "type": "Color",
     "val": "red"
