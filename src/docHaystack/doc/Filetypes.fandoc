@@ -26,16 +26,12 @@ See `Zinc` chapter for further discussion and grammar.
 JSON [#json]
 ************
 The JSON format specifies a standardized method for mapping the Haystack
-data types to JSON without loss of information.  Since JSON lacks anything
-but very basic types, we encode scalar types to a string using the syntax
-"x:value" where an ASCII character code is mapped to each of the scalar
-types.  For example the "d:" prefix in "d:2020-07-20" informs us that the
-string represents a [date kind]`Kinds#date`.
-
-NOTE: there is a effort underway via [WG 792]`https://project-haystack.org/forum/topic/792`
-to define an alternate JSON encoding using objects instead of Zinc encoded
-strings.  This new JSON encoding will eventually supplant the current
-JSON encoding.
+data types to JSON without loss of information.  There are two methods
+for encoding Haystack types to JSON:
+ - [Version 4]`Json#v4` - The default JSON encoding for Haystack
+ - [Version 3]`Json#v3` - The Haystack 3 encoding for JSON. This encoding
+ is supplanted by the version 4 encoding but still supported for backwards
+ compatibility.
 
 See `Json` chapter for further details.
 

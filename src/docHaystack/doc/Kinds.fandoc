@@ -53,10 +53,10 @@ express typing information.  For example the `equip` tag is used on any
 dict which represents an equipment asset.
 
 Encodings:
-  M                    // Zinc cell
-  name without colon   // Zinc meta or nested dict
-  name without colon   // Trio
-  "m:"                 // JSON
+  M                     // Zinc cell
+  name without colon    // Zinc meta or nested dict
+  name without colon    // Trio
+  { "_kind": "marker" } // JSON
 
 NA [#na]
 ********
@@ -66,8 +66,8 @@ values.  In Haystack it is most often used in historized data to indicate
 that a timestamp sample is in error.
 
 Encodings:
-  NA        // Zinc, Trio
-  "z:"      // JSON
+  NA                // Zinc, Trio
+  { "_kind": "na" } // JSON
 
 Remove [#remove]
 ****************
@@ -75,8 +75,8 @@ Remove is a singleton used in dicts to indicate removal of a tag.  It is
 reserved for future HTTP ops which perform entity updates.
 
 Encodings:
-  R        // Zinc, Trio
-  "-:"     // JSON
+  R                     // Zinc, Trio
+  { "_kind": "remove" } // JSON
 
 Bool [#bool]
 ************
@@ -98,22 +98,34 @@ unit must be a symbol defined in the standard [unit database]`Units`.
 Encodings:
   45             // Zinc, Trio, JSON - unitless integer
   45°F           // Zinc, Trio - integer with unit
-  "n:45 °F"      // JSON - integer with unit
+  {              // JSON - integer with unit
+    "_kind": "number",
+    "val": 45,
+    "unit": "°F"
+  }
   -23.45         // Zinc, Trio, JSON - unitless floating point
   -23.45m²       // Zinc, Trio - floating point with unit
-  "n:-23.45 m²"  // JSON - floating point with unit
+  {              // JSON - floating point with unit
+    "_kind": "number",
+    "val": -23.45
+    "unit": "m²"
+  }
   10_000         // Zinc, Trio - underbar separate is allowed
   5.4e-7         // Zinc, Trio, JSON - unitless exponent format
   5.4E+8kW       // Zinc, Trio - exponent format with unit
-  "n:5.4E+8 kW   // JSON - exponent format with unit
+  {              // JSON - exponent format with unit
+    "_kind": "number",
+    "val": 5.4E+8,
+    "unit": "kW"
+  }
 
 The three special Number values:
-  NaN           // Zinc, Trio
-  "n:NaN"       // JSON
-  INF           // Zinc, Trio
-  "n:INF"       // JSON
-  -INF          // Zinc, Trio
-  "n:-INF"      // JSON
+  NaN                                  // Zinc, Trio
+  { "_kind": "number", "val": "NaN" }  // JSON
+  INF                                  // Zinc, Trio
+  { "_kind": "number", "val": "INF" }  // JSON
+  -INF                                 // Zinc, Trio
+  { "_kind": "number", "val": "-INF" } // JSON
 
 It is invalid for NaN to include a unit.  A unit may be included with
 INF and -INF, however it is discouraged.
@@ -129,7 +141,6 @@ an HTTP Content-Type).
 Strings are encoded using double quotes and C style backslash escapes:
   "haystack"         // Zinc, Trio, JSON
   "Line 1\nLine 2"   // Zinc, Trio, JSON with backslash escape newline
-  "s:a:b"            // JSON requires s: prefix if content contains colon
 
 Note that Zinc requires the "$" character to be backslash escaped.
 
@@ -143,7 +154,10 @@ to [RFC 3986]`http://tools.ietf.org/html/rfc3986`.
 
 Encodings:
   `http://project-haystack.org/`    // Zinc, Trio use back tick quotes
-  "u:http://project-haystack.org/"  // JSON
+  {                                 // JSON
+    "_kind": "uri",
+    "val": "http://project-haystack.org/"
+  }
 
 Ref [#ref]
 **********
@@ -177,8 +191,15 @@ Refs are encoded using "@" as a prefix and may optionally include
 the display name of the entity with a quoted string literal:
   @foo-bar                  // Zinc, Trio
   @foo-bar "Display Name"   // Zinc, Trio with display name
-  "r:foo-bar"               // JSON
-  "r:foo-bar Display Name"  // JSON with display name (separated by first space)
+  {                         // JSON
+    "_kind": "ref",
+    "val": "foo-bar"
+  }
+  {                         // JSON with display name
+    "_kind": "ref",
+    "val": "foo-bar",
+    "dis": "Display Name"
+  }
 
 Symbol [#symbol]
 ****************
@@ -191,19 +212,28 @@ and the colon is used for [feature key symbols]`Defs#keys`.
 
 Symbols are encoded using "^" as a prefix:
   ^elec-meter      // Zinc, Trio
-  "y:elec-meter"   // JSON
+  {                // JSON
+    "_kind": "symbol",
+    "val": "elec-meter"
+  }
 
 Date [#date]
 ************
 Date is an ISO 8601 calendar date.  It is encoded as YYYY-MM-DD:
   2020-07-17      // Zinc, Trio
-  "d:2020-07-17"  // JSON
+  {               // JSON
+    "_kind": "date",
+    "val": "2020-07-17"
+  }
 
 Time [#time]
 ************
 Time is an ISO 8601 time of day.  It is encoded as hh:mm:ss.sss:
   14:30:00      // Zinc, Trio for 2:30pm
-  "h:14:30:00"  // JSON
+  {             // JSON
+    "_kind": "time",
+    "val": "14:30:00"
+  }
 
 DateTime [#dateTime]
 ********************
@@ -216,8 +246,12 @@ The encoding of DateTime is the ISO 8601 representation followed by a space
 and the timezone name:
 
   2020-07-17T16:55:42.977-04:00 New_York       // Zinc, Trio
-  "t:2020-07-17T16:55:42.977-04:00 New_York"   // JSON
   2020-07-17T23:30:00Z                         // May omit UTC timezone if offset is Z
+  {                                            // JSON
+    "_kind": "dateTime",
+    "val": "2020-07-17T16:55:42.977-04:00",
+    "tz": "New_York"
+  }
 
 Coord [#coord]
 **************
@@ -233,7 +267,11 @@ integer.
 
 Coord is encoded using positive/negative latitude, longitude in decimal degrees:
   C(37.5458266,-77.4491888)   // Trio, Zinc
-  "c: 37.5458266,-77.4491888  // JSON
+  {                           // JSON
+    "_kind": "coord",
+    "lat": 37.548266,
+    "lng": -77.4491888
+  }
 
 XStr [#xstr]
 ************
@@ -247,8 +285,11 @@ versions of this specification may standardize a set of XStr type names.
 Encodings:
   Type("value")   // Zinc, Trio
   Color("red")    // Zinc, Trio
-  "x:Type:value"  // JSON
-  "x:Color:red"   // JSON
+  {               // JSON
+    "_kind": "xstr",
+    "type": "Color",
+    "val": "red"
+  }
 
 List [#list]
 ************

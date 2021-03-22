@@ -185,7 +185,8 @@ formats by specifying the "Accept" header in your HTTP request.
 The following "Accept" header MIME types are standardized:
 
   - `Zinc`: 'text/zinc', '*/*', or unspecified
-  - `Json`: 'application/json'
+  - `Json`: 'application/json', or 'application/vnd.haystack+json;version=4'
+  - [JSON v3]`Json#v3`: 'application/vnd.haystack+json;version=3'
   - `Trio`: 'text/trio'
   - `Csv`: 'text/csv'
   - [Turtle]`Rdf`: 'text/turtle'
