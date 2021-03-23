@@ -1,0 +1,315 @@
+//
+// Copyright (c) 2021, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   22 Mar 2021  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^air-point
+is:  ^point
+doc: "Point which senses or controls a measurement of air"
+--------------------------------------------------------------------------
+def: ^air-sensor
+is:  ^air-point
+doc: "Sensor for a measurement of air"
+--------------------------------------------------------------------------
+def: ^air-sp
+is:  ^air-point
+doc: "Setpoint for the control of air"
+--------------------------------------------------------------------------
+def: ^air-flow-sensor
+is:  ^air-sensor
+doc: "Sensor which measures the volumetric flow of air"
+--------------------------------------------------------------------------
+def: ^air-flow-sp
+is:  ^air-sp
+doc: "Setpoint for the control of volumetric flow of air"
+--------------------------------------------------------------------------
+def: ^air-humidity-sensor
+is:  ^air-sensor
+doc: "Sensor which measures the relative humidity of air"
+--------------------------------------------------------------------------
+def: ^air-humidity-sp
+is:  ^air-sp
+doc: "Setpoint for the control of relative humidity of air"
+--------------------------------------------------------------------------
+def: ^air-pressure-sensor
+is:  ^air-sensor
+doc: "Sensor which measures the static pressure of air"
+--------------------------------------------------------------------------
+def: ^air-pressure-sp
+is:  ^air-sp
+doc: "Setpoint for the control of static pressure of air"
+--------------------------------------------------------------------------
+def: ^air-temp-sensor
+is:  ^air-sensor
+doc: "Sensor which measures the drybulb temperature of air"
+--------------------------------------------------------------------------
+def: ^air-temp-sp
+is:  ^air-sp
+doc: "Setpoint for the control of drybulb temperature of air"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// discharge duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^discharge-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-humidity-sp
+is:  ^air-humidity-sp
+doc: "Relative humidity setpoint for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-pressure-sensor
+is:  ^air-pressure-sensor
+doc: "Static pressure sensor for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-pressure-sp
+is:  ^air-pressure-sp
+doc: "Static pressure setpoint for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-temp-sp
+is:  ^air-temp-sp
+doc: "Drybulb temperature setpoint for air in discharge duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// economizer duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^economizer-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in economizer duct"
+--------------------------------------------------------------------------
+def: ^economizer-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in economizer duct"
+--------------------------------------------------------------------------
+def: ^economizer-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in economizer duct"
+--------------------------------------------------------------------------
+def: ^economizer-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in economizer duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// exhaust duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^exhaust-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-humidity-sp
+is:  ^air-humidity-sp
+doc: "Relative humidity setpoint for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-pressure-sensor
+is:  ^air-pressure-sensor
+doc: "Static pressure sensor for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-pressure-sp
+is:  ^air-pressure-sp
+doc: "Static pressure setpoint for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-temp-sp
+is:  ^air-temp-sp
+doc: "Drybulb temperature setpoint for air in exhaust duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// flue duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^flue-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in flue duct"
+--------------------------------------------------------------------------
+def: ^flue-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in flue duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// inlet duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^inlet-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in inlet duct"
+--------------------------------------------------------------------------
+def: ^inlet-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in inlet duct"
+--------------------------------------------------------------------------
+def: ^inlet-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in inlet duct"
+--------------------------------------------------------------------------
+def: ^inlet-air-humidity-sp
+is:  ^air-humidity-sp
+doc: "Relative humidity setpoint for air in inlet duct"
+--------------------------------------------------------------------------
+def: ^inlet-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in inlet duct"
+--------------------------------------------------------------------------
+def: ^inlet-air-temp-sp
+is:  ^air-temp-sp
+doc: "Drybulb temperature setpoint for air in inlet duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// mixed duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^mixed-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-humidity-sp
+is:  ^air-humidity-sp
+doc: "Relative humidity setpoint for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-pressure-sensor
+is:  ^air-pressure-sensor
+doc: "Static pressure sensor for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-pressure-sp
+is:  ^air-pressure-sp
+doc: "Static pressure setpoint for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-temp-sp
+is:  ^air-temp-sp
+doc: "Drybulb temperature setpoint for air in mixed duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// outside duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^outside-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in outside duct"
+--------------------------------------------------------------------------
+def: ^outside-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in outside duct"
+--------------------------------------------------------------------------
+def: ^outside-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in outside duct"
+--------------------------------------------------------------------------
+def: ^outside-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in outside duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// return duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^return-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-humidity-sp
+is:  ^air-humidity-sp
+doc: "Relative humidity setpoint for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-pressure-sensor
+is:  ^air-pressure-sensor
+doc: "Static pressure sensor for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-pressure-sp
+is:  ^air-pressure-sp
+doc: "Static pressure setpoint for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-temp-sp
+is:  ^air-temp-sp
+doc: "Drybulb temperature setpoint for air in return duct"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// ventilation duct
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ventilation-air-flow-sensor
+is:  ^air-flow-sensor
+doc: "Volumetric flow sensor for air in ventilation duct"
+--------------------------------------------------------------------------
+def: ^ventilation-air-flow-sp
+is:  ^air-flow-sp
+doc: "Volumetric flow setpoint for air in ventilation duct"
+--------------------------------------------------------------------------
+def: ^ventilation-air-humidity-sensor
+is:  ^air-humidity-sensor
+doc: "Relative humidity sensor for air in ventilation duct"
+--------------------------------------------------------------------------
+def: ^ventilation-air-temp-sensor
+is:  ^air-temp-sensor
+doc: "Drybulb temperature sensor for air in ventilation duct"
+--------------------------------------------------------------------------
