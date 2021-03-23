@@ -11,6 +11,10 @@ def: ^air-point
 is:  ^point
 doc: "Point which senses or controls a measurement of air"
 --------------------------------------------------------------------------
+def: ^air-cmd
+is:  ^air-point
+doc: "Command for damper or fan used to control air"
+--------------------------------------------------------------------------
 def: ^air-sensor
 is:  ^air-point
 doc: "Sensor for a measurement of air"
@@ -18,6 +22,20 @@ doc: "Sensor for a measurement of air"
 def: ^air-sp
 is:  ^air-point
 doc: "Setpoint for the control of air"
+--------------------------------------------------------------------------
+def: ^air-damper-cmd
+is:  ^air-cmd
+doc:
+  Damper position command to regulate air flow and pressure.
+  Fully open is represented as true or 100%; fully closed is represented
+  as false or 0%.
+--------------------------------------------------------------------------
+def: ^air-damper-sensor
+is:  ^air-sensor
+doc:
+  Damper feedback sensor.  A voltage sensor which provides exact position
+  is measured as 100% fully open or 0% fully closed.  End point switches
+  indicate true for open and false for closed.
 --------------------------------------------------------------------------
 def: ^air-flow-sensor
 is:  ^air-sensor
@@ -57,6 +75,14 @@ doc: "Setpoint for the control of drybulb temperature of air"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^discharge-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in discharge duct"
+--------------------------------------------------------------------------
+def: ^discharge-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in discharge duct"
+--------------------------------------------------------------------------
 def: ^discharge-air-flow-sensor
 is:  ^air-flow-sensor
 doc: "Volumetric flow sensor for air in discharge duct"
@@ -95,6 +121,14 @@ doc: "Drybulb temperature setpoint for air in discharge duct"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^economizer-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in economizer duct"
+--------------------------------------------------------------------------
+def: ^economizer-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in economizer duct"
+--------------------------------------------------------------------------
 def: ^economizer-air-flow-sensor
 is:  ^air-flow-sensor
 doc: "Volumetric flow sensor for air in economizer duct"
@@ -116,6 +150,14 @@ doc: "Drybulb temperature sensor for air in economizer duct"
 // exhaust duct
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^exhaust-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in exhaust duct"
+--------------------------------------------------------------------------
+def: ^exhaust-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in exhaust duct"
 --------------------------------------------------------------------------
 def: ^exhaust-air-flow-sensor
 is:  ^air-flow-sensor
@@ -155,6 +197,14 @@ doc: "Drybulb temperature setpoint for air in exhaust duct"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^flue-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in flue duct"
+--------------------------------------------------------------------------
+def: ^flue-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in flue duct"
+--------------------------------------------------------------------------
 def: ^flue-air-flow-sensor
 is:  ^air-flow-sensor
 doc: "Volumetric flow sensor for air in flue duct"
@@ -168,6 +218,14 @@ doc: "Drybulb temperature sensor for air in flue duct"
 // inlet duct
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^inlet-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in inlet duct"
+--------------------------------------------------------------------------
+def: ^inlet-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in inlet duct"
 --------------------------------------------------------------------------
 def: ^inlet-air-flow-sensor
 is:  ^air-flow-sensor
@@ -198,6 +256,14 @@ doc: "Drybulb temperature setpoint for air in inlet duct"
 // mixed duct
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^mixed-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in mixed duct"
+--------------------------------------------------------------------------
+def: ^mixed-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in mixed duct"
 --------------------------------------------------------------------------
 def: ^mixed-air-flow-sensor
 is:  ^air-flow-sensor
@@ -237,6 +303,14 @@ doc: "Drybulb temperature setpoint for air in mixed duct"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^outside-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in outside duct"
+--------------------------------------------------------------------------
+def: ^outside-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in outside duct"
+--------------------------------------------------------------------------
 def: ^outside-air-flow-sensor
 is:  ^air-flow-sensor
 doc: "Volumetric flow sensor for air in outside duct"
@@ -258,6 +332,14 @@ doc: "Drybulb temperature sensor for air in outside duct"
 // return duct
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^return-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in return duct"
+--------------------------------------------------------------------------
+def: ^return-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in return duct"
 --------------------------------------------------------------------------
 def: ^return-air-flow-sensor
 is:  ^air-flow-sensor
@@ -296,6 +378,14 @@ doc: "Drybulb temperature setpoint for air in return duct"
 // ventilation duct
 //////////////////////////////////////////////////////////////////////////
 
+--------------------------------------------------------------------------
+def: ^ventilation-air-damper-cmd
+is:  ^air-damper-cmd
+doc: "Damper position command in ventilation duct"
+--------------------------------------------------------------------------
+def: ^ventilation-air-damper-sensor
+is:  ^air-damper-sensor
+doc: "Damper feedback sensor in ventilation duct"
 --------------------------------------------------------------------------
 def: ^ventilation-air-flow-sensor
 is:  ^air-flow-sensor
