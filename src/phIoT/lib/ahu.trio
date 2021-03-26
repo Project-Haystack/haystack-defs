@@ -176,8 +176,8 @@ wikipedia: `https://en.wikipedia.org/wiki/Humidifier`
 doc: "Equipment which adds moisture to air to increase humidity"
 childrenFlatten: []
 children: [
-  {humidifier run state point},
-  {humidifier enable state point},
+  {humidifier run cmd point},
+  {humidifier enable cmd point},
   ]
 --------------------------------------------------------------------------
 

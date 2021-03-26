@@ -23,8 +23,8 @@ The 'children' tag for entity is a list of prototype dicts:
   def: ^pipe
   children: [
     {valve actuator equip},
-    {flow point},
-    {temp point},
+    {flow sensor point},
+    {temp sensor point},
     ]
 
 You can see these children protos in the docs for `pipe`.

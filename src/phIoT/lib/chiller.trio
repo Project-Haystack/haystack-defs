@@ -16,10 +16,25 @@ doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
   compression or an absorption refrigeration cycle.
 children: [
-  {run state point},
-  {enable state point},
+  // Primary on/off command (on is true, off is false)
+  {run cmd point},
+
+  // Secondary on/off command (enabled is true, disabled is false)
+  {enable cmd point},
+
+  // Run status sensor.  True indicates on and false off.
+  {run sensor point},
+
+  // Enable status sensor.  True indicates enabled and false disabled.
+  {enable sensor point},
+
+  // Load limit command as percentage from 0% to 100%
   {load cmd point},
+
+  // Load factor status as percentage from 0% to 100%
   {load sensor point},
+
+  // Measured efficiency sensor measured in "COP" or "kW/ton"
   {efficiency sensor point},
 
   {chilled water leaving pipe equip},
@@ -32,7 +47,8 @@ children: [
   {condenser water entering pipe equip},
   {condenser water valve isolation cmd point},
 
-  {condenser run state point},
+  {condenser run cmd point},
+  {condenser run sensor point},
   {condenser refrig temp sensor point},
   {condenser refrig pressure sensor point},
   {evaporator refrig temp sensor point},

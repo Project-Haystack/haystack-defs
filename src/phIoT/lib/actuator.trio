@@ -36,7 +36,14 @@ childrenFlatten: [^ductSectionType]
 wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
 doc: "Actuator to regulate the flow of air."
 children: [
+
+  // Damper position command to regulate air flow and pressure. Fully open is
+  // represented as true or 100%; fully closed is represented as false or 0%.
   {damper cmd point},
+
+  // Damper feedback sensor.eedback sensor.  A voltage sensor which provides
+  // exact position is measured as 100% fully open or 0% fully closed.  End
+  // point switches indicate true for open and false for closed.
   {damper sensor point},
   ]
 --------------------------------------------------------------------------
@@ -59,7 +66,13 @@ childrenFlatten: [^fluid, ^pipeSectionType]
 wikipedia: `https://en.wikipedia.org/wiki/Valve`
 doc: "Actuator to regulate the flow of fluid."
 children: [
+
+  // Valve position command to regulate flow and pressure. Fully open is
+  // represented as true or 100%; fully closed is represented as false or 0%.
   {valve cmd point},
+
+  // Valve feedback sensor.  Position is measured as 100% fully open or 0%
+  // fully closed.  Digital feedback uses true for open and false for closed.
   {valve sensor point},
   ]
 --------------------------------------------------------------------------

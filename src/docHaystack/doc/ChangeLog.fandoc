@@ -14,7 +14,9 @@
 - Add nodoc, nosrc, deprecated
 - Generate children prototypes as RDF blank nodes
 - Update filters chapter for ref list handling
-- Exploded point types
+- Exploded point types (attempt only)
+- Remove state and stateQuantity in favor of keeping run/enable on their own
+- Expand some of the sp/sensor cmd/sensor proto pairs
 
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts

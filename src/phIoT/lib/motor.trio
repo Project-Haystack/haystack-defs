@@ -13,8 +13,17 @@ is: [^equip, ^elec-input]
 wikipedia: `https://en.wikipedia.org/wiki/Electric_motor`
 doc: "Equipment that converts electrical energy into mechanical energy"
 children: [
-  {run state point},
-  {enable state point},
+  // Primary on/off command (on is true, off is false)
+  {run cmd point},
+
+  // Secondary on/off command (enabled is true, disabled is false)
+  {enable cmd point},
+
+  // Run status sensor.  True indicates on and false off.
+  {run sensor point},
+
+  // Enable status sensor.  True indicates enabled and false disabled.
+  {enable cmd sensor point},
   ]
 --------------------------------------------------------------------------
 
@@ -29,8 +38,17 @@ tagOn: ^motor
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc: "Motor with variable frequency drive."
 children: [
-  {drive speed point},
-  {drive freq point},
+  // Speed command as percentage where 0% is off, 100% if full speed
+  {drive speed cmd point},
+
+  // Speed command as a frequency in Hz
+  {drive freq cmd point},
+
+  // Speed status as percentage where 0% is off, 100% if full speed
+  {drive speed sensor point},
+
+  // Speed status as frequency in Hz
+  {drive freq sensor point},
   ]
 --------------------------------------------------------------------------
 

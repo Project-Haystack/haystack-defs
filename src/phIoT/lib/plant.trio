@@ -30,9 +30,9 @@ children: [
   {chilled water delta temp point},
 
   {condenser water bypass pipe equip},
-  {condenser water delta flow point},
-  {condenser water delta pressure point},
-  {condenser water delta temp point},
+  {condenser water delta flow sensor point},
+  {condenser water delta pressure sensor point},
+  {condenser water delta temp sensor point},
   ]
 --------------------------------------------------------------------------
 def: ^hot-water-plant

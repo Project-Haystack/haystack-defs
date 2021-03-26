@@ -80,6 +80,14 @@ def: ^effective
 is: ^marker
 doc: "Current control setpoint in effect taking into account other factors"
 --------------------------------------------------------------------------
+def: ^enable
+is: ^marker
+doc:
+  Secondary on/off `point` of an `equip` especially used with a `vfd`.
+  Enable is used with Bool points where true indicates on and false
+  indicates off.  Equip with an enable should always also define a `run`
+  point which indicates the primary on/off state of the equipment.
+--------------------------------------------------------------------------
 def: ^evaporator
 is: ^marker
 doc: "Mechanism used to convert a refrigerant from its liquid to gaseous state."
@@ -211,6 +219,16 @@ def: ^rotaryScrew
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Rotary-screw_compressor`
 doc: "Rotary screw compression"
+--------------------------------------------------------------------------
+def: ^run
+is: ^marker
+doc:
+  Primary on/off `point` of an `equip` especially used with a `vfd`.
+  Run is used with Bool points where true indicates on and false indicates
+  off. When paired with `cmd` this is the commanded state of the equipment.
+  When paired with `sensor` this is the actual status of the equip.  If
+  the equipment also defines an `enable` point then both must be commanded
+  on in order to run the equipment.
 --------------------------------------------------------------------------
 def: ^series
 is: ^marker

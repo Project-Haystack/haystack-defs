@@ -23,9 +23,12 @@ childrenFlatten: [^fluid, ^pipeSectionType, ^plantLoopType]
 children: [
   {pump motor equip},
   {valve actuator equip},
-  {flow point},
-  {pressure point},
-  {temp point},
+  {flow sensor point},
+  {flow sp point},
+  {pressure sensor point},
+  {pressure sp point},
+  {temp sensor point},
+  {temp sp point},
   ]
 --------------------------------------------------------------------------
 def: ^duct
@@ -41,11 +44,16 @@ children: [
   {fan motor equip},
   {coolingCoil equip},
   {heatingCoil equip},
-  {air co2 point},
-  {air flow point},
-  {air humidity point},
-  {air pressure point},
-  {air temp point},
+  {air co2 sensor point},
+  {air co2 sp point},
+  {air flow sensor point},
+  {air flow sp point},
+  {air humidity sensor point},
+  {air humidity sp point},
+  {air pressure sensor point},
+  {air pressure sp point},
+  {air temp sensor point},
+  {air temp sp point},
   ]
 --------------------------------------------------------------------------
 def: ^wire
