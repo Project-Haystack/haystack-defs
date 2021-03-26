@@ -112,7 +112,7 @@ tagOn: ^def
 doc:
   Defines an eumeration of string key names.  The range may also be applied
   to format a Bool ordered as "false,true".  The string value of this tag
-  may be formatted in one of five ways:
+  may be formatted in one of four ways:
    - dict of dicts keyed by name and Dict values for meta such as 'doc' tag
    - comma separated names on one line
    - names separated by a "\n" newline character
