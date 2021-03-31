@@ -36,7 +36,7 @@ coolingProcess: ^coolingProcessType
 childrenFlatten: [^ductDeckType, ^ductSectionType]
 doc: "Coil used to cool air."
 children: [
-   {stage:1 cool enable cmd point},
+   {stage:1 cool run cmd point},
    {chilled water cool valve cmd point},
    ]
 --------------------------------------------------------------------------
@@ -57,7 +57,7 @@ heatingProcess: ^heatingProcessType
 childrenFlatten: [^ductDeckType, ^ductSectionType]
 doc: "Coil used to heat air."
 children: [
-  {stage:1 heat enable cmd point},
+  {stage:1 heat run cmd point},
   {hot water heat valve cmd point},
   {steam heat valve cmd point},
   ]
