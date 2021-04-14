@@ -19,5 +19,10 @@ def: ^router
 is: ^marker
 doc: "Device used to route data packets"
 --------------------------------------------------------------------------
+def: ^server
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Server_(computing)`
+doc: "Hardware or software which provides services for other programs or devices."
+--------------------------------------------------------------------------
 
 

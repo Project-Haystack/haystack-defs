@@ -69,3 +69,9 @@ Here is an example of an HVAC zone:
   space
   siteRef: @site
   spaceRef: @site.floor3
+
+Data Centers [#dataCenters]
+***************************
+Data centers are also modeled as a subtype of space.
+See the `DataCenters` chapter for details.
+

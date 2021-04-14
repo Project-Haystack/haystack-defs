@@ -11,5 +11,12 @@ def: ^network
 is: ^entity
 doc:
   Logical communications network between two or more devices.
+  See `docHaystack::Devices#networks` chapter.
+--------------------------------------------------------------------------
+def: ^networkRef
+is: ^ref
+of: ^network
+doc:
+  Associates a device which communicates on specific a network.
 --------------------------------------------------------------------------
 

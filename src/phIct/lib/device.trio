@@ -14,6 +14,7 @@ docTaxonomy
 doc:
   Microprocessor based hardware device.  This is the general term for
   all computers, mobile phones, controllers, and I/O modules.
+  See `docHaystack::Devices#networks` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -31,15 +32,25 @@ is: ^phone
 wikipedia: `https://en.wikipedia.org/wiki/Mobile_phone`
 doc: "Cellular phone providing telecommunication over radio links."
 --------------------------------------------------------------------------
-def: ^server
-is: ^device
-wikipedia: `https://en.wikipedia.org/wiki/Server_(computing)`
-doc: "General purpose computer."
---------------------------------------------------------------------------
 def: ^tablet
 is: ^device
 wikipedia: `https://en.wikipedia.org/wiki/Tablet_computer`
 doc: "Mobile device with touch screen for user input."
+--------------------------------------------------------------------------
+def: ^computer
+is: ^device
+wikipedia: `https://en.wikipedia.org/wiki/Computer`
+doc: "General purpose computer."
+--------------------------------------------------------------------------
+def: ^server-computer
+is: ^computer
+wikipedia: `https://en.wikipedia.org/wiki/Server_(computing)`
+doc: "General purpose computer used as a server.  Typically servers are rack mounted."
+--------------------------------------------------------------------------
+def: ^laptop
+is: ^computer
+wikipedia: `https://en.wikipedia.org/wiki/Laptop`
+doc: "Portable laptop computer."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -49,6 +60,7 @@ doc: "Mobile device with touch screen for user input."
 --------------------------------------------------------------------------
 def: ^networking-device
 is: ^device
+wikipedia: `https://en.wikipedia.org/wiki/Networking_hardware`
 doc: "Microprocessor device used to establish networks."
 --------------------------------------------------------------------------
 def: ^networking-router

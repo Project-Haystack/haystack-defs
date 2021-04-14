@@ -7,5 +7,54 @@
 
 Overview [#overview]
 ********************
-TODO
+We use the term *device* to describe any asset that is microprocessor based.
+Typically this includes most IT and networking gear, but also includes
+microprocessor based controllers commonly used to perform control and monitoring
+of equipment.
+
+There can often be a fuzzy distinction between equipment versus devices,
+especially since most point data for an equipment is manifested through
+a controller.  However when building a detailed model of a control system,
+the `equip` tag is use to represent the physical asset and a separate `device`
+entity is used to represent the controller.  In cases where the distinction
+is not clear, then combine the `equip` and `device` tags into one equipment.
+
+Networks [#networks]
+********************
+Networks are modeled with the `network` tag.  Devices on a network should
+model their network relationship with the `networkRef` tag.
+
+Devices where the main function is networking should subtype from
+the `networking-device` conjuct.  Haystack defines the following networking
+device types:
+
+  - `networking-router`: device used to route data between different networks
+  - `networking-switch`: device used to connect devices on the same network
+
+Here is a simple example of a network model which includes a switch
+with two controllers:
+
+  id: @my-network
+  dis: "Simple Local Network"
+  network
+
+  id: @my-switch
+  dis: "Network Switch"
+  networking
+  switch
+  device
+  networkRef: @my-network
+
+  id: @my-controller-1
+  dis: "Controller 1"
+  controller
+  device
+  networkRef: @my-network
+
+  id: @my-controller-2
+  dis: "Controller 2"
+  controller
+  device
+  networkRef: @my-network
+
 

@@ -9,7 +9,9 @@
 --------------------------------------------------------------------------
 def: ^dataCenter
 is: ^space
-doc: "Space used to house computer and networking gear."
+doc:
+  Space used to house computer and networking gear.
+  See `docHaystack::DataCenters` chapter.
 wikipedia: `https://en.wikipedia.org/wiki/Data_center`
 children: [
   {rack equip},
@@ -24,6 +26,7 @@ doc:
   Devices are mounted to rails of a standard width, typically 19 or 23
   inches.  Height is measured in *rack units* where one 1U is 1.75 inches.
   A full rack has a height of 42U.
+  See `docHaystack::DataCenters#racks` chapter.
 children: [
   {server device},
   {networking device},

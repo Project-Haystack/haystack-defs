@@ -18,7 +18,6 @@ doc: "Communication protocol used for devices on a network."
 // Subtypes
 //////////////////////////////////////////////////////////////////////////
 
-
 --------------------------------------------------------------------------
 def: ^bacnet
 is: ^protocol
@@ -97,11 +96,6 @@ def: ^smtp
 is: ^protocol
 wikipedia: `https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol`
 doc: "Simple Mail Transfer Protocol for sending email"
---------------------------------------------------------------------------
-def: ^thread
-is: ^protocol
-wikipedia: `https://en.wikipedia.org/wiki/Thread_(network_protocol)`
-doc: "Low power wireless IoT protocol"
 --------------------------------------------------------------------------
 def: ^zigbee
 is: ^protocol
