@@ -34,6 +34,8 @@ doc: "Flow of air on surface of the Earth"
 def: ^weather
 is: ^phenomenon
 wikipedia: `https://en.wikipedia.org/wiki/Weather`
-doc: "Associated with atmospheric air or phenomenon"
+doc:
+  Associated with atmospheric air or phenomenon.
+  See `docHaystack::Weather` chapter.
 --------------------------------------------------------------------------
 

@@ -7,5 +7,82 @@
 
 Overview [#overview]
 ********************
-TODO
+Haystack standardizes the modeling of weather stations and their
+associated observations.  The stations themselves are modeled using
+the `weatherStation` marker tag.  The observations are modeled as
+normalized [points]`Points` along with the `weather` marker tag.
+
+Stations [#stations]
+********************
+Weather stations model a geographic location where observations are
+taken.  Stations might be an official government location; for example in
+the US the NOAA provides an extensive database of station locations and their
+associated data.  Many online weather services are virtual which approximate
+data using several physical stations.  Or it is possible to model site
+local weather sensors using the Haystack weather model.
+
+All weather stations must define the `weatherStation` marker tag along
+with the appropriate [geolocations]`geoPlace` tags.  The `tz` tag must
+also be defined.
+
+Here is an example of a weather station entity:
+
+  id: @richmond
+  dis: "Weather for Richmond VA"
+  weatherStation
+  geoCoord: C(37.542979,-77.469092)
+  geoCity: "Richmond"
+  geoCountry: "US"
+  geoState: "VA"
+  tz: "New_York"
+
+When a weather station is available for a site, the site should define
+the `weatherStationRef` tag to model the relationship.
+
+Points [#points]
+****************
+All weather observation points must define the following tags:
+  - `weather`: marker to indicate entity is a weather point
+  - `weatherStationRef`: parent weather station associated with the point
+  - `sensor`: all observation points are considered sensor points
+
+Additionally the standard point tags must be defined including `point`,
+`kind`, `unit`, and `enum`.
+
+The following are the standardized weather points which may be defined
+for a given station:
+
+  - [air temp]`air-temp`: dry bulb temperature in °C or °F
+  - `air` `wetBulb`: web bulb temperature in °C or °F
+  - `air` `feelsLike`: apparent temperature in °C or °F
+  - `air` `dewPoint`: dew point temperature in °C or °F
+  - `air` `humidity`: relative humidity in %RH
+  - [atmospheric pressure]`atmospheric-pressure`: barometric pressure in
+    millibar or inHg
+  - `cloudage`: cloudiness as percentage
+  - `daytime`: boolean point which is true between sunrise and sunset
+  - `precipitation`: fallen atmospheric water vapor in mm or in
+  - [solar irradiance]`solar-irradiance`: energy received from sun in W/m²
+  - `weatherCond`: enumeration for clear, cloudy, rain, snow, etc
+  - [wind speed]`wind-speed`: wind speed in km/h or mph
+  - [wind direction]`wind-direction`: direction which wind originates in degrees
+  - `visibility`: distance at which light can be discerned in km or mile
+
+Example of a weather observation point:
+
+  // air temperature with a current value
+  id: @richmond.temp
+  dis: "Temperature for Richmond VA"
+  weather
+  air
+  temp
+  sensor
+  point
+  unit: "°F"
+  kind: "Number"
+  tz: "New_York"
+  weatherStationRef: @richmond
+  cur
+  curVal: 56°F
+  curStation: "ok"
 

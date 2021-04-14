@@ -35,7 +35,7 @@ Points must be classified as analog, digital, or multi-state using the `kind` ta
     These points should also include the `unit` to indicate the point's
     unit of measurement.
   - **Str**: models an enumerated point with a mode such as "Off, Slow, Fast".
-    Enumeraed points should also define an `enum` tag.
+    Enumeration points should also define an `enum` tag.
 
 Point Min/Max [#pointMinMax]
 ********************
@@ -64,7 +64,7 @@ The following tags are used to model the current value and status:
 
 Writable Points [#writable]
 ***************************
-Writable points model an output or setpoint which may be commanded.  Writable
+Writable points model an output or setpoint, which may be commanded.  Writable
 points are tagged with the [writable]`writable-point` marker.  They are patterned
 using the BACnet 16-level priority array with a relinquish default which effectively
 acts as level 17. Writable points which may be commanded over the HTTP API

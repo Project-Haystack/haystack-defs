@@ -35,7 +35,7 @@ Here is an example of a site entity fully tricked out with geolocation tags:
   site
   area: 55000ft²
   tz: "New_York"
-  weatherRef: @weather.washington
+  weatherStationRef: @weather.washington
   geoAddr: "1600 Pennsylvania Avenue NW, Washington, DC"
   geoStreet: "1600 Pennsylvania Ave NW"
   geoCity: "Washington D.C."
