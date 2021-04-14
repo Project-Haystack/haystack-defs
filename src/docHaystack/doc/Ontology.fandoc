@@ -7,25 +7,15 @@
 
 Overview [#overview]
 *********************
-Ontology TODO
+Haystack defines how to model the following key entities from the built
+environment:
 
-Sites [#sites]
-**************
-TODO
+- [site]`Sites`: single building with its own street address
+- [space]`Spaces`: location or zone within a site
+- [equip]`Equips`: physical or logical piece of equipment within a site
+- [point]`Points`: sensor, actuator or setpoint for an equip
+- [weatherStation]`Weather`: weather station observations
+- [device]`Devices`: computers, controllers, networking gear
 
-Space [#spaces]
-***************
-TODO
-
-Equips [#equips]
-****************
-TODO
-
-Point [#points]
-***************
-TODO
-
-Weather [#weather]
-******************
-TODO
+Each of these entity types is discussed in detail in the following chapters.
 

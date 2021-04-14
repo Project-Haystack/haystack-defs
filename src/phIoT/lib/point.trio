@@ -15,7 +15,9 @@ pointQuantity: ^quantity
 pointFunction: ^pointFunctionType
 docTaxonomy
 mandatory
-doc: "Data point such as a sensor or actuator"
+doc:
+  Data point such as a sensor or actuator.
+  See `docHaystack::Points` chapter.
 --------------------------------------------------------------------------
 def: ^pointGroup
 is: ^entity
@@ -76,23 +78,33 @@ doc: "Quantity the point senses or controls"
 def: ^pointFunction
 is: ^choice
 of: ^pointFunctionType
-doc: "Classifies the point as a sensor, command, or setpoint"
+doc:
+  Classifies the point as a sensor, command, or setpoint.
+  See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^pointFunctionType
 is: ^marker
-doc: "Classifies the point as a sensor, command, or setpoint"
+doc:
+  Classifies the point as a sensor, command, or setpoint.
+  See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^sensor
 is: ^pointFunctionType
-doc: "Point is a sensor, input, AI/BI"
+doc:
+  Point is a sensor, input, AI/BI.
+  See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^cmd
 is: ^pointFunctionType
-doc: "Point is a command, actuator, AO/BO"
+doc:
+  Point is a command, actuator, AO/BO.
+  See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^sp
 is: ^pointFunctionType
-doc: "Point is a setpoint, soft point, internal control variable, schedule"
+doc:
+  Point is a setpoint, soft point, internal control variable, schedule.
+  See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -104,11 +116,12 @@ def: ^cur-point
 is: ^point
 doc:
   Point with support to report a "real-time" current value.  By real-time
-  we typically mean freshness within the order of of a few seconds or at
+  we typically mean freshness within the order of a few seconds or at
   most a few minutes.  For systems with direct I/O the current value is
   typically driven by the I/O scan rate. For overlay systems which acquire
   data via a protocol such as BACnet or Modbus then the current value
   is typically refreshed using polling or subscription over a network.
+  Also see `docHaystack::Points#cur` chapter.
 --------------------------------------------------------------------------
 
 // Cur tags
@@ -169,6 +182,8 @@ doc:
     - in overlay systems a downstream device performs the historization
       and the local system synchronizes the history data in batch on
       a periodic basis
+
+  Also see `docHaystack::Points#his` chapter.
 --------------------------------------------------------------------------
 
 // His tags
@@ -251,6 +266,8 @@ doc:
   in turn may be auto/null to another system). Anytime a null value is written
   to a priority level, we say that level has been set to auto or released (this
   allows the next highest level to take command of the output).
+
+  Also see `docHaystack::Points#writable` chapter.
 --------------------------------------------------------------------------
 
 // Writable tags

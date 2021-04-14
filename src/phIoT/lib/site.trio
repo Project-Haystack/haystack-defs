@@ -15,7 +15,7 @@ mandatory
 doc:
   Site is a geographic location of the built environment.
   Typically site maps to one building with its own unique
-  street address.
+  street address.  See `docHaystack::Sites` chapter.
 children: [
   {space},
   {equip},

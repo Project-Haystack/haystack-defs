@@ -17,6 +17,11 @@
 - Exploded point types (attempt only)
 - Remove state and stateQuantity in favor of keeping run/enable on their own
 - Expand some of the sp/sensor cmd/sensor proto pairs
+- Add protos grid files to the distribution
+- New Sites chapter
+- New Spaces chapter
+- New Equips chapter
+- New Points chapter
 
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts

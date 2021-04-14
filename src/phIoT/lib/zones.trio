@@ -13,7 +13,9 @@
 --------------------------------------------------------------------------
 def: ^zone-space
 is: ^space
-doc: "Space associated with a specific system"
+doc:
+  Space associated with a specific system.
+  See `docHaystack::Spaces#zones` chapter.
 children: [
   {occupied sensor point},
   {occupied sp point},
@@ -22,11 +24,15 @@ children: [
 --------------------------------------------------------------------------
 def: ^hvac-zone-space
 is: [^zone-space, ^hvacZonePoints, ^air-input]
-doc: "Zone related to conditioning of a space's air temperature and quality."
+doc:
+  Zone related to conditioning of a space's air temperature and quality.
+  See `docHaystack::Spaces#zones` chapter.
 --------------------------------------------------------------------------
 def: ^lighting-zone-space
 is: [^zone-space, ^lightingZonePoints]
-doc: "Zone related to lighting system"
+doc:
+  Zone related to lighting system.
+  See `docHaystack::Spaces#zones` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

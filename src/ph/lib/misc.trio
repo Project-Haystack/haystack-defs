@@ -47,7 +47,7 @@ doc: "Do not include source code in documentation"
 --------------------------------------------------------------------------
 def: ^tz
 is: ^str
-doc: "Timezone identifier from standard timezone database"
+doc: "Timezone identifier from standard [timezone database]`docHaystack::TimeZones`"
 --------------------------------------------------------------------------
 def: ^unit
 is: ^str

@@ -12,7 +12,9 @@ def: ^space
 is: ^entity
 docTaxonomy
 mandatory
-doc: "Space is a three-dimensional volume in the built environment"
+doc:
+  Space is a three-dimensional volume in the built environment.
+  See `docHaystack::Spaces` chapter.
 children: [
   {space},
   {equip},
@@ -34,7 +36,8 @@ doc: "Area of a shape or floor space"
 def: ^floor
 is: ^space
 wikipedia: `https://en.wikipedia.org/wiki/Storey`
-doc: "Storey of a building"
+doc:
+  Storey of a building.  See `docHaystack::Spaces#floors` chapter.
 --------------------------------------------------------------------------
 def: ^ground-floor
 is: ^floor

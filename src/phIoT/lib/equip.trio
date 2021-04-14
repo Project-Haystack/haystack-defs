@@ -12,7 +12,9 @@ def: ^equip
 is: ^entity
 docTaxonomy
 mandatory
-doc: "Equipment asset"
+doc:
+  Equipment asset.
+  See `docHaystack::Equips` chapter.
 children: [
   {equip},
   {point},
