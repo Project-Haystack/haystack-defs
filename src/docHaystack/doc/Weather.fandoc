@@ -57,6 +57,7 @@ for a given station:
   - `air` `feelsLike`: apparent temperature in °C or °F
   - `air` `dewPoint`: dew point temperature in °C or °F
   - `air` `humidity`: relative humidity in %RH
+  - `air` `enthalpy`: total heat content in kJ/kg or BTU/lb
   - [atmospheric pressure]`atmospheric-pressure`: barometric pressure in
     millibar or inHg
   - `cloudage`: cloudiness as percentage

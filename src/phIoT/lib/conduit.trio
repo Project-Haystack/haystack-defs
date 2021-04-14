@@ -46,6 +46,7 @@ children: [
   {heatingCoil equip},
   {air co2 sensor point},
   {air co2 sp point},
+  {air enthalpy sensor point},
   {air flow sensor point},
   {air flow sp point},
   {air humidity sensor point},

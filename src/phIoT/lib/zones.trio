@@ -54,6 +54,8 @@ children: [
   {zone air temp standby cooling sp point},
   {zone air temp standby heating sp point},
   {zone air humidity sensor point},
+  {zone air humidity sp point},
+  {zone air enthalpy sensor point},
 
   // air quality sensors
   {zone air co sensor point},

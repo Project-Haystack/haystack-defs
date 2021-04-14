@@ -21,6 +21,7 @@ children: [
   {weather air feelsLike sensor point},
   {weather air dewPoint sensor point},
   {weather air humidity sensor point},
+  {weather air enthalpy sensor point},
   {weather atmospheric pressure sensor point},
   {weather cloudage sensor point},
   {weather daytime sensor point},

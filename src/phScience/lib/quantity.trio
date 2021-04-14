@@ -113,6 +113,12 @@ quantityOf: ^air
 prefUnit: ["%RH"]
 doc: "Percent relative humidity; measure of moisture in the air"
 --------------------------------------------------------------------------
+def: ^enthalpy
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["kJ/kg", "BTU/lb"]
+doc: "Total heat content of a system. It is defined as internal energy of the system plus the product of pressure and volume."
+--------------------------------------------------------------------------
 def: ^airQuality
 is: ^quantity
 quantityOf: ^air

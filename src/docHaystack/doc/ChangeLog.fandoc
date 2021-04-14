@@ -17,6 +17,7 @@
 - Exploded point types (attempt only)
 - Remove state and stateQuantity in favor of keeping run/enable on their own
 - Expand some of the sp/sensor cmd/sensor proto pairs
+- Add enthalpy tag, associated weather, duct, and zone points
 - Add protos grid files to the distribution
 - New Sites chapter
 - New Spaces chapter
