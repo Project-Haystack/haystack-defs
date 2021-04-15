@@ -23,6 +23,8 @@
 - Expand children: ducts, zones
 - Port min/max marker tags from Haystack 3
 - New alarm point; alarm sensor on motor, chiller, boiler
+- New air-velocity quanity
+- FumeHood children protos
 - New Sites chapter
 - New Spaces chapter
 - New Equips chapter

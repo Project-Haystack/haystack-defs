@@ -12,5 +12,12 @@ is: [^equip, ^elec-input]
 ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fume_hood`
 doc: "Ventilation equipment to limit exposure to hazardous fumes."
+children: [
+  {alarm sensor point},
+  {air flow sensor sensor point},
+  {air flow sensor sp point},
+  {air velocity sensor point},
+  {air velocity sp point},
+  ]
 --------------------------------------------------------------------------
 

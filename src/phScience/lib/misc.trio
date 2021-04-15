@@ -56,6 +56,10 @@ def: ^total
 is: ^marker
 doc: "Complete or absolute"
 --------------------------------------------------------------------------
+def: ^velocity
+is: ^marker
+doc: "Speed in a given direction"
+--------------------------------------------------------------------------
 def: ^volt
 is: ^marker
 doc: "Electrical voltage, potential difference"
