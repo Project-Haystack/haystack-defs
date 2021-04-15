@@ -58,11 +58,12 @@ children: [
   {zone air enthalpy sensor point},
 
   // air quality sensors
-  {zone air co sensor point},
-  {zone air co2 sensor point},
-  {zone air pm10 sensor point},
-  {zone air pm25 sensor point},
-  {zone air tvoc sensor point},
+  {zone air co concentration sensor point},
+  {zone air co2 concentration sensor point},
+  {zone air pm01 concentration sensor point},
+  {zone air pm10 concentration sensor point},
+  {zone air pm25 concentration sensor point},
+  {zone air tvoc concentration sensor point},
   ]
 --------------------------------------------------------------------------
 def: ^thermostat

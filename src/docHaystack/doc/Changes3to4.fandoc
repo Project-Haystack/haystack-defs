@@ -18,6 +18,8 @@ These are renamed or turned into conjuncts:
   - chilledWaterPlant => `chilled-water-plant`
   - chilledWaterPlantRef => `chilledWaterRef`
   - closedLoop => `condenserClosedLoop`
+  - co => `co` `concentration`
+  - co2 => `co2` `concentration`
   - constantVolume  => `constantAirVolume`
   - coolOnly => `coolingOnly`
   - dew => `dewPoint`

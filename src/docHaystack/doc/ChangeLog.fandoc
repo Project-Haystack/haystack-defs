@@ -19,6 +19,7 @@
 - Expand some of the sp/sensor cmd/sensor proto pairs
 - Add enthalpy tag, associated weather, duct, and zone points
 - Add protos grid files to the distribution
+- Add greenhouse gases into ontology from WG 776
 - New Sites chapter
 - New Spaces chapter
 - New Equips chapter

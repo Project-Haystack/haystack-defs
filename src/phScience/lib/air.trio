@@ -1,0 +1,205 @@
+//
+// Copyright (c) 2018, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   23 Dec 2018  Brian Frank  Creation
+//   15 Apr 2021  Brian Frank  Reorg for air quality, greenhouse gases
+//
+
+--------------------------------------------------------------------------
+def: ^air
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Atmosphere_of_Earth`
+doc: "The mixture of gases which surrounds the earth"
+--------------------------------------------------------------------------
+def: ^ch4
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Methane`
+doc: "Methane (CH₄)"
+--------------------------------------------------------------------------
+def: ^co
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Carbon_monoxide`
+doc: "Carbon monoxide (CO)"
+--------------------------------------------------------------------------
+def: ^co2
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Carbon_dioxide`
+doc: "Carbon dioxide (CO₂)"
+--------------------------------------------------------------------------
+def: ^hfc
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Hydrofluorocarbon`
+doc: "Hydrofluorocarbons"
+--------------------------------------------------------------------------
+def: ^n2o
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Nitrous_oxide`
+doc: "Nitrous oxide (N₂O)"
+--------------------------------------------------------------------------
+def: ^nf3
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Nitrogen_trifluoride`
+doc: "Nitrogen trifluoride (NF₃)"
+--------------------------------------------------------------------------
+def: ^pfc
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Fluorocarbon`
+doc: "Perfluorocarbons"
+--------------------------------------------------------------------------
+def: ^pm01
+is: ^solid
+wikipedia: `https://en.wikipedia.org/wiki/Particulates`
+doc: "Particulate matter 0.1; atmospheric pollutant of fine particles with an aerodynamic diameter of 0.1 micrometers or less"
+--------------------------------------------------------------------------
+def: ^pm25
+is: ^solid
+wikipedia: `https://en.wikipedia.org/wiki/Particulates`
+doc: "Particulate matter 2.5; atmospheric pollutant of fine particles with an aerodynamic diameter of 2.5 micrometers or less"
+--------------------------------------------------------------------------
+def: ^pm10
+is: ^solid
+wikipedia: `https://en.wikipedia.org/wiki/Particulates`
+doc: "Particulate matter 10; atmospheric pollutant of fine particles with an aerodynamic diameter of 10 micrometers or less"
+--------------------------------------------------------------------------
+def: ^sf6
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Sulfur_hexafluoride`
+doc: "Sulphur hexafluoride (SF₆)"
+--------------------------------------------------------------------------
+def: ^tvoc
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Volatile_organic_compound`
+doc: "Total volatile organic compound (TVOC)."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// General Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^air-temp
+is: ^temp
+quantityOf: ^air
+doc: "Dry bulb temperature"
+--------------------------------------------------------------------------
+def: ^wetBulb
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["°C", "°F"]
+doc: "Wet bulb air temperature.  Temperature which the air would have if cooled to saturation by the evaporation of water into it."
+--------------------------------------------------------------------------
+def: ^feelsLike
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["°C", "°F"]
+doc: "Apparent temperature perceived when considering humidity, wind chill, and heat index"
+--------------------------------------------------------------------------
+def: ^dewPoint
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["°C", "°F"]
+doc: "Dew point temperature at which water vapor will form dew"
+--------------------------------------------------------------------------
+def: ^humidity
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["%RH"]
+doc: "Percent relative humidity; measure of moisture in the air"
+--------------------------------------------------------------------------
+def: ^enthalpy
+is: ^quantity
+quantityOf: ^air
+prefUnit: ["kJ/kg", "BTU/lb"]
+doc: "Total heat content of a system. It is defined as internal energy of the system plus the product of pressure and volume."
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Air Quality Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^airQuality
+is: ^concentration
+quantityOf: ^air
+doc: "Concentration of contaminants in the air"
+--------------------------------------------------------------------------
+def: ^co-concentration
+is: ^airQuality
+prefUnit: ["ppm"]
+doc: "Concentration of carbon carbon monoxide (CO) in the air."
+--------------------------------------------------------------------------
+def: ^co2-concentration
+is: ^airQuality
+prefUnit: ["ppb"]
+doc: "Concentration of carbon dioxide (CO₂) in the air."
+--------------------------------------------------------------------------
+def: ^pm01-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of particulate matter 0.1 in the air."
+--------------------------------------------------------------------------
+def: ^pm25-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of particulate matter 2.5 in the air."
+--------------------------------------------------------------------------
+def: ^pm10-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of particulate matter 10 in the air"
+--------------------------------------------------------------------------
+def: ^tvoc-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of total volatile organic compounds (TVOC) in the air"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Greenhouse Gas Quantities
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^emission
+is: ^quantity
+quantityOf: ^air
+doc: "Amount of a substance discharged into the air"
+--------------------------------------------------------------------------
+def: ^ch4-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of methane (CH₄) into the air."
+--------------------------------------------------------------------------
+def: ^co2-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of carbon dioxide (CO₂) into the air."
+--------------------------------------------------------------------------
+def: ^hfc-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of hydrofluorocarbons into the air."
+--------------------------------------------------------------------------
+def: ^n2o-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of nitrous oxide (N₂O) into the air."
+--------------------------------------------------------------------------
+def: ^nf3-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of nitrogen trifluoride (NF₃) into the air."
+--------------------------------------------------------------------------
+def: ^pfc-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of perfluorocarbons into the air."
+--------------------------------------------------------------------------
+def: ^sf6-emission
+is: ^emission
+prefUnit: ["kg", "ton", "lb"]
+doc: "Greenhouse gas emission of sulphur hexafluoride (SF₆) into the air."
+--------------------------------------------------------------------------
+
+

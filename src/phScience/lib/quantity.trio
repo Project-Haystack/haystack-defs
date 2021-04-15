@@ -40,16 +40,24 @@ doc: "Defines a preferred unit to be used with a quantity"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^concentration
+is: ^quantity
+quantityOf: ^substance
+wikipedia: `https://en.wikipedia.org/wiki/Concentration`
+doc: "Abundance of substance in the total volume of a mixture."
+--------------------------------------------------------------------------
 def: ^temp
 is: ^quantity
 quantityOf: ^substance
 doc: "Temperature - measure of hot and cold"
+wikipedia: `https://en.wikipedia.org/wiki/Temperature`
 prefUnit: ["°C", "°F"]
 --------------------------------------------------------------------------
 def: ^volume
 is: ^quantity
 quantityOf: ^substance
 doc: "Three dimensional space occupied by a substance"
+wikipedia: `https://en.wikipedia.org/wiki/Volume`
 prefUnit: ["m³", "ft³", "L", "gal"]
 --------------------------------------------------------------------------
 
@@ -62,12 +70,14 @@ def: ^pressure
 is: ^quantity
 quantityOf: ^fluid
 prefUnit: ["kPa", "psi"]
+wikipedia: `https://en.wikipedia.org/wiki/Pressure`
 doc: "Measure of force applied"
 --------------------------------------------------------------------------
 def: ^flow
 is: ^quantity
 quantityOf: ^fluid
 prefUnit: ["m³/s", "gal/min"]
+wikipedia: `https://en.wikipedia.org/wiki/Fluid_dynamics`
 doc: "Measure of volumetric flow of fluid"
 --------------------------------------------------------------------------
 def: ^level
@@ -77,77 +87,6 @@ prefUnit: ["%"]
 doc:
   Range from 0% to 100%.  When paired with a fluid this implies a fill
   level where 0% is empty and 100% is full.
---------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Air
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^air-temp
-is: ^temp
-quantityOf: ^air
-doc: "Dry bulb temperature"
---------------------------------------------------------------------------
-def: ^wetBulb
-is: ^quantity
-quantityOf: ^air
-prefUnit: ["°C", "°F"]
-doc: "Wet bulb air temperature.  Temperature which the air would have if cooled to saturation by the evaporation of water into it."
---------------------------------------------------------------------------
-def: ^feelsLike
-is: ^quantity
-quantityOf: ^air
-prefUnit: ["°C", "°F"]
-doc: "Apparent temperature perceived when considering humidity, wind chill, and heat index"
---------------------------------------------------------------------------
-def: ^dewPoint
-is: ^quantity
-quantityOf: ^air
-prefUnit: ["°C", "°F"]
-doc: "Dew point temperature at which water vapor will form dew"
---------------------------------------------------------------------------
-def: ^humidity
-is: ^quantity
-quantityOf: ^air
-prefUnit: ["%RH"]
-doc: "Percent relative humidity; measure of moisture in the air"
---------------------------------------------------------------------------
-def: ^enthalpy
-is: ^quantity
-quantityOf: ^air
-prefUnit: ["kJ/kg", "BTU/lb"]
-doc: "Total heat content of a system. It is defined as internal energy of the system plus the product of pressure and volume."
---------------------------------------------------------------------------
-def: ^airQuality
-is: ^quantity
-quantityOf: ^air
-doc: "Measurement of contaminants in the air"
---------------------------------------------------------------------------
-def: ^co
-doc: "Carbon monoxide level"
-is: ^airQuality
-prefUnit: ["ppm"]
---------------------------------------------------------------------------
-def: ^co2
-doc: "Carbon dioxide level"
-is: ^airQuality
-prefUnit: ["ppb"]
---------------------------------------------------------------------------
-def: ^pm25
-is: ^airQuality
-prefUnit: ["µg/m³", "ppb"]
-doc: "Particulate Matter 2.5; atmospheric pollutant of fine particles with/ an aerodynamic diameter of 2.5 micrometers or less"
---------------------------------------------------------------------------
-def: ^pm10
-is: ^airQuality
-prefUnit: ["µg/m³", "ppb"]
-doc: "Particulate Matter 10; atmospheric pollutant of fine particles with an aerodynamic diameter of 10 micrometers or less"
---------------------------------------------------------------------------
-def: ^tvoc
-is: ^airQuality
-prefUnit: ["µg/m³", "ppb"]
-doc: "Total volatile organic compound (TVOC).  This is a general term applied to the overall total volatile organic compounds (VOCs) detected."
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

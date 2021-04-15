@@ -23,6 +23,11 @@ def: ^atmospheric
 is: ^marker
 doc: "Related to the atmosphere of the earth"
 --------------------------------------------------------------------------
+def:^co2e
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Global_warming_potential`
+doc: "Carbon dioxide equivalent"
+--------------------------------------------------------------------------
 def: ^current
 is: ^marker
 doc: "Movement of fluid or electricity"
