@@ -17,6 +17,10 @@ def: ^active
 is: ^marker
 doc: "Working, operative, effective"
 --------------------------------------------------------------------------
+def: ^alarm
+is: ^marker
+doc: "Notification of a condition which requires attention"
+--------------------------------------------------------------------------
 def: ^barometric
 is: ^marker
 doc: "Relating atmospheric pressure"

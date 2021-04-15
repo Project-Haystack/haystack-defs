@@ -37,6 +37,9 @@ children: [
   // Measured efficiency sensor measured in "COP" or "kW/ton"
   {efficiency sensor point},
 
+  // Boolean alarm condition.  True indicates an alarm condition.
+  {alarm sensor point},
+
   {chilled water leaving pipe equip},
   {chilled water entering pipe equip},
   {chilled water delta temp sensor point},

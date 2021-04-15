@@ -13,6 +13,10 @@ heats: ^fluid
 heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
+children: [
+  // Boolean alarm condition.  True indicates an alarm condition.
+  {alarm sensor point},
+  ]
 --------------------------------------------------------------------------
 def: ^hot-water-boiler
 is: [^boiler, ^hot-water-output]
