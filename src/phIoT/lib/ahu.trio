@@ -27,6 +27,7 @@ doc:
   Conditioning of air includes heating, cooling, humidification,
   dehumidification, and ventilation.
 children: [
+
   {thermostat equip},
   {discharge duct equip},
   {exhaust duct equip},
@@ -37,6 +38,9 @@ children: [
   {return duct equip},
   {humidifier equip},
   {thermostat equip},
+
+  {cool cmd point},
+  {heat cmd point},
   {filter sensor point},
   {freezeStat sensor point},
   {economizing cmd point},
