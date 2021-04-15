@@ -53,13 +53,18 @@ children: [
   {zone air temp unocc heating sp point},
   {zone air temp standby cooling sp point},
   {zone air temp standby heating sp point},
+  {zone air pressure sensor point},
+  {zone air pressure sp point},
   {zone air humidity sensor point},
   {zone air humidity sp point},
+  {zone air dewPoint sensor point},
+  {zone air dewPoint sp point},
   {zone air enthalpy sensor point},
 
   // air quality sensors
   {zone air co concentration sensor point},
   {zone air co2 concentration sensor point},
+  {zone air co2 concentration sp point},
   {zone air pm01 concentration sensor point},
   {zone air pm10 concentration sensor point},
   {zone air pm25 concentration sensor point},
