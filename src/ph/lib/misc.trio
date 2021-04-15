@@ -37,6 +37,14 @@ enum:
   - Dict: key/value map
   - Grid: two dimensional tabular data collection
 --------------------------------------------------------------------------
+def: ^max
+is: ^marker
+doc: "Maximum"
+--------------------------------------------------------------------------
+def: ^min
+is: ^marker
+doc: "Minimum"
+--------------------------------------------------------------------------
 def: ^nodoc
 is: ^marker
 doc: "Undocumented and not officially supported"

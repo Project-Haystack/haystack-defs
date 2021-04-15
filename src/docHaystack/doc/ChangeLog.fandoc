@@ -20,6 +20,8 @@
 - Add enthalpy tag, associated weather, duct, and zone points
 - Add protos grid files to the distribution
 - Add greenhouse gases into ontology from WG 776
+- Expand children: ducts, zones
+- Port min/max marker tags from Haystack 3
 - New Sites chapter
 - New Spaces chapter
 - New Equips chapter
