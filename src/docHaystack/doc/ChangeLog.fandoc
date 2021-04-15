@@ -25,6 +25,7 @@
 - New alarm point; alarm sensor on motor, chiller, boiler
 - New air-velocity quanity
 - FumeHood children protos
+- Add enable cmd as plant level point
 - New Sites chapter
 - New Spaces chapter
 - New Equips chapter

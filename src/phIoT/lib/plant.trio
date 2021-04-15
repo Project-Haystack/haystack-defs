@@ -10,6 +10,10 @@
 def: ^plant
 is: ^equip
 doc: "Central plant used to generate a substance for a process"
+children: [
+   // Overall plant enable command
+   {enable cmd point}
+  ]
 --------------------------------------------------------------------------
 def: ^chilled-water-plant
 is: [^plant, ^chilled-water-output]

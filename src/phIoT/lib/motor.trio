@@ -23,7 +23,7 @@ children: [
   {run sensor point},
 
   // Enable status sensor.  True indicates enabled and false disabled.
-  {enable cmd sensor point},
+  {enable sensor point},
 
   // Boolean alarm condition.  True indicates an alarm condition.
   {alarm sensor point},
