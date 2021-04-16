@@ -1,0 +1,226 @@
+**************************************************************************
+** title:      Meters
+** author:     Brian Frank
+** created:    26 Feb 2011
+** copyright:  Copyright (c) 2015, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+The general problems addressed by the meter ontology are:
+  - modeling meters
+  - modeling submeters and their relationships
+  - modeling the flow of energy
+  - modeling equip and point loads on meters
+
+Meters [#meters]
+****************
+Meters are modeled as `equip` entities with the `meter` tag along with
+the phenomenon measured.  The following meter subtypes are defined:
+
+  - `ac-elec-meter`
+  - `dc-elec-meter`
+  - `flow-meter`
+
+Flow meters always tagged with the substance they are metering.
+Common examples include:
+
+  - `naturalGas` `meter`
+  - `domestic` `water` `meter`
+  - `chilled` `water` `meter`
+  - `steam` `meter`
+
+All meters must additionally define exactly one of these two tags:
+  - `siteMeter`: marker applied to the main site level meter
+  - `submeterOf`: Ref to parent meter
+
+Elec Meter [#elecMeters]
+************************
+AC electricity meters are probably the most common type of meters modeled.
+They are tagged as `ac-elec-meter`.  Haystack supports a model designed to
+scale from very simple meters (just a `power` and `energy` point) up to a
+comprehensive point list for three-phase power quality meters.
+
+Electricity meter points are described by combining tags from the lists
+given below. The tags in each set are mutually exclusive. (For example,
+a `power` point cannot be both `active` and `reactive`.)
+
+The primary measured quantities in an electical system are:
+  - `power`: typically measured in "kW"
+  - `energy`: typically measured in "kWh"
+  - `volt`: typically measured in "V"
+  - `current`: typically measured in "A"
+  - `freq`: typically measured in "Hz"
+  - `pf`: power factor
+
+AC power measurements are further qualified by:
+  - `active`: typically measured in "kW" (assumed as default)
+  - `reactive`: typically measured in "kVAR"
+  - `apparent`: typically measured in "kVA"
+
+Voltage and current measurements are further qualified by:
+  - `magnitude`: magnitude (assumed as default)
+  - `angle`: phase angle, typically measured in "deg"
+  - `imbalance`: imbalance between phases, measured in "%"
+  - `thd`: total harmonic distortion, measured in "%"
+
+Three phase electicrical measurements are qualified by:
+  - `phase`: A, B, C, AB, BC, CA, N
+  - `avg`: for current, voltage, and power factor (assumed as default)
+  - `total`: for power and energy (assumed as default)
+
+Energy exchange with the utility is qualified by:
+  - `import`: energy imported from the grid
+  - `export`: energy exported to the grid
+  - `net`: net exchange (assumed as default)
+
+Active, Reactive, Apparent [#realReactiveApparent]
+==================================================
+As the name suggests, the voltage and current in alternating current (AC)
+electricity networks alternate polarity many times per second. Because
+instantaneous power is the product of voltage times current, it constantly
+fluctuates in an AC network. Three quantities describe the time-averaged
+nature of fluctuating AC power:
+
+- `active` power, also known as real power, represents real work: a net
+  transfer of energy from source to load. Active power represents the
+  "normal" definition of power: the rate of energy transfer per unit
+  time. The standard unit of active power is the Watt, "W"; the default
+  Haystack unit is "kW".
+
+- `reactive` power, also known as imaginary power, represents energy
+  that circulates in an AC system without performing any real work.
+  Its standard unit is the volt-ampere reactive, "VAR"; the default
+  Haystack unit is "kVAR".
+
+- `apparent` power is the combination of active and reactive power
+  and represents the overall magnitude of energy movement. Its standard
+  unit is the volt-ampere, "VA"; the default Haystack unit is "kVA".
+
+If a 'power' point does not have an 'active', 'reactive', or 'apparent'
+tag, active power is assumed as the default.
+
+Import, Export, Net [#importExportNet]
+======================================
+Some electric meters track and report power and energy imported from
+the electric grid separately from power and energy exported to the
+electric grid. The tags `import` and `export` differentiate these
+quantities. More broadly, `export` indicates power or energy flowing
+toward the grid (in the direction of the `siteMeter`) and `import`
+indicates power or energy flowing toward the load.
+
+These measurements register power or energy transfer
+only in their associated direction and always have positive values.
+
+- For instantaneous 'power' measurements, import and export are mutually
+  exclusive.  One will report a positive value and the other will report
+  zero.
+
+- For 'energy' measurements tallied over time, it is possible that both
+  import and export may report a positive quantity for that interval,
+  which means that some energy flowed in each direction during that interval.
+
+The `net` tag indicates the difference between `import` and `export`:
+
+  net = import - export
+
+Haystack uses the load convention for net electric power and energy.
+
+- Positive net quantities indicate power or energy consumed,
+- Negative net quantities indicate power or energy produced.
+
+If a 'power' or 'energy' point does not have an 'import', 'export', or
+'net' tag, it is assumed by default to be a net quantity.
+
+Flow Meters [#flowMeters]
+*************************
+Flow meters measure flow rate and total volume of fluids.  Some meters
+such as thermal flow meters, will also provide power and energy calculations.
+Typical points for flow meters include:
+
+  - `flow`: rate of volume flowing through the meter per unit time
+  - `volume`: total volume consumption of the meter
+  - `power`: energy consumed per unit time such as "BTU/h"
+  - `energy`: energy consumption such as "BTU"
+
+Energy Flow to Loads [#energyFlows]
+***********************************
+We use the suite of '<phenomenon>Ref' tags to model the relationship of
+energy flows from the meters to their load.  Commonly used relationship
+tags include:
+
+  - `elecRef`: model flow of electricity
+  - `naturalGasRef`: model flow of natural gas
+  - `chilledWaterRef`: model flow of chilled water for cooling
+  - `hotWaterRef`: model flow of hot water for heating
+  - `steamRef`: model flow of steam for heating
+
+These tags are placed on the loads and reference their upstream meter.
+For example, a boiler would use the `naturalGasRef` to reference its upstream
+meter as follows:
+
+  id: @gasMeter
+  naturalGas
+  meter
+  equip
+
+  id: @boiler
+  steam
+  boiler
+  equip
+  naturalGasRef: @gasMeter
+
+Example Model [#exampleModel]
+*****************************
+Let's illustrate a more complete example using a "tree" of meters and loads:
+
+  Main Elec Meter
+   +- Luminaire (equip load)
+   +- HVAC Elec Submeter
+       +- RTU-1 (equip load)
+           +- Fan (point load)
+           +- DischargeTemp (not a load)
+       +- RTU-2 (equip load)
+           +- Fan (point load)
+           +- DischargeTemp (not a load)
+
+The entities and their tags would look like this:
+
+  id:@A, dis: "Main Elec Meter", ac, elec, meter, siteMeter, equip
+         dis: "Main Elec Meter Demand", equipRef @A, power, unit:"kW", sensor, point, ...
+         dis: "Main Elec Meter Consumption", equipRef:@A, energy, unit:"kWh", sensor, point, ...
+
+  id:@B, dis: "Luminaire", equip, elecRef:@A, luminaire
+
+  id:@C, dis: "HVAC Elec Submeter", ac, elec, meter, submeterOf:@A, equip
+         dis: "HVAC Elec Submeter Demand", equipRef:@C, power, unit:"kW", sensor, point, ...
+         dis: "HVAC Elec Submeter Consumption", equipRef:@C, energy, unit:"kWh", sensor, point, ...
+
+  id:@D, dis: "RTU-1", equip, elecRef:@C, ahu
+         dis: "RTU-1 Fan", equipRef:@D, elecRef:@C, fan, cmd, point, ...
+         dis: "RTU-1 DA Temp", equipRef:@D, discharge, temp, sensor, point, ...
+  id:@E, dis: "RTU-2", equip, elecRef:@C, ahu
+         dis: "RTU-2 Fan", equipRef:@E, elecRef:@C, fan, cmd, point, ...
+         dis: "RTU-2 DA Temp", equipRef:@E, discharge, temp, sensor, point, ...
+
+In the example above we have a top-level main electrical meter with
+the id '@A'.  Note it is tagged as `ac-elec-meter` to model an AC electric
+meter.  It is also tagged as `siteMeter` to indicate its the main site-level meter.
+It has two associated points for power (kW) and energy (kWh).
+
+Then under the main meter, we have a HVAC submeter with the id '@C'.  Note it
+is tagged as `ac-elec-meter` also.  But it is not a `siteMeter`, instead it is
+associated as a submeter of the main meter using the `submeterOf` tag.  You can
+model submeter trees of arbitrary depth (submeters of submeters).  It also has
+two points for kW and kWh.
+
+Lastly we have three electrical equipment loads defined.  The two RTUs are associated
+with HVAC submeter via `elecRef` which references the HVAC submeter via
+id.  Since we don't have a lighting submeter, the lighting load references
+the main meter directly via its `elecRef` tag.  We also tag one or more
+points under the equipment which are meaningful for the load.  Motors would
+often be tagged as loads since they draw energy, but sensors would typically
+not be considered loads.
+
+

@@ -22,7 +22,10 @@
   [`Points`,        "Point entities including sensors, actuators, and setpoints"],
   [`Weather`,       "Weather station entities"],
   [`Devices`,       "Device entities including controllers and networks"],
-  [`DataCenters`,   "Data center spaces"],
+
+  "Verticals",
+  [`Meters`,        "Modeling meters"],
+  [`DataCenters`,   "Modeling data center spaces"],
 
   "Defs",
   [`Defs`,          "Definition meta-model"],

@@ -11,7 +11,9 @@
 def: ^meter
 is: ^equip
 meterScope: ^meterScopeType
-doc: "Equipment to meter a substance or phenomenon"
+doc:
+  Equipment to meter a substance or phenomenon.
+  See `docHaystack::Meters` chapter.
 --------------------------------------------------------------------------
 def: ^elec-meter
 is: [^meter, ^elec-input, ^elec-output]
@@ -19,7 +21,9 @@ doc: "Electricity meter"
 --------------------------------------------------------------------------
 def: ^ac-elec-meter
 is: ^elec-meter
-doc: "AC Electricity meter"
+doc:
+  AC Electricity meter.
+  See `docHaystack::Meters` chapter.
 children: [
   // energy
   {total net ac elec active energy sensor point},
@@ -65,15 +69,15 @@ children: [
 --------------------------------------------------------------------------
 def: ^dc-elec-meter
 is: ^elec-meter
-doc: "DC Electricity meter"
+doc:
+  DC Electricity meter.
+  See `docHaystack::Meters` chapter.
 --------------------------------------------------------------------------
 def: ^flow-meter
 is: ^meter
-doc: "Meter to measure flow rate and total volume of fluid"
---------------------------------------------------------------------------
-def: ^thermal-meter
-is: ^meter
-doc: "Meter to measure energy transfer via fluid"
+doc:
+  Meter to measure flow rate and total volume of fluid.
+  See `docHaystack::Meters` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
