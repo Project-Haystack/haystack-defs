@@ -43,6 +43,26 @@ is: ^gas
 wikipedia: `https://en.wikipedia.org/wiki/Nitrogen_trifluoride`
 doc: "Nitrogen trifluoride (NF₃)"
 --------------------------------------------------------------------------
+def: ^nh3
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Ammonia`
+doc: "Ammonia (NH₃)"
+--------------------------------------------------------------------------
+def: ^no2
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Nitrogen_dioxide`
+doc: "Nitrogen dioxide (NO₂)"
+--------------------------------------------------------------------------
+def: ^o2
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Oxygen`
+doc: "Oxygen (O₂) - the common dioxygen allotrope in the air"
+--------------------------------------------------------------------------
+def: ^o3
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Ozone`
+doc: "Ozone (O₃)"
+--------------------------------------------------------------------------
 def: ^pfc
 is: ^gas
 wikipedia: `https://en.wikipedia.org/wiki/Fluorocarbon`

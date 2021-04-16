@@ -56,6 +56,13 @@ is: ^marker
 tagOn: ^point
 doc: "Supports current value"
 --------------------------------------------------------------------------
+def: ^deadband
+is: ^marker
+doc:
+  The range in a process where no changes to output are made.
+  May also indicate the difference between a base setpoint and effective
+  setpoint.
+--------------------------------------------------------------------------
 def: ^delta
 is: ^marker
 doc: "Differential of fluid between entering and leaving sensors."

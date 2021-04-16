@@ -24,6 +24,7 @@
 - Port min/max marker tags from Haystack 3
 - New alarm point; alarm sensor on motor, chiller, boiler
 - New air-velocity quanity
+- Other new tags: deadband, deviceRef, nh3, no2, o2, o3
 - FumeHood children protos
 - Add enable cmd as plant level point
 - Add cool/heat enable cmd as ahu points

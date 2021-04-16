@@ -16,6 +16,11 @@ doc:
   all computers, mobile phones, controllers, and I/O modules.
   See `docHaystack::Devices#networks` chapter.
 --------------------------------------------------------------------------
+def: ^deviceRef
+is: ^ref
+of: ^device
+doc: "Device which controls a monitors this entity"
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // General Purpose
