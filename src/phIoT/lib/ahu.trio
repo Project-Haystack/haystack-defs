@@ -25,7 +25,7 @@ wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc:
   HVAC equipment that conditions and delivers air via one or more fans.
   Conditioning of air includes heating, cooling, humidification,
-  dehumidification, and ventilation.
+  dehumidification, and ventilation. See `docHaystack::AHUs` chapter.
 children: [
 
   {thermostat equip},
@@ -58,24 +58,27 @@ doc:
   Air Handling Unit: An enclosure with a fan that delivers air to a space
   via ductwork and performs one or more of the functions of cleaning,
   heating, cooling, humidifying, dehumidifying, ventilating or circulating
-  the air.
+  the air.  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^doas
 is: ^ahu
 doc:
   Dedicated Outside Air System: An AHU that brings in 100% outside air and
   no recirculated air in order to provide ventilation to spaces.
+  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^mau
 is: ^doas
 doc:
   Makeup Air Unit: A DOAS that provides make-up air for a separate, dedicated
   exhaust system. That is, this equip does not contain an exhaust air section.
+  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^rtu
 is: ^ahu
 doc:
   Roof Top Unit: A unitary AHU that is weatherized for outdoor use.
+  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^fcu
 is: ^airHandlingEquip
@@ -86,6 +89,7 @@ doc:
   that recirculates air in a space and performs one or more of the
   functions of cleaning, heating, cooling, humidifying, dehumidifying,
   or ventilating the air. Unit heaters are examples of FCUs.
+  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^heatPump
 is: ^airHandlingEquip
@@ -95,18 +99,19 @@ wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
 doc:
   Heat pump: An air handling equipment which employs a vapor compression
   cycle with a reversing valve to provide heating or cooling to a space.
+  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^unitVent
 is: ^fcu
 doc:
   Unit Ventilator: An FCU that has direct access to outside air to provide
-  the space with ventilation.
+  the space with ventilation.  See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
 def: ^crac
 is: ^fcu
 doc:
   Computer Room Air Conditioner: An FCU designed to condition a computer
-  room.
+  room.  See `docHaystack::AHUs` and `docHaystack::DataCenters` chapters.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

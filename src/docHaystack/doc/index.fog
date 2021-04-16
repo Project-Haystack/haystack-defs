@@ -25,6 +25,7 @@
 
   "Verticals",
   [`Meters`,        "Modeling meters"],
+  [`AHUs`,          "Modeling air handling units"],
   [`DataCenters`,   "Modeling data center spaces"],
 
   "Defs",

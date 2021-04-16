@@ -1,0 +1,119 @@
+**************************************************************************
+** title:      AHUs
+** author:     Brian Frank
+** created:    26 Feb 2011
+** copyright:  Copyright (c) 2015, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+The `airHandlingEquip` def is the base of a taxonomy tree that includes
+a wide range of equipment for air handling including:
+  - `ahu`: air handling unit
+  - `doas`: dedicated outside air system
+  - `mau`: makeup air unit
+  - `rtu`: roof top unit
+  - `fcu`: fan coil unit
+  - `crac`: computer room air conditioner
+  - `unitVent`: unit ventilator
+  - `heatPump`: heat pump
+
+Allow of these equipment types follow the same fundamental modeling
+techniques discussed in this chapter.
+
+Choices [#tags]
+***************
+AHUs define a suite of [choices]`Choices` which should be made on
+a per instance basis.
+
+Heating Process [#heatingProcess]
+=================================
+If the AHU provides heating, then it should add one of the following
+[heatingProcess]`heatingProcessType` choices:
+  - `dxHeating`
+  - `elecHeating`
+  - `hotWaterHeating`
+  - `naturalGasHeating`
+  - `steamHeating`
+
+When applicable the heating choice marker should also be paired with
+the appropriate flow ref tag.  For example if an AHU uses hot water
+heating, then the AHU should also define the `hotWaterRef` tag to refer
+to its hot water plant.
+
+Cooling Process [#coolingProcess]
+=================================
+If the AHU provides cooling, then it should add one of the following
+[coolingProcess]`coolingProcessType` choices:
+  - `chilledWaterCooling`
+  - `dxCooling`
+
+If using chilled water, then the `chilledWaterRef` should be defined
+to reference the chilled water plant.
+
+Air Volume Adjustability [#airVolumeAdjustability]
+=====================================
+One of the following [airVolumeAdjustability]`airVolumeAdjustabilityType`
+markers should be defined:
+  - `constantAirVolume`
+  - `variableAirVolume`
+
+This choice models the AHU's ability to adjust the volume of air flow.
+Typically this distinction is based on whether the AHU's fan is single
+speed or a VFD.
+
+Zone Delivery [#ahuZoneDelivery]
+================================
+One of the following [ahuZoneDelivery]`ahuZoneDeliveryType` choices
+should be defined to model how the AHU delivers conditioned air to
+the zone:
+
+  - `vavZone`: AHU supplies air to VAV terminal units
+
+  - `directZone`: AHU supplies air directly to the zone
+
+  - `chilledBeamZone`: AHU supplies air to chilled beam terminal units
+
+  - `multiZone`: air is split into a duct per zone
+
+A Variable Volume Temperature or VVT system is defined as a constant volume
+AHU with VAV terminal units.  This is indicated by the presence of both
+the `constantAirVolume` and `vavZone` tags.
+
+Ductwork [#ductwork]
+====================
+One of the following [ductConfig]`ductConfigType` markers should be
+defined:
+
+  - `singleDuct`: AHU uses a single duct
+
+  - `dualDuct`: the AHU discharges to two ducts which is some combination
+    of `hotDeck`, `coldDeck`, or `neutralDeck`
+
+  - `tripleDuct`: the AHU discharges into three ducts which are the `hotDeck`,
+    `coldDeck`, and `neutralDeck`
+
+Sections [#sections]
+*******************
+Most points in an AHU are associated with one of the following
+[ductSections]`ductSectionType` of the unit:
+  - `discharge`: air exiting the unit to be supplied to the zones/terminal units
+  - `return`: air returning from the zone back into the unit
+  - `outside`: fresh, outside air entering the unit for air quality and economizing
+  - `exhaust`: air exiting the unit back outside
+  - `mixed`: return and outside air mixed together before passing
+    through the heating/cooling elements
+  - `cool`: cooling elements/coils
+  - `heat`: heating elements/coils
+  - `zone`: conditioned space associated with the unit
+
+If the AHU has one duct used for both fresh air and economizing then use the
+`outside` tag.  If there are two dedicated ducts, then use the `ventilation`
+and `economizing` tags for the respective ducts.
+
+The follow diagram shows the AHU sections and logical flow of air:
+
+![ahu sections]`ahu-sections.svg`
+
+
