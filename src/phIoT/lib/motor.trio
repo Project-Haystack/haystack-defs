@@ -11,7 +11,9 @@
 def: ^motor
 is: [^equip, ^elec-input]
 wikipedia: `https://en.wikipedia.org/wiki/Electric_motor`
-doc: "Equipment that converts electrical energy into mechanical energy"
+doc:
+  Equipment that converts electrical energy into mechanical energy.
+  See `docHaystack::Motors` chapter.
 children: [
   // Primary on/off command (on is true, off is false)
   {run cmd point},
@@ -39,7 +41,9 @@ def: ^vfd
 is: ^motor
 tagOn: ^motor
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
-doc: "Motor with variable frequency drive."
+doc:
+  Motor with variable frequency drive.
+  See `docHaystack::Motors` chapter.
 children: [
   // Speed command as percentage where 0% is off, 100% if full speed
   {drive speed cmd point},
@@ -88,7 +92,7 @@ doc:
 def: ^fan
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
-doc: "Fan equipment or control point"
+doc: Fan equipment or control point
 --------------------------------------------------------------------------
 def: ^fan-motor
 is: ^motor
@@ -96,7 +100,9 @@ moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 ductSection: ^ductSectionType
 childrenFlatten: [^ductSectionType, ^fan]
-doc: "Motor used with a fan to create air flow."
+doc:
+  Motor used with a fan to create air flow.
+  See `docHaystack::Motors` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -115,6 +121,8 @@ moves: ^fluid
 pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 childrenFlatten: [^fluid, ^pipeSectionType, ^pump]
-doc: "Motor used with a pump to move fluid."
+doc:
+  Motor used with a pump to move fluid.
+  See `docHaystack::Motors` chapter.
 --------------------------------------------------------------------------
 

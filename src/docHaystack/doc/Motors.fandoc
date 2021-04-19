@@ -1,0 +1,106 @@
+**************************************************************************
+** title:      Motors
+** author:     Brian Frank
+** created:    12 Aug 2014
+** copyright:  Copyright (c) 2014, Project-Haystack
+**************************************************************************
+
+Overview [#overview]
+********************
+The `motor` tag is paired with the `equip` tag to model equipment that
+operates with an electric motor including fans, pumps, and compressors.
+Haystack defines the following standardized motor subtypes:
+
+  - `fan-motor`: fans used to move air
+  - `pump-motor`: pumps used to move fluid
+
+Often these motors are a variable frequency drive or VFD which
+expose many points.  If a motor is a VFD, then it should also be tagged
+with the `vfd` marker.  Typically motors such as fans and pumps are
+sub-components of a larger piece of equip which we nest via
+the `equipRef` tag.
+
+Points [#points]
+****************
+The standardized points for motors are:
+
+  - `run` `cmd`: primary on/off command
+  - `enable` `cmd`: secondary on/off command
+  - `run` `sensor`: run status sensor
+  - `enable` `sensor`: enable status sensor
+  - `alarm` `sensor`: bolean alarm condition
+
+The primary on/off point of equipment is always modeled with the `run` tag.
+Paired with `cmd` it models the on/off command point; paired with `sensor` it
+models the run status point.  Many VFDs also include a secondary `enable` point
+which requires both 'run' and 'enable' to be commanded to true in order for the
+equipment to be on.  In all cases 'true' models the *on* state, and 'false' models
+the *off* state.
+
+If the motor is a VFD, then we also have points related to the drive
+speed control:
+
+  - `drive` `speed` `cmd`: speed command as percentage where 0% is off, 100% if full speed
+  - `drive` `freq` `cmd`: speed command as a frequency in Hz
+  - `drive` `speed` `sensor`: speed status as percentage where 0% is off, 100% if full speed
+  - `drive` `freq` `sensor`: speed status as frequency in Hz
+
+Many VFDs will also provide many of the same points as an electric meter.
+Measurements such as electric demand, consumption, voltage, and current
+should follow the same conventions as [elec meters]`Meters#elecMeters`.
+
+Fans [#fans]
+************
+Fans may optionally be defined as either an `equip` or a `point`.  If
+the fan motor is a VFD then it is recommended to make the fan a sub-equip.
+However in many cases a simple fan in a terminal unit such as a `vav`
+is more easily modeled as just a `point`.
+
+Fan Points [#fanPoints]
+=======================
+In simple cases where the fan is just a command and/or feedback sensor
+then it is best to model it as a `point`.
+
+If annotated as an output with the `cmd` tag, then the point
+models the command status of the fan:
+  - false (off) or true (on)
+  - variable speed then it is 0% (off) to 100% (full speed)
+
+If annotated as an input with the `sensor` tag, then the
+point models a sensor used to verify the fan status:
+  - false indicated no air flow (off) or true indicates successful
+    airflow (fan is on)
+  - if numeric the point is differential pressure across the fan
+    measured in "inH₂O" or "kPa"
+
+Fan Equips [#fanEquips]
+=======================
+When the fan motor is a VFD it should modeled as an `equip` entity
+using the standard VFD points described above. If you wish to standardize
+modeling all fans as equip, then simple single speed fans should define
+their state via a `run` point.
+
+Example of a VFD fan on an AHU:
+
+  id:@ahu ahu equip
+  id:@ahu-fan equipRef:@ahu discharge fan vfd motor equip
+  id:@ahu-fan-run    equipRef:@ahu-fan discharge fan run cmd point
+  id:@ahu-fan-status equipRef:@ahu-fan discharge fan run status point
+  id:@ahu-fan-speed  equipRef:@ahu-fan discharge fan drive speed cmd unit:"%" point
+
+Note that the fan is modeled as an sub-equip of the AHU via the `equipRef`
+tag.  The VFD points are defined under the fan itself, however we must
+[flatten]`Protos#flattening` the 'discharge' and  'fan' tags into the points.
+
+Pumps [#pumps]
+**************
+Pumps may optionally be defined as either an `equip` or a `point`.  If
+the pump is a VFD then it is recommended to make it an equip level entity.
+However if the pump is modeled a simple on/off point as a component within
+a large piece of equipment such as a `boiler` then it is modeled as just a
+`point`.  Pumps should follow the same point and equip level modeling
+conventions as [fans]`#fans`.
+
+
+
+
