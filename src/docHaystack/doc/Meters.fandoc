@@ -135,14 +135,18 @@ If a 'power' or 'energy' point does not have an 'import', 'export', or
 
 Flow Meters [#flowMeters]
 *************************
-Flow meters measure flow rate and total volume of fluids.  Some meters
-such as thermal flow meters, will also provide power and energy calculations.
-Typical points for flow meters include:
+Flow meters measure flow rate and total volume of fluids.  Thermal
+meters (sometimes called BTU meters) also use temperature sensors
+and can provide power and energy calculations.  Points for flow
+meters include:
 
   - `flow`: rate of volume flowing through the meter per unit time
   - `volume`: total volume consumption of the meter
   - `power`: energy consumed per unit time such as "BTU/h"
   - `energy`: energy consumption such as "BTU"
+
+Note that thermal meters should use the same `power` and `energy` tags
+as elec meters.
 
 Energy Flow to Loads [#energyFlows]
 ***********************************
