@@ -75,3 +75,7 @@ def: ^blowdown-water
 is: ^water
 doc: "Water expelled from a system to remove mineral build up"
 --------------------------------------------------------------------------
+def: ^purge-water
+is: ^water
+doc: "Water expelled from a system to remove contaminants."
+--------------------------------------------------------------------------

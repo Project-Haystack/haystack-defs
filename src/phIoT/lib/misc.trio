@@ -43,6 +43,14 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Control_system`
 doc: "Associated with the control system for an industrial process"
 --------------------------------------------------------------------------
+def: ^cool
+is: ^marker
+doc:
+  Associted with low temperature or cooling processes.  When used on a point,
+  this tag is associated with the control of cooling.  When paired with a
+  substance, this tag indicates the substance is relatively cool in comparison
+  to another substance, without being actively cooled by e.g. a chiller.
+--------------------------------------------------------------------------
 def: ^coolingOnly
 is: ^marker
 doc: "Device without heating"
@@ -135,6 +143,12 @@ def: ^ground
 is: ^marker
 doc: "Related to the surface of the earth"
 --------------------------------------------------------------------------
+def: ^heat
+is: ^marker
+doc:
+  Associated with a heating process.  When used on a point,
+  this tag is associated with the control of heating.
+--------------------------------------------------------------------------
 def: ^heatWheel
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Thermal_wheel`
@@ -209,6 +223,13 @@ def: ^parallel
 is: ^marker
 doc: "Circuit with multiple paths of flow"
 --------------------------------------------------------------------------
+def: ^purge
+is: ^marker
+doc:
+  Associated with a cleaning process to remove contaminants.
+  Most commonly it indicates purging water or air by using a filter or by
+  letting out a certain amount of the substance at a high flow rate.
+--------------------------------------------------------------------------
 def: ^reactive
 is: ^marker
 doc: "Relating to reactance"
@@ -276,6 +297,13 @@ def: ^unocc
 is: ^marker
 doc: "Unoccupied mode of a space"
 --------------------------------------------------------------------------
+def: ^warm
+is: ^marker
+doc:
+  Relatively warm in comparison to another substance, without being
+  actively heated. The substance can be used as a source of energy for
+  a heating process, for example a warm water well in an `ates` system.
+--------------------------------------------------------------------------
 def: ^writable
 is: ^marker
 tagOn: ^point
@@ -285,3 +313,4 @@ def: ^zone
 is: ^marker
 doc: "Related to spaces from a system perspective"
 --------------------------------------------------------------------------
+

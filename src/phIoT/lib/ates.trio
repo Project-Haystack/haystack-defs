@@ -1,0 +1,111 @@
+//
+// Copyright (c) 2021, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   24 Feb 2021  Jaap Balvers  Creation, based on work of the Project Haystack WG ATES systems
+//   03 Mar 2021  Jaap Balvers  Added children to equips
+//   12 Mar 2021  Jaap Balvers, Coen Hoogervorst  Added children
+//   30 Mar 2021  Jaap Balvers  Added atesDesign and atesDesignType
+//
+
+//////////////////////////////////////////////////////////////////////////
+// Equips
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^ates
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/Aquifer_thermal_energy_storage`
+atesDesign: ^atesDesignType
+doc:
+  Aquifer Thermal Energy Storage system: A system that uses underground
+  water to store thermal energy and deliver heating and cooling to a
+  building in a very energy efficient way (often in combination with a
+  heat pump). The ates consists of all parts of the system that interact
+  directly with the underground water up to (and including) the heatExchanger
+  that transfers energy into other parts of the building hot water plant.
+  The ates equip is modeled as part of the hot-water-plant.
+  See `docHaystack::ATES` chapter.
+children: [
+  {warm well equip},
+  {cool well equip},
+  {flowInverter equip},
+  {warm thermal energy meter equip},
+  {cool thermal energy meter equip},
+  {warm flow meter equip},
+  {cool flow meter equip},
+  {heatExchanger equip},
+  {water flow sensor point},
+  {water volume sensor point},
+  {water pressure sensor point},
+  {purge water flow sensor point},
+  {purge water volume sensor point},
+  ]
+--------------------------------------------------------------------------
+def: ^well
+is: ^equip
+doc:
+  A well is a source of groundwater and potentially thermal energy.  When
+  used within an [ATES]`docHaystack::ATES` system, the well facilitates thermal
+  energy exchange with the ground warm and cool water sources. In this case, a
+  well can be either a closed system that transports water through pipes in the
+  ground, or an open system that pumps up and returns ground water.
+children: [
+  {water temp sensor point},
+  {water flow sensor point},
+  {water volume sensor point},
+  {water pressure sensor point},
+  {water level sensor point},
+  {water pump motor equip},
+  ]
+--------------------------------------------------------------------------
+def: ^flowInverter
+is: ^equip
+doc: "System to change direction of substance flow "
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// ATES Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^atesDesign
+is: ^choice
+of: ^atesDesignType
+doc: "Design type of the ATES underground system."
+--------------------------------------------------------------------------
+def: ^atesDesignType
+is: ^marker
+doc: "Design type of the ATES underground system."
+--------------------------------------------------------------------------
+def: ^atesMono
+is: ^atesDesignType
+doc:
+  The ATES has only one physical well.  This well is deep enough
+  to penetrate two layers of groundwater.
+--------------------------------------------------------------------------
+def: ^atesDoublet
+is: ^atesDesignType
+doc:
+  The ATES has one or more pairs of a separate warm and cool well.
+--------------------------------------------------------------------------
+def: ^atesDoubletPaired
+is: ^atesDesignType
+doc:
+  The ATES is as a doublet, but with specific warm and cool wells linked together.
+  These linked wells do not exchange water with other wells.
+--------------------------------------------------------------------------
+def: ^atesUnidirectional
+is: ^atesDesignType
+doc:
+  Similar to a doublet, but water always flows in the same direction from
+  the extraction to the infiltration well.
+--------------------------------------------------------------------------
+def: ^atesClosedLoop
+is: ^atesDesignType
+doc:
+  The ATES uses closed piping to transport a water/glycol mixture
+  through the ground. The system works like a heat exchanger; there
+  is no ground water transported.
+--------------------------------------------------------------------------

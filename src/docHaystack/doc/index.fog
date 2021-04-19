@@ -26,6 +26,7 @@
   "Verticals",
   [`Meters`,        "Modeling meters"],
   [`AHUs`,          "Modeling air handling units"],
+  [`ATES`,          "Modeling aquifer thermal energy storage"],
   [`DataCenters`,   "Modeling data center spaces"],
 
   "Defs",

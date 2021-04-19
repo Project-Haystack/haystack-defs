@@ -1,0 +1,45 @@
+**************************************************************************
+** title:      ATES
+** author:     WG 734
+** created:    19 Apr 2021
+** copyright:  Copyright (c) 2021, Project-Haystack
+**************************************************************************
+
+Overview [#overview]
+*********************
+The `ates` tag is used to model an aquifer thermal energy storage system.  ATES
+systems are designed to use underground water to store thermal energy and deliver
+heating and cooling to a building in a very energy efficient way, often in
+combination with a heat pump. The ATES consists of all parts of the system
+that interact directly with the underground water up to and including the
+heat exchanger that transfers energy into the building hot water plant.
+
+An ATES always has one or more well equips. Wells facilitate the
+thermal energy exchange with the ground warm and cold water sources. A
+well and can be either a closed system that transports water through
+pipes in the ground, or an open system that pumps up and returns
+ground water.
+
+In most cases, there is also a `flowInverter` equip to change direction
+of the flow between the different well equips.
+
+There are always one or more [heatExchangers]`heatExchanger` to transfer
+energy from the ATES into the hot and/or cold water plant of the building.
+In some cases there are multiple buildings connected to a single ATES
+system with one or more heat exchangers per building.
+
+ATES [#ates]
+************
+An ATES must be tagged using the `ates` and  `equip` marker tags.  In
+addition it must define one of the `atesDesignType` choices.
+
+Wells [#wells]
+**************
+Wells should always be marked as `well` and `equip`.  They are modeled
+as the children an ates equip. The following tags are also used:
+
+  - `warm`: relatively warm temperature well to store heating energy
+  - `cool`: relatively cool temperature well to store cooling energy
+
+
+
