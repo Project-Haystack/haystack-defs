@@ -54,8 +54,7 @@ dict which represents an equipment asset.
 
 Encodings:
   M                     // Zinc cell
-  name without colon    // Zinc meta or nested dict
-  name without colon    // Trio
+  name without colon    // Zinc meta, nested dict, Trio
   { "_kind": "marker" } // JSON
 
 NA [#na]
@@ -96,44 +95,34 @@ All Haystack Numbers may include an optional unit of measurement.  This
 unit must be a symbol defined in the standard [unit database]`Units`.
 
 Encodings:
-  45             // Zinc, Trio, JSON - unitless integer
-  45°F           // Zinc, Trio - integer with unit
 
-  // JSON - integer with unit
-  {
-    "_kind": "number",
-    "val": 45,
-    "unit": "°F"
-  }
+  // Unitless in Zinc, Trio, JSON are just simple numbers
+  45             // unitless integer
+  -23.45         // unitless floating point
+  5.4e-7         // unitless exponent format
 
-  -23.45         // Zinc, Trio, JSON - unitless floating point
-  -23.45m²       // Zinc, Trio - floating point with unit
+  // Zinc, Trio append unit using a literal syntax
+  45°F           // integer with unit
+  -23.45m²       // floating point with unit
+  10_000         // underbar is allowed as a separator
+  5.4E+8kW       // exponent format with unit
 
-  // JSON - floating point with unit
-  {
-    "_kind": "number",
-    "val": -23.45
-    "unit": "m²"
-  }
-
-  10_000         // Zinc, Trio - underbar separate is allowed
-  5.4e-7         // Zinc, Trio, JSON - unitless exponent format
-  5.4E+8kW       // Zinc, Trio - exponent format with unit
-
-  // JSON - exponent format with unit
-  {
-    "_kind": "number",
-    "val": 5.4E+8,
-    "unit": "kW"
-  }
+  // JSON uses an object for numbers with a unit
+  { "_kind": "number", "val": 45, "unit": "°F" }
+  { "_kind": "number", "val": -23.45, "unit": "m²" }
+  { "_kind": "number", "val": 5.4E+8, "unit": "kW" }
 
 The three special Number values:
-  NaN                                  // Zinc, Trio
-  { "_kind": "number", "val": "NaN" }  // JSON
-  INF                                  // Zinc, Trio
-  { "_kind": "number", "val": "INF" }  // JSON
-  -INF                                 // Zinc, Trio
-  { "_kind": "number", "val": "-INF" } // JSON
+
+  // Zinc, Trio use a literal syntax
+  NaN
+  INF
+  -INF
+
+  // JSON uses object syntax
+  { "_kind": "number", "val": "NaN" }
+  { "_kind": "number", "val": "INF" }
+  { "_kind": "number", "val": "-INF" }
 
 It is invalid for NaN to include a unit.  A unit may be included with
 INF and -INF, however it is discouraged.
@@ -150,7 +139,7 @@ Strings are encoded using double quotes and C style backslash escapes:
   "haystack"         // Zinc, Trio, JSON
   "Line 1\nLine 2"   // Zinc, Trio, JSON with backslash escape newline
 
-Note that Zinc requires the "$" character to be backslash escaped.
+Note that Zinc and Trio require the "$" character to be backslash escaped.
 
 Strings are also used for enumerated types.  Enumerations define their
 range via the `enum` type.
@@ -161,13 +150,11 @@ Uri is the data type to represent Universal Resource Identifiers according
 to [RFC 3986]`http://tools.ietf.org/html/rfc3986`.
 
 Encodings:
-  `http://project-haystack.org/`    // Zinc, Trio use back tick quotes
+  // Zinc, Trio use back tick quotes
+  `http://project-haystack.org/`
 
   // JSON
-  {
-    "_kind": "uri",
-    "val": "http://project-haystack.org/"
-  }
+  { "_kind": "uri", "val": "http://project-haystack.org/" }
 
 Ref [#ref]
 **********
@@ -199,21 +186,15 @@ that refs are globally unique.
 
 Refs are encoded using "@" as a prefix and may optionally include
 the display name of the entity with a quoted string literal:
+
   @foo-bar                  // Zinc, Trio
   @foo-bar "Display Name"   // Zinc, Trio with display name
 
   // JSON
-  {
-    "_kind": "ref",
-    "val": "foo-bar"
-  }
+  { "_kind": "ref", "val": "foo-bar" }
 
   // JSON with display name
-  {
-    "_kind": "ref",
-    "val": "foo-bar",
-    "dis": "Display Name"
-  }
+  { "_kind": "ref", "val": "foo-bar", "dis": "Display Name" }
 
 Symbol [#symbol]
 ****************
@@ -225,35 +206,29 @@ punctuation characters are used today.  Dashes are used for [conjunct symbols]`D
 and the colon is used for [feature key symbols]`Defs#keys`.
 
 Symbols are encoded using "^" as a prefix:
-  ^elec-meter      // Zinc, Trio
+
+  ^elec-meter  // Zinc, Trio
 
   // JSON
-  {
-    "_kind": "symbol",
-    "val": "elec-meter"
-  }
+  { "_kind": "symbol", "val": "elec-meter" }
 
 Date [#date]
 ************
 Date is an ISO 8601 calendar date.  It is encoded as YYYY-MM-DD:
-  2020-07-17      // Zinc, Trio
+
+  2020-07-17   // Zinc, Trio
 
   // JSON
-  {
-    "_kind": "date",
-    "val": "2020-07-17"
-  }
+  { "_kind": "date", "val": "2020-07-17" }
 
 Time [#time]
 ************
 Time is an ISO 8601 time of day.  It is encoded as hh:mm:ss.sss:
-  14:30:00      // Zinc, Trio for 2:30pm
+
+  14:30:00    // Zinc, Trio for 2:30pm
 
   // JSON
-  {
-    "_kind": "time",
-    "val": "14:30:00"
-  }
+  { "_kind": "time", "val": "14:30:00" }
 
 DateTime [#dateTime]
 ********************
@@ -265,15 +240,11 @@ Implementations should support DateTime precision at least down to the milliseco
 The encoding of DateTime is the ISO 8601 representation followed by a space
 and the timezone name:
 
-  2020-07-17T16:55:42.977-04:00 New_York       // Zinc, Trio
-  2020-07-17T23:30:00Z                         // May omit UTC timezone if offset is Z
+  2020-07-17T16:55:42.977-04:00 New_York  // Zinc, Trio
+  2020-07-17T23:30:00Z                    // May omit UTC timezone if offset is Z
 
   // JSON
-  {
-    "_kind": "dateTime",
-    "val": "2020-07-17T16:55:42.977-04:00",
-    "tz": "New_York"
-  }
+  {  "_kind": "dateTime", "val": "2020-07-17T16:55:42.977-04:00", "tz": "New_York" }
 
 Coord [#coord]
 **************
@@ -291,11 +262,7 @@ Coord is encoded using positive/negative latitude, longitude in decimal degrees:
   C(37.5458266,-77.4491888)   // Trio, Zinc
 
   // JSON
-  {
-    "_kind": "coord",
-    "lat": 37.548266,
-    "lng": -77.4491888
-  }
+  { "_kind": "coord", "lat": 37.548266, "lng": -77.4491888 }
 
 XStr [#xstr]
 ************
@@ -311,11 +278,7 @@ Encodings:
   Color("red")    // Zinc, Trio
 
   // JSON
-  {
-    "_kind": "xstr",
-    "type": "Color",
-    "val": "red"
-  }
+  { "_kind": "xstr", "type": "Color","val": "red" }
 
 List [#list]
 ************
@@ -335,7 +298,7 @@ as discussed in the [names section]`#names`.  The values may be be any other val
 Haystack data type.
 
 Dicts are encoded using curly braces similiar to JSON objects:
-  {x:123, y:456}       // Zinc, Trio (commas are optional)
+  {x:123, y:456}       // Zinc, Trio (commas optional, trailing comma allowed)
   {"x":123, "y":456}   // JSON object
 
 Grid [#grid]
