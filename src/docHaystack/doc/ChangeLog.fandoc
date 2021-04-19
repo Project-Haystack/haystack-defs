@@ -38,8 +38,9 @@
 - New Meters chapter
 - New AHUs chapter
 - New Motors chapter
-- New DataCenters chapter
+- New ElecPanels chapter
 - New ATES chapter and tags from WG 734
+- New DataCenters chapter
 
 **Version 3.9.9 (23 Jul 2020)**
 - Enhance enum value spec to allow list of dicts

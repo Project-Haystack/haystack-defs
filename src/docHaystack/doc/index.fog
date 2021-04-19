@@ -27,6 +27,7 @@
   [`Meters`,        "Modeling meters"],
   [`AHUs`,          "Modeling air handling units"],
   [`Motors`,        "Modeling fans, pumps, and other motors"],
+  [`ElecPanels`,    "Modeling electrical panels, circuits, and breakers"],
   [`ATES`,          "Modeling aquifer thermal energy storage"],
   [`DataCenters`,   "Modeling data center spaces"],
 

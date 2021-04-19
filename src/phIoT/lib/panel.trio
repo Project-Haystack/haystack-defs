@@ -17,6 +17,15 @@ doc:
 def: ^elec-panel
 is: [^panel, ^elec-input, ^elec-output]
 wikipedia: `https://en.wikipedia.org/wiki/Distribution_board`
-doc: "Physical housing for electrical circuits, fuses, and breakers"
+doc:
+  Physical housing for electrical circuits, fuses, and breakers.
+  See `docHaystack::ElecPanels#panels` chapter.
+--------------------------------------------------------------------------
+def: ^circuit
+is: [^equip, ^elec-input, ^elec-output]
+wikipedia: `https://en.wikipedia.org/wiki/Electrical_network`
+doc:
+  Electrical circuit and its associated components such as breakers.
+  See `docHaystack::ElecPanels#circuits` chapter.
 --------------------------------------------------------------------------
 
