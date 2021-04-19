@@ -43,9 +43,7 @@ These are renamed or turned into conjuncts:
   - min => `minVal`
   - oil => `fuelOil`
   - openLoop => `condenserOpenLoop`
-  - primaryLoop => `plantPrimaryLoop`
   - rooftop => `rtu`
-  - secondaryLoop => `plantSecondaryLoop`
   - screw => `rotaryScrew`
   - steamHeat => `steamHeating`
   - steamMeterLoad => `steamRef`

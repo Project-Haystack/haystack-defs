@@ -114,15 +114,15 @@ def: ^plantLoopType
 is: ^marker
 doc: "Plant piping loop: primary, secondary, or tertiary"
 --------------------------------------------------------------------------
-def: ^plantPrimaryLoop
+def: ^primaryLoop
 is: ^plantLoopType
 doc: "Pipework which circulates within the central plant"
 --------------------------------------------------------------------------
-def: ^plantSecondaryLoop
+def: ^secondaryLoop
 is: ^plantLoopType
 doc: "Pipework which circulates between the central plant and building"
 --------------------------------------------------------------------------
-def: ^plantTertiaryLoop
+def: ^tertiaryLoop
 is: ^plantLoopType
 doc: "Pipework which circulates within the building"
 --------------------------------------------------------------------------
