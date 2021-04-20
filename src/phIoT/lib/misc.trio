@@ -191,15 +191,21 @@ doc: "Systems associated with illumination in the built environment"
 --------------------------------------------------------------------------
 def: ^occupancy
 is: ^marker
-doc: "Number of occupants in a space."
+doc:
+  Number of occupants in a space.
+  See `docHaystack::Zones#occupancy` chapter.
 --------------------------------------------------------------------------
 def: ^occupants
 is: ^marker
-doc: "People who use the built environment"
+doc:
+  People who use the built environment.
+  See `docHaystack::Zones#occupancy` chapter.
 --------------------------------------------------------------------------
 def: ^occupied
 is: ^marker
-doc: "Setpoint or sensor indicating occupancy of a space"
+doc:
+  Setpoint or sensor indicating occupancy of a space.
+  See `docHaystack::Zones#occupancy` chapter.
 --------------------------------------------------------------------------
 def: ^makeup
 is: ^marker
@@ -217,7 +223,9 @@ doc: "Difference between import and export"
 --------------------------------------------------------------------------
 def: ^occ
 is: ^marker
-doc: "Occupied mode of a space"
+doc:
+  Occupied mode of a space.
+  See `docHaystack::Zones#occupancy` chapter.
 --------------------------------------------------------------------------
 def: ^parallel
 is: ^marker
@@ -295,7 +303,9 @@ doc: "Total harmonic distortion"
 --------------------------------------------------------------------------
 def: ^unocc
 is: ^marker
-doc: "Unoccupied mode of a space"
+doc:
+  Unoccupied mode of a space.
+  See `docHaystack::Zones#occupancy` chapter.
 --------------------------------------------------------------------------
 def: ^warm
 is: ^marker

@@ -70,6 +70,8 @@ Here is an example of an HVAC zone:
   siteRef: @site
   spaceRef: @site.floor3
 
+Zones and their associated points are examined in detail in the `Zones` chatper.
+
 Data Centers [#dataCenters]
 ***************************
 Data centers are also modeled as a subtype of space.

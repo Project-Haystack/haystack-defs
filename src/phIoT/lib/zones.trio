@@ -15,7 +15,7 @@ def: ^zone-space
 is: ^space
 doc:
   Space associated with a specific system.
-  See `docHaystack::Spaces#zones` chapter.
+  See `docHaystack::Spaces#zones` and `docHaystack::Zones` chapters.
 children: [
   {occupied sensor point},
   {occupied sp point},
@@ -23,16 +23,16 @@ children: [
   ]
 --------------------------------------------------------------------------
 def: ^hvac-zone-space
-is: [^zone-space, ^hvacZonePoints, ^air-input]
+is: [^zone-space, ^hvacZonePoints, ^airQualityZonePoints, ^air-input]
 doc:
   Zone related to conditioning of a space's air temperature and quality.
-  See `docHaystack::Spaces#zones` chapter.
+  See `docHaystack::Spaces#zones` and `docHaystack::Zones#hvac` chapters.
 --------------------------------------------------------------------------
 def: ^lighting-zone-space
 is: [^zone-space, ^lightingZonePoints]
 doc:
   Zone related to lighting system.
-  See `docHaystack::Spaces#zones` chapter.
+  See `docHaystack::Spaces#zones` and `docHaystack::Zones#lighting` chapters.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -42,9 +42,10 @@ doc:
 --------------------------------------------------------------------------
 def: ^hvacZonePoints
 is: ^pointGroup
-doc: "Entity with logical grouping of zone HVAC air points"
+doc:
+  Entity with logical grouping of zone HVAC air points.
+  See `docHaystack::Zones#hvac` chapter.
 children: [
-  // temperature control
   {zone air temp sensor point},
   {zone air temp effective sp point},
   {zone air temp occ cooling sp point},
@@ -60,15 +61,6 @@ children: [
   {zone air dewPoint sensor point},
   {zone air dewPoint sp point},
   {zone air enthalpy sensor point},
-
-  // air quality sensors
-  {zone air co concentration sensor point},
-  {zone air co2 concentration sensor point},
-  {zone air co2 concentration sp point},
-  {zone air pm01 concentration sensor point},
-  {zone air pm10 concentration sensor point},
-  {zone air pm25 concentration sensor point},
-  {zone air tvoc concentration sensor point},
   ]
 --------------------------------------------------------------------------
 def: ^thermostat
@@ -80,13 +72,36 @@ doc:
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
+// Air Quality
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^airQualityZonePoints
+is: ^pointGroup
+doc:
+  Entity with logical grouping of zone air quality points.
+  See `docHaystack::Zones#airQuality` chapter.
+children: [
+  {zone air co concentration sensor point},
+  {zone air co2 concentration sensor point},
+  {zone air co2 concentration sp point},
+  {zone air pm01 concentration sensor point},
+  {zone air pm10 concentration sensor point},
+  {zone air pm25 concentration sensor point},
+  {zone air tvoc concentration sensor point},
+  ]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
 // Lighting Zone Points
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
 def: ^lightingZonePoints
 is: ^pointGroup
-doc: "Entity with logical grouping of lighting points"
+doc:
+  Entity with logical grouping of lighting points.
+  See `docHaystack::Zones#lighting` chapter.
 children: [
   {light level sensor point},
   {light level sp point},
@@ -94,4 +109,5 @@ children: [
   {light luminous flux sensor point},
   ]
 --------------------------------------------------------------------------
+
 
