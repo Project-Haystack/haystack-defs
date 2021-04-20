@@ -10,20 +10,24 @@
 --------------------------------------------------------------------------
 def: ^entity
 is: ^marker
-doc: "Top-level dicts with a unique identifier"
+doc:
+  Top-level dicts with a unique identifier.
+  See `docHaystack::Ontology#entities` chapter.
 --------------------------------------------------------------------------
 def: ^id
 is: ^ref
 tagOn: ^entity
 doc:
-  Defines the unique identifier of an entity in system using a Ref value
+  Defines the unique identifier of an entity in system using a `ref` value
   type. The scope of an entity is undefined, but must be unique with a
   given system or project. This identifier may be used by other entities
-  for cross-referencing.
+  for cross-referencing.  See `docHaystack::Ontology#entities` chapter.
 --------------------------------------------------------------------------
 def: ^dis
 is: ^str
 tagOn: ^entity
-doc: "Display name for an entity"
+doc:
+  Display name for an entity.
+  See `docHaystack::Ontology#entities` chapter.
 --------------------------------------------------------------------------
 

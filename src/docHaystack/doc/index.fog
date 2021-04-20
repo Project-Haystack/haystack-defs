@@ -15,7 +15,7 @@
   [`Filters`,       "Predicates for querying Haystack data"],
 
   "Ontology",
-  [`Ontology`,      "Overview of entity types"],
+  [`Ontology`,      "Overview of ontology"],
   [`Sites`,         "Sites entities"],
   [`Spaces`,        "Space entities including floors, rooms, and zones"],
   [`Equips`,        "Equipment entities"],

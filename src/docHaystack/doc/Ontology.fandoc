@@ -7,8 +7,57 @@
 
 Overview [#overview]
 *********************
-Haystack defines how to model the following key entities from the built
-environment:
+Project Haystack's semantic model is structured into three layers:
+
+  - **Vocabulary**: giving our tag names formal definitions as terms
+  - **Taxonomy**: organizing our terms into a subtype tree
+  - **Ontology**: modeling more complex relationships between definitions
+
+Each standardized tag name used by Haystack data has a formal definition
+or [def]`Defs`.  For example, the `geoCountry` tag must a string and is
+always expected to be a two letter ISO 3166-1 code.  [Conjuncts]`Defs#conjuncts`
+are terms which are defined by composing two or more marker tags.  Conjuncts
+are like coining new compound words from existing simple words.  For example,
+the term we use for measurement of carbon dioxide is the conjunct `co2-concentration`,
+which is coined from the individual tags `co2` and `concentration`.  The
+collection of tag and conjunct definitions form what we call a [controlled
+vocabulary]`https://en.wikipedia.org/wiki/Controlled_vocabulary`.
+The vocabulary ensures that every term we use is precisely defined.
+
+All of the terms in the controlled vocabulary are further organized into
+a [taxonomy]`https://en.wikipedia.org/wiki/Taxonomy` tree which organizes
+terms from most general to most specific via the mechanism of
+[subtyping]`Subtyping`.  Subtyping is a tool for the classification of
+concepts.  For example, we say that `co2` is a *subtype* of `gas`
+because it is a specific type of gas.
+
+We classify Project Haystack as a full [ontology]`https://en.wikipedia.org/wiki/Ontology_(information_science)`
+because we also define many [relationships]`Associations` between our terms (beyond
+the taxonomy classifications).  For example we define the relationships between
+[substances]`substance` and the [quantities]`quantity` used to perform
+measurements on those substances: we define that `temp` is a `quantityOf`
+of physical [substances]`substance`, but that `luminous-flux` is a
+quantity of `light`.
+
+Instance Models [#instanceModels]
+****************************************
+The ontology defines the *meta model* which is used model *concepts*.  We
+use the term *instance model* when we build a Haystack data model for
+specific buildings and systems.  One good way to think of instances is as
+proper nouns with a unique names and identities.  For example, the Empire
+State Building is an instance of a site, as opposed to the `site` tag which
+models the concept of all buildings.
+
+Entities [#entities]
+********************
+We use the term *entity* to describe a unique instance in a Haystack model.
+Entities model things from the real world like buildings, rooms, equipment,
+and sensors.  An entity in Haystack is always modeled as a [dict]`Kinds#dict`
+(collection of tags).
+
+The `entity` taxonomy tree defines the fundamental types used to build Haystack
+data models. We define  how to model the following fundamental entities of the
+built environment:
 
 - [site]`Sites`: single building with its own street address
 - [space]`Spaces`: location or zone within a site
@@ -18,4 +67,15 @@ environment:
 - [device]`Devices`: computers, controllers, networking gear
 
 Each of these entity types is discussed in detail in the following chapters.
+
+All entities are uniquely identified via the `id` tag.  The 'id' tag serves
+the primary key and must be unique within the scope of the entity's dataset.
+We use the 'id' tag to cross-reference our relationships between entities.
+For example spaces and equipment contained within a given site will model
+their containment relationship via the `siteRef` tag.
+
+Entities should always be given a `dis` tag which provides a human friendly
+name of the entity.  A general rule is that display names should be relatively
+short (under 40 characters), but also fully descriptive of the entity.
+
 

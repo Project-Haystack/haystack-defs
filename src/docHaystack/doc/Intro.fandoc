@@ -5,36 +5,6 @@
 ** copyright:  Copyright (c) 2019, Project-Haystack
 **************************************************************************
 
-Prelude [#prelude]
-*********************
-Welcome to Project Haystack!
-
-This initial documentation addresses Haystack 4.0 and its suite of new
-technologies for more advanced data modeling.  The work was done
-under [WG 551]`https://project-haystack.org/forum/topic/551`.
-
-Key concepts for the Haystack 4.0 include:
-  - new design for definition of tags and tag sets
-  - organization of tags into a taxonomy tree structure
-  - symbol relationships between tags for a richer ontology
-  - enhancements to the filter query language
-  - RDF support
-
-This current documentation is focused only on the major 4.0 features.
-Eventually we will also include/rework all of the existing documentation
-into 'docHaystack' as a single document.  Currently its a work in progress.
-
-Key new concepts to review:
-  - `Defs`: new model for defining tags and tag combinations
-  - `Namespaces`: a new modular design based on versioned libraries
-  - `Subtyping`: organizing all terms into a taxonomy tree based on subtyping
-  - `Reflection`: mapping between dict data and definitions
-  - `Relationships`: more powerful relationship modeling and queries
-  - `Rdf`: prototype support for exporting Haystack data to RDF
-
-This documentation and the definitions is managed in the GitHub repo
-located at `https://github.com/Project-Haystack/haystack-defs`.
-
 Overview [#overview]
 ********************
 Project Haystack is an open source suite of technologies for modeling IoT data.
@@ -115,12 +85,12 @@ Project Haystack is focused on the semantic data model for the
 We specify an ontology to standardize modeling of common
 concepts in this domain including:
 
-  - `site`: a single building or location of equipment/sensors
-  - `space`: a floor, room, HVAC zone, lighting zone, etc
-  - `equip`: a physical asset such as a meter, air handler, boiler, etc
-  - `point`: a sensor, setpoint, or actuator
-  - `device`: microprocessor based hardware such as controllers, networking gear, etc
-  - `weatherStation`: weather observations for temperature, humidity, precipitation, etc
+  - [site]`Sites`: a single building or location of equipment/sensors
+  - [space]`Spaces`: a floor, room, HVAC zone, lighting zone, etc
+  - [equip]`Equips`: a physical asset such as a meter, air handler, boiler, etc
+  - [point]`Points`: a sensor, setpoint, or actuator
+  - [device]`Devices`: microprocessor based hardware such as controllers, networking gear, etc
+  - [weather]`Weather`: weather observations for temperature, humidity, precipitation, etc
 
 Each of these top-level concepts includes a taxonomy tree for more specific types.
 For example, the term *space* is the root of the taxonomy that includes floor,
