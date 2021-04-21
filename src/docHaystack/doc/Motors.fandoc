@@ -14,15 +14,15 @@ Haystack defines the following standardized motor subtypes:
   - `fan-motor`: fans used to move air
   - `pump-motor`: pumps used to move fluid
 
-Often these motors are a variable frequency drive or VFD which
-expose many points.  If a motor is a VFD, then it should also be tagged
+Often these motors are driven by a variable frequency drive or VFD which
+expose many points.  If a motor uses a VFD, then it should also be tagged
 with the `vfd` marker.  Typically motors such as fans and pumps are
 sub-components of a larger piece of equip which we nest via
 the `equipRef` tag.
 
 Points [#points]
 ****************
-The standardized points for motors are:
+The standardized points for motor control are:
 
   - `run` `cmd`: primary on/off command
   - `enable` `cmd`: secondary on/off command
@@ -37,13 +37,13 @@ which requires both 'run' and 'enable' to be commanded to true in order for the
 equipment to be on.  In all cases 'true' models the *on* state, and 'false' models
 the *off* state.
 
-If the motor is a VFD, then we also have points related to the drive
-speed control:
+If the motor is driven variable frequency drive then it should be tagged
+with the `vfd` marker.  Points related to the drive speed control:
 
-  - `drive` `speed` `cmd`: speed command as percentage where 0% is off, 100% if full speed
-  - `drive` `freq` `cmd`: speed command as a frequency in Hz
-  - `drive` `speed` `sensor`: speed status as percentage where 0% is off, 100% if full speed
-  - `drive` `freq` `sensor`: speed status as frequency in Hz
+  - `vfd` `speed` `cmd`: speed command as percentage where 0% is off, 100% if full speed
+  - `vfd` `freq` `cmd`: speed command as a frequency in Hz
+  - `vfd` `speed` `sensor`: speed status as percentage where 0% is off, 100% if full speed
+  - `vfd` `freq` `sensor`: speed status as frequency in Hz
 
 Many VFDs will also provide many of the same points as an electric meter.
 Measurements such as electric demand, consumption, voltage, and current
@@ -51,8 +51,8 @@ should follow the same conventions as [elec meters]`Meters#elecMeters`.
 
 Fans [#fans]
 ************
-Fans may optionally be defined as either an `equip` or a `point`.  If
-the fan motor is a VFD then it is recommended to make the fan a sub-equip.
+Fans may optionally be defined as either an `equip` or a `point`.  If the
+fan motor is driven by a VFD then it is recommended to make the fan a sub-equip.
 However in many cases a simple fan in a terminal unit such as a `vav`
 is more easily modeled as just a `point`.
 

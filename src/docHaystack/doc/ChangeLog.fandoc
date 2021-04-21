@@ -16,6 +16,7 @@
 - Update filters chapter for ref list handling
 - Exploded point types (attempt only)
 - Remove state and stateQuantity in favor of keeping run/enable on their own
+- Tweaks to how vfd is used, remove drive tag
 - Expand some of the sp/sensor cmd/sensor proto pairs
 - Add enthalpy tag, associated weather, duct, and zone points
 - Add protos grid files to the distribution

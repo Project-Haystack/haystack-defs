@@ -29,6 +29,18 @@ children: [
 
   // Boolean alarm condition.  True indicates an alarm condition.
   {alarm sensor point},
+
+  // Speed command as percentage where 0% is off, 100% if full speed
+  {vfd speed cmd point},
+
+  // Speed command as a frequency in Hz
+  {vfd freq cmd point},
+
+  // Speed status as percentage where 0% is off, 100% if full speed
+  {vfd speed sensor point},
+
+  // Speed status as frequency in Hz
+  {vfd freq sensor point},
   ]
 --------------------------------------------------------------------------
 
@@ -38,49 +50,24 @@ children: [
 
 --------------------------------------------------------------------------
 def: ^vfd
-is: ^motor
-tagOn: ^motor
+is: ^marker
+tagOn: [^point, ^motor]
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc:
-  Motor with variable frequency drive.
+  Variable-frequency drive.
   See `docHaystack::Motors` chapter.
-children: [
-  // Speed command as percentage where 0% is off, 100% if full speed
-  {drive speed cmd point},
-
-  // Speed command as a frequency in Hz
-  {drive freq cmd point},
-
-  // Speed status as percentage where 0% is off, 100% if full speed
-  {drive speed sensor point},
-
-  // Speed status as frequency in Hz
-  {drive freq sensor point},
-  ]
 --------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// VFD Points
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^drive
-is: ^phenomenon
-doc: "Related to the drive control of a `motor`"
---------------------------------------------------------------------------
-def: ^drive-speed
+def: ^vfd-speed
 is: ^quantity
-quantityOf: ^drive
 prefUnit: ["%"]
 doc:
-  Motor speed measured in "%"; 0% is off and 100% is the fastest speed.
+  VFD speed measured in "%"; 0% is off and 100% is the fastest speed.
 --------------------------------------------------------------------------
-def: ^drive-freq
+def: ^vfd-freq
 is: ^quantity
-quantityOf: ^drive
 prefUnit: ["Hz"]
 doc:
-  Motor frequency measured in "Hz".
+  VFD frequency measured in "Hz".
 --------------------------------------------------------------------------
 
 

@@ -19,7 +19,7 @@
   [`Sites`,         "Sites entities"],
   [`Spaces`,        "Space entities including floors, rooms, and zones"],
   [`Equips`,        "Equipment entities"],
-  [`Points`,        "Point entities including sensors, actuators, and setpoints"],
+  [`Points`,        "Point entities - sensors, actuators, and setpoints"],
   [`Weather`,       "Weather station entities"],
   [`Devices`,       "Device entities including controllers and networks"],
 
