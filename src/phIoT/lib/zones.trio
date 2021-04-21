@@ -46,6 +46,7 @@ doc:
   Entity with logical grouping of zone HVAC air points.
   See `docHaystack::Zones#hvac` chapter.
 children: [
+  {zone air hvacMode sp point},
   {zone air temp sensor point},
   {zone air temp effective sp point},
   {zone air temp occ cooling sp point},

@@ -165,7 +165,7 @@ doc: "Concentration of formaldehyde (CH₂O) in the air."
 def: ^co-concentration
 is: ^airQuality
 prefUnit: ["ppm"]
-doc: "Concentration of carbon carbon monoxide (CO) in the air."
+doc: "Concentration of carbon monoxide (CO) in the air."
 --------------------------------------------------------------------------
 def: ^co2-concentration
 is: ^airQuality

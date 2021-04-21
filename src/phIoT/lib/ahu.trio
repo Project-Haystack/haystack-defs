@@ -39,6 +39,7 @@ children: [
   {humidifier equip},
   {thermostat equip},
 
+  {hvacMode sp point},
   {cool cmd point},
   {heat cmd point},
   {filter sensor point},

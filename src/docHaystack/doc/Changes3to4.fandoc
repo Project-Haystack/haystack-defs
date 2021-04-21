@@ -57,6 +57,7 @@ These are renamed or turned into conjuncts:
   - sunrise => `daytime`
   - uv => `unitVent`
   - variableVolume => `variableAirVolume`
+  - vavMode => `hvacMode`
   - waterCooled => `waterCooling`
   - waterMeterLoad => 'xxxWaterRef' such as `chilledWaterRef`
   - weather => [see weather]`#weather`

@@ -17,7 +17,7 @@ doc:
   air temperature with a variable air flow rate.
 children: [
   {reheat cmd point},
-  {vavMode sp point},
+  {hvacMode sp point},
   {ductArea sp point},
   {perimeterHeat cmd point},
   ]
@@ -93,13 +93,9 @@ def: ^ductArea
 is: ^marker
 doc: "Config point on a `vav` for duct area measured in ft² or m²"
 --------------------------------------------------------------------------
-def: ^perimeterHeat
+def: ^hvacMode
 is: ^marker
-doc: "Auxiliary heating points associated with a `vav`"
---------------------------------------------------------------------------
-def: ^vavMode
-is: ^str
-doc: "Standardized `vav` operational mode enumeration"
+doc: "Operational mode for HVAC equipment"
 enum:
  - cooling:
  - heating:
@@ -109,6 +105,10 @@ enum:
  - pressurize:
  - depressurize:
  - manual:
+--------------------------------------------------------------------------
+def: ^perimeterHeat
+is: ^marker
+doc: "Auxiliary heating points associated with a `vav`"
 --------------------------------------------------------------------------
 
 

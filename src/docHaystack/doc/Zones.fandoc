@@ -45,6 +45,7 @@ the common points used for HVAC control of a space.
 
 The sensor and setpoints associated with temperature control include:
 
+  - `hvacMode` `sp`: current mode such as "cooling" or "heating"
   - `temp` `sensor`: actual sensed temperature of the space
   - `temp` `occ` `cooling` `sp`: cooling setpoint when occupied
   - `temp` `occ` `heating` `sp`: heating setpoint when occupied
@@ -54,6 +55,18 @@ The sensor and setpoints associated with temperature control include:
   - `temp` `standby` `heating` `sp`: heating setpoint when in standby mode
   - `temp` `effective` `sp`: current setpoint we are controlling to taking
     into account cooling/heating mode and occ/unocc/standby mode
+
+Whenever possible, there should be one effective temperature setpoint
+which takes all the various modes into account.  This provides the simplest
+model to perform analysis of HVAC operations.  However in some cases
+a thermostat will provide two effective setpoints - one for cooling
+and one for heating.  In this case, there must also be a 'hvacMode' point
+to determine which one is the true effective setpoint.  That setup should
+look like this:
+
+  - `hvacMode` `sp`
+  - `temp` `effective` `cooling` `sp`
+  - `temp` `effective` `heating` `sp`
 
 In addition, we might also find the following points:
 
