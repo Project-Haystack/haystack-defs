@@ -14,6 +14,11 @@ is: ^gas
 wikipedia: `https://en.wikipedia.org/wiki/Atmosphere_of_Earth`
 doc: "The mixture of gases which surrounds the earth"
 --------------------------------------------------------------------------
+def: ^ch2o
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Formaldehyde`
+doc: "Formaldehyde (CH₂O)"
+--------------------------------------------------------------------------
 def: ^ch4
 is: ^gas
 wikipedia: `https://en.wikipedia.org/wiki/Methane`
@@ -152,6 +157,11 @@ is: ^concentration
 quantityOf: ^air
 doc: "Concentration of contaminants in the air"
 --------------------------------------------------------------------------
+def: ^ch2o-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of formaldehyde (CH₂O) in the air."
+--------------------------------------------------------------------------
 def: ^co-concentration
 is: ^airQuality
 prefUnit: ["ppm"]
@@ -159,8 +169,23 @@ doc: "Concentration of carbon carbon monoxide (CO) in the air."
 --------------------------------------------------------------------------
 def: ^co2-concentration
 is: ^airQuality
-prefUnit: ["ppb"]
+prefUnit: ["ppm"]
 doc: "Concentration of carbon dioxide (CO₂) in the air."
+--------------------------------------------------------------------------
+def: ^nh3-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of ammonia (NH₃) in the air"
+--------------------------------------------------------------------------
+def: ^no2-concentration
+is: ^airQuality
+prefUnit: ["µg/m³", "ppb"]
+doc: "Concentration of nitrogen dioxide (NO₂) in the air"
+--------------------------------------------------------------------------
+def: ^o3-concentration
+is: ^airQuality
+prefUnit: ["ppm"]
+doc: "Concentration of ozone (O₃) in the air"
 --------------------------------------------------------------------------
 def: ^pm01-concentration
 is: ^airQuality

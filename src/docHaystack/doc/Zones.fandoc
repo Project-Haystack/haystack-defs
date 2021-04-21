@@ -73,13 +73,17 @@ It is also common in an HVAC zone to also measure and control air quality.
 We model the typical air quality points using the `airQualityZonePoints`
 def which includes:
 
-  - `co` `concentration` `sensor`: measured carbon monoxide (CO)
-  - `co2` `concentration` `sensor`: measured carbon dioxide (CO₂)
-  - `co2` `concentration` `sp`: configured max carbon dioxide (CO₂)
-  - `pm01` `concentration` `sensor`: measured particulate matter 0.1
-  - `pm25` `concentration` `sensor`: measured particulate matter 2.5
-  - `pm10` `concentration` `sensor`: measured particulate matter 10
-  - `tvoc` `concentration` `sensor`: measured total volatile organic compounds
+  - `ch2o-concentration` `sensor`: measured formaldehyde (CH₂O)
+  - `co-concentration` `sensor`: measured carbon monoxide (CO)
+  - `co2-concentration` `sensor`: measured carbon dioxide (CO₂)
+  - `co2-concentration` `sp`: configured max carbon dioxide (CO₂)
+  - `nh3-concentration` `sensor`: measured ammonia (NH₃)
+  - `no2-concentration` `sensor`: measured nitrogen dioxide (NO₂)
+  - `o3-concentration` `sensor`: measured ozone (O₃)
+  - `pm01-concentration` `sensor`: measured particulate matter 0.1
+  - `pm25-concentration` `sensor`: measured particulate matter 2.5
+  - `pm10-concentration` `sensor`: measured particulate matter 10
+  - `tvoc-concentration` `sensor`: measured total volatile organic compounds
 
 All the points above must also be tagged with `zone`, `air`, and `point`.
 

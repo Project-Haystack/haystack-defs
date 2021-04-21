@@ -82,9 +82,13 @@ doc:
   Entity with logical grouping of zone air quality points.
   See `docHaystack::Zones#airQuality` chapter.
 children: [
+  {zone air ch2o concentration sensor point},
   {zone air co concentration sensor point},
   {zone air co2 concentration sensor point},
   {zone air co2 concentration sp point},
+  {zone air nh3 concentration sensor point},
+  {zone air no2 concentration sensor point},
+  {zone air o3 concentration sensor point},
   {zone air pm01 concentration sensor point},
   {zone air pm10 concentration sensor point},
   {zone air pm25 concentration sensor point},
