@@ -49,6 +49,7 @@ children: [
   {air dewPoint sensor point},
   {air dewPoint sp point},
   {air enthalpy sensor point},
+  {air enthalpy sp point},
   {air flow sensor point},
   {air flow sp point},
   {air humidity sensor point},

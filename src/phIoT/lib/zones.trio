@@ -62,6 +62,7 @@ children: [
   {zone air dewPoint sensor point},
   {zone air dewPoint sp point},
   {zone air enthalpy sensor point},
+  {zone air enthalpy sp point},
   ]
 --------------------------------------------------------------------------
 def: ^thermostat
