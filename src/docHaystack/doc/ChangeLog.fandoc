@@ -27,6 +27,7 @@
 - New air-velocity quanity
 - Rename vavMode to hvacMode, clarify use with dual effective setpoints
 - Other new tags: deadband, deviceRef, nh3, no2, o2, o3
+- Add heatingOnly as peer to coolingOnly, clarify usage in AHU
 - FumeHood children protos
 - Add enable cmd as plant level point
 - Add cool/heat enable cmd as ahu points

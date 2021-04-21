@@ -53,7 +53,7 @@ doc:
 --------------------------------------------------------------------------
 def: ^coolingOnly
 is: ^marker
-doc: "Device without heating"
+doc: "Equipment without heating"
 --------------------------------------------------------------------------
 def: ^chilled
 is: ^marker
@@ -148,6 +148,10 @@ is: ^marker
 doc:
   Associated with a heating process.  When used on a point,
   this tag is associated with the control of heating.
+--------------------------------------------------------------------------
+def: ^heatingOnly
+is: ^marker
+doc: "Equipment without cooling"
 --------------------------------------------------------------------------
 def: ^heatWheel
 is: ^marker

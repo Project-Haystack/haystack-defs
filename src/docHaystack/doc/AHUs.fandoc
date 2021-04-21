@@ -37,6 +37,8 @@ If the AHU provides heating, then it should add one of the following
   - `naturalGasHeating`
   - `steamHeating`
 
+Or if the unit does not provide heating, then add the `coolingOnly` tag.
+
 When applicable the heating choice marker should also be paired with
 the appropriate flow ref tag.  For example if an AHU uses hot water
 heating, then the AHU should also define the `hotWaterRef` tag to refer
@@ -48,6 +50,8 @@ If the AHU provides cooling, then it should add one of the following
 [coolingProcess]`coolingProcessType` choices:
   - `chilledWaterCooling`
   - `dxCooling`
+
+Or if the unit does not provide cooling, then add the `heatingOnly` tag.
 
 If using chilled water, then the `chilledWaterRef` should be defined
 to reference the chilled water plant.
@@ -95,7 +99,7 @@ defined:
     `coldDeck`, and `neutralDeck`
 
 Sections [#sections]
-*******************
+********************
 Most points in an AHU are associated with one of the following
 [ductSections]`ductSectionType` of the unit:
   - `discharge`: air exiting the unit to be supplied to the zones/terminal units
@@ -115,5 +119,34 @@ and `economizing` tags for the respective ducts.
 The follow diagram shows the AHU sections and logical flow of air:
 
 ![ahu sections]`ahu-sections.svg`
+
+
+Examples [#examples]
+********************
+The following are examples of fully tagged AHUs:
+
+  // Built up AHU supplied by central plants with VAV zones
+  id: @abc
+  dis: "AHU"
+  ahu
+  equip
+  hotWaterHeating
+  chilledWaterCooling
+  vavZone
+  singleDuct
+  siteRef: @xyz
+
+  // Rooftop unit direct to zones
+  id: @abc
+  dis: "RTU-2"
+  rtu
+  ahu
+  equip
+  elecHeating
+  dxCooling
+  constantAirVolume
+  directZone
+  singleDuct
+  siteRef: @xyz
 
 
