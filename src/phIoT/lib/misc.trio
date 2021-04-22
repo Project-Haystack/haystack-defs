@@ -34,6 +34,10 @@ is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Centrifugal_compressor`
 doc: "Compression via a continuous flow of fluid through an impeller"
 --------------------------------------------------------------------------
+def: ^cold
+is: ^marker
+doc: "Having low degree of heat"
+--------------------------------------------------------------------------
 def: ^condenser
 is: ^marker
 doc: "Device or related to process of condensation"
@@ -111,6 +115,10 @@ def: ^evaporator
 is: ^marker
 doc: "Mechanism used to convert a refrigerant from its liquid to gaseous state."
 --------------------------------------------------------------------------
+def: ^extraction
+is: ^marker
+doc: "Taking a substance out of another substance"
+--------------------------------------------------------------------------
 def: ^export
 is: ^marker
 doc: "Supplied out of a system"
@@ -183,6 +191,10 @@ doc: "Lacking balance"
 def: ^import
 is: ^marker
 doc: "Received into a system"
+--------------------------------------------------------------------------
+def: ^infiltration
+is: ^marker
+doc: "Permeation of a substance into another substance"
 --------------------------------------------------------------------------
 def: ^isolation
 is: ^marker

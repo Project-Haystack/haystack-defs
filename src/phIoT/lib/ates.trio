@@ -31,14 +31,12 @@ children: [
   {warm well equip},
   {cool well equip},
   {flowInverter equip},
-  {warm thermal energy meter equip},
-  {cool thermal energy meter equip},
-  {warm flow meter equip},
-  {cool flow meter equip},
+  {warm water flow meter equip},
+  {cool water flow meter equip},
   {heatExchanger equip},
-  {water flow sensor point},
-  {water volume sensor point},
-  {water pressure sensor point},
+  {ground water flow sensor point},
+  {ground water volume sensor point},
+  {ground water pressure sensor point},
   {purge water flow sensor point},
   {purge water volume sensor point},
   ]
@@ -66,7 +64,7 @@ doc: "System to change direction of substance flow "
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
-// ATES Tags
+// ATES Design
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
@@ -109,3 +107,5 @@ doc:
   through the ground. The system works like a heat exchanger; there
   is no ground water transported.
 --------------------------------------------------------------------------
+
+

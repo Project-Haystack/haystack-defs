@@ -50,30 +50,39 @@ doc: "Petroleum derived liquid used as a fuel source"
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^blowdown-water
+is: ^water
+doc: "Water expelled from a system to remove mineral build up"
+--------------------------------------------------------------------------
 def: ^domestic-water
 is: ^water
 doc: "Tap water for drinking, washing, cooking, and flushing of toilets"
 --------------------------------------------------------------------------
-def: ^hot-water
-is: ^water
-doc: "Hot water used for HVAC heating or supply to hot taps"
---------------------------------------------------------------------------
 def: ^chilled-water
 is: ^water
-doc: "Water used for HVAC cooling"
+doc: "Water cooled for use in HVAC and industrial processes"
 wikipedia: `https://en.wikipedia.org/wiki/Chilled_water`
+--------------------------------------------------------------------------
+def: ^cold-water
+is: ^water
+doc: "Water supplied to cold taps"
 --------------------------------------------------------------------------
 def: ^condenser-water
 is: ^water
 doc: "Water used used to remove heat through condensation"
 --------------------------------------------------------------------------
+def: ^ground-water
+is: ^water
+doc: "Water present under the ground or from a well"
+wikipedia: `https://en.wikipedia.org/wiki/Groundwater`
+--------------------------------------------------------------------------
+def: ^hot-water
+is: ^water
+doc: "Hot water used for HVAC heating or supplied to hot taps"
+--------------------------------------------------------------------------
 def: ^makeup-water
 is: ^water
 doc: "Water used used to makeup water loss through leaks, evaporation, or blowdown"
---------------------------------------------------------------------------
-def: ^blowdown-water
-is: ^water
-doc: "Water expelled from a system to remove mineral build up"
 --------------------------------------------------------------------------
 def: ^purge-water
 is: ^water
