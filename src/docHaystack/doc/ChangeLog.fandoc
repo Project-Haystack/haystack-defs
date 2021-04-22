@@ -33,6 +33,7 @@
 - Add cool/heat enable cmd as ahu points
 - Revert plantPrimaryLoop/plantSecondaryLoop to primaryLoop/secondaryLoop
 - Rework VAVs to not use subtypes (more like AHUs)
+- Add ups equipment type
 - New Sites chapter
 - New Spaces chapter
 - New Equips chapter

@@ -32,5 +32,10 @@ children: [
   {networking device},
   ]
 --------------------------------------------------------------------------
+def: ^ups
+is: ^equip
+wikipedia: `https://en.wikipedia.org/wiki/Uninterruptible_power_supply`
+doc: "Uninterruptible power supply"
+--------------------------------------------------------------------------
 
 
