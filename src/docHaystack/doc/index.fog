@@ -28,6 +28,7 @@
   [`AHUs`,          "Modeling air handling units"],
   [`VAVs`,          "Modeling variable air volume terminal units"],
   [`Zones`,         "Modeling zone occupancy, hvac, air quality, lighting"],
+  [`Plants`,        "Modeling central plants"],
   [`Motors`,        "Modeling fans, pumps, and other motors"],
   [`ElecPanels`,    "Modeling electrical panels, circuits, and breakers"],
   [`ATES`,          "Modeling aquifer thermal energy storage"],
