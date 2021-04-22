@@ -57,7 +57,7 @@ If using chilled water, then the `chilledWaterRef` should be defined
 to reference the chilled water plant.
 
 Air Volume Adjustability [#airVolumeAdjustability]
-=====================================
+==================================================
 One of the following [airVolumeAdjustability]`airVolumeAdjustabilityType`
 markers should be defined:
   - `constantAirVolume`

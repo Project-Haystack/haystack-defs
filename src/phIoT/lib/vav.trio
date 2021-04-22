@@ -10,28 +10,19 @@
 --------------------------------------------------------------------------
 def: ^vav
 is: ^airTerminalUnit
+heatingProcess: ^heatingProcessType
+vavAirCircuit: ^vavAirCircuitType
 vavModulation: ^vavModulationType
 wikipedia: `https://en.wikipedia.org/wiki/Variable_air_volume`
 doc:
-  Variable air volume terminal unit.  VAV systems use a constant
-  air temperature with a variable air flow rate.
+  Variable air volume terminal unit.  VAV systems use a constant air
+  temperature with a variable air flow rate.  See `docHaystack::VAVs` chapter.
 children: [
   {reheat cmd point},
   {hvacMode sp point},
   {ductArea sp point},
   {perimeterHeat cmd point},
   ]
---------------------------------------------------------------------------
-def: ^coolingOnly-vav
-is: ^vav
-doc: "Cooling only VAV without fan or reheat"
---------------------------------------------------------------------------
-def: ^fanPowered-vav
-is: ^vav
-reheats: ^air
-heatingProcess: ^heatingProcessType
-vavAirCircuit: ^vavAirCircuitType
-doc: "VAV contains a fan with reheat"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
