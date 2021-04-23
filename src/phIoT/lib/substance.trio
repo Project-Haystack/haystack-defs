@@ -71,6 +71,10 @@ def: ^condenser-water
 is: ^water
 doc: "Water used used to remove heat through condensation"
 --------------------------------------------------------------------------
+def: ^cool-water
+is: ^water
+doc: "Relatively cool water without active chilling"
+--------------------------------------------------------------------------
 def: ^ground-water
 is: ^water
 doc: "Water present under the ground or from a well"
@@ -88,3 +92,8 @@ def: ^purge-water
 is: ^water
 doc: "Water expelled from a system to remove contaminants."
 --------------------------------------------------------------------------
+def: ^warm-water
+is: ^water
+doc: "Relatively warm water without active heating"
+--------------------------------------------------------------------------
+
