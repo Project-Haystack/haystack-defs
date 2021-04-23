@@ -36,10 +36,19 @@ addition it must define one of the `atesDesignType` choices.
 Wells [#wells]
 **************
 Wells should always be marked as `well` and `equip`.  They are modeled
-as the children an ates equip. The following tags are also used:
+as the children of an ates equip.
 
-  - `warm`: relatively warm temperature well to store heating energy
-  - `cool`: relatively cool temperature well to store cooling energy
+In an ATES, each well should tagged with exactly one of the following
+markers:
 
+  - `warm`: well stores heating energy
+  - `cool`: well stores cooling energy
+  - `infiltration`: water is pumped into ground water layer
+  - `extraction`: ground water is pumped out
+
+Extraction and infiltration are used in the process of extracting water
+from a ground water source, typically taking it through piping and a heat
+exchanger using a pump, and infiltrating the same water back into the ground
+at another location or another depth (another ground water layer).
 
 

@@ -19,17 +19,13 @@ is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Aquifer_thermal_energy_storage`
 atesDesign: ^atesDesignType
 doc:
-  Aquifer Thermal Energy Storage system: A system that uses underground
-  water to store thermal energy and deliver heating and cooling to a
-  building in a very energy efficient way (often in combination with a
-  heat pump). The ates consists of all parts of the system that interact
-  directly with the underground water up to (and including) the heatExchanger
-  that transfers energy into other parts of the building hot water plant.
-  The ates equip is modeled as part of the hot-water-plant.
+  Aquifer Thermal Energy Storage system.
   See `docHaystack::ATES` chapter.
 children: [
   {warm well equip},
   {cool well equip},
+  {infiltration well equip},
+  {extraction well equip},
   {flowInverter equip},
   {warm water flow meter equip},
   {cool water flow meter equip},
