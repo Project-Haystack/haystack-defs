@@ -149,9 +149,9 @@ Note that thermal meters should use the same `power` and `energy` tags
 as elec meters.
 
 Flow meters must always be tagged with the fluid they are metering.  For
-example a natural gas meter must be tagged with `naturalGas`.  Flow meters
-should add the `flow` tag if the contain volumetric flow points and
-add the `thermal` tag if they contain thermal energy points.
+example a natural gas meter must be tagged with `naturalGas`.  If a meter
+measures flow/volume then add the `flow` tag.  If the meter measures
+power/energy then add the `thermal` tag.
 
 Examples:
 
