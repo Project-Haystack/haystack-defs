@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.10 (working)**
+**Version 3.9.10 (23 Apr 2021)**
 - Rename weatherRef to weatherStationRef for consistency
 - Annotate equip which typically uses electricity as elec-input
 - Rename docSection to docAssociations
