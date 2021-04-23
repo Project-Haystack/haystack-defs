@@ -35,8 +35,8 @@ All meters must additionally define exactly one of these two tags:
   - `siteMeter`: marker applied to the main site level meter
   - `submeterOf`: Ref to parent meter
 
-Elec Meter [#elecMeters]
-************************
+Electric Meters [#elecMeters]
+*****************************
 AC electricity meters are probably the most common type of meters modeled.
 They are tagged as `ac-elec-meter`.  Haystack supports a model designed to
 scale from very simple meters (just a `power` and `energy` point) up to a
@@ -133,8 +133,8 @@ Haystack uses the load convention for net electric power and energy.
 If a 'power' or 'energy' point does not have an 'import', 'export', or
 'net' tag, it is assumed by default to be a net quantity.
 
-Flow Meters [#flowMeters]
-*************************
+Flow Meters and Thermal Meters [#flowMeters]
+********************************************
 Flow meters measure flow rate and total volume of fluids.  Thermal
 meters (sometimes called BTU meters) also use temperature sensors
 and can provide power and energy calculations.  Points for flow
@@ -147,6 +147,28 @@ meters include:
 
 Note that thermal meters should use the same `power` and `energy` tags
 as elec meters.
+
+Flow meters must always be tagged with the fluid they are metering.  For
+example a natural gas meter must be tagged with `naturalGas`.  Flow meters
+should add the `flow` tag if the contain volumetric flow points and
+add the `thermal` tag if they contain thermal energy points.
+
+Examples:
+
+  // Natural gas meter
+  id: @gasMeter
+  naturalGas
+  flow
+  meter
+  equip
+
+  // Steam thermal meter
+  id: @steamMeter
+  steam
+  thermal
+  flow
+  meter
+  equip
 
 Energy Flow to Loads [#energyFlows]
 ***********************************
@@ -166,6 +188,7 @@ meter as follows:
 
   id: @gasMeter
   naturalGas
+  flow
   meter
   equip
 
