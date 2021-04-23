@@ -111,7 +111,7 @@ quantityOf: ^air
 doc: "Dry bulb temperature"
 --------------------------------------------------------------------------
 def: ^air-velocity
-is: ^temp
+is: ^quantity
 quantityOf: ^air
 prefUnit: ["m/sec", "ft/min"]
 doc: "Rate of air movement as distance over time"

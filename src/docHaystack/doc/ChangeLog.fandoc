@@ -24,7 +24,7 @@
 - Expand children: ducts, zones
 - Port min/max marker tags from Haystack 3
 - New alarm point; alarm sensor on motor, chiller, boiler
-- New air-velocity quanity
+- New air-velocity quantity
 - Rename vavMode to hvacMode, clarify use with dual effective setpoints
 - Other new tags: deadband, deviceRef, nh3, no2, o2, o3
 - Add heatingOnly as peer to coolingOnly, clarify usage in AHU

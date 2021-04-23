@@ -70,7 +70,7 @@ Here is an example of an HVAC zone:
   siteRef: @site
   spaceRef: @site.floor3
 
-Zones and their associated points are examined in detail in the `Zones` chatper.
+Zones and their associated points are examined in detail in the `Zones` chapter.
 
 Data Centers [#dataCenters]
 ***************************

@@ -8,8 +8,8 @@
 Overview [#overview]
 ********************
 The `motor` tag is paired with the `equip` tag to model equipment that
-operates with an electric motor including fans, pumps, and compressors.
-Haystack defines the following standardized motor subtypes:
+operates with an electric motors.  Haystack defines the following
+standardized motor subtypes:
 
   - `fan-motor`: fans used to move air
   - `pump-motor`: pumps used to move fluid
@@ -40,10 +40,10 @@ the *off* state.
 If the motor is driven variable frequency drive then it should be tagged
 with the `vfd` marker.  Points related to the drive speed control:
 
-  - `vfd` `speed` `cmd`: speed command as percentage where 0% is off, 100% if full speed
-  - `vfd` `freq` `cmd`: speed command as a frequency in Hz
-  - `vfd` `speed` `sensor`: speed status as percentage where 0% is off, 100% if full speed
-  - `vfd` `freq` `sensor`: speed status as frequency in Hz
+  - [vfd speed]`vfd-speed` `cmd`: speed command as percentage where 0% is off, 100% if full speed
+  - [vfd freq]`vfd-freq` `cmd`: speed command as a frequency in Hz
+  - [vfd speed]`vfd-speed` `sensor`: speed status as percentage where 0% is off, 100% if full speed
+  - [vfd freq]`vfd-freq` `sensor`: speed status as frequency in Hz
 
 Many VFDs will also provide many of the same points as an electric meter.
 Measurements such as electric demand, consumption, voltage, and current

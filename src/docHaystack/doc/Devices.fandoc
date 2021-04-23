@@ -13,11 +13,11 @@ microprocessor based controllers commonly used to perform control and monitoring
 of equipment.
 
 There can often be a fuzzy distinction between equipment versus devices,
-especially since most point data for an equipment is manifested through
-a controller.  However when building a detailed model of a control system,
-the `equip` tag is use to represent the physical asset and a separate `device`
-entity is used to represent the controller.  In cases where the distinction
-is not clear, then combine the `equip` and `device` tags into one equipment.
+especially since most point data for an equipment is manifested through a
+controller.  However when building a detailed model of a control system,
+use an `equip` entity to represent the physical asset and use a separate `device`
+entity to represent the controller.  In cases where the distinction is
+not clear, then combine the `equip` and `device` tags into one entity.
 
 Networks [#networks]
 ********************

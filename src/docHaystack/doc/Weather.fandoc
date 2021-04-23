@@ -22,8 +22,7 @@ data using several physical stations.  Or it is possible to model site
 local weather sensors using the Haystack weather model.
 
 All weather stations must define the `weatherStation` marker tag along
-with the appropriate [geolocations]`geoPlace` tags.  The `tz` tag must
-also be defined.
+with the appropriate `geoPlace` tags.  The `tz` tag must also be defined.
 
 Here is an example of a weather station entity:
 

@@ -8,8 +8,7 @@
 
 Overview [#overview]
 ********************
-The `airHandlingEquip` def is the base of a taxonomy tree that includes
-a wide range of equipment for air handling including:
+We define a wide range of equipment for air handling including:
   - `ahu`: air handling unit
   - `doas`: dedicated outside air system
   - `mau`: makeup air unit
@@ -20,7 +19,7 @@ a wide range of equipment for air handling including:
   - `heatPump`: heat pump
 
 Allow of these equipment types follow the same fundamental modeling
-techniques discussed in this chapter.
+techniques and subtype from `airHandlingEquip`.
 
 Choices [#tags]
 ***************
