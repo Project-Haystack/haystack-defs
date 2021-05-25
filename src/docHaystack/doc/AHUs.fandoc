@@ -18,7 +18,7 @@ We define a wide range of equipment for air handling including:
   - `unitVent`: unit ventilator
   - `heatPump`: heat pump
 
-Allow of these equipment types follow the same fundamental modeling
+All of these equipment types follow the same fundamental modeling
 techniques and subtype from `airHandlingEquip`.
 
 Choices [#tags]
