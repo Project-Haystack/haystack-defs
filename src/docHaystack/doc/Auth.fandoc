@@ -22,15 +22,11 @@ Introduction [#intro]
 The high-level steps to obtain an auth token are:
 
 1. Hello Handshake
-  1. The client sends a hello message to the server identifying the user who
-  wants to authenticate.
-  2. The server responds indicating which authentication mechanisms are
-  supported for that user.
+  a. The client sends a hello message to the server identifying the user who wants to authenticate.
+  b. The server responds indicating which authentication mechanisms are supported for that user.
 2. Authentication Exchange
-  1. The client picks an authentication mechanism and exchanges messages with
-  the server to authenticate.
-  2. If the server authenticates the user, it sends the client an auth token
-  it can use to access protected resources.
+  a. The client picks an authentication mechanism and exchanges messages with the server to  authenticate.
+  b. If the server authenticates the user, it sends the client an auth token it can use to access protected resources.
 3. The client uses the auth token for all future requests to the server.
 
 The rest of this document describes this process in more detail. We also define
@@ -65,8 +61,7 @@ auth-param  = token BWS "=" BWS token
 challenge   = auth-scheme [ 1*SP #auth-param ]
 credentials = auth-scheme [ 1*SP #auth-param ]
 <pre
-
-Essentitially, we only allow the "token" syntax in any production rule.  If
+Essentially, we only allow the "token" syntax in any production rule.  If
 a raw auth-param value is not a valid token, then the value SHOULD be
 encoded using 'base64url' with **no padding** [RFC4648]`#references`
 
@@ -99,13 +94,13 @@ them in order of most preferred to least preferred.
 
 If the server does not recognize the username, it SHOULD still return a
 401 (unauthorized) with at least one valid authentication mechanism. During the
-authentication exchange, the user will not validate and at that point a
+authentication exchange, the user will not validate, and at that point a
 403 (Forbidden) status code should be sent. This approach makes it more
 difficult for a potential attacker to determine valid usernames for the system.
 
 In this example, the username is “user", and the server responds indicating
 that user may authenticate with SCRAM. A "handshakeToken" is included in
-the response, so the client must included it on its next request.
+the response, so the client must include it on its next request.
 
 pre>
 C: GET /haystack/about HTTP/1.1
@@ -168,7 +163,7 @@ This section lists the supported auth schemes. A compliant client and server
 must implement the authentication exchange for a particular auth scheme as
 defined in this document.
 
-All clients and servers MUST support SCRAM with SHA-256 as the hash funtion.
+All clients and servers MUST support SCRAM with SHA-256 as the hash function.
 
 The following auth parameters are valid for all authentication schemes:
 
@@ -207,9 +202,9 @@ C: GET /haystack/about HTTP/1.1
    Authorization: HELLO username=dXNlcg
 <pre
 
-The server responds indicating that the client should authentication with SCRAM.
+The server responds indicating that the client should authenticate with SCRAM.
 - The "hash" attribute MUST be included to specify the cryptographic hash function.
-The following are supported values for the hash attribute:
+  The following are supported values for the hash attribute:
   - SHA-256
   - SHA-512
 - The server included a "handshakeToken", so the client MUST include it on

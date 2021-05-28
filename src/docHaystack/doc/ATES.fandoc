@@ -16,8 +16,8 @@ heat exchanger that transfers energy into the building hot water plant.
 
 An ATES always has one or more well equips. Wells facilitate the
 thermal energy exchange with the ground warm and cold water sources. A
-well and can be either a closed system that transports water through
-pipes in the ground, or an open system that pumps up and returns
+well can be either a closed system that transports water through
+pipes in the ground, or it can be an open system that pumps up and returns
 ground water.
 
 In most cases, there is also a `flowInverter` equip to change direction
@@ -31,7 +31,7 @@ system with one or more heat exchangers per building.
 ATES [#ates]
 ************
 An ATES must be tagged using the `ates` and  `equip` marker tags.  In
-addition it must define one of the `atesDesignType` choices.
+addition, it must define one of the `atesDesignType` choices.
 
 Wells [#wells]
 **************
@@ -50,5 +50,4 @@ Extraction and infiltration are used in the process of extracting water
 from a ground water source, typically taking it through piping and a heat
 exchanger using a pump, and infiltrating the same water back into the ground
 at another location or another depth (another ground water layer).
-
 

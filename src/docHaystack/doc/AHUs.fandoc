@@ -23,7 +23,7 @@ techniques and subtype from `airHandlingEquip`.
 
 Choices [#tags]
 ***************
-AHUs define a suite of [choices]`Choices` which should be made on
+AHUs define a suite of [choices]`Choices` that should be made on
 a per instance basis.
 
 Heating Process [#heatingProcess]
@@ -91,10 +91,10 @@ defined:
 
   - `singleDuct`: AHU uses a single duct
 
-  - `dualDuct`: the AHU discharges to two ducts which is some combination
+  - `dualDuct`: the AHU discharges to two ducts, which is some combination
     of `hotDeck`, `coldDeck`, or `neutralDeck`
 
-  - `tripleDuct`: the AHU discharges into three ducts which are the `hotDeck`,
+  - `tripleDuct`: the AHU discharges into three ducts, which are the `hotDeck`,
     `coldDeck`, and `neutralDeck`
 
 Sections [#sections]
