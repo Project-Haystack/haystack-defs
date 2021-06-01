@@ -19,7 +19,7 @@ The [about]`op:about` op queries basic information about the server.
 **Request**: empty grid
 
 **Response**: single row grid with following columns:
-  - 'haystackVersion': Str version of API implementation, must be "3.0"
+  - 'haystackVersion': Str version 'ph' library
   - 'tz': Str of server's default [timezone]`docHaystack::TimeZones`
   - 'serverName': Str name of the server or project database
   - 'serverTime': current DateTime of server's clock
@@ -62,6 +62,11 @@ The [defs]`op:defs` op queries [def dicts]`Defs` from the current [namespace]`Na
  - 'limit': optional Number which specifies maximum number of defs to return in response
 
 ** Response**: a grid with the dict representation of each def
+
+Libs [#libs]
+**************
+The [libs]`op:libs` op queries `lib` defs from current namspace.  It follows
+the same convention as the [defs]`#defs` op except only 'lib' defs are queried.
 
 Ops [#ops]
 **************

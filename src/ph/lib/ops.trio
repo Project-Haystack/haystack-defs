@@ -49,6 +49,12 @@ doc:
   Query the filetype defs in the current namespace.
   See `docHaystack::Ops#filetypes` chapter.
 --------------------------------------------------------------------------
+def: ^op:libs
+noSideEffectsX
+doc:
+  Query the lib defs in the current namespace.
+  See `docHaystack::Ops#libs` chapter.
+--------------------------------------------------------------------------
 def: ^op:read
 noSideEffectsX
 doc:

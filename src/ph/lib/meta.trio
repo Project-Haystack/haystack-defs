@@ -129,7 +129,9 @@ doc: "Feature namespace of definitions formatted as 'feature:name'"
 --------------------------------------------------------------------------
 def: ^lib
 is: ^feature
-doc: "Library module of symbolic definitions"
+doc:
+  Library module of symbolic definitions.
+  See `docHaystack::Namespaces#libs` chapter.
 --------------------------------------------------------------------------
 def: ^depends
 is: ^list
