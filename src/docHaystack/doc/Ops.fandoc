@@ -14,70 +14,68 @@ request grid and response grid.
 
 About [#about]
 **************
-The 'about' op queries basic information about the server.
+The [about]`op:about` op queries basic information about the server.
 
 **Request**: empty grid
 
 **Response**: single row grid with following columns:
   - 'haystackVersion': Str version of API implementation, must be "3.0"
-  - 'tz': Str of server's default [timezone]`TimeZones`
+  - 'tz': Str of server's default [timezone]`docHaystack::TimeZones`
   - 'serverName': Str name of the server or project database
   - 'serverTime': current DateTime of server's clock
   - 'serverBootTime': DateTime when server was booted up
   - 'productName': Str name of the server software product
   - 'productUri': Uri of the product's web site
   - 'productVersion': Str version of the server software product
+  - 'vendorName': Str name of product's company
+  - 'vendorUri': Uri of the vendor's web site
   - 'moduleName': module which implements Haystack server protocol if
     its a plug-in to the product
   - 'moduleVersion': Str version of moduleName
 
+Example:
+
+  // request
+  GET /haystack/about
+  Accept: text/trio
+
+  // response in Trio
+  haystackVersion:"4.0"
+  tz: "New_York"
+  serverName: "Test Server"
+  serverTime: 2021-05-31T07:50:17-04:00 New_York
+  serverBootTime: 2021-05-28T06:50:47-04:00 New_York
+  productName: "Acme Haystack Server"
+  productUri: `http://acme.com/haystack-server`
+  productVersion: "1.0.30"
+  vendorName: "Acme"
+  vendorUri: `http://acme.com/`
+
+Defs [#defs]
+************
+The [defs]`op:defs` op queries [def dicts]`Defs` from the current [namespace]`Namespaces`.
+
+**Request (all defs)**: empty grid
+
+**Request (by filter)**: filter or limit which defs are queried
+ - 'filter': Str encoding of filter
+ - 'limit': optional Number which specifies maximum number of defs to return in response
+
+** Response**: a grid with the dict representation of each def
+
 Ops [#ops]
 **************
-The 'ops' op queries which operations are available on the server.
+The [ops]`op:ops` op queries `op` defs from current namspace.  It follows
+the same convention as the [defs]`#defs` op except only 'op' defs are queried.
 
-**Request**: empty grid
-
-**Response**: grid where each row represents a single operation
-with the following columns:
-  - 'name': Str name of the operation in the [URI namespace]`HttpApi#uriNamespace`
-  - 'summary': Str short description of the operation
-
-Example of response in Zinc:
-
-  ver:"3.0"
-  name,summary
-  "about","Summary information for server"
-  "ops","Operations supported by this server"
-  "formats","Grid data formats supported by this server"
-  "read","Read records by id or filter"
-
-Formats [#formats]
-******************
-The 'formats' op is used to query which MIME types are available
-to read and write grids.
-
-**Request**: empty grid
-
-**Response**: grid where each row represents one supported MIME type
-with following columns:
-  - 'mime': Str MIME type encoded as "mediaType/subType", these value
-    must not include parameters.  Any "text/" media type must be be encoded
-    using UTF-8
-  - 'receive': Marker tag if server can read this format in requests (client
-    can POST this format)
-  - 'send': Marker tag if server can write this format in responses (client
-    can request response in this format)
-
-Example of response in Zinc:
-
-  ver:"3.0"
-  mime,receive,send
-  "text/csv",,M
-  "text/zinc",M,M
+Filetypes [#filetypes]
+**********************
+The [filetypes]`op:filetypes` op queries `filetype` defs from current namspace.  It follows
+the same convention as the [defs]`#defs` op except only 'filetype' defs are queried.
 
 Read [#read]
 ************
-The 'read' op is used to read a set of entity records either by their
+The [read]`op:read` op is used to read a set of entity records either by their
 unique identifier or using a filter.
 
 **Request (by filter)**: a grid with a single row and following columns:
@@ -123,7 +121,7 @@ operation.
 
 Nav [#nav]
 **********
-The 'nav' op is used navigate a project for learning and discovery.
+The [nav]`op:nav` op is used navigate a project for learning and discovery.
 This operation allows servers to expose the database in a human-friendly
 tree (or graph) that can be explored.
 
@@ -143,7 +141,7 @@ should treat the navId as an opaque identifier.
 
 WatchSub [#watchSub]
 ********************
-The 'watchSub' operation is used to create new [watches]`HttpApi#watches`
+The [watchSub]`op:watchSub` operation is used to create new [watches]`HttpApi#watches`
 or add entities to an existing watch.
 
 If the entities subscribed are themselves proxies for external data
@@ -187,7 +185,7 @@ guaranteed to allow clients to perform a mapping.
 
 WatchUnsub [#watchUnsub]
 ********************
-The 'watchUnsub' operation is used to close a [watch]`HttpApi#watches`
+The [watchUnsub]`op:watchUnsub` operation is used to close a [watch]`HttpApi#watches`
 entirely or remove entities from a watch.
 
 **Request**: a row with the 'id' column and Ref values for each
@@ -202,7 +200,7 @@ assume the watch is no longer valid, and open a new watch.
 
 WatchPoll [#watchPoll]
 **********************
-The 'watchPoll' operation is used to poll a [watch]`HttpApi#watches`
+The [watchPoll]`op:watchPoll` operation is used to poll a [watch]`HttpApi#watches`
 for changes to the subscribed entity records.
 
 **Request**: grid metadata:
@@ -222,8 +220,8 @@ assume the watch is no longer valid, and open a new watch.
 
 PointWrite [#pointWrite]
 ************************
-The 'pointWrite' op is used to:
-  1. read the current status of a `writable` point's priority array
+The [pointWrite]`op:pointWrite` op is used to:
+  1. read the current status of a [writable point's]`writable-point` priority array
   2. Or write to a given level
 
 To read the priority array:
@@ -244,14 +242,15 @@ To write a level in the priority array:
   - 'id': Ref identifier of writable point
   - 'level': Number from 1-17 for level to write
   - 'val': value to write or null to auto the level
-  - 'who': optional username performing the write, otherwise user dis is used
+  - 'who': optional username/application name performing the write,
+    otherwise authenticated user is used
   - 'duration': Number with duration unit if setting level 8
 
 **Response**: empty grid
 
 HisRead [#hisRead]
 ******************
-The 'hisRead' op is used to read a time-series data from historized point.
+The [hisRead]`op:hisRead` op is used to read a time-series data from historized point.
 
 **Request**: a grid with a single row and following columns:
   - 'id': Ref identifier of historized point
@@ -300,7 +299,7 @@ Example:
 
 HisWrite [#hisWrite]
 ******************
-The 'hisWrite' op is used to post new time-series data to a historized point.
+The [hisWrite]`op:hisWrite` op is used to post new time-series data to a historized point.
 The point must already be configured on the server and assigned a unique
 identifier.
 
@@ -330,7 +329,7 @@ Here is an example which posts some new history data to a point:
 
 Invoke Action [#invokeAction]
 *****************************
-The 'invokeAction' op is used to invoke a user action on a target
+The [invokeAction]`op:invokeAction` op is used to invoke a user action on a target
 record.  Actions may be used to change setpoints or initiate other
 types of configuration/control actions.  An action is modeled a
 function which takes zero or more parameters.  The arguments for the

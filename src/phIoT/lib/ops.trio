@@ -1,0 +1,32 @@
+//
+// Copyright (c) 2021, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   1 Jun 2021  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^op:hisRead
+noSideEffectsX
+doc:
+  Read historized time series data from a `his-point`.
+  See `docHaystack::Ops#hisRead` chapter.
+--------------------------------------------------------------------------
+def: ^op:hisWrite
+noSideEffectsX
+doc:
+  Write historized time series data from a `his-point`.
+  See `docHaystack::Ops#hisWrite` chapter.
+--------------------------------------------------------------------------
+def: ^op:pointWrite
+doc:
+  Read or command a `writable-point`.
+  See `docHaystack::Ops#pointWrite` chapter.
+--------------------------------------------------------------------------
+def: ^op:invokeAction
+doc:
+  Invoke a user action on a target entity.
+  See `docHaystack::Ops#invokeAction` chapter.
+--------------------------------------------------------------------------
+

@@ -88,7 +88,7 @@ POST Requests [#postRequests]
 If the request grid is anything other than a single row of name/value
 pairs, then it must be be sent using HTTP POST.  The client must encode
 the grid using a MIME type supported by server.  The client can query the
-supported MIME types using the [formats op]`Ops#formats`.  The following
+supported MIME types using the [filetypes op]`Ops#filetypes`.  The following
 is an example of posting to the hisRead op using Zinc:
 
   POST /haystack/hisRead HTTP/1.1
