@@ -12,6 +12,9 @@ a dict with the `def` tag.  Defs are used to define the tags we use on
 Haystack data.  And because they are dicts themselves, defs are normal
 Haystack data also.
 
+Defs are declared in [trio]`Trio` files and packaged up in zip files
+as a [library]`Namespaces#libs`.
+
 The primary tags used to model a def include:
   - `def`: binds a well-known name to the definition
   - `doc`: human description of the definition

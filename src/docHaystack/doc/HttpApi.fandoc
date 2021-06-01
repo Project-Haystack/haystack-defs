@@ -43,53 +43,79 @@ is not always expressed that way.
 Requests [#requests]
 ********************
 A client makes a request to a server by sending a single grid and the server
-responses with a grid.  Typically grids are encoded using `Zinc`, but the
-actual encoding used is pluggable using [content negotiation]`#contentNegotiation`.
+responses with a grid.  Typically grids are encoded using `Zinc` or `Json`,
+but the actual encoding used is pluggable using [content negotiation]`#contentNegotiation`.
 
 GET Requests [#getRequests]
 ===========================
-Many operations require no grid argument or a grid with a single row.  In
-this case, a request may be performed using a HTTP GET request.  The request
-grid is encoded in the HTTP query string where each query parameter is
-mapped to tags in a single row.  The tag value must be Zinc encoded, otherwise
-it is assumed to be of a Str type.
+If an op is tagged with the `noSideEffectsX` marker, then it may be called
+with a HTTP GET request as long as the operation requires no arguments or a
+single row request.  The request grid is encoded in the HTTP query string
+where each query parameter is mapped to tags in a single row.  The tag value
+must be Zinc encoded, otherwise it is assumed to be of a Str type.  Using a
+GET request on an op without the `noSideEffectsX` tag must return a 405
+Method Not Allowed error.
 
 Example of request with empty grid:
 
-  // request URI
+  // GET request URI
   /haystack/about
 
-  // request grid in Zinc
+  // POST request grid in Zinc
   ver:"3.0"
   empty
 
+  // POST request grid in JSON
+  {
+  "_kind": "grid",
+  "meta": {"ver":"3.0"},
+  "cols": [{"name":"empty"}],
+  "rows":[]
+  }
+
 Example of request with single Str tag:
 
-  // request URI
+  // GET request URI
   /haystack/read?filter=site
 
-  // request grid in Zinc
+  // POST request grid in Zinc
   ver:"3.0"
   filter
   "site"
 
+  // POST reqeust grid in JSON
+  {
+  "_kind": "grid",
+  "meta": {"ver":"3.0"},
+  "cols": [{"name":"filter"}],
+  "rows":[{"filter":"site"}]
+  }
+
 Example of request with multiple tags encoded as Zinc:
 
-  // request URI
+  // GET request URI
   /haystack/hisRead?id=@hisId&range=yesterday
 
-  // request grid in Zinc
+  // POST request grid in Zinc
   ver:"3.0"
   id,range
   @hisId,"yesterday"
 
+  // POST request grid in JSON
+  {
+  "_kind": "grid",
+  "meta": {"ver":"3.0"},
+  "cols": [{"name":"id"},{"name":"range"}],
+  "rows":[{"id":{"_kind":"ref", "val":"hisId"}, "range":"yesterday"}]
+  }
+
 POST Requests [#postRequests]
 =============================
-If the request grid is anything other than a single row of name/value
-pairs, then it must be be sent using HTTP POST.  The client must encode
-the grid using a MIME type supported by server.  The client can query the
-supported MIME types using the [filetypes op]`Ops#filetypes`.  The following
-is an example of posting to the hisRead op using Zinc:
+If an op is not tagged `noSideEffectsX` or the request grid is anything other
+than a single row of name/value pairs, then it must be be sent using HTTP POST.
+The client must encode the grid using a MIME type supported by server.  The
+client can query the supported MIME types using the [filetypes op]`Ops#filetypes`.
+The following is an example of posting to the [hisRead]`op:hisRead` op using Zinc:
 
   POST /haystack/hisRead HTTP/1.1
   Content-Type: text/zinc; charset=utf-8
@@ -125,6 +151,7 @@ these cases:
   - 400: the client failed to specify a required header such "Content-Type"
   - 403: the client is not authorized to access the op
   - 404: the URI does not map to a valid operation URI
+  - 405: attempt to use GET with an op not tagged 'noSideEffects'
   - 406: the client "Accept" header requested an unsupported MIME type
   - 415: the client posted the request grid using an unsupported MIME type
   - 501: the HTTP method is other than "GET" or "POST"
