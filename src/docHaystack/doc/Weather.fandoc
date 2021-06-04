@@ -17,8 +17,8 @@ Stations [#stations]
 Weather stations model a geographic location where observations are
 taken.  Stations might be an official government location; for example in
 the US the NOAA provides an extensive database of station locations and their
-associated data.  Many online weather services are virtual which approximate
-data using several physical stations.  Or it is possible to model site
+associated data.  Many online weather services are virtual and approximate
+data using several physical stations.  Or, it is possible to model site
 local weather sensors using the Haystack weather model.
 
 All weather stations must define the `weatherStation` marker tag along
@@ -48,7 +48,7 @@ All weather observation points must define the following tags:
 Additionally the standard point tags must be defined including `point`,
 `kind`, `unit`, and `enum`.
 
-The following are the standardized weather points which may be defined
+The following are the standardized weather points that may be defined
 for a given station:
 
   - [air temp]`air-temp`: dry bulb temperature in °C or °F
@@ -60,12 +60,12 @@ for a given station:
   - [atmospheric pressure]`atmospheric-pressure`: barometric pressure in
     millibar or inHg
   - `cloudage`: cloudiness as percentage
-  - `daytime`: boolean point which is true between sunrise and sunset
+  - `daytime`: boolean point that is true between sunrise and sunset
   - `precipitation`: fallen atmospheric water vapor in mm or in
   - [solar irradiance]`solar-irradiance`: energy received from sun in W/m²
   - `weatherCond`: enumeration for clear, cloudy, rain, snow, etc
   - [wind speed]`wind-speed`: wind speed in km/h or mph
-  - [wind direction]`wind-direction`: direction which wind originates in degrees
+  - [wind direction]`wind-direction`: direction that wind originates in degrees
   - `visibility`: distance at which light can be discerned in km or mile
 
 Example of a weather observation point:

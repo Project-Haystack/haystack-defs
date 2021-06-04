@@ -24,7 +24,7 @@ in defining this mapping:
   - Generate [RDFS]`https://www.w3.org/TR/rdf-schema/` statements to add
     semantic meaning that is equivalent to the def.
   - Use [OWL]`https://www.w3.org/TR/owl2-primer/` statements where they serve
-    to increase the expressivity, and usability of the model.
+    to increase the expressivity and usability of the model.
 
 The rest of this document outlines a strategy for mapping Haystack defs to RDF.
 
@@ -92,7 +92,7 @@ This is a valid RDF export, but it lacks the necessary statements to convey
 semantic and ontological meaning. The remaining sections refine the export
 rules for different def types to address this issue.
 
-**NOTE**: for the remaining examples we omit the RDF '@prefix' statements for brevity.
+**NOTE**: For the remaining examples, we omit the RDF '@prefix' statements for brevity.
 
 Marker Tags [#markers]
 **********************
@@ -216,7 +216,7 @@ instances (i.e. Dicts) to RDF.
   should be the id of the instance.
 - Use 'rdf:type' ('"a"') to indicate the entity is an instance of a particular
   'owl:Class'.
-- All marker tags should specified using 'hasTag'
+- All marker tags should be specified using 'hasTag'
 - Encode tag values as defined in the [data types]`#datatypes` section.
   - Exception: If the tag is a Ref (e.g. 'siteRef') the value should be a
     blank node with a label that references the corresponding instance.

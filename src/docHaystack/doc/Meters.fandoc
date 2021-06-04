@@ -23,7 +23,7 @@ the phenomenon measured.  The following meter subtypes are defined:
   - `dc-elec-meter`
   - `flow-meter`
 
-Flow meters always tagged with the substance they are metering.
+Flow meters should always be tagged with the substance they are metering.
 Common examples include:
 
   - `naturalGas` `meter`
@@ -107,7 +107,7 @@ Some electric meters track and report power and energy imported from
 the electric grid separately from power and energy exported to the
 electric grid. The tags `import` and `export` differentiate these
 quantities. More broadly, `export` indicates power or energy flowing
-toward the grid (in the direction of the `siteMeter`) and `import`
+toward the grid (in the direction of the `siteMeter`), and `import`
 indicates power or energy flowing toward the load.
 
 These measurements register power or energy transfer
@@ -127,7 +127,7 @@ The `net` tag indicates the difference between `import` and `export`:
 
 Haystack uses the load convention for net electric power and energy.
 
-- Positive net quantities indicate power or energy consumed,
+- Positive net quantities indicate power or energy consumed.
 - Negative net quantities indicate power or energy produced.
 
 If a 'power' or 'energy' point does not have an 'import', 'export', or
@@ -236,18 +236,18 @@ the id '@A'.  Note it is tagged as `ac-elec-meter` to model an AC electric
 meter.  It is also tagged as `siteMeter` to indicate its the main site-level meter.
 It has two associated points for power (kW) and energy (kWh).
 
-Then under the main meter, we have a HVAC submeter with the id '@C'.  Note it
-is tagged as `ac-elec-meter` also.  But it is not a `siteMeter`, instead it is
+Next, since we don't have a lighting submeter, the lighting load references
+the main meter directly via its `elecRef` tag.
+
+After that, we have an HVAC submeter with the id '@C'.  Note it
+is tagged as `ac-elec-meter` also.  But it is not a `siteMeter`; instead it is
 associated as a submeter of the main meter using the `submeterOf` tag.  You can
 model submeter trees of arbitrary depth (submeters of submeters).  It also has
 two points for kW and kWh.
 
-Lastly we have three electrical equipment loads defined.  The two RTUs are associated
+Lastly, we have three electrical equipment loads defined.  The two RTUs are associated
 with HVAC submeter via `elecRef` which references the HVAC submeter via
-id.  Since we don't have a lighting submeter, the lighting load references
-the main meter directly via its `elecRef` tag.  We also tag one or more
-points under the equipment which are meaningful for the load.  Motors would
-often be tagged as loads since they draw energy, but sensors would typically
-not be considered loads.
-
+id.  We also tag one or more points under the equipment that are meaningful
+for the load.  Motors would often be tagged as loads since they draw energy, but
+sensors would typically not be considered loads.
 

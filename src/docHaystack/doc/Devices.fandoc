@@ -8,7 +8,7 @@
 Overview [#overview]
 ********************
 We use the term *device* to describe any asset that is microprocessor based.
-Typically this includes most IT and networking gear, but also includes
+Typically, this includes most IT and networking gear, but also includes
 microprocessor based controllers commonly used to perform control and monitoring
 of equipment.
 
@@ -31,7 +31,7 @@ device types:
   - `networking-router`: device used to route data between different networks
   - `networking-switch`: device used to connect devices on the same network
 
-Here is a simple example of a network model which includes a switch
+Here is a simple example of a network model that includes a switch
 with two controllers:
 
   id: @my-network
@@ -56,5 +56,4 @@ with two controllers:
   controller
   device
   networkRef: @my-network
-
 
