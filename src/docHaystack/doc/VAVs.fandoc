@@ -12,11 +12,11 @@ The `vav` tag is used to model variable air volume terminal units.  VAVs
 are supplied conditioned air from an [AHU]`AHUs` and use a damper to
 modulate the air flow to the zone.  Typically VAVs are supplied cool
 air at a temperature of around 55°F (13°C).  Some VAVs support *reheat*
-which allow them to heat this cool air to a warmer temperature.
+that allow them to heat this cool air to a warmer temperature.
 
-A VAV without reheat must define the `coolingOnly` tag, otherwise it must
+A VAV without reheat must be defined with the `coolingOnly` tag. Otherwise, it
 must define one of the [heating process]`#heatingProcess` tags.  Some reheat
-VAVs contain a fan in which case they should also define the `fanPowered` tag.
+VAVs contain a fan, in which case they should also define the `fanPowered` tag.
 
 VAVs should define the `airRef` tag to reference their supply AHU.  When
 there are multiple supply AHUs, then the 'airRef' tag should be a list
@@ -24,7 +24,7 @@ of all the upstream AHUs.
 
 Choices [#tags]
 ***************
-AHUs define a suite of [choices]`Choices` which should be made on
+AHUs define a suite of [choices]`Choices` that should be made on
 a per instance basis.
 
 Heating Process [#heatingProcess]
@@ -38,7 +38,7 @@ If the VAV provides reheat, then it should add one of the following
 Or if the VAV does not support reheat, then add the `coolingOnly` tag.
 
 When applicable the heating choice marker should also be paired with
-the appropriate flow ref tag.  For example if a VAV uses hot water
+the appropriate flow ref tag.  For example, if a VAV uses hot water
 for reheat, then it should also define the `hotWaterRef` tag to refer
 to its hot water plant.
 
@@ -71,8 +71,8 @@ We associate points with sections of a VAV using these tags:
   - `zone`: conditioned space associated with the unit
 
 Since most points are not clearly associated with the inlet or discharge
-ducts, we typically omit a section tag for most points. However any
-points which would conflict with the zone points however must be
+ducts, we typically omit a section tag for most points. However, any
+points that would conflict with the zone points must be
 qualified with either 'inlet' or 'discharge'.
 
 Examples [#examples]
@@ -101,5 +101,4 @@ The following are examples of fully tagged VAVs:
   hotWaterRef: @hot-water-plant
   airRef: @ahu
   siteRef: @site
-
 

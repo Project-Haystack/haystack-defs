@@ -19,21 +19,21 @@ and points:
 
   - `occupied` `sp`: setpoint true when occupied, false when unoccupied
   - `occupied` `sensor`: boolean sensor true when occupied, false when unoccupied
-  - `occupancy` `sensor`: people counter which measures number of occupants
+  - `occupancy` `sensor`: people counter that measures number of occupants
   - `occ`: marker tag is used on points for occupancy modes
   - `unocc`: marker tag is used on points for occupancy modes
   - `occupants`: the people who occupy a space
 
 The primary tag used for the occupied/unoccupied state is the `occupied` tag.
-In most cases the occupied setpoint is a schedule that determines occupancy
+In most cases, the occupied setpoint is a schedule that determines occupancy
 based on the time of day and day of the week.  We might also use a sensor
 like a motion sensor to determine occupancy. More sophisticated sensors can
-actually count the number of people in a space in which case we use the `occupancy`
+actually count the number of people in a space; in which case, we use the `occupancy`
 tag.  As a general rule: points with the `occupied` tag should have
 a 'Bool' kind; points with the `occupancy` tag should have a 'Number' kind.
 
 The `occ` and `unocc` tags are used in cases when we need to distinguish
-modes.  For example if we have two different temperature setpoints based
+modes.  For example, if we have two different temperature setpoints based
 on the occupancy mode, then we distinguish them as 'occ temp sp'
 and 'unocc temp sp'.
 
@@ -57,7 +57,7 @@ The sensor and setpoints associated with temperature control include:
     into account cooling/heating mode and occ/unocc/standby mode
 
 Whenever possible, there should be one effective temperature setpoint
-which takes all the various modes into account.  This provides the simplest
+that takes all the various modes into account.  This provides the simplest
 model to perform analysis of HVAC operations.  However in some cases
 a thermostat will provide two effective setpoints - one for cooling
 and one for heating.  In this case, there must also be a 'hvacMode' point
@@ -103,12 +103,11 @@ All the points above must also be tagged with `zone`, `air`, and `point`.
 Lighting [#lighting]
 ********************
 The `lighting-zone-space` conjuct models lighting zones.  The `lightingZonePoints`
-def enumerates the typial points used for lighting measurement and control
+def enumerates the typical points used for lighting measurement and control
 including:
 
   - `light-level` `sensor`: brightness level status as percentage
   - `light-level` `sp`: brightness level setpoint as percentage
   - `light` `illuminance` `sensor`: lux, footcandle, or phot
   - `light` `luminous-flux` `sensor`: luminous flux in lumens
-
 

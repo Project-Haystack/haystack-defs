@@ -40,7 +40,7 @@ buildings and sensors using dicts.  The tags of the dict inform what type
 of entity is modeled and facts about that entity.
 
 Haystack includes a special data type we call *marker*.  Markers are tag names
-without a value.  Instead it is the presence of the marker name which is semantically
+without a value.  Instead it is the presence of the marker name that is semantically
 meaningful.  Markers are used for typing dicts.  For example if a dict models
 a building then we use the marker tag `site`; or if a dict models an electric
 meter than we use the combination of markers tags `elec-meter`.
@@ -49,7 +49,7 @@ These data types are discussed in detail in the `Kinds` chapter.
 
 File Types [#fileTypes]
 ***********************
-A standard suite of text formats is define to exchange the Haystack data types.
+A standard suite of text formats is defined to exchange the Haystack data types.
 These formats are self describing to ensure that all data types will round-trip
 through the encoding/decoding process without loss of typing information.
 
@@ -66,7 +66,7 @@ HTTP API [#httpApi]
 *******************
 A simple HTTP protocol is specified by Haystack to facilitate exchanging
 data between servers and devices.  The protocol is based on a set of
-*ops* (short for operations) which provide a RPC mechanism to send a request
+*ops* (short for operations) that provide a RPC mechanism to send a request
 and receive a response as grids encoded in one of the supported file types.
 Included in the specification is a pluggable SCRAM based [authentication]`Auth`
 protocol.
@@ -95,9 +95,9 @@ concepts in this domain including:
 Each of these top-level concepts includes a taxonomy tree for more specific types.
 For example, the term *space* is the root of the taxonomy that includes floor,
 room, and zones.  All the concepts modeled in our ontology are formalized
-into a vocabulary of terms which map to the tags used in dicts.
+into a vocabulary of terms that map to the tags used in dicts.
 
-Let's illustrate with a simple example.  This a dict which models a building:
+Let's illustrate with a simple example.  This a dict that models a building:
 
   id: @whitehouse
   dis: "White House"
@@ -134,14 +134,14 @@ for the semantics of a Haystack data model.  In our example above, we know that 
 represents a building (the site tag) and that the area tag tells us the
 square footage of the building.
 
-Defs are themselves just a dict which use a standard set of *meta tags*
+Defs are themselves just a dict that uses a standard set of *meta tags*
 for their definition.  This means defs are also normal Haystack data.
-For example the def for the `floor` tag is itself a dict of the following tags:
+For example, the def for the `floor` tag is itself a dict of the following tags:
 
   def: ^floor
   is: ^space
   wikipedia: `https://en.wikipedia.org/wiki/Storey`
   doc: "Storey of a building"
 
-Defs and the mechanisms used to construct the ontology are introduced in
+Defs, and the mechanisms used to construct the ontology, are introduced in
 detail in the `Defs` chapter.

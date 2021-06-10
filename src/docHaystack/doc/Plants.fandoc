@@ -15,17 +15,17 @@ heating.  Haystack standardizes the following types of plants:
   - `hot-water-plant`: produces hot water for heating
   - `steam-plant`: produces steam water
 
-Typically these plants supply [AHUs]`AHUs` and [VAVs]`VAVs` for HVAC
+Typically, these plants supply [AHUs]`AHUs` and [VAVs]`VAVs` for HVAC
 applications.  But they can also be used for industrial processes.
 
-We typically use the term *central plant* to describe a plant which
+We typically use the term *central plant* to describe a plant that
 supplies a building or group of buildings.  When the plant supplies
-a municipality we use the term *district plant*.  However the Haystack
+a municipality, we use the term *district plant*.  However, the Haystack
 modeling techniques described here are identical.
 
 Haystack models an entire plant as a single blackbox `equip` entity.
-Equipment within the plant including heat exchangers, pumps, boilers,
-and chillers are modeled as children of the plant via the `equipRef` tag.
+Equipment within the plant, including heat exchangers, pumps, boilers,
+and chillers, are modeled as children of the plant via the `equipRef` tag.
 
 Chilled Water Plants [#chilledWaterPlants]
 ******************************************
@@ -65,7 +65,7 @@ of sub-equipment:
 Loops [#loops]
 **************
 Plants typically maintain a separation between the working fluid within
-the plant versus the fluid which supplies thermal energy to the building.
+the plant versus the fluid that supplies thermal energy to the building.
 We term the pipework within the central plant the `primaryLoop` and
 the pipework from the plant to the building the `secondaryLoop`.  These
 two loops are connected through [heat exchangers]`heatExchanger`.  In
@@ -111,5 +111,4 @@ sensor on the primary entering pipe and on the secondary leaving pipe:
   kind: "Number"
   equipRef: @hx
   siteRef: @site
-
 
