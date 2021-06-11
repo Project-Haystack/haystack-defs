@@ -17,7 +17,7 @@ doc:
   Operation for HTTP API.
   See `docHaystack::Ops` chapter.
 --------------------------------------------------------------------------
-def: ^noSideEffectsX
+def: ^noSideEffects
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Side_effect_(computer_science)`
 doc:
@@ -32,43 +32,43 @@ doc:
 
 --------------------------------------------------------------------------
 def: ^op:about
-noSideEffectsX
+noSideEffects
 doc:
   Query basic information about the server.
   See `docHaystack::Ops#about` chapter.
 --------------------------------------------------------------------------
 def: ^op:defs
-noSideEffectsX
+noSideEffects
 doc:
   Query the definitions in the current namespace.
   See `docHaystack::Ops#defs` chapter.
 --------------------------------------------------------------------------
 def: ^op:filetypes
-noSideEffectsX
+noSideEffects
 doc:
   Query the filetype defs in the current namespace.
   See `docHaystack::Ops#filetypes` chapter.
 --------------------------------------------------------------------------
 def: ^op:libs
-noSideEffectsX
+noSideEffects
 doc:
   Query the lib defs in the current namespace.
   See `docHaystack::Ops#libs` chapter.
 --------------------------------------------------------------------------
 def: ^op:read
-noSideEffectsX
+noSideEffects
 doc:
   Query the a set of entity records by id or by filter.
   See `docHaystack::Ops#read` chapter.
 --------------------------------------------------------------------------
 def: ^op:ops
-noSideEffectsX
+noSideEffects
 doc:
   Query the op defs in the current namespace.
   See `docHaystack::Ops#ops` chapter.
 --------------------------------------------------------------------------
 def: ^op:nav
-noSideEffectsX
+noSideEffects
 doc:
   Query the navigation tree for discovery.
   See `docHaystack::Ops#nav` chapter.

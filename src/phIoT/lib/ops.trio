@@ -8,13 +8,13 @@
 
 --------------------------------------------------------------------------
 def: ^op:hisRead
-noSideEffectsX
+noSideEffects
 doc:
   Read historized time series data from a `his-point`.
   See `docHaystack::Ops#hisRead` chapter.
 --------------------------------------------------------------------------
 def: ^op:hisWrite
-noSideEffectsX
+noSideEffects
 doc:
   Write historized time series data from a `his-point`.
   See `docHaystack::Ops#hisWrite` chapter.
