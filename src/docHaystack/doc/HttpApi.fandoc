@@ -48,12 +48,12 @@ but the actual encoding used is pluggable using [content negotiation]`#contentNe
 
 GET Requests [#getRequests]
 ===========================
-If an op is tagged with the `noSideEffectsX` marker, then it may be called
+If an op is tagged with the `noSideEffects` marker, then it may be called
 with a HTTP GET request as long as the operation requires no arguments or a
 single row request.  The request grid is encoded in the HTTP query string
 where each query parameter is mapped to tags in a single row.  The tag value
 must be Zinc encoded, otherwise it is assumed to be of a Str type.  Using a
-GET request on an op without the `noSideEffectsX` tag must return a 405
+GET request on an op without the `noSideEffects` tag must return a 405
 Method Not Allowed error.
 
 Example of request with empty grid:
@@ -111,7 +111,7 @@ Example of request with multiple tags encoded as Zinc:
 
 POST Requests [#postRequests]
 =============================
-If an op is not tagged `noSideEffectsX` or the request grid is anything other
+If an op is not tagged `noSideEffects` or the request grid is anything other
 than a single row of name/value pairs, then it must be be sent using HTTP POST.
 The client must encode the grid using a MIME type supported by server.  The
 client can query the supported MIME types using the [filetypes op]`Ops#filetypes`.
