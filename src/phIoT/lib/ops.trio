@@ -14,7 +14,6 @@ doc:
   See `docHaystack::Ops#hisRead` chapter.
 --------------------------------------------------------------------------
 def: ^op:hisWrite
-noSideEffects
 doc:
   Write historized time series data from a `his-point`.
   See `docHaystack::Ops#hisWrite` chapter.
