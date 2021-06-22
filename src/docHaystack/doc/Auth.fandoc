@@ -174,7 +174,7 @@ parameter, the client MUST include it on its next request to the server. Its
 value is opaque and server-defined.
 
 SCRAM [#scram]
-=============
+**************
 The 'SCRAM' auth scheme SHALL be used to authenticate the client using the
 Salted Challenge Response Authentication Mechanism (SCRAM).
 SCRAM is defined in [RFC5802]`#references`.
@@ -190,7 +190,7 @@ In this example, the username is “user" and the password is “pencil". SHA-25
 is used as the cryptographic hash function.
 
 Hello [#scramHello]
--------------------
+===================
 Note: Header lines have been split to ease readability. All base64url encodings
 are without padding.
 
@@ -216,7 +216,7 @@ S: HTTP/1.1 401 Unauthorized
 <pre
 
 Authentication Exchange [#scramExchange]
-----------------------------------------
+========================================
 The client initiates the authentication exchange.
 The Authorization header specifies SCRAM as the authentication
 scheme. The following attributes are specified:
@@ -281,8 +281,56 @@ S: HTTP/1.1 200 Ok
        data=dj02cnJpVFJCaTIzV3BSUi93dHVwK21NaFVaVW4vZEI1bkxUSlJzamw5NUc0PQo
 <pre
 
+PLAINTEXT [#plaintext]
+**********************
+The 'PLAINTEXT' auth scheme SHALL be used to authenticate the client using a base64url
+encoded username and password. Use of the 'PLAINTEXT' scheme MUST only be
+allowed over a secure TLS connection.
+
+Hello [#plainHello]
+===================
+Note: Header lines have been split to ease readability. All base64url encodings are
+without padding. In the following example, a user named 'user' with
+password 'password' authenticates with the server.
+
+The client sends a hello message identifying the user as 'user'.
+
+pre>
+C: GET /haystack/about HTTP/1.1
+   HOST: server.example.com
+   Authorization: HELLO username=dXNlcg
+<pre
+
+The server responds to the client indicating the user should authenticate using 'PLAINTEXT'.
+
+pre>
+S: HTTP/1.1 401 Unauthorized
+   WWW-Authenticate: PLAINTEXT
+<pre
+
+Authentication Exchange [#plainExchange]
+========================================
+
+The client continues the authentication exchange. The following attributes are included:
+
+- 'username': the base64url-encoded username
+- 'password': the base64url-encoded password
+
+pre>
+C: GET /haystack/about HTTP/1.1
+   Host: server.example.com
+   Authorization: PLAINTEXT username=dXNlcg, password=cGFzc3dvcmQ
+<pre
+
+The final server message indicates the user is authenticated.
+
+pre>
+S: HTTP/1.1 200 Ok
+   Authentication-Info: authToken=AuthTokenXXYYZZ
+<pre
+
 References [#references]
-========================
+************************
 [#RfcBase64] [RFC4648]`https://tools.ietf.org/pdf/rfc4648.pdf`: The Base16, Base32, Base64 Data Encodings
 
 [#RfcScram] [RFC5802]`https://tools.ietf.org/html/rfc5802`: Salted Challenge Response Authentication Mechanism (SCRAM) SASL and GSS-API Mechanism
