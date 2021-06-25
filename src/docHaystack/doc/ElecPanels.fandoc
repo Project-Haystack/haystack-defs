@@ -33,7 +33,7 @@ main site meter:
 
 Circuit [#circuits]
 *******************
-The `circuit` tag models an individual electric circuit.  Circuits are used
+The `circuit` tag models an individual electrical circuit.  Circuits are used
 to model meta-data about the electrical circuit such as max load, phase, etc.
 Circuits also contain the points associated with sensors and breakers.  Note
 these tags have not yet been formalized by Project Haystack.

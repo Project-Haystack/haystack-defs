@@ -7,18 +7,18 @@
 
 Overview [#overview]
 ********************
-Prototypes or simply *protos* are dict templates.  A proto is just a
+Prototypes, or simply *protos*, are dict templates.  A proto is just a
 normal dict of name/value pairs along with a special tag expansion mechanism.
 
 Protos are primarily used to declare typical sub-parts of an entity
-via the `children` tag.  For example we use protos to answer questions such
+via the `children` tag.  For example, we use protos to answer questions such
 as "what points might be contained by a chiller?" Protos are generated
-into Project Haystack documentation.  They also used to power menu options
+into Project Haystack documentation.  They are also used to power menu options
 in vendor tools.
 
 Format [#format]
 ****************
-The 'children' tag for entity is a list of prototype dicts:
+The 'children' tag for an entity is a list of prototype dicts:
 
   def: ^pipe
   children: [
@@ -62,11 +62,11 @@ flattened into their children.  In our pipe example:
 
 Flattening occurs when we are given an instance of a parent pipe and
 want to generate the children protos.  We walk each symbol in the
-childrenFlattens list and if the parent [implements]`Reflection#reflection`
+childrenFlattens list and, if the parent [implements]`Reflection#reflection`
 the def, then it is flattened into each child proto.  Lets look at some
 concrete examples:
 
-First lets look at a parent pipe that implements neither a `fluid` term
+First, lets look at a parent pipe that implements neither a `fluid` term
 nor a `pipeSectionType` term:
 
   // parent pipe
@@ -110,9 +110,8 @@ when used with equipment containing known children:
     {condenser water entering pipe equip},
     ]
 
-In the `chiller` example above it is not necessary to enumerate every
-possible combination of chiller point.  Rather we declare that chiller's
-have four specific pipes.  Using indirection we can then derive the
+In the `chiller` example above, it is not necessary to enumerate every
+possible combination of chiller point.  Rather, we declare that chillers
+have four specific pipes.  Using indirection, we can then derive the
 various points by flattening the generic `pipe` definition.
-
 

@@ -29,9 +29,9 @@ marker tags:
 Point Kinds [#pointKinds]
 ********************
 Points must be classified as analog, digital, or multi-state using the `kind` tag:
-  - **Bool**: model digital points as true/false.  Bool points may
+  - **Bool**: models digital points as false/true.  Bool points may
     also define an `enum` tag for the text to use for the false/true states
-  - **Number**: model analog points such as temperature or pressure.
+  - **Number**: models analog points, such as temperature or pressure.
     These points should also include the `unit` to indicate the point's
     unit of measurement.
   - **Str**: models an enumerated point with a mode such as "Off, Slow, Fast".
@@ -66,8 +66,8 @@ Writable Points [#writable]
 ***************************
 Writable points model an output or setpoint, which may be commanded.  Writable
 points are tagged with the [writable]`writable-point` marker.  They are patterned
-using the BACnet 16-level priority array with a relinquish default which effectively
-acts as level 17. Writable points which may be commanded over the HTTP API
+using the BACnet 16-level priority array with a relinquish default, which effectively
+acts as level 17. Writable points that may be commanded over the HTTP API
 via the [pointWrite]`Ops#pointWrite` operation.
 
 The following levels have special behavior:
@@ -92,18 +92,18 @@ allows the next highest level to take command of the output).
 
 The following tags are used to model the writable state of a point:
 
-  - `writeVal`: this is the current "winning" value of the priority array,
-    or if this tag is missing then the winning value is null
-  - `writeLevel`: number from 1 to 17 indicate the winning priority
+  - `writeVal`: this is the current "winning" value of the priority array;
+    or if this tag is missing, then the winning value is null
+  - `writeLevel`: number from 1 to 17 indicates the winning priority
     array level
   - `writeStatus`: status of the server's ability to write the last
     value to the output device: ok, disabled, down, fault.
-  - `writeErr`: indicates the error message if writeStatus is error
+  - `writeErr`: indicates the error message if writeStatus is an error
     condition
 
 Historized Points [#his]
 ************************
-If a point is *historized* this means that we have a time-series sampling of
+If a point is *historized*, this means that we have a time-series sampling of
 the point's value over time.  Historized points are sometimes called *logged*
 or *trended* points. Historized points should be tagged with the [his]`his-point`
 marker.

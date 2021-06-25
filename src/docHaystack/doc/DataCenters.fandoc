@@ -20,7 +20,7 @@ relationship via the `equipRef` tag.
 
 Examples [#examples]
 ********************
-Here is a simple example for a data center containing one rack which contains
+Here is a simple example for a data center containing one rack that contains
 one server:
 
   id: @dc

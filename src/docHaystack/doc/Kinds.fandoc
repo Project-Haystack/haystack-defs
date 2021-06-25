@@ -11,8 +11,8 @@ Haystack defines a fixed set of data types we call *kinds*.
 
 There are three special singleton types:
   - [Marker]`#marker`: label for a "type" or "is-a" relationship
-  - [NA]`#na`: singleton value which represents not available, missing, or invalid data
-  - [Remove]`#remove`: singleton value which represents a removal operation
+  - [NA]`#na`: singleton value that represents not available, missing, or invalid data
+  - [Remove]`#remove`: singleton value that represents a removal operation
 
 There are eleven scalar atomic types:
   - [Bool]`#bool`: boolean "true" or "false"
@@ -50,7 +50,7 @@ Marker [#marker]
 ****************
 Marker is a singleton used to create "label" tags.  Markers are used to
 express typing information.  For example the `equip` tag is used on any
-dict which represents an equipment asset.
+dict that represents an equipment asset.
 
 Encodings:
   M                     // Zinc cell
@@ -71,7 +71,7 @@ Encodings:
 Remove [#remove]
 ****************
 Remove is a singleton used in dicts to indicate removal of a tag.  It is
-reserved for future HTTP ops which perform entity updates.
+reserved for future HTTP ops that perform entity updates.
 
 Encodings:
   R                     // Zinc, Trio
@@ -130,7 +130,7 @@ INF and -INF, however it is discouraged.
 Str [#str]
 **********
 Str is a sequence of zero or more Unicode characters.  Implementations must
-fully support at least the Basic Multilingual Plane (plane 0) which covers
+fully support at least the Basic Multilingual Plane (plane 0), which covers
 all the 16-bit code points.  All text formats must be encoded using UTF-8
 unless explicitly specified otherwise (such as via a charset parameter in
 an HTTP Content-Type).
@@ -146,7 +146,7 @@ range via the `enum` type.
 
 Uri [#uri]
 **********
-Uri is the data type to represent Universal Resource Identifiers according
+Uri is the data type used to represent Universal Resource Identifiers according
 to [RFC 3986]`http://tools.ietf.org/html/rfc3986`.
 
 Encodings:
@@ -160,7 +160,7 @@ Ref [#ref]
 **********
 Refs are the data type for instance data identifiers.  All entities are
 identified via the `id` tag and a unique ref data value.  Relationships
-cross-reference the entity with ref tags.  And operations such as the 'read'
+cross-reference the entity with ref tags.  And, operations such as the 'read'
 or 'hisRead' ops will identify the entity with its ref id.
 
 Refs must adhere to the following limited set of ASCII characters:
@@ -292,7 +292,7 @@ Lists are encoded using square brackets exactly like JSON arrays:
 Dict [#dict]
 ************
 Dict (or dictionary) is the primary collection data type in Haystack.  Dicts
-are an unordered collection of name/value pairs which we call *tags*.  The
+are an unordered collection of name/value pairs that we call *tags*.  The
 name keys of a dict are restricted to ASCII letters, digits and underbar
 as discussed in the [names section]`#names`.  The values may be be any other valid
 Haystack data type.
@@ -304,12 +304,12 @@ Dicts are encoded using curly braces similiar to JSON objects:
 Grid [#grid]
 ************
 Grid is a two dimensional tabular data type.  Grids are essentially a list
-of dicts.  However grids may include grid level and column level meta data
-which is modeled as a dict.  Grids are the fundamental unit of data exchange
+of dicts.  However, grids may include grid level and column level meta data
+that is modeled as a dict.  Grids are the fundamental unit of data exchange
 over the [HTTP API]`HttpApi`.
 
 Grids are commonly used to encode a list of dicts into a single table.
-Consider three dicts which model buildings:
+Consider three dicts that model buildings:
 
   id: @site-a
   dis: "Site A"
@@ -326,7 +326,7 @@ Consider three dicts which model buildings:
   area: 62000ft²
   phone: "(804) 555-1234"
 
-Our three entities all have an 'id', 'dis', and 'site' tags.  In addition two
+Our three entities all have an 'id', 'dis', and 'site' tags.  In addition, two
 have the 'area' tag, and one has a 'phone' tag.  To combine these three entities
 into a grid we end up with five columns and three rows:
 
@@ -373,5 +373,4 @@ All the data types are formally defined by name with a [def]`Defs`:
 
 [Subtyping]`Subtyping` is used to narrow the core kinds into tag definitions.  For
 example all ref tags will subtype from `ref`.
-
 

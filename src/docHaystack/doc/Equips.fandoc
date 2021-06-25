@@ -15,10 +15,10 @@ water plant.
 Tags [#tags]
 ************
 Equip entities must define a `siteRef` tag for their parent site.
-Additionally use the `spaceRef` tag if the equipment is contained by a defined
+Additionally, use the `spaceRef` tag if the equipment is contained by a defined
 space.  It is also typical to nest equipment using containment via the `equipRef`
-tag.  For example if a fan is contained by an AHU, then the fan entity should
-define an 'equipRef' which references the parent AHU entity.
+tag.  For example, if a fan is contained by an AHU, then the fan entity should
+define an 'equipRef' that references the parent AHU entity.
 
 Examples [#examples]
 ********************
@@ -51,5 +51,4 @@ Here are examples for the proper tagging of equipment:
   equip
   siteRef: @site
   equipRef: @site.chillerPlant
-
 
