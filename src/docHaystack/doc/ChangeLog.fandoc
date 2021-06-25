@@ -10,8 +10,8 @@
 - New 'op' feature and def for each operation
 - Rename 'formats' to 'filetypes' as defs query
 - HTTP API specification for noSideEffects
-
-TODO: rename noSideEffects
+- Span def
+- Authentication plaintext scheme
 
 **Version 3.9.10 (23 Apr 2021)**
 - Rename weatherRef to weatherStationRef for consistency
