@@ -124,7 +124,7 @@ A Haystack DateTime is encoded as an object with the following keys:
   - '_kind': "dateTime"
   - 'val': the ISO 8601 String encoding of the date and time
   - 'tz': (optional) the Olsen timezone database city name of the time zone. If
-  this key is missing, 'GMT' is the default.
+    this key is missing, 'GMT' is the default.
 
 pre>
 // default timezone
@@ -207,7 +207,7 @@ Grid [#grid]
 A Haystack Grid is encoded as a JSON object with the following keys:
   - '_kind': "grid"
   - 'meta': The JSON encoding of the grid metadata dict. The meta version 'ver' tag should
-  *always* be included in the meta.
+    *always* be included in the meta.
   - 'cols': A List of grid columns. Each column should have the following keys:
     - 'name': the String column name
     - 'meta': (optional) The JSON encoding of the column metadata dict.
@@ -338,7 +338,7 @@ Notes:
   - Refs strings use first space to separate id from dis portions of the string
   - DateTime, Date, and Time use ISO 8601 formats exactly as specified by Zinc
   - DateTime has required timezone name
-  - Strings which contain a colon **must** be encoded with "s:" prefix
+  - Strings that contain a colon **must** be encoded with "s:" prefix
   - Strings without a colon may optionally omit the "s:" prefix
   - Any JSON string without a colon as the second char is assumed to be a string value
 
@@ -350,7 +350,7 @@ Here is an example:
     // JSON
     {"dis":"Site-A", "site":"m:", "area":"n:5000 ft²", "built":"d:1992-01-23"}
 
-The Haystack and JSON models are very similiar since they both support
+The Haystack and JSON models are very similar since they both support
 the same core list and object/dict types.  The difference is that Haystack
 has a richer set of scalar types such as Date, Time, Uri which are
 not supported directly by JSON; so we encode them as strings using a

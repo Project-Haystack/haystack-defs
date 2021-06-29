@@ -43,7 +43,7 @@ is not always expressed that way.
 Requests [#requests]
 ********************
 A client makes a request to a server by sending a single grid and the server
-responses with a grid.  Typically grids are encoded using `Zinc` or `Json`,
+responds with a grid.  Typically grids are encoded using `Zinc` or `Json`,
 but the actual encoding used is pluggable using [content negotiation]`#contentNegotiation`.
 
 GET Requests [#getRequests]
@@ -133,7 +133,7 @@ serializes the response result as a MIME encoded grid.
 
 Error Handling [#errors]
 ************************
-There are three type of errors which may occur when a client makes a
+There are three type of errors that may occur when a client makes a
 request to a server:
   - Network I/O errors
   - HTTP errors
@@ -141,7 +141,7 @@ request to a server:
 
 Network errors occur when the client cannot make a successful TCP
 connection to the server.  This might include invalid host name, port
-number, or network outage.  Typically these sorts of errors are raised
+number, or network outage.  Typically, these sorts of errors are raised
 as I/O exceptions by the client's runtime.
 
 HTTP errors occur when TCP connections can be successfully established,
@@ -169,7 +169,7 @@ cannot be read.  Request errors include but are not limited to:
 
 Error Grid [#errorGrid]
 ***********************
-If a operation failed after a request grid is successfully read by a
+If an operation failed after a request grid is successfully read by a
 server, then the server returns an *error grid*.  An error grid is indicated
 by the presence of the 'err' marker tag in the grid metadata.  All
 error grids must also include a 'dis' tag in the grid metadata with
@@ -194,7 +194,7 @@ occurs, the response should add an 'incomplete' tag to the response grid meta.
 The value of 'incomplete' must be a Dict and should use the following tags:
   - 'dis': Str message to display to the user about why data is incomplete 
   - 'limit': Number if incomplete because of threshold limit 
-  - 'timeout': Number duration if complete because of timeout
+  - 'timeout': Number duration if incomplete because of timeout
 
 Example in Zinc:
 

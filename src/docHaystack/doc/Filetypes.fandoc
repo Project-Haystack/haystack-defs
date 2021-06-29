@@ -45,11 +45,11 @@ used for [defs]`Defs`.  Most examples in the documentation are formatted
 in Trio.
 
 Trio is a line oriented format.  Dicts are encoded with each tag on its own
-line.  Dicts are separated by a line of "---".  There is also some syntax suguar
+line.  Dicts are separated by a line of "---".  There is also some syntax sugar
 for multi-line strings and nested collection data values.
 
 Trio is not ideal for representing grids because it does not support grid
-meta nor column meta.  As such Trio is should not typically be used to encode
+meta nor column meta.  As such, Trio should not typically be used to encode
 requests/responses in the `HttpApi`.
 
 See `Trio` chapter for further details.
@@ -73,7 +73,6 @@ formats: Turtle and JSON-LD.  Both defs and instance data have a standard export
 mapping.
 
 See `Rdf` chapter for details.
-
 
 
 
