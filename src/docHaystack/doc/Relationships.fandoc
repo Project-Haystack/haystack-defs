@@ -26,17 +26,17 @@ Haystack defines two primary types of relationships:
 Containment Relationships [#containment]
 ========================================
 Containment relationships are defined by the `contains` and `containedBy`
-tags. Refs which model containment follow a naming convention
+tags. Refs that model containment follow a naming convention
 of '{parent}Ref' and are applied on the child entity to refer to the
-parent entity.  Refs which implement the containment relationship include
+parent entity.  Refs that implement the containment relationship include
 `siteRef`, `spaceRef`, and `equipRef`.
 
 Flow Relationships [#flow]
 ==========================
 Flow relationships are defined by the `inputs` and `outputs` tags.
-Refs which model flow follow a naming convention of '{substance}Ref'
+Refs that model flow follow a naming convention of '{substance}Ref'
 and are applied on the inputting entity to refer to the source of the substance.
-Refs which implement flow relationships include `airRef`, `elecRef`,
+Refs that implement flow relationships include `airRef`, `elecRef`,
 `chilledWaterRef`, and `steamRef`.
 
 Example [#example]
@@ -46,12 +46,12 @@ Lets look at a simple example:
   // hot water plant entity
   id: @hwp, hot, water, plant, equip
 
-  // AHU entity which inputs hot water from the plant above
+  // AHU entity that inputs hot water from the plant above
   id: @ahu, ahu, equip, hotWaterHeating, hotWaterRef: @hwp
 
 The plant's primary identifier is modeled by the `id` tag with a ref
 value of '@hwp'.  The id tag uniquely identifies this plant within the
-data set.  The second dict models an `ahu` which has the reference
+data set.  The second dict models an `ahu` that has the reference
 tag `hotWaterRef` referencing the plant by its id.
 
 The actual definition of `hotWaterRef` looks like this:
@@ -64,8 +64,8 @@ The actual definition of `hotWaterRef` looks like this:
   doc: "Hot water flows from the the referent to this entity"
 
 This definition tells us that the 'hotWaterRef' tag is a 'ref'
-subtype which should reference a 'hot-water-output'.  When applied
-to an instance it implies that the entity receives 'hot-water'
+subtype that should reference a 'hot-water-output'.  When applied
+to an instance, it implies that the entity receives 'hot-water'
 from the referenced entity.
 
 Querying Relationships [#querying]
@@ -74,12 +74,12 @@ NOTE: THIS DESIGN IS AN EARLY STRAW-MAN PROPOSAL
 
 Project Haystack uses [filters]`Filters` as its simple declarative query
 language.  The most basic way to query relationships is by tags.  The following
-filter queries AHUs which receive hot water from our plant in the example
+filter queries AHUs that receive hot water from our plant in the example
 above:
 
   ahu and hotWaterRef == @hwp
 
-This filter would match any dict which has the `ahu` tag and the `hotWaterRef`
+This filter would match any dict that has the `ahu` tag and the `hotWaterRef`
 tag with a value equal to the identifier '@hwp'.
 
 This technique is also heavily used to match points associated with a given
@@ -90,7 +90,7 @@ as '@ahu' would be:
 
 We can use the proposed def operator '?' to perform more abstract relationship
 queries.  This operator lets us use [reflection]`Reflection` and [subtype]`Subtyping`
-inference to construct queries which don't require detailed knowledge of how
+inference to construct queries that don't require detailed knowledge of how
 a system was tagged.  Using our plant example above we can query AHUs that
 receive anything:
 
@@ -106,13 +106,13 @@ on the defs.  For example:
 The rules to map a dict to its implemented defs is specified in
 the [reflection]`Reflection#reflection` chapter.
 
-We can enhance our query to filter dicts which receive hot water like this:
+We can enhance our query to filter dicts that receive hot water like this:
 
   inputs-hot-water?
 
 The term to the right of the first dash is used to match the value of
 the def's `inputs` tag.  We can read the filter above as follows: does
-the dict implement a def with the `inputs` tag where the value which
+the dict implement a def with the `inputs` tag where the value that
 fits `hot-water`.  Subtyping may be used too; any of the following
 filters would match our AHU also:
 
@@ -138,7 +138,7 @@ Transitive Relationships [#transitive]
 **************************************
 Relationship tags can be marked as `transitive`.  A transitive relationship
 means that if the relationship applies between A and B and also between
-B and C, that it is inferred to apply between A and C.  Lets look at an
+B and C, then it is inferred to apply between A and C.  Lets look at an
 example to illustrate:
 
   id: @ahu, ahu, equip
@@ -150,8 +150,8 @@ We have three entities in our example:
   - Discharge fan contained by the AHU
   - Fan speed command point contained by the fan
 
-In this example, containment is modeled by `equipRef` which is tagged
-with the `containedBy` relationship. Furthermore the `containedBy` definition
+In this example, containment is modeled by `equipRef`, which is tagged
+with the `containedBy` relationship. Furthermore, the `containedBy` definition
 is tagged as `transitive`.
 
 Put it all together and we have a transitive containment relationship
@@ -165,19 +165,19 @@ AHU either directly or indirectly.
 
 This filter matches the fan equip as follows:
   1. Does the dict implement a def with the 'containedBy' tag (it does: `equipRef`)
-  2. Is the value of that tag in the dict equal to '@ahu' (yeap)
+  2. Is the value of that tag in the dict equal to '@ahu' (yes)
   3. Match
 
 The filter matches the fan speed point as follows
   1. Does the dict implement a def with the 'containedBy' tag (it does: `equipRef`)
   2. Does the value of that tag in the dict equal '@ahu' (it does not, its value is '@fan')
   3. Is the def marked as transitive (yes, containedBy is transitive)
-  4. If so, then does the entity referenced the by tag ('@fan' in this case) itself
+  4. If so, then does the entity referenced by the tag ('@fan' in this case) itself
      match the containedBy filter? It does because of the previous steps we evaluated
 
 Transitive relationships don't require the same reference tag is used.  For
-example we might traverse a `equipRef` first, and a `spaceRef` tag second.
-What matters that there is a recursive set of matching relationships.
+example, we might traverse a `equipRef` first, and a `spaceRef` tag second.
+What matters is that there is a recursive set of matching relationships.
 
 Reciprocal Of [#reciprocalOf]
 *****************************
@@ -191,7 +191,7 @@ our plant example we want to be able to query both sides as follows:
 We call these *reciprocal* relationships.  They are explicitly configured
 on the relationship defs via the `reciprocalOf` tag.
 
-Lets follow the process for this filter which should match
+Lets follow the process for this filter that should match
 the '@hwp' entity:
 
   outputs-hot-water? @ahu
@@ -204,17 +204,16 @@ inverse is constructed as follows when matching the '@hwp' entity:
 
   1. Replace 'outputs' with its inverse which is 'inputs'
   2. Leave the subject term to the right of the first dash
-  3. Replace the reference value '@ahu' with the dict being processed which is '@hwp'
-  4. Replace the dict being processed with entity identified by '@ahu'
+  3. Replace the reference value '@ahu' with the dict being processed, which is '@hwp'
+  4. Replace the dict being processed with the entity identified by '@ahu'
 
-Following those rules we would end up with an inverse filter which
+Following those rules, we would end up with an inverse filter that 
 looks just the one we have already examined and we know will match:
 
   inputs-hot-water? @hwp
 
 Together transitive and inverse relationships provide tremendous flexibility
 to query Haystack data without regard to the underlying reference tags used.
-
 
 
 

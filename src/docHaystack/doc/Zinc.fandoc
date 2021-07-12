@@ -53,7 +53,7 @@ Let's look at a simple example:
   "Jack",1973-07-23
   "Jill",1975-11-15
 
-Note the first line defines the grid meta-data which is just the version
+Note the first line defines the grid meta-data, which is just the version
 tag.  The second line defines two columns named 'firstName' and 'bday'.  There
 are two data rows each with a Str value for 'firstName' and a Date value for
 'bday'.  Every row must define a cell value for each column.
@@ -175,7 +175,7 @@ Zinc tokens:
   <digits>      := <digit> (<digit> | "_")*
   <hexDigit>    := ('a'-'f') | ('A'-'F') | digit
 
-The space charater 0x20 is allowed between tokens.
+The space character 0x20 is allowed between tokens.
 
 Notes [#notes]
 **************
@@ -237,9 +237,8 @@ Version History [#versionHistory]
   - add XStr
   - remove Bin format to use XStr syntax
 
-**Zinc 3.0 Haysatck 4 features**
+**Zinc 3.0 Haystack 4 features**
   - Version remains the same "3.0"
   - Symbol literals
   - Allow commas in nested dict literals
-
 

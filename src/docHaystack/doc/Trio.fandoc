@@ -57,7 +57,7 @@ Here is a simple example:
   geoCoord: C(37.5458,-77.4491)
   strTag: OK if unquoted if only safe chars
   summary:
-    This is a string value which spans multiple
+    This is a string value that spans multiple
     lines with two or more space characters
   ---
   name: "Site 2"
