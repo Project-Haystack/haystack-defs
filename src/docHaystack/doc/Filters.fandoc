@@ -8,14 +8,14 @@
 Overview [#overview]
 ********************
 Filters are a simple declarative language used to query Haystack
-data.  A filter is a predicate function which takes a dict and
+data.  A filter is a predicate function that takes a dict and
 returns true/false (match/no match).  Some filter constructs
 require the use of [defs]`Defs` in which case the filter must
 be evaluated in the context of a [namespace]`Namespaces`.
 
 Usage [#usage]
 **************
-The simplest filter is just a tag name which matches any record which
+The simplest filter is just a tag name that matches any record that
 contains that tag (regardless of its value):
 
   site  // query any record with the "site" tag
@@ -31,7 +31,7 @@ operators:
   curVal >= 75               // greater than or equal to
 
 The scalars to compare against are encoded using `Zinc`
-encoding (with couple exceptions noted below).
+encoding (with a couple of exceptions noted below).
 
 You can combine filters using 'and', 'or', or 'not':
 
@@ -41,15 +41,15 @@ You can combine filters using 'and', 'or', or 'not':
 
 Arrow Operator [#arrow]
 ***********************
-You use the '->' operator to dereference a tag which has a Ref value.  For
-example if your 'equip' rec has a 'siteRef' tag that references the
+You use the '->' operator to dereference a tag that has a Ref value.  For
+example, if your 'equip' rec has a 'siteRef' tag that references the
 site, you can query for equip in a given city such as:
 
   equip and siteRef->geoCity == "Chicago"
 
-The way to read the above expression is match an entity if:
+The filter above will match if the following hold true:
   - it has equip tag
-  - and it has a siteRef tag which is a Ref
+  - and it has a siteRef tag that is a Ref
   - and what the siteRef tag points to has the geoCity tag
   - and that the site's geoCity tag is equal to "Chicago"
 
@@ -59,9 +59,9 @@ Ref Lists [#refLists]
 *********************
 Haystack allows a list of refs to be used for relationships where
 a single ref might be used.  When a tag value is configured as a list
-of refs, then a filter will match if any one of the refs match.
+of refs, then a filter will match if any one of the refs in the list match.
 
-Consider an example with a VAV which has an 'airRef' configured with as
+Consider an example with a VAV that has an 'airRef' configured as a
 list of two refs:
 
   // records
@@ -110,5 +110,4 @@ The formal grammar of the filter langauge:
 
 See [Zinc grammar]`Zinc#grammar` for productions reused from Zinc.  Bools
 are encoded as "true" or "false" (Zinc encodes as "T" or "F").
-
 

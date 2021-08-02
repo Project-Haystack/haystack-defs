@@ -15,7 +15,7 @@ of each def yielding a new dict which we call the *effective* def.  Effective
 defs are  used to compute documentation, reflection, def aware
 filters, etc.
 
-Note: normalization is only required for software which wishes to build
+Note: normalization is only required for software that wishes to build
 a namespace from source libs.  Pre-normalized defs can be downloaded from
 [Project-Haystack]`https://project-haystack.dev/download#defs`.  These
 downloads may also be used as test cases to verify your own normalization
@@ -40,7 +40,7 @@ Each of these steps is discussed in detail in the following sections.
 
 Scan [#scan]
 ************
-The input to normalization is list of [lib]`Namespaces#libs` files.  These
+The input to normalization is a list of [lib]`Namespaces#libs` files.  These
 are the zip files that contain the declared defs.  Each zip file is opened
 and searched for applicable `Trio` files in the "lib/" directory.  There
 must be exactly one dict defined in "lib/lib.trio" with the lib's meta.
@@ -51,13 +51,13 @@ Every input `Trio` file found during scan is parsed to discover the declared
 def dicts identified with the 'def' tag.  This phase is also used to
 discover our *def extensions* which are identified by the 'defx' tag.
 Every dict parsed must have either the 'def' or 'defx' tag and the value
-must be a symbol.  During this phase we detect and report illegal
+must be a symbol.  During this phase, we detect and report illegal
 duplicate symbols - a given symbol must be mapped to only one def in
 all the input libs.
 
 Resolve [#resolve]
 ******************
-During this phase we walk every tag in every def and defx to resolve
+During this phase, we walk every tag in every def and defx to resolve
 symbolic references.  For each def, the following  must resolve in
 its [lib namespace]`Namespaces#lib`:
   1. Every tag name must resolve to a tag def
@@ -99,7 +99,7 @@ Note that gamma does not have visibility to alphaTag because alpha is not
 explicitly included.
 
 Resolution is performed on def and defx dicts separately.  This allows
-defx dicts to reference symbols which aren't in scope of the source def.
+defx dicts to reference symbols that aren't in scope of the source def.
 
 Taxonify [#taxonify]
 ********************
@@ -166,7 +166,7 @@ This step normalizes specific tags according to the following rules:
 
   2. Normalize def tags which subtype from list
 
-Every def has an inferred `lib` tag which is a reference to its declaring
+Every def has an inferred `lib` tag that is a reference to its declaring
 lib.  It is invalid for any def to declare its own 'lib' tag.  The lib meta
 itself also receives a 'lib' tag referencing itself.  Example:
 
@@ -179,10 +179,10 @@ itself also receives a 'lib' tag referencing itself.  Example:
   is: ^entity
   lib: ^lib:phIoT
 
-As a convenience tags such as `is` and `tagOn` can use a single symbol
+As a convenience, tags such as `is` and `tagOn` can use a single symbol
 instead of list of symbols.  However, their normalized representation
 must always be a list.  This phase should iterate every def and
-normalize any tag which subtypes from `list`.  Example:
+normalize any tag that subtypes from `list`.  Example:
 
   // before
   def: ^geoCity
@@ -207,7 +207,7 @@ supertypes:
 
   4. Filter out any tags from the supertype marked as `notInherited`
 
-  5. Inherit all tags from previous step which are not yet declared
+  5. Inherit all tags from previous step that are not yet declared
      nor inherited from other supertypes.
 
   6. If the tag is marked as `accumulate` then inheritance is aggregated.
@@ -215,7 +215,7 @@ supertypes:
 In the case of ambiguity via multiple inheritance, a subtype should
 explicitly declare the tag value.
 
-Here is a fictitious example for an [El Camino]`https://en.wikipedia.org/wiki/Chevrolet_El_Camino`
+Here is a fictitious example for an [El Camino]`https://en.wikipedia.org/wiki/Chevrolet_El_Camino`,
 which is a hybrid between a car and a pickup truck:
 
   // declarations
@@ -251,7 +251,7 @@ errors not caught in previous steps:
 
   2. Verify tag values match their def's declared types
 
-  3. Verify no def named 'index' which is reserved for documentation purposes
+  3. Verify no def named 'index', which is reserved for documentation purposes
 
   4. Verify every term in a conjunct is a marker
 
@@ -261,13 +261,13 @@ errors not caught in previous steps:
 
   7. Verify 'tagOn' only used on a tag defs (not conjuncts or feature keys)
 
-  8. Verify 'relationship' tags are only used on defs which subtype from ref
+  8. Verify 'relationship' tags are only used on defs that subtype from ref
 
 Generate [#generate]
 ********************
 Once all previous steps have completed successfully, we can generate our
-namespace.  From a logical perspective a namespace is a map of symbols to
-effective def dicts.  In actual implementations this probably yields specific
+namespace.  From a logical perspective, a namespace is a map of symbols to
+effective def dicts.  In actual implementations, this probably yields specific
 data structures.  These data structures can then be used to perform additional
 computations such as [reflection]`Reflection`.
 

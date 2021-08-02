@@ -37,7 +37,7 @@ Manuals [#manuals]
 ******************
 Manuals are hand written documents that provide design details
 to augment the auto-generated reference documentation.  Manuals
-are composed of chapters which correspond to individual HTML pages.
+are composed of chapters that correspond to individual HTML pages.
 
 A manual index is composed of two sections:
   - manual: summary information including name and brief overview
@@ -68,13 +68,13 @@ the 'doc' or 'enum' may reference another section.
 Usage [#usage]
 ==============
 This section is used only on entity terms.  It lists the required
-marker  tags which must be applied to a dict to correctly
+marker tags that must be applied to a dict to correctly
 [implement]`Reflection#implementation` the term.  It takes into
 account conjuncts and supertypes with the `mandatory` marker.
 
 Enum [#enum]
 ============
-If the definition has the `enum` tag then this section provides
+If the definition has the `enum` tag, then this section provides
 a listing of the documented enumerations and their summary.
 
 Supertypes [#supertypes]
@@ -83,7 +83,7 @@ This section lists the term's [supertypes]`Subtyping`.  The supertypes
 are organized as an indented tree down from most general to most specific.
 The first item is the root type, which is typically `marker` or `val`.  The
 last item will be the definition's declared supertype matching the `is` tag.
-If the term has multiple supertypes then this tree will have multiple leaves.
+If the term has multiple supertypes, then this tree will have multiple leaves.
 
 Subtypes [#subtypes]
 ====================
@@ -93,17 +93,17 @@ are organized in an indented tree structure.
 Tags [#tags]
 ============
 This section lists the value tags associated with the entity via
-the `tagOn` association.  This section also includes tags which are
+the `tagOn` association.  This section also includes tags that are
 registered on the entity's supertypes.
 
 Children [#children]
 ====================
-This section lists children [prototypes]`Protos` which are "contained" by
+This section lists children [prototypes]`Protos` that are "contained" by
 the given entity type.
 
 Protos [#protos]
 ****************
-Prototypes are dict instances which model a predefined collection of tags.
+Prototypes are dict instances that model a predefined collection of tags.
 
 Proto [#proto]
 ==============

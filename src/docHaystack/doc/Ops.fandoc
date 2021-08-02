@@ -29,7 +29,7 @@ The [about]`op:about` op queries basic information about the server.
   - 'productVersion': Str version of the server software product
   - 'vendorName': Str name of product's company
   - 'vendorUri': Uri of the vendor's web site
-  - 'moduleName': module which implements Haystack server protocol if
+  - 'moduleName': module that implements Haystack server protocol if
     its a plug-in to the product
   - 'moduleVersion': Str version of moduleName
 
@@ -59,7 +59,7 @@ The [defs]`op:defs` op queries [def dicts]`Defs` from the current [namespace]`Na
 
 **Request (by filter)**: filter or limit which defs are queried
  - 'filter': Str encoding of filter
- - 'limit': optional Number which specifies maximum number of defs to return in response
+ - 'limit': optional Number that specifies maximum number of defs to return in response
 
 ** Response**: a grid with the dict representation of each def
 
@@ -85,14 +85,14 @@ unique identifier or using a filter.
 
 **Request (by filter)**: a grid with a single row and following columns:
   - 'filter': required Str encoding of [filter]`Filters`
-  - 'limit': optional Number which specifies maximum number of entities
+  - 'limit': optional Number that specifies maximum number of entities
     to return in response
 
 **Request (by id)**: a grid of one or more rows and one column:
   - 'id': a Ref identifier
 
-**Response**: grid with a row for each entity read.  If a filter
-read and no matches were found this will be an empty grid with no rows.
+**Response**: grid with a row for each entity read.  If the request is a filter
+read and no matches were found, this will be an empty grid with no rows.
 If a read by id, then each row corresponds to the request grid
 and its respective row ordering.  If an id from the request was not found,
 the response includes a row of all null cells.
@@ -135,12 +135,12 @@ grid is empty or navId is null, then the request is for the navigation
 root.
 
 **Response**: a grid of navigation children for the navId specified by
-the request.  There is always a 'navId' column which indicates the opaque
+the request.  There is always a 'navId' column that indicates the opaque
 identifier used to navigate to the next level of that row.  If the navId
 of a row is null, then the row is a leaf item with no children.
 
 Navigation rows don't necessarily always correspond to records in the
-database.  However, if the navigation row has an 'id' column then it
+database.  However, if the navigation row has an 'id' column, then it
 is safe to assume the row maps to a record in the database.  Clients
 should treat the navId as an opaque identifier.
 
@@ -151,7 +151,7 @@ or add entities to an existing watch.
 
 If the entities subscribed are themselves proxies for external data
 sources, then this operation should perform a downstream data refresh.
-For example if a Haystack gateway is used to proxy BACnet points, then
+For example, if a Haystack gateway is used to proxy BACnet points, then
 a watch subscription to the Haystack points might initiate a poll
 or COV subscription to the downstream BACnet points.  It is an
 implementation detail whether the data refresh occurs synchronously
@@ -159,10 +159,10 @@ or asynchronously.  Clients should expect that the latest data might not
 be available until a subsequent watchPoll operation.
 
 **Request**: a row for each entity to subscribe to with an 'id'
-column of Ref values.  In addition the following
+column of Ref values.  In addition, the following
 grid metadata is specified:
   - 'watchDis': debug/display string required when creating a new watch
-  - 'watchId': Str watch identifier which is required to add entities
+  - 'watchId': Str watch identifier, which is required to add entities
 to existing watch.  If omitted, the server must open a new watch.
   - 'lease': optional Number with duration unit for desired lease
 period (server is free it ignore)
@@ -179,17 +179,17 @@ lease period
 If the reponse is an [error grid]`HttpApi#errorGrid`, then the client must
 assume the watch is no longer valid, and open a new watch.
 
-It is possible that clients may use an id for the subscription which is
+It is possible that clients may use an id for the subscription that is
 not the server's canonical id (for example if multiple aliases might
 be used to reference an entity).  The canonical id is the one returned by
 the server in the watchSub response.  Servers must use this same id during
 watchPoll operations.  Clients must not assume that the id used by the
 watchSub request is the same id used by the watchSub response and watchPoll
-responses; however, the order of rows in watchSub request/response is
+responses.  However, the order of rows in watchSub request/response is
 guaranteed to allow clients to perform a mapping.
 
 WatchUnsub [#watchUnsub]
-********************
+************************
 The [watchUnsub]`op:watchUnsub` operation is used to close a [watch]`HttpApi#watches`
 entirely or remove entities from a watch.
 
@@ -248,7 +248,7 @@ To write a level in the priority array:
   - 'level': Number from 1-17 for level to write
   - 'val': value to write or null to auto the level
   - 'who': optional username/application name performing the write,
-    otherwise authenticated user is used
+    otherwise authenticated user display name is used
   - 'duration': Number with duration unit if setting level 8
 
 **Response**: empty grid
@@ -324,7 +324,7 @@ conversion is explicitly disallowed.
 
 Example:
 
-Here is an example which posts some new history data to a point:
+Here is an example that posts some new history data to a point:
 
   // request
   ver:"3.0" id:@hisId
