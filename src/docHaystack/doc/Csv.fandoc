@@ -17,7 +17,7 @@ CSV is represented by the def `filetype:csv`.
 
 Grid Format [#grid]
 *******************
-Haystack defines a standard mapping of grids into CSV which is used
+Haystack defines a standard mapping of grids into CSV, which is used
 by the [HTTP API]`HttpApi`.  Due to its simplicity, CSV does not provide full
 fidelity with the Haystack grid model -- metadata and type information
 is discarded.
