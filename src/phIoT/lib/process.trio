@@ -31,6 +31,14 @@ def: ^heatingProcessType
 is: ^process
 doc: "Processed used to heat a substance"
 --------------------------------------------------------------------------
+def: ^biomassHeating
+is: ^heatingProcessType
+doc: "Heating by the combustion of biomass"
+--------------------------------------------------------------------------
+def: ^coalHeating
+is: ^heatingProcessType
+doc: "Heating by the combustion of coal"
+--------------------------------------------------------------------------
 def: ^dxHeating
 is: ^heatingProcessType
 doc: "Heating using direct expansion of a refrigerant vapor"
@@ -38,6 +46,10 @@ doc: "Heating using direct expansion of a refrigerant vapor"
 def: ^hotWaterHeating
 is: [^heatingProcessType, ^hot-water-input]
 doc: "Heating using energy of hot water"
+--------------------------------------------------------------------------
+def: ^propaneHeating
+is: ^heatingProcessType
+doc: "Heating by the combustion of propane"
 --------------------------------------------------------------------------
 def: ^steamHeating
 is: [^heatingProcessType, ^steam-input]

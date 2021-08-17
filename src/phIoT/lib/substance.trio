@@ -13,9 +13,24 @@
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
+def: ^biomass
+is: ^substance
+wikipedia: `https://en.wikipedia.org/wiki/Biomass`
+doc: "Plant or animal material used as fuel to produce electricity or heat"
+--------------------------------------------------------------------------
+def: ^coal
+is: ^solid
+wikipedia: `https://en.wikipedia.org/wiki/Coal`
+doc: "Combustible sedimentary rock"
+--------------------------------------------------------------------------
 def: ^condensate
 is: ^liquid
 doc: "Liquid phase produced by the condensation of steam or other gas"
+--------------------------------------------------------------------------
+def: ^diesel
+is: ^liquid
+wikipedia: `https://en.wikipedia.org/wiki/Diesel_fuel`
+doc: "Liquid fuel specifically designed for use in diesel engines"
 --------------------------------------------------------------------------
 def: ^fuelOil
 is: ^liquid
@@ -31,7 +46,12 @@ doc:
   The energy content of natural gas varies by region within a range determined
   on impurities in the gas.  You can find a table of these conversions
   [here]`https://en.wikipedia.org/wiki/Heat_of_combustion#Higher_heating_values_of_natural_gases_from_various_sources`
---------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+def: ^propane
+is: ^gas
+wikipedia: `https://en.wikipedia.org/wiki/Propane`
+doc: "By-product of natural gas processing and petroleum refining (C₃H₈)"
+-----------------------------------------------------------------------------
 def: ^refrig
 is: ^fluid
 wikipedia: `https://en.wikipedia.org/wiki/Refrigerant`

@@ -12,6 +12,8 @@
 - HTTP API specification for noSideEffects
 - Span def
 - Authentication plaintext scheme
+- 776: biomasss, coal, diesel, propane
+- 776: biomassHeating, coalHeating, propaneHeating
 
 **Version 3.9.10 (23 Apr 2021)**
 - Rename weatherRef to weatherStationRef for consistency
