@@ -7,7 +7,7 @@
 
 Overview [#overview]
 ********************
-Choices define exclusive subtyping relationships.  For example `ductSection`
+Choices define exclusive subtyping relationships.  For example, `ductSection`
 is an exclusive choice of `ductSectionType`.  The subtypes of `ductSectionType`
 are *exclusive* - you choose one option such as `discharge` or `return`.  But
 you cannot use `discharge` and `return` together.
@@ -32,7 +32,7 @@ For example:
   is: ^choice     // example only, actual supertype is equipFunction
   of: ^phenomenon
 
-The `conveys` def indicates it is a choice and its value must be a subtype
+The `conveys` def indicates it is a choice, and its value must be a subtype
 of `phenomenon`.  We can then apply this choice to our defs to indicate
 support of this relationship.  We can optionally narrow the expected
 value.  Examples:
@@ -47,14 +47,15 @@ value.  Examples:
   conveys: ^elec
 
 The `pipe` def indicates it supports the `conveys` choice, and further
-narrows what is conveyed to be a subtype of `fluid`.  Likewise `duct`
+narrows what is conveyed to be a subtype of `fluid`.  Likewise, `duct`
 conveys `air` and `wire` conveys `elec`.
 
-In our example above the 'conveys' choice was naturally independent
-from the 'phenomenon' taxonomy (in fact they are defined in different
-libs).  But there are many choices which don't have a natural separation.
-In these cases we use the convention of 'foo' and 'fooType' to indicate
+In our example above, the 'conveys' choice was naturally independent
+from the 'phenomenon' taxonomy (in fact, they are defined in different
+libs).  But there are many choices that don't have a natural separation.
+In these cases, we use the convention of 'foo' and 'fooType' to indicate
 the choice and taxonomy supertype respectively.  Examples include:
+
   - `ductSection` of `ductSectionType`
   - `pipeSection` of `pipeSectionType`
   - `coolingProcess` of `coolingProcessType`
@@ -62,8 +63,8 @@ the choice and taxonomy supertype respectively.  Examples include:
 
 Instances [#instances]
 ***********************************
-When a def's choices are open ended then we can select the choice
-on a per instance basis.  Lets use a snippet of `ahu` to illustrate:
+When a def's choices are open ended, then we can select the choice
+on a per instance basis.  Let's use a snippet of `ahu` to illustrate:
 
   def: ^ahu
   doc: "Air Handling Unit"
@@ -72,24 +73,23 @@ on a per instance basis.  Lets use a snippet of `ahu` to illustrate:
 
 This informs us that air handlers heat air using a heating process (steam,
 gas, elec, etc).  The `heats` choice  is defined to be `air`.  Since 'air'
-has no subtypes it cannot be narrowed further.  However the `heatingProcess`
+has no subtypes, it cannot be narrowed further.  However, the `heatingProcess`
 choice of `heatingProcessType` has several subtypes.  In this case we
 should make the choice on a *per instance basis*.
 
 Per instance choice selection is performed by flattening the choice value
-into the instance as markers.  For example if we wish to annotate that
+into the instance as markers.  For example, if we wish to annotate that
 a specific instance of ahu uses steam heating, then we would model our
 data as follows:
 
   dis: "AHU Floor 2", ahu, steamHeating
 
 Note the difference in how choices are applied on defs versus instances.
-On defs we define the choice as a tag with a symbol value.  On instances
+On defs, we define the choice as a tag with a symbol value.  On instances,
 we define the choice value only as marker tags.
 
 Choices without subtypes should not be flattened into instances.  They
 can be inferred through [reflection]`Reflection`.
-
 
 
 

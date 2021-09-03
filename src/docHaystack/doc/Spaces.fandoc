@@ -15,7 +15,7 @@ security, smoke/fire, etc.
 Tags [#tags]
 ************
 All spaces must define a `siteRef` tag for their parent site.  In
-addition, when spaces are wholly contained by another space they should
+addition, when spaces are wholly contained by another space, they should
 model that relationship via the `spaceRef` tag.
 
 Floors [#floors]
@@ -70,7 +70,7 @@ Here is an example of an HVAC zone:
   siteRef: @site
   spaceRef: @site.floor3
 
-Zones and their associated points are examined in detail in the `Zones` chapter.
+Zones, and their associated points, are examined in detail in the `Zones` chapter.
 
 Data Centers [#dataCenters]
 ***************************
