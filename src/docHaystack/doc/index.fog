@@ -59,6 +59,7 @@
   [`Auth`,          "HTTP API authentication"],
 
   "Appendix",
+  [`Tools`,         "Tools to work with Haystack data"],
   [`Docs`,          "Guidance on reference documentation"],
   [`ChangeLog`,     "Version history"],
   [`Changes3to4`,   "Notes for upgrading from version 3 to 4"],

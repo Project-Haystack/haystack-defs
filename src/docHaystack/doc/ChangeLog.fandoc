@@ -14,6 +14,7 @@
 - Authentication plaintext scheme
 - 776: biomasss, coal, diesel, propane
 - 776: biomassHeating, coalHeating, propaneHeating
+- New Tools chapter to build from source with Haxall
 
 **Version 3.9.10 (23 Apr 2021)**
 - Rename weatherRef to weatherStationRef for consistency
