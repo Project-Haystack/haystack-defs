@@ -8,7 +8,7 @@
 
 --------------------------------------------------------------------------
 def: ^lib:phIct
-version: "3.9.10"
+version: "3.9.11"
 baseUri: `https://project-haystack.org/def/phIct/`
 depends: [^lib:ph, ^lib:phIoT]
 wikipedia: `https://en.wikipedia.org/wiki/Information_and_communications_technology`
@@ -16,4 +16,5 @@ doc:
   Project Haystack definitions for Information and Communications Technology.
   This includes microprocessor based hardware, software, and networking
   technologies.
----------------------------------------------------------------------
+--------------------------------------------------------------------------
+
