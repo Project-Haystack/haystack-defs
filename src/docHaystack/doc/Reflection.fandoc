@@ -19,7 +19,7 @@ implements the `equip` def.  If a dict contains both the `hot` and `water`
 tags then the dict implements `hot-water`.
 
 Reflection is the inverse process.  We are given a dict and we compute
-the list of effective defs which the it implements.
+the list of effective defs that the it implements.
 
 Implementation and reflection in Haystack are a flavor of
 [structural typing]`https://en.wikipedia.org/wiki/Structural_type_system`.
@@ -37,36 +37,36 @@ The rules for a dict to implement a def are as follows:
       c. Feature keys: are never implemented
 
   2. We walk the supertype tree of the def and apply any
-     tag which is marked as `mandatory`
+     tag that is marked as `mandatory`
 
 Lets look at some examples.
 
 If we want to apply the `point` def to a dict, then we apply rule 1a.  There
-are no supertypes marked as 'mandatory' so we are done.  Thus we apply
+are no supertypes marked as 'mandatory,' so we are done.  Thus, we apply
 only '{point}' to fully implement the `point` def.
 
-If we wish to apply the `rtu` def, then we apply rule 1a.  However when
-we walk the supertype tree we see that it subtypes from two 'mandatory'
-defs: `ahu` and `equip`.  Therefore to implement `rtu` requires adding
-all three tags: '{rtu, ahu, equip}'.  As a general rule top-level entity
+If we wish to apply the `rtu` def, then we apply rule 1a.  However, when
+we walk the supertype tree, we see that it subtypes from two 'mandatory'
+defs: `ahu` and `equip`.  Therefore, to implement `rtu` requires adding
+all three tags: '{rtu, ahu, equip}'.  As a general rule, top-level entity
 markers such as `site`, `space`, `equip`, `point` are always required.
 This makes it easy to query your tag based data.
 
-If we wish to apply the `hot-water-plant` def then we will apply rule 1b.
-Additionally this def subtypes from the mandatory `equip` tag.  So we need to
+If we wish to apply the `hot-water-plant` def, then we will apply rule 1b.
+Additionally, this def subtypes from the mandatory `equip` tag.  So we need to
 add four tags '{hot, water, plant, equip}'.
 
 Inheritance [#inheritance]
 **************************
 When a dict implements a def, it implicitly implements all of that def's
 supertypes.  For example if we add the `water` tag to a dict, then we
-implicitly implement all of the supertypes of `water` which includes
+implicitly implement all of the supertypes of `water`, which include
 `liquid`, `fluid`, `substance`, `phenomenon`, and `marker`.  We call
 this flattened list of supertypes the def's *inheritance*.
 
 Reflection [#reflection]
 ************************
-Reflection is the inverse of implementation.  Given a dict we compute
+Reflection is the inverse of implementation.  Given a dict, we compute
 the defs it implements.  Reflection is always done within the context
 of a [namespace]`Namespaces` to determine which defs are in scope.
 
@@ -92,22 +92,21 @@ Step 2 yields: `hot-water`, `hot-water-plant`
 
 Entity Types [#entityTypes]
 ***************************
-We use markers extensively in Haystack to indicate typing information.  However
-a marker tag is not a *type* per se.  In a tagging system we use tags to
-quickly and easily associate data to related terms.  Lets examine our
+We use markers extensively in Haystack to indicate typing information.  However,
+a marker tag is not a *type* per se.  In a tagging system, we use tags to
+quickly and easily associate data to related terms.  Let's examine our
 example from above:
 
   id: @hwp, dis: "Hot Water Plant", hot, water, plant, equip
 
 This dict implements the term `hot-water`, but we would not say that
-the plant "is-a" a type of hot-water.  Those tags only mean that this data
+the plant "is-a" type of hot-water.  Those tags only mean that this data
 is related to hot-water.  This makes it convenient to query our data for
 things related to hot-water, water, or liquid.
 
-However we would say that the dict above "is-a" type of `hot-water-plant`.  We can
+However, we would say that the dict above "is-a" type of `hot-water-plant`.  We can
 reflect this information because `hot-water-plant` is a subtype of `entity`.
-The 'entity' subtype tree models primary typing information.  Terms which
+The 'entity' subtype tree models primary typing information.  Terms that
 subtype from entity must be designed to stand on their own - they cannot be used
 in conjuncts.
-
 

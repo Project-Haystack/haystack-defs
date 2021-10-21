@@ -9,7 +9,7 @@ Overview [#overview]
 *********************
 Defs are organized into a tree structured taxonomy via the `is` tag.
 A def is a *subtype* if it defines a subset or narrowing of a broader
-term.  For example we say that `water` is a subtype of `liquid` because
+term.  For example, we say that `water` is a subtype of `liquid` because
 it is a specific type of liquid.  The converse is that liquid is
 a *supertype* of water.
 
@@ -24,12 +24,12 @@ We can also evaluate subtyping in the context of set theory.  If we say that
 `elec-meter` is a subtype of `meter`, then we are saying the set of all
 things that are elec meters is wholly contained by the set of all meters.
 
-Subtyping is a powerful knowledge modeling tool.  However remember that
-modeling the real world is a messy business.  Its impossible to design
+Subtyping is a powerful knowledge modeling tool.  However, remember that
+modeling the real world is a messy business.  It's impossible to design
 a taxonomy that fits all situations.  Consider the platypus and its difficulty
 to fit into a biological taxonomy.  Haystack attempts to define a pragmatic
-approach between simplicity and the common use cases.  But you will likely
-find use cases which aren't a perfect fit for Haystack's ontology.
+approach between simplicity and the common use cases.  But, you will likely
+find use cases that aren't a perfect fit for Haystack's ontology.
 
 Transitivity [#transitivity]
 ****************************
@@ -53,7 +53,7 @@ In cases where multiple supertypes are required, use a list of symbols:
   is: [^entity, ^geoPlace]
 
 All terms are required to have an 'is' tag with the exception of the *root
-terms* which are `marker`, `val`, and `feature`.  [Feature keys]`Defs#keys`
+terms*, which are `marker`, `val`, and `feature`.  [Feature keys]`Defs#keys`
 have implied subtyping rules and must not declare an 'is' tag.
 
 It is invalid to create cyclic subtyping relationships.  Subtyping must
@@ -63,10 +63,9 @@ Inheritance [#inheritance]
 **************************
 Defs are themselves specified as a set of tag name/value pairs.  Subtypes
 automatically inherit these tags into their own definitions.  We call
-this process *inheritance* and it works similar to inheritance in
+this process *inheritance*, and it works similar to inheritance in
 traditional object-oriented languages.  The inheritance process is
 discussed in detail under [normalization]`Normalization#inherit`.
-
 
 
 

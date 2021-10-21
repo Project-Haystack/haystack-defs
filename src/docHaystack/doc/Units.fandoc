@@ -28,10 +28,10 @@ This database was originally based on the [oBIX]`http://en.wikipedia.org/wiki/OB
 specification, but has since been expanded to allow multiple aliases to be
 used for each unit.
 
-Each unit of measurement has a full name and zero or more symbols which are
+Each unit of measurement has a full name and zero or more symbols that are
 used as aliases for that unit.  For example "square_meter" is the full name
-and the symbol alias is "m²".  Some units might have multiple symbols, for
-example "hour" has the symbols "hr" and "h".  Some units like "day" have no
+and the symbol alias is "m²".  Some units might have multiple symbols. For
+example, "hour" has the symbols "hr" and "h".  Some units like "day" have no
 symbols.
 
 All unit identifiers are limited to the following characters:
@@ -42,7 +42,7 @@ All unit identifiers are limited to the following characters:
   - percent sign '%'
   - dollar sign '$'
 
-By convention the symbol is the preferred notation.  If there are multiple
+By convention, the symbol is the preferred notation.  If there are multiple
 symbols, then the last symbol defined by the database is the preferred
 one.
 

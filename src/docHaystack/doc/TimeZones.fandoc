@@ -32,14 +32,14 @@ in 2000 uses different rules than 2010 (we call these historical timezones).
 
 Zoneinfo [#zoneinfo]
 ********************
-Luckily there is a database which keeps track of these rules across regions
-and time. Haystack uses the zoneinfo database which is also used by Unix and
+Luckily, there is a database that keeps track of these rules across regions
+and time. Haystack uses the zoneinfo database, which is also used by Unix and
 many programming languages.  The zoneinfo database uses a convention of naming
 timezones as "Continent/City". For example, US Eastern time is canonically
 identified as "America/New_York". Since there are no duplicate city names
 between continents, the city name also works as a canonical identifier.
 
-All timezones in Haystack are repesented using the city name of an entry
+All timezones in Haystack are represented using the city name of an entry
 in the Olsen database.
 
 Common TimeZones [#common]

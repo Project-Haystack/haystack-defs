@@ -7,7 +7,7 @@
 
 Overview [#overview]
 ********************
-Haystack 3 defined a total of 230 tags. Of these 180 remain unchanged.
+Haystack 3 defined a total of 230 tags. Of these, 180 remain unchanged.
 The others have been modified as follows.
 
 These are renamed or turned into conjuncts:
@@ -73,10 +73,10 @@ These tags are not ported:
 
 Weather [#weather]
 ******************
-In Hasytack 3 weather stations were modeled via the 'weather' tag and
-their points were modeled via the 'weatherPoint' tag.  In Haystack 4 we
+In Haystack 3, weather stations were modeled via the 'weather' tag, and
+their points were modeled via the 'weatherPoint' tag.  In Haystack 4, we
 use the `weather` marker on the points as the `pointSubject`.  And stations
-are modeled via the `weatherStation` tag.  Likewise the 'weatherRef' tag
+are modeled via the `weatherStation` tag.  Likewise, the 'weatherRef' tag
 is now renamed to 'weatherStationRef'.
 
 Weather points are mapped from Haystack 3 to Haystack 4 as follows:
@@ -117,9 +117,9 @@ of the core concepts are found in the 'phIct' library including:
 
 Symbols [#symbols]
 ******************
-Symbol is added as a new scalar type in Haystack 4.  In Zinc it is represented
+Symbol is added as a new scalar type in Haystack 4.  In Zinc, it is represented
 as '^name' and in JSON with the "y:" prefix.  The format version was left
-as "3.0" to minimize ecosystem distruption since symbols are only used with
+as "3.0" to minimize ecosystem disruption since symbols are only used with
 defs and unlikely to occur in normal Haystack data.
 
 
