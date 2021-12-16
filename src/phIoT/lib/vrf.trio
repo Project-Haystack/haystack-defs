@@ -93,6 +93,15 @@ doc:
   Indoor unit in a VRF system.  Indoor units operate to satisfy a heating
   or cooling load.
 --------------------------------------------------------------------------
+def: ^vrf-indoorUnit-fcu
+is: [^vrf-indoorUnit, ^fcu]
+doc:
+  Indoor unit fan coil unit in a VRF system.  This includes but is not
+  limited to: ducted-type and non-ducted types such as wall-mount,
+  floor-mount, ceiling-mount and cassettes.  Indoor unit fan coils operate
+  to satisfy a heating  or cooling load in a zone based on a zone thermostat
+  temperature set point.
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Branch Selector
@@ -120,7 +129,7 @@ doc: "TODO: placeholder for system entities to be finalized in WG Labs"
 --------------------------------------------------------------------------
 def: ^heatRecovery
 is: ^marker
-doc: "TODO: need generic definition"
+doc: "Transfer of heat from one substance to another to reduce energy consumption."
 --------------------------------------------------------------------------
 def: ^indoorUnit
 is: ^marker
