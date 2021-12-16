@@ -91,7 +91,7 @@ def: ^vrf-indoorUnit
 is: [^vrf-equip, ^refrig-input]
 doc:
   Indoor unit in a VRF system.  Indoor units operate to satisfy a heating
-  or cooling load in a zone based on a zone thermostat temperature set point.
+  or cooling load.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -124,10 +124,10 @@ doc: "TODO: need generic definition"
 --------------------------------------------------------------------------
 def: ^indoorUnit
 is: ^marker
-doc: "Associated with equipment inside the conditioned space"
+doc: "Operates inside the conditioned space"
 --------------------------------------------------------------------------
 def: ^outdoorUnit
 is: ^marker
-doc: "Associated with equipment outside the conditioned space"
+doc: "operates outside the conditioned space"
 --------------------------------------------------------------------------
 
