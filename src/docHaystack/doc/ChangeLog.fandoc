@@ -6,6 +6,9 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.12 (working)**
+- New close op for the HTTP API
+
 **Version 3.9.11 (11 Sep 2021)**
 - New 'op' feature and def for each operation
 - Rename 'formats' to 'filetypes' as defs query

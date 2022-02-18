@@ -37,6 +37,11 @@ doc:
   Query basic information about the server.
   See `docHaystack::Ops#about` chapter.
 --------------------------------------------------------------------------
+def: ^op:close
+doc:
+  Close the current session and cancel the auth bearer token.
+  See `docHaystack::Ops#close` chapter.
+--------------------------------------------------------------------------
 def: ^op:defs
 noSideEffects
 doc:

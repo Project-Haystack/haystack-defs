@@ -51,6 +51,17 @@ Example:
   vendorName: "Acme"
   vendorUri: `http://acme.com/`
 
+Close [#close]
+**************
+The [close]`op:close` op closes the current authentication session.  Sessions
+are established by the [auth handshake]`Auth` and identified by the bearer
+token.  Calling this op should close the session on the server and invalidate
+the bearer token.
+
+**Request**: empty grid
+
+** Response**: empty grid
+
 Defs [#defs]
 ************
 The [defs]`op:defs` op queries [def dicts]`Defs` from the current [namespace]`Namespaces`.
