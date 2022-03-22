@@ -7,7 +7,8 @@
 **************************************************************************
 
 **Version 3.9.12 (working)**
-- Redesign choice to use simple subtypes and tagOn #935
+- #935: Redesign choice to use simple subtypes and tagOn
+- #939: Remove equipFunction taxonomy
 - New close op for the HTTP API
 
 **Version 3.9.11 (11 Sep 2021)**

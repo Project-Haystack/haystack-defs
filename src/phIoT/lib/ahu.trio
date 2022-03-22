@@ -10,11 +10,6 @@
 --------------------------------------------------------------------------
 def: ^airHandlingEquip
 is: [^equip, ^air-output, ^elec-input]
-cools: ^air
-dehumidifies: ^air
-heats: ^air
-humidifies: ^air
-ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
 doc:
   HVAC equipment that conditions and delivers air via one or more fans.
@@ -167,7 +162,6 @@ doc: "AHU discharge air is split into a duct per zone"
 --------------------------------------------------------------------------
 def: ^humidifier-equip
 is: ^equip
-humidifies: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Humidifier`
 doc: "Equipment which adds moisture to air to increase humidity"
 childrenFlatten: []

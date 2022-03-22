@@ -12,8 +12,6 @@ is an exclusive choice of the subtypes - you choose one option such as `discharg
 or `return`.  But you cannot use `discharge` and `return` together.
 
 Many common concepts in our ontology fit this pattern:
-  - `conveys`
-  - `stores`
   - `coolingProcess`
   - `heatingProcess`
   - `ductSection`

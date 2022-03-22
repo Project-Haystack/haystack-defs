@@ -27,7 +27,6 @@ doc:
 --------------------------------------------------------------------------
 def: ^coolingCoil
 is: ^coil
-cools: ^air
 childrenFlatten: [^ductDeck, ^ductSection]
 doc: "Coil used to cool air."
 children: [
@@ -43,7 +42,6 @@ children: [
 --------------------------------------------------------------------------
 def: ^heatingCoil
 is: ^coil
-heats: ^air
 childrenFlatten: [^ductDeck, ^ductSection]
 doc: "Coil used to heat air."
 children: [

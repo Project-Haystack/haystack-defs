@@ -30,7 +30,6 @@ doc: "Damper equipment or control point."
 --------------------------------------------------------------------------
 def: ^damper-actuator
 is: ^actuator
-regulates: ^air
 childrenFlatten: [^ductSection]
 wikipedia: `https://en.wikipedia.org/wiki/Damper_(flow)`
 doc: "Actuator to regulate the flow of air."
@@ -59,7 +58,6 @@ doc: "Valve equipment or control point"
 --------------------------------------------------------------------------
 def: ^valve-actuator
 is: ^actuator
-regulates: ^fluid
 childrenFlatten: [^fluid, ^pipeSection]
 wikipedia: `https://en.wikipedia.org/wiki/Valve`
 doc: "Actuator to regulate the flow of fluid."

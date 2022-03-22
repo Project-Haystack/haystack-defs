@@ -260,7 +260,7 @@ doc: "Relating to reactance"
 --------------------------------------------------------------------------
 def: ^reheat
 is: ^marker
-doc: "Command point for `reheats` process"
+doc: "Command point for reheating process"
 --------------------------------------------------------------------------
 def: ^reciprocal
 is: ^marker

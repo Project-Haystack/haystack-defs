@@ -9,7 +9,6 @@
 --------------------------------------------------------------------------
 def: ^boiler
 is: [^equip, ^elec-input]
-heats: ^fluid
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
 children: [
@@ -19,8 +18,6 @@ children: [
 --------------------------------------------------------------------------
 def: ^hot-water-boiler
 is: [^boiler, ^hot-water-output]
-heats: ^hot-water
-produces: ^hot-water
 doc: "Boiler which outputs hot water"
 children: [
   {hot water leaving pipe equip},
@@ -33,8 +30,6 @@ children: [
 --------------------------------------------------------------------------
 def: ^steam-boiler
 is: [^boiler, ^steam-output]
-heats: ^steam
-produces: ^steam
 doc: "Boiler which outputs steam"
 children: [
   {steam leaving pipe equip},

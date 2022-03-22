@@ -83,7 +83,6 @@ doc: Fan equipment or control point
 --------------------------------------------------------------------------
 def: ^fan-motor
 is: ^motor
-moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
 childrenFlatten: [^ductSection, ^fan]
 doc:
@@ -103,7 +102,6 @@ doc: "Pump equipment or control point"
 --------------------------------------------------------------------------
 def: ^pump-motor
 is: ^motor
-moves: ^fluid
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
 childrenFlatten: [^fluid, ^pipeSection, ^pump]
 doc:

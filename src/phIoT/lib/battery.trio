@@ -9,7 +9,6 @@
 --------------------------------------------------------------------------
 def: ^battery
 is: [^equip, ^elec-output]
-stores: ^elec
 wikipedia: `https://en.wikipedia.org/wiki/Electric_battery`
 doc: "Equipment used to store electric energy"
 --------------------------------------------------------------------------

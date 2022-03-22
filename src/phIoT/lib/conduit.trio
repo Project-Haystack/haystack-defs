@@ -9,12 +9,10 @@
 --------------------------------------------------------------------------
 def: ^conduit
 is: ^equip
-conveys: ^phenomenon
 doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 --------------------------------------------------------------------------
 def: ^pipe
 is: ^conduit
-conveys: ^fluid
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
 childrenFlatten: [^fluid, ^pipeSection, ^plantLoop]
@@ -31,7 +29,6 @@ children: [
 --------------------------------------------------------------------------
 def: ^duct
 is: ^conduit
-conveys: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
 childrenFlatten: [^ductDeck, ^ductSection]
@@ -58,7 +55,6 @@ children: [
 --------------------------------------------------------------------------
 def: ^wire
 is: ^conduit
-conveys: ^elec
 doc: "Cabling used to convey electricity or data"
 --------------------------------------------------------------------------
 

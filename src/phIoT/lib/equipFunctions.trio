@@ -6,69 +6,168 @@
 //   25 Apr 2019  Brian Frank  Creation
 //
 
-//////////////////////////////////////////////////////////////////////////
-// Functions
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^equipFunction
-is: ^choice
-of: ^phenomenon
-doc: "Models one of the primary functions of an equipment type"
---------------------------------------------------------------------------
-def: ^cools
-is: ^equipFunction
-of: ^substance
-doc: "Equipment removes heat from a substance."
---------------------------------------------------------------------------
-def: ^conveys
-is: ^equipFunction
-of: ^phenomenon
-doc: "Equipment conveys a substance or phenomenon."
---------------------------------------------------------------------------
-def: ^dehumidifies
-is: ^equipFunction
-of: ^air
-doc: "Equipment removes moisture from air to decrease humidity."
---------------------------------------------------------------------------
-def: ^heats
-is: ^equipFunction
-of: ^substance
-doc: "Equipment heats a substance."
---------------------------------------------------------------------------
-def: ^humidifies
-is: ^equipFunction
-of: ^air
-doc: "Equipment adds moisture to air to increase humidity."
---------------------------------------------------------------------------
-def: ^moves
-is: ^equipFunction
-of: ^substance
-doc: "Equipment moves a substance."
---------------------------------------------------------------------------
-def: ^produces
-is: ^equipFunction
-of: ^phenomenon
-doc: "Equipment produces a substance or phenomenon."
---------------------------------------------------------------------------
-def: ^regulates
-is: ^equipFunction
-of: ^phenomenon
-doc: "Equipment regulates the flow of substance or phenomenon."
---------------------------------------------------------------------------
-def: ^reheats
-is: ^heats
-doc: "Equipment heats a substance previously cooled or heated."
---------------------------------------------------------------------------
-def: ^stores
-is: ^equipFunction
-of: ^phenomenon
-doc: "Equipment stores a substance or phenomenon."
---------------------------------------------------------------------------
-def: ^ventilates
-is: ^equipFunction
-of: ^air
-wikipedia: `https://en.wikipedia.org/wiki/Ventilation_(architecture)`
-doc: "Equipment brings fresh outside air into a space."
---------------------------------------------------------------------------
+//
+// The equipment function taxonomy was removed in Mar 2022
+//
+// See https://project-haystack.org/forum/topic/939 for details.
+//
+//
+// --------------------------------------------------------------------------
+// def: ^airHandlingEquip
+// cools: ^air
+// dehumidifies: ^air
+// heats: ^air
+// humidifies: ^air
+// ventilates: ^air
+// --------------------------------------------------------------------------
+// def: ^battery
+// stores: ^elec
+// --------------------------------------------------------------------------
+// def: ^boiler
+// heats: ^fluid
+// def: ^chilled-water-plant
+// produces: ^chilled-water
+// --------------------------------------------------------------------------
+// def: ^chilledBeam
+// cools: ^air
+// heats: ^air
+// --------------------------------------------------------------------------
+// def: ^chiller
+// cools: ^chilled-water
+// --------------------------------------------------------------------------
+// def: ^coolingCoil
+// cools: ^air
+// --------------------------------------------------------------------------
+// def: ^coolingTower
+// cools: ^condenser-water
+// --------------------------------------------------------------------------
+// def: ^conduit
+// conveys: ^phenomenon
+// --------------------------------------------------------------------------
+// def: ^damper-actuator
+// regulates: ^air
+// --------------------------------------------------------------------------
+// def: ^duct
+// conveys: ^air
+// --------------------------------------------------------------------------
+// def: ^elevator
+// moves: ^occupants
+// --------------------------------------------------------------------------
+// def: ^escalator
+// moves: ^occupants
+// --------------------------------------------------------------------------
+// def: ^fan-motor
+// moves: ^air
+// --------------------------------------------------------------------------
+// def: ^fumeHood
+// ventilates: ^air
+// --------------------------------------------------------------------------
+// def: ^heatingCoil
+// heats: ^air
+// --------------------------------------------------------------------------
+// def: ^hot-water-boiler
+// heats: ^hot-water
+// produces: ^hot-water
+// --------------------------------------------------------------------------
+// def: ^hot-water-plant
+// produces: ^hot-water
+// --------------------------------------------------------------------------
+// def: ^humidifier-equip
+// humidifies: ^air
+// --------------------------------------------------------------------------
+// def: ^movingWalkway
+// moves: ^occupants
+// --------------------------------------------------------------------------
+// def: ^pipe
+// conveys: ^fluid
+// --------------------------------------------------------------------------
+// def: ^pump-motor
+// moves: ^fluid
+// --------------------------------------------------------------------------
+// def: ^radiator
+// heats: ^air
+// --------------------------------------------------------------------------
+// def: ^radiantFloor
+// heats: ^air
+// --------------------------------------------------------------------------
+// def: ^steam-boiler
+// heats: ^steam
+// produces: ^steam
+// --------------------------------------------------------------------------
+// def: ^steam-plant
+// produces: ^steam
+// --------------------------------------------------------------------------
+// def: ^tank
+// stores: ^substance
+// --------------------------------------------------------------------------
+// def: ^valve-actuator
+// regulates: ^fluid
+// --------------------------------------------------------------------------
+// def: ^wire
+// conveys: ^elec
+// --------------------------------------------------------------------------
+//
+//
+//
+// --------------------------------------------------------------------------
+// def: ^equipFunction
+// is: ^choice
+// of: ^phenomenon
+// doc: "Models one of the primary functions of an equipment type"
+// --------------------------------------------------------------------------
+// def: ^cools
+// is: ^equipFunction
+// of: ^substance
+// doc: "Equipment removes heat from a substance."
+// --------------------------------------------------------------------------
+// def: ^conveys
+// is: ^equipFunction
+// of: ^phenomenon
+// doc: "Equipment conveys a substance or phenomenon."
+// --------------------------------------------------------------------------
+// def: ^dehumidifies
+// is: ^equipFunction
+// of: ^air
+// doc: "Equipment removes moisture from air to decrease humidity."
+// --------------------------------------------------------------------------
+// def: ^heats
+// is: ^equipFunction
+// of: ^substance
+// doc: "Equipment heats a substance."
+// --------------------------------------------------------------------------
+// def: ^humidifies
+// is: ^equipFunction
+// of: ^air
+// doc: "Equipment adds moisture to air to increase humidity."
+// --------------------------------------------------------------------------
+// def: ^moves
+// is: ^equipFunction
+// of: ^substance
+// doc: "Equipment moves a substance."
+// --------------------------------------------------------------------------
+// def: ^produces
+// is: ^equipFunction
+// of: ^phenomenon
+// doc: "Equipment produces a substance or phenomenon."
+// --------------------------------------------------------------------------
+// def: ^regulates
+// is: ^equipFunction
+// of: ^phenomenon
+// doc: "Equipment regulates the flow of substance or phenomenon."
+// --------------------------------------------------------------------------
+// def: ^reheats
+// is: ^heats
+// doc: "Equipment heats a substance previously cooled or heated."
+// --------------------------------------------------------------------------
+// def: ^stores
+// is: ^equipFunction
+// of: ^phenomenon
+// doc: "Equipment stores a substance or phenomenon."
+// --------------------------------------------------------------------------
+// def: ^ventilates
+// is: ^equipFunction
+// of: ^air
+// wikipedia: `https://en.wikipedia.org/wiki/Ventilation_(architecture)`
+// doc: "Equipment brings fresh outside air into a space."
+// --------------------------------------------------------------------------
 
