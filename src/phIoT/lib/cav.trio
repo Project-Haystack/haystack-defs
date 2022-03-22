@@ -9,7 +9,6 @@
 --------------------------------------------------------------------------
 def: ^cav
 is: ^airTerminalUnit
-ductConfig: ^ductConfigType
 wikipedia: `https://en.wikipedia.org/wiki/Constant_air_volume`
 doc:
   Constant air volume terminal unit.  CAV systems use a constant

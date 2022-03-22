@@ -20,7 +20,7 @@ may define a `spaceRef` tag if the containing space is defined.
 
 Point Function [#function]
 **************************
-All points must define exactly one of the following [pointFunction]`pointFunctionType`
+All points must define exactly one of the following `pointFunction`
 marker tags:
   - `sensor`: input, AI/BI, sensor
   - `cmd`: output, AO/BO, actuator, command

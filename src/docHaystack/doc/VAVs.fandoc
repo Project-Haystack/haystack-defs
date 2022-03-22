@@ -30,7 +30,7 @@ a per instance basis.
 Heating Process [#heatingProcess]
 =================================
 If the VAV provides reheat, then it should add one of the following
-[heatingProcess]`heatingProcessType` choices:
+`heatingProcess` choices:
   - `elecHeating`
   - `hotWaterHeating`
   - `steamHeating`
@@ -44,21 +44,21 @@ to its hot water plant.
 
 Modulation [#vavModulation]
 ===========================
-One of the following [vavModulation]`vavModulationType`
+One of the following `vavModulation`
 markers should be defined:
   - `pressureDependent`
   - `pressureIndependent`
 
 vavAirCircuitType [#vavAirCircuit]
 ===========================
-If the VAV is fan powered, then one of the following [vavAirCircuit]`vavAirCircuitType`
+If the VAV is fan powered, then one of the following `vavAirCircuit`
 markers should be defined:
   - [parallel]`vav-parallel`
   - [series]`vav-series`
 
 Ductwork [#ductwork]
 ====================
-One of the following [ductConfig]`ductConfigType` markers should be
+One of the following `ductConfig` markers should be
 defined:
   - `singleDuct`
   - `dualDuct`

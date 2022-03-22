@@ -10,15 +10,9 @@
 --------------------------------------------------------------------------
 def: ^airHandlingEquip
 is: [^equip, ^air-output, ^elec-input]
-airVolumeAdjustability: ^airVolumeAdjustabilityType
-ahuZoneDelivery: ^ahuZoneDeliveryType
 cools: ^air
-coolingProcess: ^coolingProcessType
 dehumidifies: ^air
-ductConfig: ^ductConfigType
-ductDeck: ^ductDeckType
 heats: ^air
-heatingProcess: ^heatingProcessType
 humidifies: ^air
 ventilates: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Air_handler`
@@ -122,21 +116,17 @@ doc:
 --------------------------------------------------------------------------
 def: ^airVolumeAdjustability
 is: ^choice
-of: ^airVolumeAdjustabilityType
-doc: "Ability of air handling equip to adjust volume of air flow"
---------------------------------------------------------------------------
-def: ^airVolumeAdjustabilityType
-is: ^marker
+tagOn: ^airHandlingEquip
 doc: "Ability of air handling equip to adjust volume of air flow"
 --------------------------------------------------------------------------
 def: ^constantAirVolume
-is: ^airVolumeAdjustabilityType
+is: ^airVolumeAdjustability
 doc:
   Delivers a constant volume of air flow.  Typically this means
   equipment with a single speed fan.
 --------------------------------------------------------------------------
 def: ^variableAirVolume
-is: ^airVolumeAdjustabilityType
+is: ^airVolumeAdjustability
 doc:
   Delivers a variable volume of air flow.   Most variable volume systems
   are powered by a VFD fan. However other techniques such as inlet vanes
@@ -150,27 +140,23 @@ doc:
 --------------------------------------------------------------------------
 def: ^ahuZoneDelivery
 is: ^choice
-of: ^ahuZoneDeliveryType
-doc: "AHU delivery method of conditioned air to the zone"
---------------------------------------------------------------------------
-def: ^ahuZoneDeliveryType
-is: ^marker
+tagOn: ^airHandlingEquip
 doc: "AHU delivery method of conditioned air to the zone"
 --------------------------------------------------------------------------
 def: ^directZone
-is: ^ahuZoneDeliveryType
+is: ^ahuZoneDelivery
 doc: "AHU supplies air directly to the zone"
 --------------------------------------------------------------------------
 def: ^vavZone
-is: ^ahuZoneDeliveryType
+is: ^ahuZoneDelivery
 doc: "AHU supplies air to VAV terminal units"
 --------------------------------------------------------------------------
 def: ^chilledBeamZone
-is: ^ahuZoneDeliveryType
+is: ^ahuZoneDelivery
 doc: "AHU supplies air to chilled beam terminal units"
 --------------------------------------------------------------------------
 def: ^multiZone
-is: ^ahuZoneDeliveryType
+is: ^ahuZoneDelivery
 doc: "AHU discharge air is split into a duct per zone"
 --------------------------------------------------------------------------
 

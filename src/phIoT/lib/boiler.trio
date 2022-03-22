@@ -10,7 +10,6 @@
 def: ^boiler
 is: [^equip, ^elec-input]
 heats: ^fluid
-heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Boiler`
 doc: "Equipment to generate hot water or steam for heating"
 children: [

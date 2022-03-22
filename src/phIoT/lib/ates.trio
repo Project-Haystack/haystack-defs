@@ -17,7 +17,6 @@
 def: ^ates
 is: ^equip
 wikipedia: `https://en.wikipedia.org/wiki/Aquifer_thermal_energy_storage`
-atesDesign: ^atesDesignType
 doc:
   Aquifer Thermal Energy Storage system.
   See `docHaystack::ATES` chapter.
@@ -66,38 +65,34 @@ doc: "System to change direction of substance flow "
 --------------------------------------------------------------------------
 def: ^atesDesign
 is: ^choice
-of: ^atesDesignType
-doc: "Design type of the ATES underground system."
---------------------------------------------------------------------------
-def: ^atesDesignType
-is: ^marker
+tagOn: ^ates
 doc: "Design type of the ATES underground system."
 --------------------------------------------------------------------------
 def: ^atesMono
-is: ^atesDesignType
+is: ^atesDesign
 doc:
   The ATES has only one physical well.  This well is deep enough
   to penetrate two layers of groundwater.
 --------------------------------------------------------------------------
 def: ^atesDoublet
-is: ^atesDesignType
+is: ^atesDesign
 doc:
   The ATES has one or more pairs of a separate warm and cool well.
 --------------------------------------------------------------------------
 def: ^atesDoubletPaired
-is: ^atesDesignType
+is: ^atesDesign
 doc:
   The ATES is as a doublet, but with specific warm and cool wells linked together.
   These linked wells do not exchange water with other wells.
 --------------------------------------------------------------------------
 def: ^atesUnidirectional
-is: ^atesDesignType
+is: ^atesDesign
 doc:
   Similar to a doublet, but water always flows in the same direction from
   the extraction to the infiltration well.
 --------------------------------------------------------------------------
 def: ^atesClosedLoop
-is: ^atesDesignType
+is: ^atesDesign
 doc:
   The ATES uses closed piping to transport a water/glycol mixture
   through the ground. The system works like a heat exchanger; there

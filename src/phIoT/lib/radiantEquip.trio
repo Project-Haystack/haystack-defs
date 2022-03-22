@@ -14,7 +14,6 @@ doc: "HVAC equipment that conditions a space without forced air."
 def: ^radiator
 is: ^radiantEquip
 heats: ^air
-heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Radiator_(heating)`
 doc:
   Heats a space using exposed pipes or coils.  Hot water and steam
@@ -25,7 +24,6 @@ doc:
 def: ^radiantFloor
 is: ^radiantEquip
 heats: ^air
-heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Underfloor_heating`
 doc: "Heats a space using pipes or cables embedded beneath floor."
 --------------------------------------------------------------------------
@@ -33,8 +31,6 @@ def: ^chilledBeam
 is: ^radiantEquip
 cools: ^air
 heats: ^air
-coolingProcess: ^chilledWaterCooling
-heatingProcess: ^heatingProcessType
 wikipedia: `https://en.wikipedia.org/wiki/Chilled_beam`
 doc: "Conditions a space using a heat exchanger integrated into the ceiling"
 --------------------------------------------------------------------------

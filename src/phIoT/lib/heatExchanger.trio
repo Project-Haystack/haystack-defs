@@ -28,8 +28,7 @@ doc:
 def: ^coolingCoil
 is: ^coil
 cools: ^air
-coolingProcess: ^coolingProcessType
-childrenFlatten: [^ductDeckType, ^ductSectionType]
+childrenFlatten: [^ductDeck, ^ductSection]
 doc: "Coil used to cool air."
 children: [
    {stage:1 cool run cmd point},
@@ -45,8 +44,7 @@ children: [
 def: ^heatingCoil
 is: ^coil
 heats: ^air
-heatingProcess: ^heatingProcessType
-childrenFlatten: [^ductDeckType, ^ductSectionType]
+childrenFlatten: [^ductDeck, ^ductSection]
 doc: "Coil used to heat air."
 children: [
   {stage:1 heat run cmd point},

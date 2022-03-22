@@ -29,7 +29,7 @@ a per instance basis.
 Heating Process [#heatingProcess]
 =================================
 If the AHU provides heating, then it should add one of the following
-[heatingProcess]`heatingProcessType` choices:
+`heatingProcess` choices:
   - `dxHeating`
   - `elecHeating`
   - `hotWaterHeating`
@@ -46,7 +46,7 @@ to its hot water plant.
 Cooling Process [#coolingProcess]
 =================================
 If the AHU provides cooling, then it should add one of the following
-[coolingProcess]`coolingProcessType` choices:
+`coolingProcess` choices:
   - `chilledWaterCooling`
   - `dxCooling`
 
@@ -57,7 +57,7 @@ to reference the chilled water plant.
 
 Air Volume Adjustability [#airVolumeAdjustability]
 ==================================================
-One of the following [airVolumeAdjustability]`airVolumeAdjustabilityType`
+One of the following `airVolumeAdjustability`
 markers should be defined:
   - `constantAirVolume`
   - `variableAirVolume`
@@ -68,7 +68,7 @@ speed or a VFD.
 
 Zone Delivery [#ahuZoneDelivery]
 ================================
-One of the following [ahuZoneDelivery]`ahuZoneDeliveryType` choices
+One of the following `ahuZoneDelivery` choices
 should be defined to model how the AHU delivers conditioned air to
 the zone:
 
@@ -86,7 +86,7 @@ the `constantAirVolume` and `vavZone` tags.
 
 Ductwork [#ductwork]
 ====================
-One of the following [ductConfig]`ductConfigType` markers should be
+One of the following `ductConfig` markers should be
 defined:
 
   - `singleDuct`: AHU uses a single duct
@@ -100,7 +100,7 @@ defined:
 Sections [#sections]
 ********************
 Most points in an AHU are associated with one of the following
-[ductSections]`ductSectionType` of the unit:
+`ductSection` of the unit:
   - `discharge`: air exiting the unit to be supplied to the zones/terminal units
   - `return`: air returning from the zone back into the unit
   - `outside`: fresh, outside air entering the unit for air quality and economizing

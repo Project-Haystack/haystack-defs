@@ -12,7 +12,6 @@ def: ^point
 is: ^entity
 pointSubject: ^phenomenon
 pointQuantity: ^quantity
-pointFunction: ^pointFunctionType
 docTaxonomy
 mandatory
 doc:
@@ -77,31 +76,25 @@ doc: "Quantity the point senses or controls"
 --------------------------------------------------------------------------
 def: ^pointFunction
 is: ^choice
-of: ^pointFunctionType
-doc:
-  Classifies the point as a sensor, command, or setpoint.
-  See `docHaystack::Points#function` chapter.
---------------------------------------------------------------------------
-def: ^pointFunctionType
-is: ^marker
+tagOn: ^point
 doc:
   Classifies the point as a sensor, command, or setpoint.
   See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^sensor
-is: ^pointFunctionType
+is: ^pointFunction
 doc:
   Point is a sensor, input, AI/BI.
   See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^cmd
-is: ^pointFunctionType
+is: ^pointFunction
 doc:
   Point is a command, actuator, AO/BO.
   See `docHaystack::Points#function` chapter.
 --------------------------------------------------------------------------
 def: ^sp
-is: ^pointFunctionType
+is: ^pointFunction
 doc:
   Point is a setpoint, soft point, internal control variable, schedule.
   See `docHaystack::Points#function` chapter.

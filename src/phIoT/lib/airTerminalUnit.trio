@@ -9,7 +9,6 @@
 --------------------------------------------------------------------------
 def: ^airTerminalUnit
 is: [^equip, ^air-input, ^air-output, ^elec-input]
-ductConfig: ^ductConfigType
 doc:
   Equipment in air distribution systems which terminate at the space.
   Terminal units receive air from `airHandlingEquip` which have the

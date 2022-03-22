@@ -31,7 +31,7 @@ system with one or more heat exchangers per building.
 ATES [#ates]
 ************
 An ATES must be tagged using the `ates` and  `equip` marker tags.  In
-addition, it must define one of the `atesDesignType` choices.
+addition, it must define one of the `atesDesign` choices.
 
 Wells [#wells]
 **************

@@ -15,11 +15,9 @@ doc: "Duct, pipe, or cable to convey a substance or phenomenon"
 def: ^pipe
 is: ^conduit
 conveys: ^fluid
-plantLoop: ^plantLoopType
-pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pipe_(fluid_conveyance)`
 doc: "Conduit used to convey a fluid"
-childrenFlatten: [^fluid, ^pipeSectionType, ^plantLoopType]
+childrenFlatten: [^fluid, ^pipeSection, ^plantLoop]
 children: [
   {pump motor equip},
   {valve actuator equip},
@@ -34,11 +32,9 @@ children: [
 def: ^duct
 is: ^conduit
 conveys: ^air
-ductDeck: ^ductDeckType
-ductSection: ^ductSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Duct_(flow)`
 doc: "Conduit used to convey air for HVAC"
-childrenFlatten: [^ductDeckType, ^ductSectionType]
+childrenFlatten: [^ductDeck, ^ductSection]
 children: [
   {damper actuator equip},
   {fan motor equip},
@@ -73,31 +69,27 @@ doc: "Cabling used to convey electricity or data"
 --------------------------------------------------------------------------
 def: ^pipeSection
 is: ^choice
-of: ^pipeSectionType
-doc: "Equipment section of piping"
---------------------------------------------------------------------------
-def: ^pipeSectionType
-is: ^marker
+tagOn: [^pipe, ^valve-actuator, ^pump-motor]
 doc: "Equipment section of piping"
 --------------------------------------------------------------------------
 def: ^bypass
-is: ^pipeSectionType
+is: ^pipeSection
 doc: "Pipe used to bypass an equipment"
 --------------------------------------------------------------------------
 def: ^circ
-is: ^pipeSectionType
+is: ^pipeSection
 doc: "Pipe used to circulate fluid through an equipment or system"
 --------------------------------------------------------------------------
 def: ^entering
-is: ^pipeSectionType
+is: ^pipeSection
 doc: "Pipe conveys fluid into an equipment"
 --------------------------------------------------------------------------
 def: ^header
-is: ^pipeSectionType
+is: ^pipeSection
 doc: "Pipe used as central connection or manifold for other piping runs."
 --------------------------------------------------------------------------
 def: ^leaving
-is: ^pipeSectionType
+is: ^pipeSection
 doc: "Pipe conveys fluid out of an equipment"
 --------------------------------------------------------------------------
 
@@ -108,15 +100,11 @@ doc: "Pipe conveys fluid out of an equipment"
 --------------------------------------------------------------------------
 def: ^plantLoop
 is: ^choice
-of: ^plantLoopType
-doc: "Plant piping loop: primary, secondary, or tertiary"
---------------------------------------------------------------------------
-def: ^plantLoopType
-is: ^marker
+tagOn: ^pipe
 doc: "Plant piping loop: primary, secondary, or tertiary"
 --------------------------------------------------------------------------
 def: ^primaryLoop
-is: ^plantLoopType
+is: ^plantLoop
 doc:
   Pipework which circulates closest to the energy source.  In a central
   plant, the primary loop indicates the pipes and equipment within the
@@ -124,7 +112,7 @@ doc:
   and secondary loops, this tag indicates the side closest to the plant.
 --------------------------------------------------------------------------
 def: ^secondaryLoop
-is: ^plantLoopType
+is: ^plantLoop
 doc:
   Pipework which circulates closest to the building or end use. In a
   central plant, the secondary loop indicates the pipes and equipment between
@@ -133,7 +121,7 @@ doc:
   the building.
 --------------------------------------------------------------------------
 def: ^tertiaryLoop
-is: ^plantLoopType
+is: ^plantLoop
 doc: "Pipework which circulates within the building."
 --------------------------------------------------------------------------
 
@@ -144,48 +132,44 @@ doc: "Pipework which circulates within the building."
 --------------------------------------------------------------------------
 def: ^ductSection
 is: ^choice
-of: ^ductSectionType
-doc: "Equipment section of ductwork"
---------------------------------------------------------------------------
-def: ^ductSectionType
-is: ^marker
+tagOn: [^duct, ^damper-actuator, ^fan-motor]
 doc: "Equipment section of ductwork"
 --------------------------------------------------------------------------
 def: ^discharge
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct for air leaving an equipment"
 --------------------------------------------------------------------------
 def: ^economizer
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct to access fresh outside air only for economizing, not ventilation"
 --------------------------------------------------------------------------
 def: ^inlet
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct with air entering an equipment"
 --------------------------------------------------------------------------
 def: ^flue
-is: ^ductSectionType
+is: ^ductSection
 wikipedia: `https://en.wikipedia.org/wiki/Flue`
 doc: "Duct for exhausting combustion"
 --------------------------------------------------------------------------
 def: ^exhaust
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct used to expel air back outside"
 --------------------------------------------------------------------------
 def: ^mixed
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct where fresh outside air and return air is mixed together"
 --------------------------------------------------------------------------
 def: ^outside
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct to access fresh outside air for both ventilation and economizer."
 --------------------------------------------------------------------------
 def: ^return
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct returning air back to equipment"
 --------------------------------------------------------------------------
 def: ^ventilation
-is: ^ductSectionType
+is: ^ductSection
 doc: "Duct to access fresh outside air only for ventilation, not economizing"
 --------------------------------------------------------------------------
 
@@ -197,26 +181,22 @@ doc: "Duct to access fresh outside air only for ventilation, not economizing"
 --------------------------------------------------------------------------
 def: ^ductDeck
 is: ^choice
-of: ^ductDeckType
+tagOn: [^duct, ^airHandlingEquip]
 doc:
   Cold, hot, or neutral deck. Can be applied to 'ahu' equip if the AHU
   is part of a 'dualDuct' or 'tripleDuct' system but only serves a single
   deck type.
 --------------------------------------------------------------------------
-def: ^ductDeckType
-is: ^marker
-doc: "Cold, hot, or neutral deck"
---------------------------------------------------------------------------
 def: ^coldDeck
-is: ^ductDeckType
+is: ^ductDeck
 doc: "Duct carries air for cooling"
 --------------------------------------------------------------------------
 def: ^hotDeck
-is: ^ductDeckType
+is: ^ductDeck
 doc: "Duct carries air for heating"
 --------------------------------------------------------------------------
 def: ^neutralDeck
-is: ^ductDeckType
+is: ^ductDeck
 doc: "Duct carries air which by-passes both heating and cooling coils"
 --------------------------------------------------------------------------
 
@@ -227,23 +207,19 @@ doc: "Duct carries air which by-passes both heating and cooling coils"
 --------------------------------------------------------------------------
 def: ^ductConfig
 is: ^choice
-of: ^ductConfigType
-doc: "Ductwork configuration"
---------------------------------------------------------------------------
-def: ^ductConfigType
-is: ^marker
+tagOn: [^airHandlingEquip, ^airTerminalUnit]
 doc: "Ductwork configuration"
 --------------------------------------------------------------------------
 def: ^singleDuct
-is: ^ductConfigType
+is: ^ductConfig
 doc: "One single duct"
 --------------------------------------------------------------------------
 def: ^dualDuct
-is: ^ductConfigType
+is: ^ductConfig
 doc: "Two ducts: combination of hotDeck, coldDeck, or neutralDeck"
 --------------------------------------------------------------------------
 def: ^tripleDuct
-is: ^ductConfigType
+is: ^ductConfig
 doc: "Three ducts: hotDeck, coldDeck, or neutralDeck"
 --------------------------------------------------------------------------
 

@@ -20,7 +20,6 @@ children: [
 def: ^chilled-water-plant
 is: [^plant, ^chilled-water-output]
 produces: ^chilled-water
-condenserLoop: ^condenserLoopType
 doc:
   Plant used to generate chilled water for cooling.
   See `docHaystack::Plants`.

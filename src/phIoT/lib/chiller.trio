@@ -10,7 +10,6 @@
 def: ^chiller
 is: [^equip, ^elec-input]
 cools: ^chilled-water
-chillerMechanism: ^chillerMechanismType
 wikipedia: `https://en.wikipedia.org/wiki/Chiller`
 doc:
   Equipment to remove heat from a liquid.  Chillers typically use a vapor
@@ -78,24 +77,20 @@ prefUnit: ["tonref", "BTU/h", "kW"]
 --------------------------------------------------------------------------
 def: ^chillerMechanism
 is: ^choice
-of: ^chillerMechanismType
-doc: "Primary mechanism of chiller"
---------------------------------------------------------------------------
-def: ^chillerMechanismType
-is: ^marker
+tagOn: ^chiller
 doc: "Primary mechanism of chiller"
 --------------------------------------------------------------------------
 def: ^chiller-absorption
-is: [^absorption, ^chillerMechanismType]
+is: [^absorption, ^chillerMechanism]
 --------------------------------------------------------------------------
 def: ^chiller-reciprocal
-is: [^reciprocal, ^chillerMechanismType]
+is: [^reciprocal, ^chillerMechanism]
 --------------------------------------------------------------------------
 def: ^chiller-rotaryScrew
-is: [^rotaryScrew, ^chillerMechanismType]
+is: [^rotaryScrew, ^chillerMechanism]
 --------------------------------------------------------------------------
 def: ^chiller-centrifugal
-is: [^centrifugal, ^chillerMechanismType]
+is: [^centrifugal, ^chillerMechanism]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////

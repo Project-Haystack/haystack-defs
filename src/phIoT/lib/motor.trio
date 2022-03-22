@@ -85,8 +85,7 @@ def: ^fan-motor
 is: ^motor
 moves: ^air
 wikipedia: `https://en.wikipedia.org/wiki/Fan_(machine)`
-ductSection: ^ductSectionType
-childrenFlatten: [^ductSectionType, ^fan]
+childrenFlatten: [^ductSection, ^fan]
 doc:
   Motor used with a fan to create air flow.
   See `docHaystack::Motors` chapter.
@@ -105,9 +104,8 @@ doc: "Pump equipment or control point"
 def: ^pump-motor
 is: ^motor
 moves: ^fluid
-pipeSection: ^pipeSectionType
 wikipedia: `https://en.wikipedia.org/wiki/Pump`
-childrenFlatten: [^fluid, ^pipeSectionType, ^pump]
+childrenFlatten: [^fluid, ^pipeSection, ^pump]
 doc:
   Motor used with a pump to move fluid.
   See `docHaystack::Motors` chapter.

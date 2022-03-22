@@ -10,9 +10,6 @@
 --------------------------------------------------------------------------
 def: ^vav
 is: ^airTerminalUnit
-heatingProcess: ^heatingProcessType
-vavAirCircuit: ^vavAirCircuitType
-vavModulation: ^vavModulationType
 wikipedia: `https://en.wikipedia.org/wiki/Variable_air_volume`
 doc:
   Variable air volume terminal unit.  VAV systems use a constant air
@@ -32,21 +29,17 @@ children: [
 --------------------------------------------------------------------------
 def: ^vavModulation
 is: ^choice
-of: ^vavModulationType
-doc: "How does VAV modulate the temp based on duct pressure"
---------------------------------------------------------------------------
-def: ^vavModulationType
-is: ^marker
+tagOn: ^vav
 doc: "How does VAV modulate the temp based on duct pressure"
 --------------------------------------------------------------------------
 def: ^pressureDependent
-is: ^vavModulationType
+is: ^vavModulation
 doc:
   VAV damper modulates to control space temp; dependent on duct pressure
   being maintained
 --------------------------------------------------------------------------
 def: ^pressureIndependent
-is: ^vavModulationType
+is: ^vavModulation
 doc:
   VAV damper or a control valve that modulates to maintain desired flow
   setpoint; independent of the duct pressure
@@ -59,19 +52,15 @@ doc:
 --------------------------------------------------------------------------
 def: ^vavAirCircuit
 is: ^choice
-of: ^vavAirCircuitType
-doc: "How does the VAV pull in air"
---------------------------------------------------------------------------
-def: ^vavAirCircuitType
-is: ^marker
+tagOn: ^vav
 doc: "How does the VAV pull in air"
 --------------------------------------------------------------------------
 def: ^vav-series
-is: ^vavAirCircuitType
+is: ^vavAirCircuit
 doc: "VAV pulls air from the primary air flow"
 --------------------------------------------------------------------------
 def: ^vav-parallel
-is: ^vavAirCircuitType
+is: ^vavAirCircuit
 doc: "VAV pulls air from outside the primary air flow"
 --------------------------------------------------------------------------
 

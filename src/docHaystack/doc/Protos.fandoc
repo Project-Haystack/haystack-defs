@@ -52,8 +52,7 @@ flattened into their children.  In our pipe example:
 
   def: ^pipe
   conveys: ^fluid
-  pipeSection: ^pipeSectionType
-  childrenFlatten: [^fluid, ^pipeSectionType]
+  childrenFlatten: [^fluid, ^pipeSection]
   children: [
     {valve actuator equip},
     {flow point},
@@ -67,7 +66,7 @@ the def, then it is flattened into each child proto.  Lets look at some
 concrete examples:
 
 First, lets look at a parent pipe that implements neither a `fluid` term
-nor a `pipeSectionType` term:
+nor a `pipeSection` term:
 
   // parent pipe
   pipe equip
@@ -89,7 +88,7 @@ subtype of `hot-water`
   hot water temp point
 
 In the following example, the parent pipe implements both `fluid` via
-the subtype `naturalGas` and also `pipeSectionType` via the subtype `entering`:
+the subtype `naturalGas` and also `pipeSection` via the subtype `entering`:
 
   // parent pipe
   leaving naturalGas pipe equip

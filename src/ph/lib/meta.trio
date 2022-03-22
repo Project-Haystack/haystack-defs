@@ -37,7 +37,7 @@ doc:
   See [Protos chapter]`docHaystack::Protos` for more details.
 --------------------------------------------------------------------------
 def: ^choice
-is: ^symbol
+is: ^marker
 docTaxonomy
 doc:
   Choice specifies an exclusive marker selection.
