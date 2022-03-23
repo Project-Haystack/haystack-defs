@@ -65,6 +65,10 @@
 // def: ^heatingCoil
 // heats: ^air
 // --------------------------------------------------------------------------
+// def: ^heatPump
+// coolingProcess: ^dxCooling
+// heatingProcess: ^dxHeating
+// --------------------------------------------------------------------------
 // def: ^hot-water-boiler
 // heats: ^hot-water
 // produces: ^hot-water

@@ -8,6 +8,7 @@
 
 **Version 3.9.12 (working)**
 - #935: Redesign choice to use simple subtypes and tagOn
+- #936: Redesign pointFunction, pointSubject, pipeFluid, tankSubstance as choice+of
 - #939: Remove equipFunction taxonomy
 - New close op for the HTTP API
 

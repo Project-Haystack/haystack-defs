@@ -10,8 +10,6 @@
 --------------------------------------------------------------------------
 def: ^point
 is: ^entity
-pointSubject: ^phenomenon
-pointQuantity: ^quantity
 docTaxonomy
 mandatory
 doc:
@@ -55,6 +53,7 @@ tagOn: ^point
 def: ^pointSubject
 is: ^choice
 of: ^phenomenon
+tagOn: ^point
 doc: "What the point senses or controls"
 --------------------------------------------------------------------------
 
@@ -66,6 +65,7 @@ doc: "What the point senses or controls"
 def: ^pointQuantity
 is: ^choice
 of: ^quantity
+tagOn: ^point
 doc: "Quantity the point senses or controls"
 --------------------------------------------------------------------------
 

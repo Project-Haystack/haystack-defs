@@ -18,4 +18,10 @@ children: [
   {pressure sensor point},
   ]
 --------------------------------------------------------------------------
+def: ^tankSubstance
+is: ^choice
+of: ^substance
+tagOn: ^tank
+doc: "Substance stored by a tank"
+--------------------------------------------------------------------------
 
