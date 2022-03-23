@@ -83,6 +83,13 @@ def: ^demand
 is: ^marker
 doc: "Rate required for a process."
 --------------------------------------------------------------------------
+def: ^design
+is: ^marker
+doc:
+  Data related to intended design and operating conditions.  This
+  includes sizing and other data specified by design engineers and
+  engineered drawings.  Also see `rated`.
+--------------------------------------------------------------------------
 def: ^dessicantDehumidifier
 is: ^marker
 doc: "Decreases humidity from air using a substance which absorbs moisture."
@@ -253,6 +260,12 @@ doc:
   Associated with a cleaning process to remove contaminants.
   Most commonly it indicates purging water or air by using a filter or by
   letting out a certain amount of the substance at a high flow rate.
+--------------------------------------------------------------------------
+def: ^rated
+is: ^marker
+doc:
+  Data specified by a manufacturer or rating organization.  Typically this
+  information is from the equipment data plate or cut sheet.  Also see `design`.
 --------------------------------------------------------------------------
 def: ^reactive
 is: ^marker

@@ -10,7 +10,8 @@
 - #935: Redesign choice to use simple subtypes and tagOn
 - #936: Redesign pointFunction, pointSubject, pipeFluid, tankSubstance as choice+of
 - #939: Remove equipFunction taxonomy
-- New close op for the HTTP API
+- #968: New close op for the HTTP API
+- #957: Add rated and design tags
 
 **Version 3.9.11 (11 Sep 2021)**
 - New 'op' feature and def for each operation
