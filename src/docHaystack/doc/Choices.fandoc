@@ -7,86 +7,63 @@
 
 Overview [#overview]
 ********************
-Choices define exclusive subtyping relationships.  For example, `ductSection`
-is an exclusive choice of the subtypes - you choose one option such as `discharge`
-or `return`.  But you cannot use `discharge` and `return` together.
+Choices define exclusive relationship between a set of marker tags.  For
+example, `ductSection` is an exclusive choice - you choose one option
+such as `discharge` or `return`.  But you cannot use `discharge`
+and `return` together.
 
 Many common concepts in our ontology fit this pattern:
+  - `pointFunction`
   - `coolingProcess`
   - `heatingProcess`
   - `ductSection`
+  - `pipeFluid`
   - `pipeSection`
 
 Definition [#definition]
 ************************
-All choices are composed of two different terms.  The primary choice term
-subtypes from `choice` to name the exclusive relationship.  The expected
-choice value is specified by the `of` tag.
+Choices are defined as a subtype of `choice` (which is itself a subtype
+of `marker`).  They are registered on a given entity using `tagOn`.  For
+example, the `pointFunction` choice identifies a point as `sensor`, `cmd`,
+or `sp`.  The definition looks like this:
 
-For example:
-
-  def: ^conveys
-  is: ^choice     // example only, actual supertype is equipFunction
-  of: ^phenomenon
-
-The `conveys` def indicates it is a choice, and its value must be a subtype
-of `phenomenon`.  We can then apply this choice to our defs to indicate
-support of this relationship.  We can optionally narrow the expected
-value.  Examples:
-
-  def: ^pipe
-  conveys: ^fluid
+  def: ^pointFunction
+  is: ^choice
+  tagOn: ^point
   ---
-  def: ^duct
-  conveys: ^air
+  def: ^sensor
+  is: ^pointFunction
   ---
-  def: ^wire
-  conveys: ^elec
+  def: ^cmd
+  is: ^pointFunction
+  ---
+  def: ^sp
+  is: ^pointFunction
 
-The `pipe` def indicates it supports the `conveys` choice, and further
-narrows what is conveyed to be a subtype of `fluid`.  Likewise, `duct`
-conveys `air` and `wire` conveys `elec`.
+In the code above, pointFunction subtypes choice.  Then the exclusive
+set of choices are subtypes of pointFunction.  This informs us that
+when configuring a point, you should choose exactly one marker between
+the three choices of sensor, cmd, and sp.
 
-In our example above, the 'conveys' choice was naturally independent
-from the 'phenomenon' taxonomy (in fact, they are defined in different
-libs).  But there are many choices that don't have a natural separation.
-In these cases, we use the convention of 'foo' and 'fooType' to indicate
-the choice and taxonomy supertype respectively.  Examples include:
+Of Choices [#ofChoices]
+***********************
+There are some situations, where we wish the choice to reuse an existing
+taxonomy tree where subtyping does not make sense.  For example, the
+`pipeFluid` choice defines that we should annotate a `pipe` with the type
+of `fluid` it conveys.  In this situation, it would be awkward to have fluid
+subtype pipeFluid.  Instead we can define the choice to use an arbitrary
+set of subtypes using the `of` tag.  Here is what the definition of pipeFluid
+looks like:
 
-  - `ductSection`
-  - `pipeSection`
-  - `coolingProcess`
-  - `heatingProcess`
+  def: ^pipeFluid
+  is: ^choice
+  of: ^fluid
+  tagOn: [^pipe, ^valve-actuator, ^pump-motor]
 
-Instances [#instances]
-***********************************
-When a def's choices are open ended, then we can select the choice
-on a per instance basis.  Let's use a snippet of `ahu` to illustrate:
+This definition informs us that when creating a pipe, valve, or pump that
+we should select exactly one subtype of `fluid` to model the working fluid.
 
-  def: ^ahu
-  doc: "Air Handling Unit"
-  heats: ^air
-  heatingProcess: ^heatingProcessType
-
-This informs us that air handlers heat air using a heating process (steam,
-gas, elec, etc).  The `heats` choice  is defined to be `air`.  Since 'air'
-has no subtypes, it cannot be narrowed further.  However, the `heatingProcess`
-choice has several subtypes.  In this case we should make the choice
-on a *per instance basis*.
-
-Per instance choice selection is performed by flattening the choice value
-into the instance as markers.  For example, if we wish to annotate that
-a specific instance of ahu uses steam heating, then we would model our
-data as follows:
-
-  dis: "AHU Floor 2", ahu, steamHeating
-
-Note the difference in how choices are applied on defs versus instances.
-On defs, we define the choice as a tag with a symbol value.  On instances,
-we define the choice value only as marker tags.
-
-Choices without subtypes should not be flattened into instances.  They
-can be inferred through [reflection]`Reflection`.
-
-
-
+A given choice must use only one of these mechanisms.  If the choice defines
+the 'of' tag, then the referent defines the choice options (and the choice
+must have no subtypes).  If the 'of' tag is not defined, then it is assumed
+that the choice subtypes define the options.
