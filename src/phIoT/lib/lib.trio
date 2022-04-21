@@ -8,10 +8,9 @@
 
 --------------------------------------------------------------------------
 def: ^lib:phIoT
-version: "3.9.11"
+version: "3.9.12"
 baseUri: `https://project-haystack.org/def/phIoT/`
 wikipedia: `https://en.wikipedia.org/wiki/Internet_of_things`
 depends: [^lib:ph, ^lib:phScience]
 doc: "Project Haystack definitions for Internet of Things"
 --------------------------------------------------------------------------
-

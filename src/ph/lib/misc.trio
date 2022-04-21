@@ -19,7 +19,7 @@ doc: "Haystack filter string.  See `docHaystack::Filters`"
 def: ^kind
 is: ^str
 doc:
-  Kind name used before Haystack 4.0 to identity data types
+  Kind name used to identity a value data type
 enum:
   - Marker: is-a label
   - Bool: true or false
