@@ -6,6 +6,8 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.13 (working)**
+
 **Version 3.9.12 (21 Apr 2022)**
 - #935: Redesign choice to use simple subtypes and tagOn
 - #936: Redesign pointFunction, pointSubject, pipeFluid, tankSubstance as choice+of

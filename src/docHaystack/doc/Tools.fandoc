@@ -68,25 +68,25 @@ output files:
 
 To use defc, first install [haxall]`#haxall` and verify its installed as follows
 
-  bin/fan defc -version
+  bin/defc -version
 
 Run this command to print out command line syntax and examples:
 
-  bin/fan defc -?
+  bin/defc -?
 
 If you have cloned the haystack git repo, then you can compile it as follows
 
   // compile ontology to HTML docs
-  bin/fan defc haystack-defs/src
+  bin/defc haystack-defs/src
 
   // compile ontology to JSON
-  bin/fan defc -output json haystack-defs/src
+  bin/defc -output json haystack-defs/src
 
   // compile ontology to Turtle
-  bin/fan defc -output turtle haystack-defs/src
+  bin/defc -output turtle haystack-defs/src
 
   // compile ontology to JSON and Turtle
-  bin/fan defc -output json,turtle haystack-defs/src
+  bin/defc -output json,turtle haystack-defs/src
 
 
 
