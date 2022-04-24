@@ -84,5 +84,5 @@ Example of a weather observation point:
   weatherStationRef: @richmond
   cur
   curVal: 56°F
-  curStation: "ok"
+  curStatus: "ok"
 
