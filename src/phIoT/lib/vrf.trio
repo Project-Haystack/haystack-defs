@@ -14,13 +14,15 @@
 def: ^vrf
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Variable_refrigerant_flow`
-doc: "Variable refigerant flow"
+doc:
+  Variable refigerant flow.  See `docHaystack::VRF` chapter.
 --------------------------------------------------------------------------
 def: ^vrf-system
 is: ^system
 doc:
   Variable refigerant flow system.  The system contains the indoor
-  units, outdoor units, and branch selectors.
+  units, outdoor units, and branch selectors.  See `docHaystack::VRF#types`
+  chapter.
 children: [
   {vrf refrig plant equip},
   {vrf indoorUnit equip},
@@ -29,14 +31,15 @@ children: [
 --------------------------------------------------------------------------
 def: ^vrf-coolingOnly-system
 is: ^vrf-system
-doc: "Cooling only VRF system can only cool; heating is not available"
+doc:
+  Cooling only VRF system can only cool; heating is not available.
+  See `docHaystack::VRF#types` chapter.
 --------------------------------------------------------------------------
 def: ^vrf-heatPump-system
 is: ^vrf-system
 doc:
   Heat pump VRF system can either heat, or cool, but not at the same time.
-  TODO: using heatPump here will not work, but I've left this based on
-  if we make the term heatPump more generic....
+  See `docHaystack::VRF#types` chapter.
 --------------------------------------------------------------------------
 def: ^vrf-heatRecovery-system
 is: ^vrf-system
@@ -44,15 +47,15 @@ doc:
   Heat recovery VRF system can operate cooling and heating by each indoor unit
   independently, at the same time. Heat recovery VRF systems have branch selectors
   to control how much, and which (hot gas or subcooled liquid) refrigerant
-  goes to each indoor unit.
-  NOTE: is this the only VRF system type with branch selectors?
+  goes to each indoor unit.  See `docHaystack::VRF#types` chapter.
 children: [
   {vrf branchSelector equip},
   ]
 --------------------------------------------------------------------------
 def: ^vrf-equip
 is: ^equip
-doc: "Equipment used in VRF systems"
+doc:
+  Equipment used in VRF systems.  See `docHaystack::VRF#equip` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -62,7 +65,8 @@ doc: "Equipment used in VRF systems"
 --------------------------------------------------------------------------
 def: ^vrf-refrig-plant
 is: [^plant, ^refrig-output]
-doc: "Group of outdoor units in a VRF system."
+doc:
+  Group of outdoor units in a VRF system.  See `docHaystack::VRF#refrigPlant`.
 children: [
   {vrf outdoorUnit equip},
   ]
@@ -79,7 +83,7 @@ doc:
    Outdoor unit with one or more compressors in a VRF system. As each indoor
    unit sends a demand to the outdoor unit, outdoor unit delivers the amount
    of refrigerant needed to meet the individual requirements of each indoor
-   unit.
+   unit.  See `docHaystack::VRF#outdoorUnits` chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -91,7 +95,7 @@ def: ^vrf-indoorUnit
 is: [^vrf-equip, ^refrig-input]
 doc:
   Indoor unit in a VRF system.  Indoor units operate to satisfy a heating
-  or cooling load.
+  or cooling load. See `docHaystack::VRF#indoorUnits` chapter.
 --------------------------------------------------------------------------
 def: ^vrf-indoorUnit-fcu
 is: [^vrf-indoorUnit, ^fcu]
@@ -113,7 +117,8 @@ is: [^vrf-equip, ^refrig-input]
 doc:
   Branch selector used for heat recovery in a VRF system.  These are
   control devices directing the liquid refrigerant or gas refrigerant
-  to zones requiring cooling or heating.
+  to zones requiring cooling or heating. See `docHaystack::VRF#branchSelector`
+  chapter.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
