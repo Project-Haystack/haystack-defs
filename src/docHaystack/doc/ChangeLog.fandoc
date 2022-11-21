@@ -8,7 +8,8 @@
 
 **Version 3.9.13 (working)**
 - Stub out system marker tag
-- #1007 Updates: elec, heatPump, volt
+- #1007 Updated tags: elec, heatPump, volt
+- #1008 New tags: compressor, mech, serviceFactor
 
 **Version 3.9.12 (21 Apr 2022)**
 - #935: Redesign choice to use simple subtypes and tagOn

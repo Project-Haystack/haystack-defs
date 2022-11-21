@@ -15,7 +15,9 @@ doc: "Aspect of scientific interest with measurable quantities"
 def: ^elec
 is: ^phenomenon
 wikipedia: `https://en.wikipedia.org/wiki/Electricity`
-doc: "Associated with electricity or with electrical force, power, or energy."
+doc:
+  Associated with electricity or with electrical force, power, or energy.
+  This is often opposed to `mech` mechanical energy.
 --------------------------------------------------------------------------
 def: ^light
 is: ^phenomenon

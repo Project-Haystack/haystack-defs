@@ -38,6 +38,12 @@ def: ^cold
 is: ^marker
 doc: "Having low degree of heat"
 --------------------------------------------------------------------------
+def: ^compressor
+is: ^marker
+doc:
+  Device for mechanically increasing the pressure of a gas or refrigerant
+  vapor by reducing its volume.
+--------------------------------------------------------------------------
 def: ^condenser
 is: ^marker
 doc: "Device or related to process of condensation"
@@ -243,6 +249,12 @@ def: ^makeup
 is: ^marker
 doc: "Restore something missed or lost"
 --------------------------------------------------------------------------
+def: ^mech
+is: ^marker
+doc:
+  Associated with a machine or its mechanical force, torque, power, or energy.
+  This is often opposed to `elec` electrical energy.
+--------------------------------------------------------------------------
 def: ^mixing
 is: ^marker
 doc:
@@ -311,6 +323,13 @@ doc:
 def: ^series
 is: ^marker
 doc: "Circuit with single path of flow"
+--------------------------------------------------------------------------
+def: ^serviceFactor
+is: ^marker
+doc:
+  Ratio of the maximum continuous output capacity at which a machine or
+  system may operate without damage to the machine or system’s nominal
+  output capacity.
 --------------------------------------------------------------------------
 def: ^stage
 is: ^int
