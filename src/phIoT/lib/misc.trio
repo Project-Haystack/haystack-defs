@@ -168,6 +168,15 @@ def: ^heatingOnly
 is: ^marker
 doc: "Equipment without cooling"
 --------------------------------------------------------------------------
+def: ^heatPump
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
+doc:
+  Equipment that employs a vapor compression cycle with a reversing
+  valve to provide heating or cooling. For vapor compression heating
+  without a reversing valve, such as for a heat pump water heater,
+  see `dxHeating` which should be used.
+--------------------------------------------------------------------------
 def: ^heatWheel
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Thermal_wheel`

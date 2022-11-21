@@ -37,7 +37,9 @@ doc: "Heating by the combustion of coal"
 --------------------------------------------------------------------------
 def: ^dxHeating
 is: ^heatingProcess
-doc: "Heating using direct expansion of a refrigerant vapor"
+doc:
+  Heating using direct expansion of a refrigerant vapor.
+  Also see `dxCooling` and `heatPump`.
 --------------------------------------------------------------------------
 def: ^hotWaterHeating
 is: [^heatingProcess, ^hot-water-input]
@@ -90,7 +92,9 @@ doc: "Removal of heat through the process of water condensation"
 --------------------------------------------------------------------------
 def: ^dxCooling
 is: ^coolingProcess
-doc: "Cooling using direct expansion of a refrigerant vapor"
+doc:
+  Cooling using direct expansion of a refrigerant vapor.
+  Also see `dxHeating` and `heatPump`.
 --------------------------------------------------------------------------
 def: ^chilledWaterCooling
 is: [^coolingProcess, ^chilled-water-input]

@@ -81,14 +81,6 @@ doc:
   or ventilating the air. Unit heaters are examples of FCUs.
   See `docHaystack::AHUs` chapter.
 --------------------------------------------------------------------------
-def: ^heatPump
-is: ^airHandlingEquip
-wikipedia: `https://en.wikipedia.org/wiki/Heat_pump`
-doc:
-  Heat pump: An air handling equipment which employs a vapor compression
-  cycle with a reversing valve to provide heating or cooling to a space.
-  See `docHaystack::AHUs` chapter.
---------------------------------------------------------------------------
 def: ^unitVent
 is: ^fcu
 doc:

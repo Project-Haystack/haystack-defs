@@ -62,6 +62,6 @@ doc: "Speed in a given direction"
 --------------------------------------------------------------------------
 def: ^volt
 is: ^marker
-doc: "Electrical voltage, potential difference"
+doc: "Electrical potential difference or electromotive force."
 --------------------------------------------------------------------------
 
