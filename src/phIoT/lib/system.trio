@@ -1,0 +1,33 @@
+//
+// Copyright (c) 2022, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Nov 2012  Brian Frank  Creation
+//
+
+--------------------------------------------------------------------------
+def: ^system
+is: ^entity
+docTaxonomy
+mandatory
+doc:
+  Grouping of related equipment dedicated to a single application.
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Refs
+//////////////////////////////////////////////////////////////////////////
+
+-------------------------------------------------------------------------
+def: ^systemRef
+is: ^ref
+of: ^system
+tagOn: [^equip, ^point]
+doc: "Reference to system"
+--------------------------------------------------------------------------
+
