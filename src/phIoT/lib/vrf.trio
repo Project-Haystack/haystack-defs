@@ -121,12 +121,6 @@ doc:
 //////////////////////////////////////////////////////////////////////////
 
 --------------------------------------------------------------------------
-def: ^system
-is: ^entity
-docTaxonomy
-mandatory
-doc: "TODO: placeholder for system entities to be finalized in WG Labs"
---------------------------------------------------------------------------
 def: ^heatRecovery
 is: ^marker
 doc: "Transfer of heat from one substance to another to reduce energy consumption."
