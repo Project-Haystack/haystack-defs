@@ -51,6 +51,25 @@ enum:
   - CA: line-to-line measurement
   - N: neutral current
 --------------------------------------------------------------------------
+def: ^phaseCount
+is: ^choice
+tagOn: [^ac-elec-meter, ^motor]
+doc:
+  Number of phases for an AC electrical power system or
+  connected equipment: single-phase or three-phase.
+--------------------------------------------------------------------------
+def: ^singlePhase
+is: ^phaseCount
+doc:
+  Single-phase AC electrical power. Power is provided by a
+  single AC voltage source.
+--------------------------------------------------------------------------
+def: ^threePhase
+is: ^phaseCount
+doc:
+  Three-phase AC electrical power. Power is provided by three AC voltage
+  sources, each separated from the others by a 120-degree phase angle.
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // AC Quantities
