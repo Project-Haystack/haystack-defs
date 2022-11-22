@@ -88,7 +88,23 @@ If you have cloned the haystack git repo, then you can compile it as follows
   // compile ontology to JSON and Turtle
   bin/defc -output json,turtle haystack-defs/src
 
+Note that if running defc straight from a source directory, it will not
+compile docHaystack to HTML.  Compiling the full set of HTML documentation
+requires first compiling each library and docHaystack to a pod zip file.
+You can do that by ensuring that your haystack-defs directory is under your
+Haxall installation:
 
+  // cd to your haxall install directory
+  cd haxall-3.1.6
+
+  // clone haystack-defs under haxall
+  git clone https://github.com/Project-Haystack/haystack-defs.git
+
+  // build the defs as pod zip files
+  bin/fan haystack-defs/src/build.fan
+
+  // run defc with defaults and it will automatically use haystack def pod files
+  bin/defc -output html
 
 
 
