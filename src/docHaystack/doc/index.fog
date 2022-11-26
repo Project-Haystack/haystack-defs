@@ -26,6 +26,7 @@
   "Verticals",
   [`Meters`,        "Modeling meters"],
   [`AHUs`,          "Modeling air handling units"],
+  [`EVSE`,          "Modeling of Electric Vehicle Supply Equipment (EVSE)"],
   [`VAVs`,          "Modeling variable air volume terminal units"],
   [`Zones`,         "Modeling zone occupancy, hvac, air quality, lighting"],
   [`Plants`,        "Modeling central plants"],

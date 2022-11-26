@@ -1,0 +1,20 @@
+**************************************************************************
+** title:      EVSE
+** author:     WG 982
+** created:    23 Nov 2022
+** copyright:  Copyright (c) 2022, Project-Haystack
+**************************************************************************
+
+Overview [#overview]
+*********************
+An EVSE delivers electricity to electric vehicles via one or more EVSE 
+ports.  EVSE is also referred to as a charging station, charge point,
+or EV charger.
+
+Types of EVSE [#types]
+*****************************
+In many regions of the world, it is understood that there are three basic types of EVSE:
+
+  - Level 1 AC:  To be defined
+  - Level 2 AC:  To be defined
+  - Level 3 DC:  To be defined

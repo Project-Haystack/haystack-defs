@@ -1,0 +1,86 @@
+//
+// Copyright (c) 2022, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   23 Nov 2022  Rick Jennings  Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// EVSE Related Equip and Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^evse
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
+doc: 
+  Electric Vehicle Supply Equipment.  See `docHaystack::EVSE`
+  chapter.
+--------------------------------------------------------------------------
+def: ^evse-equip
+is: [^equip, ^elec-input, ^elec-output]
+wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
+doc:
+  Equipment that supports the delivery of electricity to electric
+  vehicles.  See `docHaystack::EVSE` chapter.
+--------------------------------------------------------------------------
+def: ^evse-assembly
+is: ^evse-equip
+doc:
+  Equipment that delivers electricity to electric vehicles via EVSE
+  ports.  It is a manufacturer produced, safety certified combination of
+  hardware that has manufacturer provided technical specifications and
+  instructions on how to be installed and operated.  Also, it is comprised
+  of one or more equipment enclosures and power fed from one or more 
+  branch circuits.
+--------------------------------------------------------------------------
+def: ^evse-port
+is: [^evse-equip, ^elec-meter]
+doc:
+  An EVSE port delivers electricity to a single electric vehicle at a
+  time.  More than one EVSE cable or pantograph may be connected to a 
+  single EVSE port, but only one may be energized at a time.
+  `https://afdc.energy.gov/fuels/electricity_infrastructure.html`
+--------------------------------------------------------------------------
+def: ^evse-cable
+is: ^evse-equip
+doc:
+  Electrical cabling between an EVSE port and an EV charging inlet.
+  This cabling is manufactured according to a standard such as SAE J1772,
+  SAE J3068, CCS1, CCS2, NACS, CHAdeMO, GB/T, or MCS.
+--------------------------------------------------------------------------
+def: ^evse-panto
+is: ^evse-equip
+doc:
+  Electrical cabling between an EVSE port and an EV charging inlet.  
+  This cabling is manufactured according to a standard such as (to be 
+  later defined).
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Misc (generic tags to formalize)
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^port
+is: ^marker
+doc:
+  To be defined.
+--------------------------------------------------------------------------
+def: ^assembly
+is: ^equip
+doc:
+  To be defined.
+--------------------------------------------------------------------------
+def: ^panto
+is: ^equip
+doc:
+  To be defined.
+--------------------------------------------------------------------------
+def: ^cable
+is: ^equip
+doc:
+  To be defined.
+--------------------------------------------------------------------------
+
