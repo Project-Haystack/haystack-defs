@@ -50,13 +50,6 @@ doc:
   This cabling is manufactured according to a standard such as SAE J1772,
   SAE J3068, CCS1, CCS2, NACS, CHAdeMO, GB/T, or MCS.
 --------------------------------------------------------------------------
-def: ^evse-panto
-is: ^evse-equip
-doc:
-  Electrical cabling between an EVSE port and an EV charging inlet.  
-  This cabling is manufactured according to a standard such as (to be 
-  later defined).
---------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // Misc (generic tags to formalize)
@@ -69,11 +62,6 @@ doc:
   To be defined.
 --------------------------------------------------------------------------
 def: ^assembly
-is: ^equip
-doc:
-  To be defined.
---------------------------------------------------------------------------
-def: ^panto
 is: ^equip
 doc:
   To be defined.
