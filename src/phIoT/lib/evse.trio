@@ -22,14 +22,15 @@ def: ^evse-equip
 is: [^equip, ^elec-input, ^elec-output]
 wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
 doc:
-  Equipment that supports the delivery of electricity to electric
-  vehicles.  See `docHaystack::EVSE` chapter.
+  Equipment that supports the delivery of electricity to electric vehicle (EV) 
+  charging inlets located on electric vehicles (EVs).  
+  See `docHaystack::EVSE` chapter.
 --------------------------------------------------------------------------
 def: ^evse-assembly
 is: ^evse-equip
 doc:
-  Equipment that delivers electricity to electric vehicles via EVSE
-  ports.  It is a manufacturer produced, safety certified combination of
+  Equipment that delivers electricity via EVSE ports to EV charging inlets located on EVs.
+  It is a manufacturer produced, safety certified combination of
   hardware that has manufacturer provided technical specifications and
   instructions on how to be installed and operated.  Also, it is comprised
   of one or more equipment enclosures and power fed from one or more 
@@ -38,8 +39,8 @@ doc:
 def: ^evse-port
 is: [^evse-equip, ^elec-meter]
 doc:
-  An EVSE port delivers electricity to a single electric vehicle at a
-  time.  More than one EVSE cable or pantograph may be connected to a 
+  An EVSE port delivers electricity to a single EV charging inlet at a
+  time.  More than one EVSE cable may be connected to a 
   single EVSE port, but only one may be energized at a time.
   `https://afdc.energy.gov/fuels/electricity_infrastructure.html`
 --------------------------------------------------------------------------
@@ -59,16 +60,16 @@ doc:
 def: ^port
 is: ^marker
 doc:
-  To be defined.
+  A gateway or opening used to transfer a substance.
 --------------------------------------------------------------------------
 def: ^assembly
 is: ^equip
 doc:
-  To be defined.
+  A collection of manufactured parts or subassemblies.
 --------------------------------------------------------------------------
 def: ^cable
 is: ^equip
 doc:
-  To be defined.
+  An assembly of one or more insulated conductors.
 --------------------------------------------------------------------------
 
