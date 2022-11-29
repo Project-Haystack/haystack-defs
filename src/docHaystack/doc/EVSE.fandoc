@@ -20,7 +20,8 @@ chapter [Modeling EVSE]`#equip` for more details.
 Types of EVSE [#types]
 *****************************
 
-**Level 1 AC EVSE**
+Level 1 AC EVSE [#level1AcEvse]
+================================
 
 Level 1 AC EVSE may deliver up to 2.5kW of AC power to the EV's charging 
 inlet.  The EV's onboard converter transforms the inputted AC power to DC 
@@ -29,7 +30,8 @@ available within the North America market, adheres to the SAE J1772 Type 1
 or NACS EV charging specifications, and requires a 1-phase, 120V electrical 
 input from a standard wall outlet.
 
-**Level 2 AC EVSE**
+Level 2 AC EVSE [#level2AcEvse]
+================================
 
 Similar to the Level 1 AC EVSE, Level 2 AC EVSE delivers AC power to the 
 EV's charging inlet.  However, the Level 2 AC EVSE is capable of delivering 
@@ -38,7 +40,8 @@ electrical inputs.  Faster recharging times are possible as a result.  This
 EVSE adheres to the SAE J1772 Type 1, SAE J1772 Type 2, NACS, or SAE J3078 
 EV charging specifications depending on the region in the world and use case.
 
-**Level 3 DC EVSE**
+Level 3 DC EVSE [#level3DcEvse]
+================================
 
 Level 3 DC EVSE delivers DC power directly to the EV's charging inlet, 
 eliminating the need for a converter onboard the EV.  It is also referred to 
@@ -55,7 +58,8 @@ converters designed to be onboard an EV.  Level 3 DC EVSE adheres to the
 CCS1, CCS2, CHAdeMO, NACS, or MCS EV charging specifications depending on 
 the region in the world and use case.
 
-**Project Haystack's Use of EVSE Types** [#phUseOfEvseTypes]
+Tagging EVSE Types [#taggingEvseTypes]
+=======================================
 
 It is often difficult to estimate how long it would take to recharge an EV
 when referencing these EVSE types for reasons including: 
@@ -81,28 +85,55 @@ metadata:
 
 Modeling EVSE [#equip]
 *****************************
-The below Figure shows the UML representation for `evse-assembly`:
+
+EVSE Assembly [#assembly]
+==========================
+An EVSE Assembly is modeled with the `evse-assembly` tags. The below Figure 
+shows the UML representation for `evse-assembly`:
 
 ![EVSE Assembly UML]`evseAssemblyUml.svg`
 
-Refer [here]`#phUseOfEvseTypes` to how important metadata related to EVSE is 
-captured  using:
-  - Attributes on `evse-assembly` and `evse-port`
-  - The `ac` or `dc` tag on `evse-port`
+An `evse-assembly` delivers electricity via EVSE ports to charging inlets 
+located on EVs.  It is a manufacturer produced, safety certified combination 
+of hardware that has manufacturer provided technical specifications and 
+instructions on how to be installed and operated.  Also, it is comprised of 
+one or more equipment enclosures and power fed from one or more branch 
+circuits.  Electrical input specifications for an `evse-assembly` are 
+described using attributes.
+
+EVSE Port [#port]
+==========================
+An EVSE port is modeled with the `evse-port` tags.  An `evse-port` delivers 
+electricity to a single EV charging inlet at a time.  More than one 
+`evse-cable` may be connected to a single `evse-port`, but only one may be
+energized at a time.  
+
+Electrical output specifications for an `evse-port` are described using
+attributes.  An `evse-port` is described to deliver AC or DC power to an 
+EV's charging inlet using the `ac` or `dc` tag, respectively.  An 
+`evse-port` may only have the `ac` or `dc` tag, but not both.
+
+EVSE Cable [#cable]
+==========================
+An EVSE cable is modeled with the `evse-cable` tags.  An `evse-cable` models 
+the electrical connection between an `evse-port` and an EV charging inlet.  
+This electrical connection may be made via a physical charging cable, a 
+pantograph, or an air medium for wireless EV charging.
 
 Each available electrical connection between an `evse-port` and an EV 
 charging inlet may be modeled using `evse-cable`.  The type of the 
 electrical connection will eventually be modeled as an attribute on 
-`evse-cable`.  
+`evse-cable`.
 
 Future Work [#future]
 *****************************
 
 The EV charging working group recently formed.  The definitions presented 
 should be considered preliminary and subject to change.  We plan to add more 
-definitions related to EV charging in the future.
+definitions related to EV charging in the future.  Specifically, future work 
+will describe how to define attributes for `evse-equip`.
 
-If you are interesting in contributing to the EV charging working group, 
-then please reach out to us on the Project Haystack forum [
-here]`https://project-haystack.org/forum/topic/982`.
+If you are interested in contributing to the EV charging working group, 
+then please reach out to WG 982 on the Project Haystack forum 
+[here]`https://project-haystack.org/forum/topic/982`.
 
