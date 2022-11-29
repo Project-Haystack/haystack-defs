@@ -1,0 +1,72 @@
+//
+// Copyright (c) 2022, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   23 Nov 2022  Rick Jennings  Creation
+//
+
+//////////////////////////////////////////////////////////////////////////
+// EVSE Related Equip and Tags
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^evse
+is: ^marker
+wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
+doc: 
+  Electric Vehicle Supply Equipment.  See `docHaystack::EVSE` chapter.
+--------------------------------------------------------------------------
+def: ^evse-equip
+is: [^equip, ^elec-input, ^elec-output]
+wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
+doc:
+  Equipment that supports the delivery of electricity to charging inlets 
+  located on EVs.  See `docHaystack::EVSE` chapter.
+--------------------------------------------------------------------------
+def: ^evse-assembly
+is: ^evse-equip
+doc:
+  Equipment that delivers electricity via EVSE ports to charging inlets
+  located on EVs.  See `docHaystack::EVSE#assembly` chapter.
+children: [
+  {evse port equip}
+  ]
+--------------------------------------------------------------------------
+def: ^evse-port
+is: [^evse-equip, ^elec-meter]
+doc:
+  An EVSE port delivers electricity to a single EV charging inlet at a 
+  time.  See `docHaystack::EVSE#port` chapter.
+children: [
+  {evse cable equip}
+  ]
+--------------------------------------------------------------------------
+def: ^evse-cable
+is: ^evse-equip
+doc:
+  Models the electrical connection between an `evse-port` and an EV charging 
+  inlet.  See `docHaystack::EVSE#cable` chapter.
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Misc (generic tags to formalize)
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^port
+is: ^marker
+doc:
+  A gateway or opening used to transfer a substance.
+--------------------------------------------------------------------------
+def: ^assembly
+is: ^equip
+doc:
+  A collection of manufactured parts or subassemblies.
+--------------------------------------------------------------------------
+def: ^cable
+is: ^equip
+doc:
+  An assembly of one or more insulated conductors.
+--------------------------------------------------------------------------
+
