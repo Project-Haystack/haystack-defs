@@ -10,7 +10,7 @@ Overview [#overview]
 A Variable refrigerant flow, or VRF system, is an HVAC system where
 refrigerant is the only coolant material.  VRF uses refrigerant as the
 cooling and heating catalyst. This refrigerant is conditioned by one or
-more condensing units and is circulated within the building to indoor units.
+more outdoor units and is circulated within the building to indoor units.
 
 Types of VRF systems [#types]
 *****************************
@@ -52,16 +52,18 @@ VRF system consists of the following equipment:
 
 Outdoor Units [#outdoorUnits]
 *****************************
-Outdoor units are modeled with the `vrf-outdoorUnit` tags.  An outdoor unit
-contains a compressor, propeller fan, circuit board, and heat exchange coil.
-These units are typically situated outside, and pump refrigerant to and from its
-companion indoor units.
+Outdoor units are modeled with the `vrf-outdoorUnit` tags. They can be water or 
+air cooled. An outdoor unit contains a compressor, circuit board and a heat 
+exchange coil. In case of air cooled units they also have a propeller fan. 
+These units are typically situated outside the condtitioned space, and pump 
+refrigerant to and from its companion indoor units.
 
 Indoor Units [#indoorUnits]
 ***************************
 Indoor units are modeled with the `vrf-indoorUnit` tags.  Indoor units are
-located indoors and provide conditioned air to the spacs. This unit generally
-contains a heat exchange coil, filters, remote signal receiver, and fan.
+located inside the conditioned space and provide conditioned air to the spacs. 
+This unit generallycontains a heat exchange coil, filters, remote signal 
+receiver, and fan.
 
 Branch Selector [#branchSelector]
 *********************************
