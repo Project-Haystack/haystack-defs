@@ -1,0 +1,220 @@
+//
+// Copyright (c) 2022, Project-Haystack
+// Licensed under the Academic Free License version 3.0
+//
+// History:
+//   21 Nov 2022  Brian Frank  Creation
+//	 30 Jan 2023  Mike Melillo Haystack Labs WG Revisions	
+//
+
+--------------------------------------------------------------------------
+def: ^system
+is: ^entity
+docTaxonomy
+mandatory
+doc:
+  Grouping of related equipment dedicated to a single application.
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^air-system
+is: ^system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^air-conditioning-system
+is: ^air-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^air-exhaust-system
+is: ^air-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^air-ventilation-system
+is: ^air-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^elec-system
+is: ^system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^evse-system
+is: ^elec-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^lighting-system
+is: ^elec-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^refrig-system
+is: ^system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^vrf-system
+is: ^refrig-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^water-system
+is: ^system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^chilled-water-system
+is: ^water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^condenser-water-system
+is: ^water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^hot-water-system
+is: ^water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^steam-system
+is: ^water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^domestic-water-system
+is: ^water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^domestic-cold-water-system
+is: ^domestic-water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+def: ^domestic-hot-water-system
+is: ^domestic-water-system
+docTaxonomy
+mandatory
+doc:
+  ####
+children: [
+  {equip},
+  {point},
+  ]
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Refs
+//////////////////////////////////////////////////////////////////////////
+
+-------------------------------------------------------------------------
+def: ^systemRef
+is: [^ref]
+of: ^system
+tagOn: [^equip, ^point, ^system]
+doc: "Reference to system"
+--------------------------------------------------------------------------
