@@ -18,7 +18,7 @@ doc:
   Variable refigerant flow.  See `docHaystack::VRF` chapter.
 --------------------------------------------------------------------------
 def: ^vrf-system
-is: ^system
+is: ^refrig-system
 doc:
   Variable refigerant flow system.  The system contains the indoor
   units, outdoor units, and branch selectors.  See `docHaystack::VRF#types`
