@@ -24,7 +24,7 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  Arbitrary air supply.
+  Arbitrary air supply system.
 children: [
   {equip},
   {point},
@@ -72,7 +72,7 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  A circuit for delivering electricity.
+  System responsible for distributing electricity.
 children: [
   {equip},
   {point},
@@ -83,7 +83,7 @@ is: ^elec-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  System of equipment for Electric Vehicle Supply.
 children: [
   {equip},
   {point},
@@ -94,8 +94,8 @@ is: ^elec-system
 docTaxonomy
 mandatory
 doc:
-  A circuit dedicated for lighting, such as a fixture 
-  having sockets for lamps.
+  Electrical system dedicated for lighting, such 
+  as a fixture having sockets for lamps.
 children: [
   {equip},
   {point},
