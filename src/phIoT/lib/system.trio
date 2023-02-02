@@ -24,7 +24,7 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Arbitrary air supply.
 children: [
   {equip},
   {point},
@@ -35,7 +35,8 @@ is: ^air-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Conditioned air distribution system for purposes of 
+  maintaining a temperature range within one or more spaces.
 children: [
   {equip},
   {point},
@@ -46,7 +47,8 @@ is: ^air-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Exhaust air collection system for removing stale or 
+  noxious air from one or more spaces.
 children: [
   {equip},
   {point},
@@ -57,7 +59,9 @@ is: ^air-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Ventilation air distribution system involved in either 
+  the exchange of air to the outside as well as circulation 
+  of air within a building.
 children: [
   {equip},
   {point},
@@ -68,7 +72,7 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  ####
+  A circuit for delivering electricity.
 children: [
   {equip},
   {point},
@@ -90,7 +94,8 @@ is: ^elec-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  A circuit dedicated for lighting, such as a fixture 
+  having sockets for lamps.
 children: [
   {equip},
   {point},
@@ -101,18 +106,8 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  ####
-children: [
-  {equip},
-  {point},
-  ]
---------------------------------------------------------------------------
-def: ^vrf-system
-is: ^refrig-system
-docTaxonomy
-mandatory
-doc:
-  ####
+  Refrigerant distribution system for purposes of fulfilling 
+  all or parts of a refrigeration cycle.
 children: [
   {equip},
   {point},
@@ -123,7 +118,7 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Arbitrary water supply.
 children: [
   {equip},
   {point},
@@ -134,7 +129,8 @@ is: ^water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Nonpotable chilled water, such as circulated through 
+  an evaporator.
 children: [
   {equip},
   {point},
@@ -145,7 +141,7 @@ is: ^water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Nonpotable water, such as circulated through a condenser.
 children: [
   {equip},
   {point},
@@ -156,7 +152,8 @@ is: ^water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Liquid water heated from a boiler and circulated 
+  through radiators.
 children: [
   {equip},
   {point},
@@ -167,7 +164,8 @@ is: ^water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Steam water vapor heated from a boiler and circulated 
+  through radiators.
 children: [
   {equip},
   {point},
@@ -178,7 +176,8 @@ is: ^water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Water for domestic or commercial purposes other than 
+  space heating and process requirements.
 children: [
   {equip},
   {point},
@@ -189,7 +188,7 @@ is: ^domestic-water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Potable water distribution system.
 children: [
   {equip},
   {point},
@@ -200,7 +199,7 @@ is: ^domestic-water-system
 docTaxonomy
 mandatory
 doc:
-  ####
+  Heated potable water distribution system.
 children: [
   {equip},
   {point},
