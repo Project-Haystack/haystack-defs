@@ -104,7 +104,8 @@ doc:
 def: ^domestic-cold-water-system
 is: ^domestic-water-system
 doc:
-  Potable water distribution system.
+  A system that circulates potable cold water in its liquid state for purposes
+  other than space cooling and process requirements.
 --------------------------------------------------------------------------
 def: ^domestic-hot-water-system
 is: ^domestic-water-system
