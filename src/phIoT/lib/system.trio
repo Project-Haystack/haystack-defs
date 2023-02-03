@@ -72,7 +72,7 @@ is: ^system
 docTaxonomy
 mandatory
 doc:
-  System responsible for distributing electricity.
+  A system that generates, converts, distributes, and/or stores electricity.
 children: [
   {equip},
   {point},
