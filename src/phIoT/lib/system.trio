@@ -39,9 +39,9 @@ doc:
 def: ^air-ventilation-system
 is: ^air-system
 doc:
-  Ventilation air distribution system involved in either 
-  the exchange of air to the outside as well as circulation 
-  of air within a building.
+  A system that supplies or removes air by natural or mechanical means to or
+  from any space in order to provide outdoor air to the space. Such air may or
+  may not have been conditioned. 
 --------------------------------------------------------------------------
 def: ^elec-system
 is: ^system
