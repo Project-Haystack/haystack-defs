@@ -33,8 +33,9 @@ doc:
 def: ^air-exhaust-system
 is: ^air-system
 doc:
-  Exhaust air collection system for removing stale or 
-  noxious air from one or more spaces.
+  A system consisting of one or more fans that remove air from the building,
+  causing outdoor air to enter by ventilation inlets or normal leakage paths
+  through the building envelope.
 --------------------------------------------------------------------------
 def: ^air-ventilation-system
 is: ^air-system
