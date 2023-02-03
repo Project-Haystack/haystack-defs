@@ -21,189 +21,93 @@ children: [
 --------------------------------------------------------------------------
 def: ^air-system
 is: ^system
-docTaxonomy
-mandatory
 doc:
   Arbitrary air supply system.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^air-conditioning-system
 is: ^air-system
-docTaxonomy
-mandatory
 doc:
   Conditioned air distribution system for purposes of 
   maintaining a temperature range within one or more spaces.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^air-exhaust-system
 is: ^air-system
-docTaxonomy
-mandatory
 doc:
   Exhaust air collection system for removing stale or 
   noxious air from one or more spaces.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^air-ventilation-system
 is: ^air-system
-docTaxonomy
-mandatory
 doc:
   Ventilation air distribution system involved in either 
   the exchange of air to the outside as well as circulation 
   of air within a building.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^elec-system
 is: ^system
-docTaxonomy
-mandatory
 doc:
   A system that generates, converts, distributes, and/or stores electricity.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^evse-system
 is: ^elec-system
-docTaxonomy
-mandatory
 doc:
   System of equipment for Electric Vehicle Supply.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^lighting-system
 is: ^elec-system
-docTaxonomy
-mandatory
 doc:
   Electrical system dedicated for lighting, such 
   as a fixture having sockets for lamps.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^refrig-system
 is: ^system
-docTaxonomy
-mandatory
 doc:
   Refrigerant distribution system for purposes of fulfilling 
   all or parts of a refrigeration cycle.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^water-system
 is: ^system
-docTaxonomy
-mandatory
 doc:
   Arbitrary water supply.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^chilled-water-system
 is: ^water-system
-docTaxonomy
-mandatory
 doc:
   Nonpotable chilled water, such as circulated through 
   an evaporator.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^condenser-water-system
 is: ^water-system
-docTaxonomy
-mandatory
 doc:
   Nonpotable water, such as circulated through a condenser.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^hot-water-system
 is: ^water-system
-docTaxonomy
-mandatory
 doc:
   Liquid water heated from a boiler and circulated 
   through radiators.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^steam-system
 is: ^water-system
-docTaxonomy
-mandatory
 doc:
   Steam water vapor heated from a boiler and circulated 
   through radiators.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^domestic-water-system
 is: ^water-system
-docTaxonomy
-mandatory
 doc:
   Water for domestic or commercial purposes other than 
   space heating and process requirements.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^domestic-cold-water-system
 is: ^domestic-water-system
-docTaxonomy
-mandatory
 doc:
   Potable water distribution system.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 def: ^domestic-hot-water-system
 is: ^domestic-water-system
-docTaxonomy
-mandatory
 doc:
   Heated potable water distribution system.
-children: [
-  {equip},
-  {point},
-  ]
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
