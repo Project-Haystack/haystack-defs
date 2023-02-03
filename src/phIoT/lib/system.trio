@@ -86,8 +86,8 @@ doc:
 def: ^hot-water-system
 is: ^water-system
 doc:
-  Liquid water heated from a boiler and circulated 
-  through radiators.
+  A system that circulates water in its liquid state for the purpose of heating
+  a space or process.
 --------------------------------------------------------------------------
 def: ^steam-system
 is: ^water-system
