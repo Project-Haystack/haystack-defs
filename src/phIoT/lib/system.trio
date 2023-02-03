@@ -69,7 +69,7 @@ doc:
 def: ^water-system
 is: ^system
 doc:
-  Arbitrary water supply.
+  A system that supplies or collects potable or non-potable water in any state.
 --------------------------------------------------------------------------
 def: ^chilled-water-system
 is: ^water-system
