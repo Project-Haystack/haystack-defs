@@ -22,7 +22,7 @@ children: [
 def: ^air-system
 is: ^system
 doc:
-  Arbitrary air supply system.
+  A system for moving air to maintain indoor thermal comfort and/or air quality.
 --------------------------------------------------------------------------
 def: ^air-conditioning-system
 is: ^air-system
