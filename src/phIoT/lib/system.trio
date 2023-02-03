@@ -27,8 +27,8 @@ doc:
 def: ^air-conditioning-system
 is: ^air-system
 doc:
-  Conditioned air distribution system for purposes of 
-  maintaining a temperature range within one or more spaces.
+  A system for air treatment to control its temperature, humidity, cleanliness,
+  and distribution to meet the requirements of a conditioned space. 
 --------------------------------------------------------------------------
 def: ^air-exhaust-system
 is: ^air-system
