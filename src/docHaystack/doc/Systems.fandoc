@@ -2,7 +2,7 @@
 ** title:      Systems
 ** author:     Mike Melillo
 ** created:    30 Jan 2023
-** copyright:  Copyright (c) 2019, Project-Haystack
+** copyright:  Copyright (c) 2023, Project-Haystack
 **************************************************************************
 
 Systems [#systems]
@@ -21,10 +21,9 @@ System entities should define a `siteRef` tag for their parent tag. All systems
 subtype from `system` and are then kebab cased with other valid tags to create 
 the conjunct (e.g., `chilled-water-system`).
 
-While not explicitly defined in the model right now, systems may also define a 
-`systemRef` tag to describe a sub-system or primary/secondary relationship. 
-This relationship would imply logical containment, i.e., all members of a sub-system 
-automatically belong to the referent system as well.
+It is also valid for systems to define a `systemRef` tag to describe a sub-system
+or primary/secondary relationship. This relationship would imply logical containment,
+i.e., all members of a sub-system automatically belong to the referent system as well.
 
 
 Examples [#examples]
@@ -34,14 +33,18 @@ Here are examples of a properly tagged system and member equipment:
   //chilled water system for a building
   id: @site.chwSys
   dis: “Chilled Water System”
-  chilled-water-system
+  chilled
+  water
+  system
   siteRef: @site
 
 
   //condenser water system for a building
   id: @site.cwSys
   dis: “Condenser Water System”
-  condenser-water-system
+  condenser
+  water
+  system
   siteRef: @site
 
 
