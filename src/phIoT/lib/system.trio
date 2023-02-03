@@ -58,8 +58,7 @@ doc:
 def: ^lighting-system
 is: ^elec-system
 doc:
-  Electrical system dedicated for lighting, such 
-  as a fixture having sockets for lamps.
+  A system designed to provide lighting.
 --------------------------------------------------------------------------
 def: ^refrig-system
 is: ^system
