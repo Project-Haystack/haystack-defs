@@ -92,8 +92,8 @@ doc:
 def: ^steam-system
 is: ^water-system
 doc:
-  Steam water vapor heated from a boiler and circulated 
-  through radiators.
+  A system that circulates water in its vapor state for the purpose of heating
+  a space or process.
 --------------------------------------------------------------------------
 def: ^domestic-water-system
 is: ^water-system
