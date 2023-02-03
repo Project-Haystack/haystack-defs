@@ -110,7 +110,8 @@ doc:
 def: ^domestic-hot-water-system
 is: ^domestic-water-system
 doc:
-  Heated potable water distribution system.
+  A system that circulates potable hot water in its liquid state for purposes
+  other than space heating and process requirements.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
