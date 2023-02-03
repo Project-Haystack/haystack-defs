@@ -74,8 +74,8 @@ doc:
 def: ^chilled-water-system
 is: ^water-system
 doc:
-  Nonpotable chilled water, such as circulated through 
-  an evaporator.
+  A system that circulates water in its liquid state below ambient temperature
+  for the purpose of cooling a space or process.
 --------------------------------------------------------------------------
 def: ^condenser-water-system
 is: ^water-system
