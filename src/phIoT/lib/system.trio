@@ -80,7 +80,8 @@ doc:
 def: ^condenser-water-system
 is: ^water-system
 doc:
-  Nonpotable water, such as circulated through a condenser.
+  A system that circulates water in its liquid state for the purpose of
+  rejecting heat from a space or process.
 --------------------------------------------------------------------------
 def: ^hot-water-system
 is: ^water-system
