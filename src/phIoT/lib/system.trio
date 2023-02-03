@@ -98,8 +98,8 @@ doc:
 def: ^domestic-water-system
 is: ^water-system
 doc:
-  Water for domestic or commercial purposes other than 
-  space heating and process requirements.
+  A system that circulates potable water in its liquid state for purposes other
+  than space conditioning and process requirements.
 --------------------------------------------------------------------------
 def: ^domestic-cold-water-system
 is: ^domestic-water-system
