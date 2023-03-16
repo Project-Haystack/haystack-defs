@@ -24,11 +24,22 @@ is: ^system
 doc:
   A system for moving air to maintain indoor thermal comfort and/or air quality.
 --------------------------------------------------------------------------
+def: ^conditioning
+is: ^marker
+doc:
+  Related to cleaning, heating, cooling, humidifying, dehumidifying, ventilating or circulating  air. 
+--------------------------------------------------------------------------
 def: ^air-conditioning-system
 is: ^air-system
 doc:
   A system for air treatment to control its temperature, humidity, cleanliness,
   and distribution to meet the requirements of a conditioned space. 
+--------------------------------------------------------------------------
+def: ^conditioning
+is: ^marker
+doc:
+  Related to cleaning, heating, cooling, humidifying, dehumidifying, ventilating
+  or circulating  air.  
 --------------------------------------------------------------------------
 def: ^air-exhaust-system
 is: ^air-system
