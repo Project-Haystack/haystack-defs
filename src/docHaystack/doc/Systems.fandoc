@@ -7,21 +7,21 @@
 
 Systems [#systems]
 ****************
-Systems are modeled with the `system` marker tag. Systems the logical structure
-of buildings meant to group multiple `equips` that serve a similar purpose. 
+Systems are modeled with the 'system' marker tag. Systems the logical structure
+of buildings meant to group multiple `equip` that serve a similar purpose. 
 The members of a system do not necessarily have to be in the same physical 
 `space`. For example, a Chilled Water System may consist of equipment within 
 the Chilled Water Plant, but also Air Handlers with Chilled Water Coils fed 
 by that plant. Systems do not represent a physical structure unless also paired 
-with an `equip` tag (e.g., if `system` is used in conjunction with a `plant-equip`).
+with an `equip` tag (e.g., if `system` is used in conjunction with a 'plant-equip').
 
 Tags [#tags]
 ************
-System entities should define a `siteRef` tag for their parent tag. All systems 
+System entities should define a 'siteRef' tag for their parent tag. All systems 
 subtype from `system` and are then kebab cased with other valid tags to create 
 the conjunct (e.g., `chilled-water-system`).
 
-It is also valid for systems to define a `systemRef` tag to describe a sub-system
+It is also valid for systems to define a 'systemRef' tag to describe a sub-system
 or primary/secondary relationship. This relationship would imply logical containment,
 i.e., all members of a sub-system automatically belong to the referent system as well.
 
