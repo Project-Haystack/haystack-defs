@@ -4,7 +4,7 @@
 //
 // History:
 //   21 Nov 2022  Brian Frank  Creation
-//   30 Jan 2023  Mike Melillo Haystack Labs WG Revisions	
+//   30 Jan 2023  Mike Melillo Haystack Labs WG Revisions
 //
 
 --------------------------------------------------------------------------
@@ -14,6 +14,7 @@ docTaxonomy
 mandatory
 doc:
   Grouping of related equipment dedicated to a single application.
+  See `docHaystack::Systems` chapter.
 children: [
   {equip},
   {point},
@@ -22,106 +23,88 @@ children: [
 def: ^air-system
 is: ^system
 doc:
-  A system for moving air to maintain indoor thermal comfort and/or air quality.
---------------------------------------------------------------------------
-def: ^conditioning
-is: ^marker
-doc:
-  Related to cleaning, heating, cooling, humidifying, dehumidifying, ventilating or circulating  air. 
+  System for moving air to maintain indoor thermal comfort and/or air quality.
 --------------------------------------------------------------------------
 def: ^air-conditioning-system
 is: ^air-system
 doc:
-  A system for air treatment to control its temperature, humidity, cleanliness,
-  and distribution to meet the requirements of a conditioned space. 
---------------------------------------------------------------------------
-def: ^conditioning
-is: ^marker
-doc:
-  Related to cleaning, heating, cooling, humidifying, dehumidifying, ventilating
-  or circulating  air.  
+  System for air treatment to control its temperature, humidity, cleanliness,
+  and distribution to meet the requirements of a conditioned space.
 --------------------------------------------------------------------------
 def: ^air-exhaust-system
 is: ^air-system
 doc:
-  A system consisting of one or more fans that remove air from the building,
-  causing outdoor air to enter by ventilation inlets or normal leakage paths
-  through the building envelope.
+  System consisting of one or more fans that remove air from the building.
+  Exhaust systems allow outdoor air to enter by ventilation inlets or normal
+  leakage paths sthrough the building envelope.
 --------------------------------------------------------------------------
 def: ^air-ventilation-system
 is: ^air-system
 doc:
-  A system that supplies or removes air by natural or mechanical means to or
+  System that supplies or removes air by natural or mechanical means to or
   from any space in order to provide outdoor air to the space. Such air may or
-  may not have been conditioned. 
+  may not have been conditioned.
 --------------------------------------------------------------------------
 def: ^elec-system
 is: ^system
 doc:
-  A system that generates, converts, distributes, and/or stores electricity.
---------------------------------------------------------------------------
-def: ^evse-system
-is: ^elec-system
-doc:
-  A system that supplies electricity to EVSE assembly equipment and its 
-  auxiliary loads.
+  System that generates, converts, distributes, and/or stores electricity.
 --------------------------------------------------------------------------
 def: ^lighting-system
 is: ^elec-system
 doc:
-  A system designed to provide lighting.
+  System designed to provide lighting.
 --------------------------------------------------------------------------
 def: ^refrig-system
 is: ^system
 doc:
-  Refrigerant distribution system for purposes of fulfilling 
-  all or parts of a refrigeration cycle.
+  Refrigerant distribution to fulfill all or parts of a refrigeration cycle.
 --------------------------------------------------------------------------
 def: ^water-system
 is: ^system
 doc:
-  A system that supplies or collects potable or non-potable water in any state.
+  System that supplies or collects potable or non-potable water in any state.
 --------------------------------------------------------------------------
 def: ^chilled-water-system
 is: ^water-system
 doc:
-  A system that circulates water in its liquid state below ambient temperature
-  for the purpose of cooling a space or process.
+  System that circulates water in its liquid state below ambient temperature
+  for cooling a space or process.
 --------------------------------------------------------------------------
 def: ^condenser-water-system
 is: ^water-system
 doc:
-  A system that circulates water in its liquid state for the purpose of
-  rejecting heat from a space or process.
+  System that circulates water in its liquid state for rejecting heat
+  from a space or process.
 --------------------------------------------------------------------------
 def: ^hot-water-system
 is: ^water-system
 doc:
-  A system that circulates water in its liquid state for the purpose of heating
+  System that circulates water in its liquid state for heating
   a space or process.
 --------------------------------------------------------------------------
 def: ^steam-system
 is: ^water-system
 doc:
-  A system that circulates water in its vapor state for the purpose of heating
+  System that circulates water in its vapor state for heating
   a space or process.
 --------------------------------------------------------------------------
 def: ^domestic-water-system
 is: ^water-system
 doc:
-  A system that circulates potable water in its liquid state for purposes other
-  than space conditioning and process requirements.
+  System that circulates potable water in its liquid state for purposes
+  other than space conditioning and process requirements.
 --------------------------------------------------------------------------
 def: ^domestic-cold-water-system
 is: ^domestic-water-system
 doc:
-  A system that circulates potable cold water in its liquid state for purposes
+  System that circulates potable cold water in its liquid state for purposes
   other than space cooling and process requirements.
 --------------------------------------------------------------------------
 def: ^domestic-hot-water-system
 is: ^domestic-water-system
 doc:
-  A system that circulates potable hot water in its liquid state for purposes
+  System that circulates potable hot water in its liquid state for purposes
   other than space heating and process requirements.
 --------------------------------------------------------------------------
 

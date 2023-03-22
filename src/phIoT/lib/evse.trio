@@ -14,14 +14,20 @@
 def: ^evse
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
-doc: 
+doc:
   Electric Vehicle Supply Equipment.  See `docHaystack::EVSE` chapter.
+--------------------------------------------------------------------------
+def: ^evse-system
+is: ^elec-system
+doc:
+  A system that supplies electricity to EVSE assembly equipment and its
+  auxiliary loads.
 --------------------------------------------------------------------------
 def: ^evse-equip
 is: [^equip, ^elec-input, ^elec-output]
 wikipedia: `https://en.wikipedia.org/wiki/Charging_station`
 doc:
-  Equipment that supports the delivery of electricity to charging inlets 
+  Equipment that supports the delivery of electricity to charging inlets
   located on EVs.  See `docHaystack::EVSE` chapter.
 --------------------------------------------------------------------------
 def: ^evse-assembly
@@ -36,7 +42,7 @@ children: [
 def: ^evse-port
 is: [^evse-equip, ^elec-meter]
 doc:
-  An EVSE port delivers electricity to a single EV charging inlet at a 
+  An EVSE port delivers electricity to a single EV charging inlet at a
   time.  See `docHaystack::EVSE#port` chapter.
 children: [
   {evse cable equip}
@@ -45,7 +51,7 @@ children: [
 def: ^evse-cable
 is: ^evse-equip
 doc:
-  Models the electrical connection between an `evse-port` and an EV charging 
+  Models the electrical connection between an `evse-port` and an EV charging
   inlet.  See `docHaystack::EVSE#cable` chapter.
 --------------------------------------------------------------------------
 

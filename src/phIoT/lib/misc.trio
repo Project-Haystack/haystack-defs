@@ -48,6 +48,12 @@ def: ^condenser
 is: ^marker
 doc: "Device or related to process of condensation"
 --------------------------------------------------------------------------
+def: ^conditioning
+is: ^marker
+doc:
+  Related to cleaning, heating, cooling, humidifying, dehumidifying,
+  ventilating or circulating  air. 
+--------------------------------------------------------------------------
 def: ^controls
 is: ^marker
 wikipedia: `https://en.wikipedia.org/wiki/Control_system`
