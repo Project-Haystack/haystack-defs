@@ -14,7 +14,7 @@ The stack of technologies includes:
   - [File Types]`#fileTypes`: a set of text formats to encode and exchange those data types
   - [HTTP API]`#httpApi`: a protocol to exchange data over HTTP using those file types
   - [Ontology]`#ontology`: a standard way to model common concepts such as buildings,
-    equipment, and sensors
+    spaces, equipment, and sensors
   - [Defs]`#defs`: a standard way to define and extend the ontology
 
 Individual aspects of the technology stack can be used on their own.  For

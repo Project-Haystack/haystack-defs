@@ -40,7 +40,7 @@ identified as "America/New_York". Since there are no duplicate city names
 between continents, the city name also works as a canonical identifier.
 
 All timezones in Haystack are represented using the city name of an entry
-in the Olsen database.
+in the zoneinfo database.
 
 Common TimeZones [#common]
 **************************
