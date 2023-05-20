@@ -6,6 +6,9 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
+**Version 3.9.15 (working)**
+- #1056: batch hisRead and hisWrite API operations
+
 **Version 3.9.14 (22 Mar 2023)**
 - New systems design
 - New units: kg/L, mg/L, in/h, mm/h

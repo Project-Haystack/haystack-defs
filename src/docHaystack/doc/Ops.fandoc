@@ -266,15 +266,22 @@ To write a level in the priority array:
 
 HisRead [#hisRead]
 ******************
-The [hisRead]`op:hisRead` op is used to read a time-series data from historized point.
+The [hisRead]`op:hisRead` op is used to read a time-series data from one or
+more historized points.  This operation supports both a single point read
+and a batch point read.  The mode is determined by the presense of
+the 'range' tag in the request grid meta.
 
-**Request**: a grid with a single row and following columns:
+Single HisRead [#hisReadSingle]
+===============================
+A single point read request:
+
+**Request**: a grid with exactly one row and following columns:
   - 'id': Ref identifier of historized point
   - 'range': Str encoding of a date-time range
 
 **Response**: rows of the result grid represent timetamp/value pairs
 with a DateTime 'ts' column and a 'val' column for each scalar value.
-In addition the grid metadata includes:
+In addition the grid meta includes:
   - 'id': Ref of the point we read
   - 'hisStart': DateTime timestamp for inclusive range start in point's timezone
   - 'hisEnd': DateTime timestamp for exclusive range end in point's timezone
@@ -296,7 +303,8 @@ his point being queried.
 Clients should query the range using the configured timezone of the
 point.  Although if a different timezone is specified in the range,
 then servers must convert to the point's configured timezone before
-executing the query.
+executing the query.  Results are always in the point's configured
+timezone.
 
 Example:
 
@@ -313,13 +321,63 @@ Example:
   2012-10-01T00:45:00-04:00 New_York,75.0°F
   ..
 
+Batch HisRead [#hisReadBatch]
+=============================
+Clients can request a batch hisRead using the following request format:
+
+**Request**: a grid with one or more rows
+  - 'meta.range': Str encoding of a date-time range in grid meta
+  - 'meta.tz': optional Str timezone name in grid meta
+  - 'id': one or more Ref identifiers of historized points
+
+**Response**: rows of the result grid represent timetamp/value pairs
+with a DateTime 'ts' column and one or more value columns named "v0",
+"v1", "v2", etc.  Value column meta must include the point 'id' tag.
+Value columns must be ordered according the request grid.
+The grid meta includes the queried span:
+  - 'id': Ref of the point we read
+  - 'hisStart': DateTime timestamp for inclusive range start
+  - 'hisEnd': DateTime timestamp for exclusive range end
+
+The results are joined by a shared 'ts' column for each unique timestamp
+in the result set.  If a given point does not have a sample for one of
+the rows, then its cell will be null.
+
+Batch read requires that all the queried points have the same configured
+timezone.  The results are returned in this shared timezone.  Alternatively
+specify an explicit timezone name for the results in the request grid meta
+via the 'tz' tag.
+
+Example:
+
+  // request
+  ver:"3.0" range:"2012-10-01"
+  id
+  @hisA
+  @hisB
+  @hisC
+
+  // response
+  ver:"3.0" hisStart:2012-10-01T00:00:00-04:00 New_York hisEnd:2012-10-02T00:00:00-04:00 New_York
+  ts,                                  v0 id:@hisA,  v1 id:@hisB,  v2 id:@hisB
+  2012-10-01T00:15:00-04:00 New_York,  72.1°F,       10%,          80°F
+  2012-10-01T00:30:00-04:00 New_York,  73.0°F,       N,            N
+  2012-10-01T00:45:00-04:00 New_York,  N,            20%,          N
+
 HisWrite [#hisWrite]
 ******************
-The [hisWrite]`op:hisWrite` op is used to post new time-series data to a historized point.
-The point must already be configured on the server and assigned a unique
-identifier.
+The [hisWrite]`op:hisWrite` op is used to post new time-series data to one
+or more historized points.  The points must already be configured on the
+server and assigned a unique identifier.
 
-**Request**: a grid metadata must define 'id' Ref of point to write to.
+The hisWrite operation supports both a single write and a batch write.
+The mode is determined by the presence of an 'id' tag in the request grid meta.
+
+Single HisWrite [#hisWriteSingle]
+=================================
+The following request format is used to post history data to a single point:
+
+**Request**: a grid metadata must define 'id' Ref of the point.
 The rows define new timestamp/value samples to write with following columns:
   - 'ts': DateTime timestamp of sample in point's timezone
   - 'val' value of each timestamp sample
@@ -342,6 +400,32 @@ Here is an example that posts some new history data to a point:
   ts,val
   2012-04-21T08:30:00-04:00 New_York,72.2
   2012-04-21T08:45:00-04:00 New_York,76.3
+
+Batch HisWrite [#hisWriteBatch]
+===============================
+Clients can post a batch of history data via the 'hisWrite' op using
+this request format:
+
+**Request**:
+Omit the grid meta 'id' and instead add multiple value columns where
+the id is specified in the column meta:
+  - 'ts': DateTime timestamp
+  - 'v{i}' value column for each point, column meta must define 'id' tag
+
+**Response**: empty grid
+
+A batch hisWrite requires that all points be in the same timezone.  If
+a point does not have a sample for a given timestamp/row then specify
+null for that cell.
+
+Example:
+
+  // request
+  ver:"3.0"
+  ts,                                 v0 id:@hisA,  v1 id:@hisB
+  2012-04-21T08:30:00-04:00 New_York, 72.2,         10
+  2012-04-21T08:45:00-04:00 New_York, 76.3,         N
+  2012-04-21T09:00:00-04:00 New_York, N,            12
 
 Invoke Action [#invokeAction]
 *****************************
