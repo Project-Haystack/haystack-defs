@@ -200,7 +200,7 @@ Example in Zinc:
 
   ver:"3.0" incomplete:{dis:"Request timeout exceeded!" timeout:1min}
   colA, colB, colC
-  ....
+  "a", "b", "c"
 
 Content Negotiation [#contentNegotiation]
 *****************************************

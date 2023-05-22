@@ -306,20 +306,19 @@ then servers must convert to the point's configured timezone before
 executing the query.  Results are always in the point's configured
 timezone.
 
-Example:
+Example request:
 
-  // request
   ver:"3.0"
   id,range
   @someTemp,"2012-10-01"
 
-  // reponse
+Example response:
+
   ver:"3.0" id:@someTemp hisStart:2012-10-01T00:00:00-04:00 New_York hisEnd:2012-10-02T00:00:00-04:00 New_York
   ts,val
   2012-10-01T00:15:00-04:00 New_York,72.1°F
   2012-10-01T00:30:00-04:00 New_York,74.2°F
   2012-10-01T00:45:00-04:00 New_York,75.0°F
-  ..
 
 Batch HisRead [#hisReadBatch]
 =============================
@@ -348,16 +347,16 @@ timezone.  The results are returned in this shared timezone.  Alternatively
 specify an explicit timezone name for the results in the request grid meta
 via the 'tz' tag.
 
-Example:
+Example request:
 
-  // request
   ver:"3.0" range:"2012-10-01"
   id
   @hisA
   @hisB
   @hisC
 
-  // response
+Example response:
+
   ver:"3.0" hisStart:2012-10-01T00:00:00-04:00 New_York hisEnd:2012-10-02T00:00:00-04:00 New_York
   ts,                                  v0 id:@hisA,  v1 id:@hisB,  v2 id:@hisB
   2012-10-01T00:15:00-04:00 New_York,  72.1°F,       10%,          80°F
@@ -393,13 +392,17 @@ conversion is explicitly disallowed.
 
 Example:
 
-Here is an example that posts some new history data to a point:
+Example request:
 
-  // request
   ver:"3.0" id:@hisId
   ts,val
   2012-04-21T08:30:00-04:00 New_York,72.2
   2012-04-21T08:45:00-04:00 New_York,76.3
+
+Example response:
+
+  ver:"3.0"
+  empty
 
 Batch HisWrite [#hisWriteBatch]
 ===============================
@@ -418,14 +421,18 @@ A batch hisWrite requires that all points be in the same timezone.  If
 a point does not have a sample for a given timestamp/row then specify
 null for that cell.
 
-Example:
+Example request:
 
-  // request
   ver:"3.0"
   ts,                                 v0 id:@hisA,  v1 id:@hisB
   2012-04-21T08:30:00-04:00 New_York, 72.2,         10
   2012-04-21T08:45:00-04:00 New_York, 76.3,         N
   2012-04-21T09:00:00-04:00 New_York, N,            12
+
+Example response:
+
+  ver:"3.0"
+  empty
 
 Invoke Action [#invokeAction]
 *****************************
