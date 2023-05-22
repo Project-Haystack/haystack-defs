@@ -177,7 +177,7 @@ a human readable descripton of the problem.  If the server runtime supports
 stack traces, this should be reported as a multi-line string via
 the 'errTrace' tag in the grid metadata.
 
-Example of an error grid encoded as Zinc:
+Example of an error grid:
 
   ver:"3.0" err dis:"Cannot resolve id: badId" errTrace:"UnknownRecErr: badId\n  ...."
   empty
@@ -196,7 +196,7 @@ The value of 'incomplete' must be a Dict and should use the following tags:
   - 'limit': Number if incomplete because of threshold limit 
   - 'timeout': Number duration if incomplete because of timeout
 
-Example in Zinc:
+Example of incomplete grid:
 
   ver:"3.0" incomplete:{dis:"Request timeout exceeded!" timeout:1min}
   colA, colB, colC

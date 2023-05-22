@@ -51,6 +51,12 @@ Example:
   vendorName: "Acme"
   vendorUri: `http://acme.com/`
 
+Example response as grid:
+
+  ver:"3.0"
+  haystackVersion,tz,serverName,serverTime,serverBootTime,productName,productUri,productVersion,vendorName,vendorUri
+  "4.0","New_York","Test Server",2021-05-31T07:50:17-04:00 New_York,2021-05-28T06:50:47-04:00 New_York,"Acme Haystack Server",`http://acme.com/haystack-server`,"1.0.30","Acme",`http://acme.com/`
+
 Close [#close]
 **************
 The [close]`op:close` op closes the current authentication session.  Sessions
@@ -61,6 +67,30 @@ the bearer token.
 **Request**: empty grid
 
 ** Response**: empty grid
+
+Example close request using Zinc:
+
+  POST /haystack/close HTTP/1.1
+  Authorization: bearer authToken=xyz
+  Content-Length: 17
+  Content-Type: text/zinc; charset=utf-8
+
+  ver:"3.0"
+  empty
+
+Example close request using JSON:
+
+  POST /haystack/close HTTP/1.1
+  Authorization: bearer authToken=xyz
+  Content-Length: 81
+  Content-Type: application/json
+
+  {
+  "_kind": "grid",
+  "meta": {"ver":"3.0"},
+  "cols": [{"name":"empty"}],
+  "rows":[]
+  }
 
 Defs [#defs]
 ************
@@ -73,6 +103,19 @@ The [defs]`op:defs` op queries [def dicts]`Defs` from the current [namespace]`Na
  - 'limit': optional Number that specifies maximum number of defs to return in response
 
 ** Response**: a grid with the dict representation of each def
+
+Example request:
+
+  ver:"3.0"
+  filter
+  "def==^point"
+
+Example response:
+
+  ver:"3.0"
+  def,lib,is,mandatory,docTaxonomy,doc
+  ^point,^lib:phIoT,[^entity],M,M,"Data point such as a sensor or actuator.\nSee `docHaystack::Points` chapter."
+
 
 Libs [#libs]
 **************
@@ -199,6 +242,26 @@ watchSub request is the same id used by the watchSub response and watchPoll
 responses.  However, the order of rows in watchSub request/response is
 guaranteed to allow clients to perform a mapping.
 
+Example request to create a new watch:
+
+  ver:"3.0" watchDis:"MyApp" lease:1min
+  id
+  @2b80f96a-9dcc2202
+  @2b80f96a-7b16eb30
+
+Example response:
+
+  ver:"3.0" watchId:"w-2bfe7e77-8a7c55ab" lease:1min
+  id,cur,curStatus,curVal,equipRef,kind,point,unit
+  @2b80f96a-9dcc2202 "RTU-1 ReturnTemp",M,"ok",68.2°F,@2b80f96a-ee1d1270 "RTU-1","Number",M,"°F"
+  @2b80f96a-7b16eb30 "RTU-1 ZoneTemp",M,"ok",74.1°F,@2b80f96a-ee1d1270 "RTU-1","Number",M,"°F"
+
+Example request to add a record to existing watch:
+
+  ver:"3.0" watchId:"w-2bfe7e77-8a7c55ab"
+  id
+  @2b80f96a-9dcc3345
+
 WatchUnsub [#watchUnsub]
 ************************
 The [watchUnsub]`op:watchUnsub` operation is used to close a [watch]`HttpApi#watches`
@@ -213,6 +276,22 @@ entity to unsubscribe (if the watch is not be closed).  Grid metadata:
 
 If the reponse is an [error grid]`HttpApi#errorGrid`, then the client must
 assume the watch is no longer valid, and open a new watch.
+
+Example request to unwatch one record:
+
+  ver:"3.0" watchId:"w-2bfe7e77-8a7c55ab"
+  id
+  @2b80f96a-9dcc2202
+
+Example request to close a watch:
+
+  ver:"3.0" watchId:"w-2bfe7e77-8a7c55ab" close
+  id
+
+Example response:
+
+  ver:"3.0"
+  empty
 
 WatchPoll [#watchPoll]
 **********************
@@ -233,6 +312,18 @@ in the watch (invalid identifiers are not be included).
 
 If the reponse is an [error grid]`HttpApi#errorGrid`, then the client must
 assume the watch is no longer valid, and open a new watch.
+
+Request grid:
+
+  ver:"3.0" watchId:"w-2bfe7e77-8a7c55ab"
+  empty
+
+Response grid:
+
+  ver:"3.0" watchId:"w-2bfe7e77-8a7c55ab"
+  id,cur,curStatus,curVal,equipRef,kind,point,unit
+  @2b80f96a-9dcc2202 "RTU-1 ReturnTemp",M,"ok",68.2°F,@2b80f96a-ee1d1270 "RTU-1","Number",M,"°F"
+  @2b80f96a-7b16eb30 "RTU-1 ZoneTemp",M,"ok",74.1°F,@2b80f96a-ee1d1270 "RTU-1","Number",M,"°F"
 
 PointWrite [#pointWrite]
 ************************
@@ -263,6 +354,17 @@ To write a level in the priority array:
   - 'duration': Number with duration unit if setting level 8
 
 **Response**: empty grid
+
+Example request to issue a point write:
+
+  ver:"3.0"
+  id,val,level,who
+  @2b80f96a-d372482e,72°F,16,"Alice"
+
+Example response:
+
+  ver:"3.0"
+  empty
 
 HisRead [#hisRead]
 ******************
