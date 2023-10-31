@@ -9,7 +9,7 @@
 Overview [#overview]
 ********************
 Trio stands for "Text Record Input/Output".  Trio is a simple plain text
-format used for hand authoring Haystack data.  It is derived as a subset
+format used for hand authoring Haystack data.  It is derived as a semi-subset
 of [YAML]`https://en.wikipedia.org/wiki/YAML`.  It is the primary format
 for authoring the tag definitions on the Project Haystack site itself.
 
@@ -33,6 +33,9 @@ Trio uses a simple plain text format designed for easy editing by hand:
   - string values may be left unquoted if they begin with a non-ASCII
     Unicode character or contain only the "safe" chars: 'A-Z', 'a-z',
     or underbar
+
+  - booleans may be encoded as true/false or Zinc T/F; however
+    if using nested lists/dicts then you must the Zinc T/F syntax
 
   - if a newline follows the colon, then the value is an indented
     multi-line string terminated by the first non-indented line
