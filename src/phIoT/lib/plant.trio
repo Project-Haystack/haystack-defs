@@ -34,6 +34,7 @@ children: [
   {chilled water delta flow point},
   {chilled water delta pressure point},
   {chilled water delta temp point},
+  {chilled water mixing valve cmd point},
 
   {condenser water bypass pipe equip},
   {condenser water delta flow sensor point},
