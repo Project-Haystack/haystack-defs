@@ -49,6 +49,8 @@ children: [
   {zone air hvacMode sp point},
   {zone air temp sensor point},
   {zone air temp effective sp point},
+  {zone air temp effective cooling sp point},
+  {zone air temp effective heating sp point},
   {zone air temp occ cooling sp point},
   {zone air temp occ heating sp point},
   {zone air temp unocc cooling sp point},
