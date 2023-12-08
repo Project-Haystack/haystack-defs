@@ -51,7 +51,7 @@ children: [
 --------------------------------------------------------------------------
 def: ^vfd
 is: ^marker
-tagOn: [^point, ^motor]
+tagOn: [^motor]
 wikipedia: `https://en.wikipedia.org/wiki/Variable-frequency_drive`
 doc:
   Variable-frequency drive.
