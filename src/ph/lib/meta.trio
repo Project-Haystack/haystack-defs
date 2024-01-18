@@ -107,16 +107,17 @@ doc:
   under the [taxonomies]`docHaystack::Docs#taxonomies` section.
 --------------------------------------------------------------------------
 def: ^enum
-is: [^str, ^dict]
+is: ^val
 tagOn: ^def
 doc:
   Defines an eumeration of string key names.  The range may also be applied
-  to format a Bool ordered as "false,true".  The string value of this tag
-  may be formatted in one of four ways:
+  to format a Bool ordered as "false,true".  The value of this tag may be
+  formatted in one of five ways:
    - dict of dicts keyed by name and Dict values for meta such as 'doc' tag
    - comma separated names on one line
    - names separated by a "\n" newline character
    - markdown unordered list formatted as a series of "- name: description\n"
+   - ref to a Xeto 'sys::Enum' spec
 
   Enum names *should* follow valid tag naming rules (start with lowercase
   ASCII letter and contain only ASCII letters and numbers).  However in
