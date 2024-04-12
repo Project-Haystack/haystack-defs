@@ -1,0 +1,93 @@
+**************************************************************************
+** title:      Json
+** author:     Brian Frank
+** created:    12 Apr 2024
+** copyright:  Copyright (c) 2024, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+JSON is widely used as a simple textual data interchange format.  Xeto
+specs and instance data maybe represented in JSON multiple ways.  Plus
+Xeto may be used to validate JSON data.  There are two primary JSON
+representations of Xeto:
+
+  - **typed**: each Xeto object is represented as a JSON object with
+    an explicit spec property.  This format is more verbose but extremely
+    precise for each object's type and provides full fidelity with the
+    Xeto format itself.
+
+  - **untyped**: each Xeto object is mapped to its closest native JSON
+    value type.  This format is closer to common usage of JSON.  It is
+    a much simpler, clean representation but with a loss of fidelity since
+    we must infer the types.
+
+Instances [#instances]
+**********************
+First let's look at the JSON representation of instance data with an example:
+
+  // Xeto
+  @rogueOne: {
+    movie
+    name:       "Rogue One"
+    release:    Date "2016-12-10"
+    runTime:    Number "134min"
+    characters: List<of:Str> { "Jyn Erso", "Cassian Andor" }
+  }
+
+  // Untyped JSON
+  {
+    "id":         "test::rogueOne",
+    "movie":      "marker"
+    "name":       "Rogue One",
+    "release":    "2016-12-12",
+    "runTime":    "134min",
+    "characters": ["Jyn Erso", "Cassian Andor"]
+  }
+
+  // Typed JSON
+  {
+    "spec": "sys::Dict", "val": {
+      "id:       { "spec":"sys::Ref",      "val":"test::rogueOne" },
+      "movie":   { "spec":"sys::Marker",   "val":"marker" },
+      "name":    { "spec":"sys::Str",      "val":"Rogue One" },
+      "release": { "spec":"sys::Date",     "val":"2016-12-12" },
+      "runTime": { "spec":"sys::Duration", "val":"134min" },
+      "characters": {
+        "spec":sys::List"
+        "of: { "spec":"sys::Ref", "val":"sys::Str" }
+        "val": [
+          { "spec":"sys::Str", "val": "Jyn Erso" },
+          { "spec":"sys::Str", "val": "Cassian Andor" },
+        ]
+      }
+    }
+  }
+
+The untyped JSON omits the type to create a "clean" JSON representation
+where scalars map to JSON strings, dicts map to JSON objects, and lists map
+to JSON arrays.  The typed JSON is more verbose, but each Xeto value
+explicitly declares its type via the 'spec' field.
+
+Untyped JSON Mapping [#untypedJson]
+***********************************
+The following rules are used to map Xeto values to untyped JSON values:
+
+  Xeto          JSON        Notes
+  ---------     --------    -----------------------------
+  sys::None     null
+  sys::Bool     Boolean
+  sys::Number   Number       Only if no unit is specified
+  sys::Scalar   String       Any scalar not listed above using string encoding
+  sys::List     Array
+  sys::Dict     Object
+
+Typed JSON Mapping [#typedJson]
+*******************************
+In this representation every Xeto value is represented by a JSON object with
+the following properties:
+  - 'spec': String with the value's qualified type name
+  - 'val': JSON untyped mapping using same rules specified above
+  - 'of': used for additional parameterized typing metadata
+

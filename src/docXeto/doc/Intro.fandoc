@@ -1,0 +1,13 @@
+**************************************************************************
+** title:      Introduction
+** author:     Brian Frank
+** created:    12 Apr 2024
+** copyright:  Copyright (c) 2024, Project-Haystack
+** license:    Licensed under the Academic Free License version 3.0
+**************************************************************************
+
+Overview [#overview]
+********************
+Xeto stands for "eXtensible Explicitly Typed Objects".  It is a textual
+language used to define data types and typed data.
+

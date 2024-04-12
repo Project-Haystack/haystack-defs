@@ -23,6 +23,7 @@ class Build : BuildGroup
       `phIoT/build.fan`,
       `phIct/build.fan`,
       `docHaystack/build.fan`,
+      `docXeto/build.fan`,
     ]
   }
 
