@@ -20,7 +20,8 @@ Format [#format]
 Trio uses a simple plain text format designed for easy editing by hand:
 
   - entities are separated by lines beginning with "-", the lines
-    can have as many dashes as you want
+    can have as many dashes as you want followed by a newline (a
+    line with just dashes)
 
   - each entity is defined by one or more tags
 
@@ -102,3 +103,4 @@ Here are examples with nested data values:
     {fan, motor, equip},
     {damper, actuator, equip},
     ]
+
