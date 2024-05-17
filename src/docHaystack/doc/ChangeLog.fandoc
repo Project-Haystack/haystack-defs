@@ -9,6 +9,7 @@
 **Version 3.9.15 (working)**
 - #1056: batch hisRead and hisWrite API operations
 - Flush out more HTTP API examples (in both Zinc and JSON)
+- Formalize Filter specify for comparison of Numbers with units
 
 **Version 3.9.14 (22 Mar 2023)**
 - New systems design

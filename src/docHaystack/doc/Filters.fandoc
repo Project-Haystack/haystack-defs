@@ -39,6 +39,27 @@ You can combine filters using 'and', 'or', or 'not':
   equip and hvac            // has equip and hvac tag
   equip and not ahu         // has equip tag, but not the ahu tag
 
+Number Comparisons [#numbers]
+*****************************
+Equality and comparison operators for Numbers require an exact unit match,
+otherwise the operator evaluates to false.  Even if the units measure
+the same quantity, no conversion should be performed.  Here are examples:
+
+  75 == 75        // true
+  75°F == 75°F    // true
+  75°F == 75      // false
+  75°F == 75°C    // false
+  1min == 60sec   // false
+
+  123 != 123      // false
+  123 != 123°F    // true
+  123°C != 123°F  // true
+  1min != 60sec   // true
+
+  5 > 4           // true
+  5 > 4°F         // false
+  5°C > 4°F       // false
+
 Arrow Operator [#arrow]
 ***********************
 You use the '->' operator to dereference a tag that has a Ref value.  For
