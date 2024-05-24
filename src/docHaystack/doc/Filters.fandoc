@@ -39,6 +39,12 @@ You can combine filters using 'and', 'or', or 'not':
   equip and hvac            // has equip and hvac tag
   equip and not ahu         // has equip tag, but not the ahu tag
 
+You can also use a Xeto spec name to match by nominal typing:
+
+  Meter
+  ph::Meter
+  ph.points::OutsideAirTempSensor
+
 Number Comparisons [#numbers]
 *****************************
 Equality and comparison operators for Numbers require an exact unit match,
@@ -97,7 +103,7 @@ list of two refs:
   airRef->dis == "AHU-2"
 
 Note that pathing through a list of refs using "->" will check
-the path on each ref recursively.
+the path on each ref iteratively.
 
 This technique should **never** be used for the fundamental
 containment tags 'siteRef', 'equipRef', or 'spaceRef'.
@@ -109,12 +115,15 @@ The formal grammar of the filter langauge:
    <filter>     :=  <condOr>
    <condOr>     :=  <condAnd> ("or" <condAnd>)*
    <condAnd>    :=  <term> ("and" <term>)*
-   <term>       :=  <parens> | <has> | <missing> | <cmp>
+   <term>       :=  <parens> | <has> | <missing> | <cmp> | <isSpec>
    <parens>     :=  "(" <filter> ")"
    <has>        :=  <path>
    <missing>    :=  "not" <path>
    <cmp>        :=  <path> <cmpOp> <val>
    <cmpOp>      :=  "==" | "!=" | "<" | "<=" | ">" | ">="
+   <isSpec>     :=  [<specLib> "::"] <specName>
+   <specLib>    :=  <name> ("." <name>)*
+   <specType>   :=
    <path>       :=  <name> ("->" <name>)*
 
    <val>        :=  <bool> | <ref> | <str> | <uri> |
@@ -128,6 +137,7 @@ The formal grammar of the filter langauge:
    <date>       := same as Zinc
    <time>       := same as Zinc
    <name>       := same as Zinc <id>
+   <specName>   := <alphaHi> (<alphaLo> | <alphaHi> | <digit> | '_')*
 
 See [Zinc grammar]`Zinc#grammar` for productions reused from Zinc.  Bools
 are encoded as "true" or "false" (Zinc encodes as "T" or "F").
