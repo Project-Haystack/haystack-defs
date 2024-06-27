@@ -5,6 +5,7 @@
 // History:
 //   22 Feb 2011  Brian Frank  Creation
 //    9 Jan 2018  Brian Frank  New design
+//   26 Jun 2024  Rick Jennings  Updates from proposal in forum topic 1109
 //
 
 --------------------------------------------------------------------------
@@ -168,7 +169,10 @@ doc:
 --------------------------------------------------------------------------
 def: ^ground
 is: ^marker
-doc: "Related to the surface of the earth"
+doc:
+  Related to the surface of the earth.  Used to indicate electrical
+  current being measured on an electrical ground conductor when applied to
+  a point entity that has the `elec` and `current` tags.
 --------------------------------------------------------------------------
 def: ^heat
 is: ^marker
@@ -386,4 +390,3 @@ def: ^zone
 is: ^marker
 doc: "Related to spaces from a system perspective"
 --------------------------------------------------------------------------
-
