@@ -244,6 +244,28 @@ doc:
   Electrical power factor; unitless number between 0.0 and 1.0 which is ratio
   of active to apparent power in an AC power system.
 --------------------------------------------------------------------------
+def: ^pfScope
+is: ^choice
+doc: "Power factor scope"
+--------------------------------------------------------------------------
+def: ^pfTrue
+is: ^pfScope
+doc:
+  True power factor, which includes effects of harmonic distortion.
+  Power factor is assumed to be true power factor when `pfScope` is not
+  defined.  However, it is recommended to specify a scope for power
+  factor to help avoid misinterpretation of data.
+--------------------------------------------------------------------------
+def: ^pfDisplacement
+is: ^pfScope
+doc:
+  Displacement power factor, which excludes effects of harmonic
+  distortion.
+--------------------------------------------------------------------------
+def: ^pfDistortion
+is: ^pfScope
+doc: "Distortion power factor"
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // AC Power Quantities
