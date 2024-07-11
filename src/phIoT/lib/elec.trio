@@ -6,6 +6,7 @@
 //   22 Feb 2011  Brian Frank  Creation
 //   28 Dec 2018  Brian Frank  New design
 //   26 Jun 2024  Rick Jennings  Updates from proposal in forum topic 1109
+//   11 Jul 2024  Rick Jennings  Updates from EVSE WG 982
 //
 
 //////////////////////////////////////////////////////////////////////////
@@ -370,4 +371,20 @@ is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
 doc: "AC voltage phase imbalance"
+--------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////
+// Other
+//////////////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------
+def: ^stateOfCharge
+is: ^quantity
+wikipedia: `https://en.wikipedia.org/wiki/State_of_charge`
+quantityOf: ^dc-elec
+prefUnit: ["%"]
+doc:
+  State of charge (SoC) of an electric `battery`.  Uses a percentage in
+  the range of 0% to 100%, where no charge is indicated as 0% and full
+  charge is indicated as 100%.
 --------------------------------------------------------------------------

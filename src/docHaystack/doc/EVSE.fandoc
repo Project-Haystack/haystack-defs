@@ -8,14 +8,16 @@
 
 Overview [#overview]
 *********************
-An Electric Vehicle Supply Equipment (EVSE) delivers electricity via EVSE 
-ports to charging inlets located on electric vehicles (EVs).  An EVSE may 
+An Electric Vehicle Supply Equipment (EVSE) delivers electricity via EVSE
+ports to charging inlets located on electric vehicles (EVs).  An EVSE may
 also be referred to as a charging station, charge point, or an EV charger.
-The meaning of these names often vary and are subject to interpretation.
+The meaning of these names often vary and are subject to interpretation
+within the industry.
 
-There are three commonly referred to [Types of EVSE]`#types`.  EVSE are 
-modeled in Project Haystack using the `evse-assembly` conjunct.  See the 
-chapter [Modeling EVSE]`#equip` for more details.
+There are three commonly referred to [Types of EVSE]`#types`.  However,
+EVSE are modeled in Project Haystack using various combinations of
+`evse-powerConverter`, `evse-dispenser`, `evse-port`, and `evse-cable`.
+See the chapter [Modeling EVSE]`#equip` for more details.
 
 Types of EVSE [#types]
 *****************************
@@ -23,117 +25,112 @@ Types of EVSE [#types]
 Level 1 AC EVSE [#level1AcEvse]
 ================================
 
-Level 1 AC EVSE may deliver up to 2.5kW of AC power to the EV's charging 
-inlet.  The EV's onboard converter transforms the inputted AC power to DC 
-power, which is used to recharge the EV's battery.  This EVSE is only 
-available within the North America market, adheres to the SAE J1772 Type 1 
-or NACS EV charging specifications, and requires a 1-phase, 120V electrical 
-input from a standard wall outlet.
+A Level 1 AC EVSE may deliver up to 2.5kW of AC power to an EV's charging
+inlet.  The EV's onboard converter transforms the inputted AC power to DC
+power, which is used to recharge the EV's battery.  This EVSE typically
+requires a 1-phase, 120V electrical input from a standard wall outlet.
 
 Level 2 AC EVSE [#level2AcEvse]
 ================================
 
-Similar to the Level 1 AC EVSE, Level 2 AC EVSE delivers AC power to the 
-EV's charging inlet.  However, the Level 2 AC EVSE is capable of delivering 
-more AC power due to it's support for higher voltage, 1-phase, or 3-phase 
-electrical inputs.  Faster recharging times are possible as a result.  This 
-EVSE adheres to the SAE J1772 Type 1, SAE J1772 Type 2, NACS, or SAE J3078 
-EV charging specifications depending on the region in the world and use case.
+Similar to a Level 1 AC EVSE, a Level 2 AC EVSE delivers AC power to an
+EV's charging inlet.  However, a Level 2 AC EVSE is capable of delivering
+more AC power due to it's support for a higher input voltage or a 3-phase
+electrical input.  Faster recharging times are possible as a result.
 
 Level 3 DC EVSE [#level3DcEvse]
 ================================
 
-Level 3 DC EVSE delivers DC power directly to the EV's charging inlet, 
-eliminating the need for a converter onboard the EV.  It is also referred to 
-as a Direct Current Fast Charger (DCFC).  In some cases, such as when an EV 
-has a battery pack that is greater than 500VDC, there is still a DC to DC 
-converter onboard the vehicle to allow recharging the EV using an earlier 
-generation Level 3 DC EVSE that is not capable of delivering more than 
+A Level 3 DC EVSE delivers DC power directly to an EV's charging inlet,
+eliminating the need for a converter onboard an EV.  It is also referred to
+as a Direct Current Fast Charger (DCFC).  In some cases, such as when an EV
+has a battery pack that is greater than 500VDC, there is still a DC-to-DC
+converter onboard the vehicle to allow recharging the EV using an earlier
+generation Level 3 DC EVSE that is not capable of delivering more than
 500VDC output.
 
-Typically Level 3 DC EVSE deliver more power and recharge EVs considerably 
-faster than Level 1 or Level 2 AC EVSE.  This is because they convert AC 
-power to DC power with fewer space, weight, and cost constraints than 
-converters designed to be onboard an EV.  Level 3 DC EVSE adheres to the 
-CCS1, CCS2, CHAdeMO, NACS, or MCS EV charging specifications depending on 
-the region in the world and use case.
+Typically Level 3 DC EVSE deliver more power and recharge EVs considerably
+faster than Level 1 or Level 2 AC EVSE.  This is because they convert AC
+power to DC power with fewer space, weight, and cost constraints than
+converters designed to be onboard an EV.
 
 Tagging EVSE Types [#taggingEvseTypes]
 =======================================
 
 It is often difficult to estimate how long it would take to recharge an EV
-when referencing these EVSE types for reasons including: 
+when referencing these EVSE types, or levels, for reasons including:
 
-  - The range of power that each EVSE type may deliver has increased
+  - The range of power that each EVSE type may deliver has increased in
+  recent years
   - Several available EVSE products may be considered a Level 2 AC and Level
   3 DC type simultaneously
-  - These EVSE type definitions do not clearly convey what electrical input 
+  - These EVSE type definitions do not clearly convey what electrical input
   and output specifications apply to the EVSE
-  - Variety in the EV battery sizes
- 
-Presently Project Haystack does not describe EVSE types using standard 
-tags.  Instead the following approach is taken to convey important related 
-metadata:
+  - Variety in EV battery sizes
 
-  - Electrical input specifications for an `evse-assembly` are described
-  using attributes
-  - Electrical output specifications for an `evse-port` are described using
-  attributes 
-  - An `evse-port` is described to deliver AC or DC power to an EV's
-  charging inlet using the `ac` or `dc` tag, respectively
-  - An `evse-port` may only have the `ac` or `dc` tag, but not both 
+Consequently, Project Haystack does not currently describe EVSE types, or
+levels, using standard tags to avoid ambiguity or repeated data.
 
 Modeling EVSE [#equip]
 *****************************
 
-EVSE Assembly [#assembly]
-==========================
-An EVSE Assembly is modeled with the `evse-assembly` tags. The below Figure 
-shows the UML representation for `evse-assembly`:
+EVSE Power Converter [#powerConverter]
+======================================
+An `evse-powerConverter` models the power modules used to convert an
+electrical waveform to a `dc` form that is applied to a `dc-evse-port`.
+It may be contained within an `evse-dispenser` or in a separate dedicated
+equipment enclosure.  An `evse-powerConverter` can contain zero or more
+`evse-port`.
 
-![EVSE Assembly UML]`evseAssemblyUml.svg`
-
-An `evse-assembly` delivers electricity via EVSE ports to charging inlets 
-located on EVs.  It is a manufacturer produced, safety certified combination 
-of hardware that has manufacturer provided technical specifications and 
-instructions on how to be installed and operated.  Also, it is comprised of 
-one or more equipment enclosures and power fed from one or more branch 
-circuits.  Electrical input specifications for an `evse-assembly` are 
-described using attributes.
+EVSE Dispenser [#dispenser]
+===========================
+An `evse-dispenser` dispenses electricity to an EV.  It consists of a
+physical EVSE enclosure and its contents to which an `evse-cable` attaches.
+An `evse-dispenser` can contain zero or more `evse-port`.
 
 EVSE Port [#port]
 ==========================
-An EVSE port is modeled with the `evse-port` tags.  An `evse-port` delivers 
-electricity to a single EV charging inlet at a time.  More than one 
+An EVSE port is modeled with the `evse-port` tags.  An `evse-port` delivers
+electricity to a single EV charging inlet at a time.  More than one
 `evse-cable` may be connected to a single `evse-port`, but only one may be
-energized at a time.  
+energized at a time.
 
 Electrical output specifications for an `evse-port` are described using
-attributes.  An `evse-port` is described to deliver AC or DC power to an 
-EV's charging inlet using the `ac` or `dc` tag, respectively.  An 
+attributes.  An `evse-port` is described to deliver AC or DC power to an
+EV's charging inlet using the `ac` or `dc` tag, respectively.  An
 `evse-port` may only have the `ac` or `dc` tag, but not both.
 
 EVSE Cable [#cable]
 ==========================
-An EVSE cable is modeled with the `evse-cable` tags.  An `evse-cable` models 
-the electrical connection between an `evse-port` and an EV charging inlet.  
-This electrical connection may be made via a physical charging cable, a 
-pantograph, or an air medium for wireless EV charging.
+An EVSE cable is modeled with the `evse-cable` tags.  An `evse-cable` models
+the electrical cable between an `evse-port` and an EV charging inlet used
+by an EV driver.  `evseCableType` distinguishes the type of cable.
 
-Each available electrical connection between an `evse-port` and an EV 
-charging inlet may be modeled using `evse-cable`.  The type of the 
-electrical connection will eventually be modeled as an attribute on 
-`evse-cable`.
+Example 1:  All-in-one Level 2 AC EVSE with One AC EVSE Port
+============================================================
+
+![Example 1]`evseOneEnclosureOneAcEvsePortExample.svg`
+
+Example 2:  All-in-one Level 3 DC EVSE with Two DC EVSE Ports
+=============================================================
+
+![Example 2]`evseOneEnclosureDcfcExample.svg`
+
+Example 3:  Split System Level 3 DC EVSE with Two DC EVSE Ports for Sequential Charging
+=======================================================================================
+
+![Example 3]`evseMultiEnclosureSequentialDcfcExample.svg`
 
 Future Work [#future]
 *****************************
 
-The EV charging working group recently formed.  The definitions presented 
-should be considered preliminary and subject to change.  We plan to add more 
-definitions related to EV charging in the future.  Specifically, future work 
-will describe how to define attributes for `evse-equip`.
+The EV charging working group recently formed.  The definitions presented
+should be considered preliminary and subject to change.  We plan to add more
+definitions related to EV charging in the future.  Specifically, future work
+will describe how to define attributes for `evse-equip` and may establish
+entities that address pantograph, socket, and wireless EV charging
+applications, which are less common.
 
-If you are interested in contributing to the EV charging working group, 
-then please reach out to WG 982 on the Project Haystack forum 
+If you are interested in contributing to the EV charging working group,
+then please reach out to WG 982 on the Project Haystack forum
 [here]`https://project-haystack.org/forum/topic/982`.
-
