@@ -163,7 +163,6 @@ doc:
 --------------------------------------------------------------------------
 def: ^evseStatus
 is: ^str
-tagOn: ^point
 doc:
   Status of one or more `evse-port` reported by an EVSE.
 
