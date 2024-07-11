@@ -4,6 +4,7 @@
 //
 // History:
 //   23 Nov 2022  Rick Jennings  Creation
+//   11 Jul 2024  Rick Jennings  Updates from EVSE WG 982
 //
 
 //////////////////////////////////////////////////////////////////////////
@@ -30,49 +31,201 @@ doc:
   Equipment that supports the delivery of electricity to charging inlets
   located on EVs.  See `docHaystack::EVSE` chapter.
 --------------------------------------------------------------------------
-def: ^evse-assembly
+def: ^evse-powerConverter
 is: ^evse-equip
 doc:
-  Equipment that delivers electricity via EVSE ports to charging inlets
-  located on EVs.  See `docHaystack::EVSE#assembly` chapter.
+  A power converter that has a `dc` electrical output applied to a
+  `dc-evse-port`.  May be contained within an `evse-dispenser` or in a
+  separate dedicated equipment enclosure.
+
+  Children points are used to describe or control one or more `evse-port`
+  within the EVSE manufacturer's package.
+
+  See `docHaystack::EVSE#powerConverter` chapter.
 children: [
-  {evse port equip}
+  {evse port equip},
+  {evse evseStatus sensor point},
+  {import dc elec power max sp point}
+  ]
+--------------------------------------------------------------------------
+def: ^evse-dispenser
+is: ^evse-equip
+doc:
+  Equipment that dispenses electricity to an EV.  It consists of a
+  physical EVSE enclosure and its contents to which an `evse-cable`
+  attaches.  An `evse-dispenser` can contain zero or more `evse-port`.
+
+  Children points are used to describe or control one or more `evse-port`
+  within the EVSE manufacturer's package.
+
+  See `docHaystack::EVSE#dispenser` chapter.
+children: [
+  {evse port equip},
+  {evse evseStatus sensor point},
+  {import ac elec magnitude current max sp point},
+  {import dc elec power max sp point}
   ]
 --------------------------------------------------------------------------
 def: ^evse-port
 is: [^evse-equip, ^elec-meter]
 doc:
   An EVSE port delivers electricity to a single EV charging inlet at a
-  time.  See `docHaystack::EVSE#port` chapter.
+  time.  Comprised of a software-controlled electrical contactor or
+  circuit breaker.  Typically contained within an `evse-dispenser`, but
+  may be contained within an `evse-powerConverter`.  More than one
+  `evse-cable` may be connected to a single `evse-port`, however, only one
+  may be energized at any given time.
+
+  Note:  In the future we might add an entity that describes `evse-port`
+  contained in an AC distribution panel.  This scenario is not common.
+
+  See `docHaystack::EVSE#port` chapter.
 children: [
-  {evse cable equip}
+  {evse cable equip},
+  {evse evseStatus sensor point}
+  ]
+--------------------------------------------------------------------------
+def: ^ac-evse-port
+is: [^evse-port]
+doc:
+  An AC EVSE port delivers `ac` electricity to a single EV charging inlet
+  at a time.  See `docHaystack::EVSE#port` chapter.
+
+  Typically a max current or max power setpoint should reference an AC
+  EVSE port, but not both.  Usually it is preferred to control an AC EVSE
+  port using a max current setpoint.
+
+  It is recommended to include electrical location related tags on
+  electrical points that reference an AC EVSE port.  See
+  `docHaystack::Meters#elecMeters` chapter for more details.
+children: [
+  // sensor points
+  {import ac elec magnitude current sensor point},
+  {import ac elec magnitude volt sensor point},
+  {import ac elec active power sensor point},
+  {import ac elec pfScope pf sensor point},
+  {import ac elec active energy hisTotalized sensor point},
+  {dc elec stateOfCharge sensor point},
+
+  // sp points
+  {import ac elec magnitude current max sp point},
+  {import ac elec active power max sp point},
+  ]
+--------------------------------------------------------------------------
+def: ^dc-evse-port
+is: [^evse-port]
+doc:
+  A DC EVSE port delivers `dc` electricity to a single EV charging inlet
+  at a time.  See `docHaystack::EVSE#port` chapter.
+
+  Typically a max current or max power setpoint should reference a DC
+  EVSE port, but not both.  Usually it is preferred to control a DC EVSE
+  port using a max power setpoint.
+children: [
+  // sensor points
+  {import dc elec current sensor point},
+  {import dc elec volt sensor point},
+  {import dc elec power sensor point},
+  {import dc elec energy hisTotalized sensor point},
+  {dc elec stateOfCharge sensor point},
+
+  // sp points
+  {import dc elec current max sp point},
+  {import dc elec power max sp point},
   ]
 --------------------------------------------------------------------------
 def: ^evse-cable
 is: ^evse-equip
 doc:
-  Models the electrical connection between an `evse-port` and an EV charging
-  inlet.  See `docHaystack::EVSE#cable` chapter.
+  The electrical cable between an `evse-port` and an EV charging inlet
+  used by an EV driver.  `evseCableType` distinguishes the type of cable.
+  See `docHaystack::EVSE#cable` chapter.
 --------------------------------------------------------------------------
-
-//////////////////////////////////////////////////////////////////////////
-// Misc (generic tags to formalize)
-//////////////////////////////////////////////////////////////////////////
-
---------------------------------------------------------------------------
-def: ^port
-is: ^marker
+def: ^evseSession
+is: ^dict
 doc:
-  A gateway or opening used to transfer a substance.
---------------------------------------------------------------------------
-def: ^assembly
-is: ^equip
-doc:
-  A collection of manufactured parts or subassemblies.
---------------------------------------------------------------------------
-def: ^cable
-is: ^equip
-doc:
-  An assembly of one or more insulated conductors.
---------------------------------------------------------------------------
+  Describes an event during which an `evse-port` can deliver power to an EV.
+  The EVSE may need to authorize a user to initiate an `evseSession`.
 
+  At minimum has the following data:
+   - ts:  when the event was logged by the system of record
+   - started:  when the event started
+   - stopped:  when the event stopped
+   - tx:  transaction ID for the event
+   - targetRef:  reference to the `evse-port`
+   - energyDelivered:  energy delivered during the `evseSession`
+   - event:  marker tag
+   - meterStart:  meter register's value at the beginning of the `evseSession`
+
+  In the future additional data might be included, such as the means of
+  EV charging session authorization.
+--------------------------------------------------------------------------
+def: ^evseStatus
+is: ^str
+tagOn: ^point
+doc:
+  Status of one or more `evse-port` reported by an EVSE.
+
+  When applied to an `evse-port`, indicates the status of an EVSE port.
+
+  When applied to an `evse-dispenser` or `evse-powerConverter`, indicates
+  the status of one or more `evse-port` within an EVSE manufacturer's
+  package.  In this case only the enum values available, unavailable,
+  and fault apply.
+enum:
+  - available:  When the point references an `evse-port`, indicates the
+    `evse-port` is available for recharging a vehicle.  During this
+    condition none of the `evse-cable` that reference the `evse-port` are
+    plugged into a vehicle charging inlet.  Also, a parked vehicle may
+    prohibit another vehicle from recharging.
+
+    When the point references `evse-dispenser` or `evse-powerConverter`,
+    indicates `evse-port` within the EVSE manufacturer's package are
+    available for an `evseSession` and may actively be in one.  Also, an
+    `evse-port` may have another `evseStatus` based on its condition.
+  - preparing:  After an `evse-port` is no longer available and before an
+    `evseSession` begins.  Typically this condition applies during the
+    authorization of an `evseSession`.  This value is deprecated in favor
+    of the occupied value.
+  - charging:  When there is an active `evseSession` and the contactor
+    for the `evse-port` is closed.  This value is deprecated in favor of
+    the occupied value.
+  - suspendedEVSE:  When the `evse-port` is occupied and not within an
+    active `evseSession` due to inavailability of power to deliver to the
+    vehicle or an unsuccessful attempt to establish an `evseSession`.
+    This value is deprecated in favor of the occupied value.
+  - suspendedEV:  When a vehicle does not accept power being offered by
+    the `evse-port` during an active `evseSession`.  This value is
+    deprecated in favor of the occupied value.
+  - finishing:  After an `evseSession` when the `evse-port` is still
+    occupied.  This value is deprecated in favor of the occupied value.
+  - occupied:  When an `evse-cable` that references the `evse-port` is
+    plugged into a vehicle's charging inlet.  During this condition the
+    `evse-port` may or may not be within an active `evseSession`.
+  - reserved:  When the `evse-port` is dedicated to a specific user.
+    During this condition only the intended user can authorize an
+    `evseSession` with their vehicle.  An unauthorized user and their
+    parked vehicle may prohibit an authorized user from recharging.
+  - unavailable:  When the EVSE prohibits EV charging on the `evse-port`
+    due to an applied software setting for the `evse-port` or EVSE
+    manufacturer's package.
+  - fault:  When the EVSE prohibits EV charging on the `evse-port` due to
+    a fault condition within the `evse-port` or EVSE manufacturer's
+    package.
+--------------------------------------------------------------------------
+def: ^evseCableType
+is: ^str
+tagOn: ^evse-cable
+doc:
+  Physical type of `evse-cable`.
+enum:
+  - ccs1:  CCS1 charging cable
+  - ccs2:  CCS2 charging cable
+  - chademo:  CHAdeMO charging cable
+  - saeJ3400:  SAE J3400 charging cable
+  - saeJ1772:  SAE J1772 charging cable
+  - saeJ3068:  SAE J3068 charging cable
+  - iecType2:  IEC 62196 Type 2 charging cable
+  - mcs:  Megawatt Charging System charging cable
+  - gbt:  GB/T charging cable
+--------------------------------------------------------------------------
