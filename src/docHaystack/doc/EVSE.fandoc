@@ -7,7 +7,7 @@
 
 
 Overview [#overview]
-*********************
+********************
 An Electric Vehicle Supply Equipment (EVSE) delivers electricity via EVSE
 ports to charging inlets located on electric vehicles (EVs).  An EVSE may
 also be referred to as a charging station, charge point, or an EV charger.
@@ -20,10 +20,10 @@ EVSE are modeled in Project Haystack using various combinations of
 See the chapter [Modeling EVSE]`#equip` for more details.
 
 Types of EVSE [#types]
-*****************************
+**********************
 
 Level 1 AC EVSE [#level1AcEvse]
-================================
+===============================
 
 A Level 1 AC EVSE may deliver up to 2.5kW of AC power to an EV's charging
 inlet.  The EV's onboard converter transforms the inputted AC power to DC
@@ -31,7 +31,7 @@ power, which is used to recharge the EV's battery.  This EVSE typically
 requires a 1-phase, 120V electrical input from a standard wall outlet.
 
 Level 2 AC EVSE [#level2AcEvse]
-================================
+===============================
 
 Similar to a Level 1 AC EVSE, a Level 2 AC EVSE delivers AC power to an
 EV's charging inlet.  However, a Level 2 AC EVSE is capable of delivering
@@ -39,7 +39,7 @@ more AC power due to it's support for a higher input voltage or a 3-phase
 electrical input.  Faster recharging times are possible as a result.
 
 Level 3 DC EVSE [#level3DcEvse]
-================================
+===============================
 
 A Level 3 DC EVSE delivers DC power directly to an EV's charging inlet,
 eliminating the need for a converter onboard an EV.  It is also referred to
@@ -89,7 +89,7 @@ physical EVSE enclosure and its contents to which an `evse-cable` attaches.
 An `evse-dispenser` can contain zero or more `evse-port`.
 
 EVSE Port [#port]
-==========================
+=================
 An EVSE port is modeled with the `evse-port` tags.  An `evse-port` delivers
 electricity to a single EV charging inlet at a time.  More than one
 `evse-cable` may be connected to a single `evse-port`, but only one may be
@@ -101,28 +101,28 @@ EV's charging inlet using the `ac` or `dc` tag, respectively.  An
 `evse-port` may only have the `ac` or `dc` tag, but not both.
 
 EVSE Cable [#cable]
-==========================
+===================
 An EVSE cable is modeled with the `evse-cable` tags.  An `evse-cable` models
 the electrical cable between an `evse-port` and an EV charging inlet used
 by an EV driver.  `evseCableType` distinguishes the type of cable.
 
-Example 1:  All-in-one Level 2 AC EVSE with One AC EVSE Port
-============================================================
+Example 1:  All-in-one Level 2 AC EVSE with One AC EVSE Port [#ex1]
+===================================================================
 
 ![Example 1]`evseOneEnclosureOneAcEvsePortExample.svg`
 
-Example 2:  All-in-one Level 3 DC EVSE with Two DC EVSE Ports
-=============================================================
+Example 2:  All-in-one Level 3 DC EVSE with Two DC EVSE Ports  [#ex2]
+=====================================================================
 
 ![Example 2]`evseOneEnclosureDcfcExample.svg`
 
-Example 3:  Split System Level 3 DC EVSE with Two DC EVSE Ports for Sequential Charging
-=======================================================================================
+Example 3:  Split System Level 3 DC EVSE with Two DC EVSE Ports for Sequential Charging  [#ex3]
+===============================================================================================
 
 ![Example 3]`evseMultiEnclosureSequentialDcfcExample.svg`
 
 Future Work [#future]
-*****************************
+*********************
 
 The EV charging working group recently formed.  The definitions presented
 should be considered preliminary and subject to change.  We plan to add more
@@ -134,3 +134,4 @@ applications, which are less common.
 If you are interested in contributing to the EV charging working group,
 then please reach out to WG 982 on the Project Haystack forum
 [here]`https://project-haystack.org/forum/topic/982`.
+

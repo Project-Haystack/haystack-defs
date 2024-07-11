@@ -138,11 +138,12 @@ def: ^evse-cable
 is: ^evse-equip
 doc:
   The electrical cable between an `evse-port` and an EV charging inlet
-  used by an EV driver.  `evseCableType` distinguishes the type of cable.
+  on a vehicle. The `evseCableType` tag distinguishes the type of cable.
   See `docHaystack::EVSE#cable` chapter.
 --------------------------------------------------------------------------
 def: ^evseSession
-is: ^dict
+is: ^entity
+mandatory
 doc:
   Describes an event during which an `evse-port` can deliver power to an EV.
   The EVSE may need to authorize a user to initiate an `evseSession`.
@@ -229,3 +230,4 @@ enum:
   - mcs:  Megawatt Charging System charging cable
   - gbt:  GB/T charging cable
 --------------------------------------------------------------------------
+
