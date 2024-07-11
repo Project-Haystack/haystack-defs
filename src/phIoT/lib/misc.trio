@@ -6,6 +6,7 @@
 //   22 Feb 2011  Brian Frank  Creation
 //    9 Jan 2018  Brian Frank  New design
 //   26 Jun 2024  Rick Jennings  Updates from proposal in forum topic 1109
+//   11 Jul 2024  Rick Jennings  Updates from EVSE WG 982
 //
 
 --------------------------------------------------------------------------
@@ -389,4 +390,36 @@ doc: "Supports writing data"
 def: ^zone
 is: ^marker
 doc: "Related to spaces from a system perspective"
+--------------------------------------------------------------------------
+def: ^dispenser
+is: ^marker
+doc:
+  Equipment that releases a specific amount of a substance.
+--------------------------------------------------------------------------
+def: ^port
+is: ^marker
+doc:
+  A gateway or opening used to transfer a substance.
+--------------------------------------------------------------------------
+def: ^cable
+is: ^equip
+doc:
+  An assembly of one or more insulated conductors.
+--------------------------------------------------------------------------
+def: ^powerConverter
+is: ^marker
+doc:
+  Converts one electrical waveform to another using power electronic
+  circuitry.  Involves the use of one or more power modules.
+
+  May convert:
+   - `ac` to `dc`
+   - `ac` to `ac`
+   - `dc` to `dc`
+   - `dc` to `ac`
+
+  Note:  An AC/AC power converter performs the same task as a power
+  transformer but using power electronics.  Similarly, a DC/DC power
+  converter transforms an input DC voltage to an output DC voltage at
+  another level.
 --------------------------------------------------------------------------
