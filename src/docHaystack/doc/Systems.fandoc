@@ -31,7 +31,7 @@ Examples [#examples]
 Here are examples of a properly tagged system and member equipment:
 
   //chilled water system for a building
-  id: @site.chwSys
+  id: @chwSys
   dis: “Chilled Water System”
   chilled
   water
@@ -40,7 +40,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //condenser water system for a building
-  id: @site.cwSys
+  id: @cwSys
   dis: “Condenser Water System”
   condenser
   water
@@ -49,7 +49,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //chilled water plant
-  id: @site.chwPlant
+  id: @chwPlant
   dis: “Chilled Water Plant”
   chilled
   water
@@ -60,7 +60,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //condenser water plant
-  id: @site.cwPlant
+  id: @cwPlant
   dis: “Condenser Water Plant”
   condenser
   water
@@ -71,7 +71,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //water cooled chiller, co-membership in both systems
-  id: @site.chiller
+  id: @chiller
   dis: “Chiller ##”
   chiller
   equip
@@ -83,7 +83,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //heat exchanger, co-membership in both systems
-  id: @site.hx
+  id: @hx
   dis: “Heat Exchanger ##”
   heatExchanger
   equip
@@ -95,7 +95,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //chilled water pump
-  id: @site.chwp
+  id: @chwp
   dis: “Chilled Water Pump ##"
   chilled
   water
@@ -110,7 +110,7 @@ Here are examples of a properly tagged system and member equipment:
 
 
   //condenser water pump
-  id: @site.chwp
+  id: @chwp
   dis: “Chilled Water Pump ##"
   chilled
   water
@@ -122,3 +122,4 @@ Here are examples of a properly tagged system and member equipment:
   equipRef: @chwPlant
   chilledWaterRef: @chwPlant
   condenserWaterRef: @cwPlant
+
