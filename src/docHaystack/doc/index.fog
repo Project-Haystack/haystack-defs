@@ -18,6 +18,7 @@
   [`Ontology`,      "Overview of ontology"],
   [`Sites`,         "Sites entities"],
   [`Systems`,       "Systems entities"],
+  [`Synthetics`,    "Synthetic data"],
   [`Spaces`,        "Space entities including floors, rooms, and zones"],
   [`Equips`,        "Equipment entities"],
   [`Points`,        "Point entities - sensors, actuators, and setpoints"],
