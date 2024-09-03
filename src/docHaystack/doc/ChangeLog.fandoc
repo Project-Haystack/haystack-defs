@@ -10,9 +10,11 @@
 - Rework of EVSE design from WG
 - #1109: rework elec phase modeling to use new suite of tags
 - #1056: batch hisRead and hisWrite API operations
+- #1125: add synthetics tags
 - Flush out more HTTP API examples (in both Zinc and JSON)
 - Formalize Filter specify for comparison of Numbers with units
-- Add specs to Filter syntax
+- Add Xeto specs to Filter syntax
+- Rename computed to computedFromReciprocal for associations
 
 **Version 3.9.14 (22 Mar 2023)**
 - New systems design

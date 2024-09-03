@@ -46,10 +46,8 @@ doc: "This tag is used on the given entity"
 def: ^tags
 is: ^association
 reciprocalOf: ^tagOn
-computed
+computedFromReciprocal
 docAssociations
 doc: "Tags used with this entity"
 --------------------------------------------------------------------------
-
-
 

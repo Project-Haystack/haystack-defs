@@ -86,7 +86,7 @@ Example:
   is: ^marker
 
   // lib gamma
-  def: ^lib:beta
+  def: ^lib:gamma
   depends: [^lib:ph, ^lib:beta]
 
 The lib namespace to use for resolution would be as follows:
@@ -255,7 +255,7 @@ errors not caught in previous steps:
 
   4. Verify every term in a conjunct is a marker
 
-  5. Verify no defs declare a `computed` tag
+  5. Verify no defs declare a `computedFromReciprocal` tag
 
   6. Verify choice 'of' is subtype of marker
 
@@ -270,6 +270,4 @@ namespace.  From a logical perspective, a namespace is a map of symbols to
 effective def dicts.  In actual implementations, this probably yields specific
 data structures.  These data structures can then be used to perform additional
 computations such as [reflection]`Reflection`.
-
-
 

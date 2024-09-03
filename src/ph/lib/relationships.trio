@@ -36,7 +36,7 @@ doc: "The entity is logically contained by the referent."
 def: ^contains
 is: ^relationship
 reciprocalOf: ^containedBy
-computed
+computedFromReciprocal
 transitive
 doc: "Entities logically contained by this entity"
 --------------------------------------------------------------------------
@@ -74,5 +74,4 @@ def: ^output
 is: ^marker
 doc: "Entity outputs a substance with flows to other entities"
 --------------------------------------------------------------------------
-
 

@@ -42,8 +42,8 @@ Typically, "child-to-parent" is the preferred direction for declaring associatio
 For example, it is more convenient to declare 'tagOn' for value tags than to
 enumerate all the 'tags' for a given entity type.  This design also
 provides more flexibility for late binding of associations in separate libs.
-We use the `computed` tag to capture this concept.  For example, `tags` is
-annotated with the 'computed' marker.  This means its 'tags' must be not used
-directly as a def tag (it exists only to provide an inverse term
+We use the `computedFromReciprocal` tag to capture this concept.  For example, `tags`
+is annotated with the 'computedFromReciprocal' marker.  This means its 'tags'
+must be not used directly as a def tag (it exists only to provide an inverse term
 for 'tagOn').
 

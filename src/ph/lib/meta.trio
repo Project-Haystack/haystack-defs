@@ -43,11 +43,11 @@ doc:
   Choice specifies an exclusive marker selection.
   See [Choices]`docHaystack::Choices` chapter.
 --------------------------------------------------------------------------
-def: ^computed
+def: ^computedFromReciprocal
 is: ^marker
 doc:
-  Indicates a definition which is computed.  Computed defs cannot be
-  used as tags themselves.
+  Indicates a relationship that is computed from its reciprocal.
+  Computed defs cannot be used as tags themselves.
 --------------------------------------------------------------------------
 def: ^def
 is: ^symbol
@@ -187,6 +187,4 @@ is: ^uri
 tagOn: ^def
 doc: "Hyperlink to the subject's page on Wikipedia"
 --------------------------------------------------------------------------
-
-
 

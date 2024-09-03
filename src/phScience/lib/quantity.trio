@@ -25,7 +25,7 @@ doc: "Associates quantity as measurement of a phenomenon"
 def: ^quantities
 is: ^association
 reciprocalOf: ^quantityOf
-computed
+computedFromReciprocal
 docAssociations
 doc: "Quantities used to measure this phenomenon"
 --------------------------------------------------------------------------
@@ -273,5 +273,4 @@ is: ^quantity
 prefUnit: ["km/h", "mph"]
 doc: "Distance per unit time"
 --------------------------------------------------------------------------
-
 
