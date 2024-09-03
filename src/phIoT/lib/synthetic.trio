@@ -8,100 +8,100 @@
 
 //core defs
 --------------------------------------------------------------------------
-def:^synthetic
+def: ^synthetic
 doc:
     Synthetic point which can be Sim, Ml, and Ch.
     See `docHaystack::Synthetics` chapter.
 mandatory
-is:[^pointFunction]
-tagOn:[^point]
+is: ^pointFunction
+tagOn: ^point
 --------------------------------------------------------------------------
-def:^sim
+def: ^sim
 doc:
     Simulation point. See `docHaystack::Synthetics` chapter.
-is:[^synthetic]
+is: ^synthetic
 --------------------------------------------------------------------------
-def:^ml
+def: ^ml
 doc:
     Machine learning point. See `docHaystack::Synthetics` chapter.
-is:[^synthetic]
+is: ^synthetic
 --------------------------------------------------------------------------
-def:^computed
+def: ^computed
 doc:
     Computed point. See `docHaystack::Synthetics` chapter.
-is:[^synthetic]
+is: ^synthetic
 --------------------------------------------------------------------------
 
 //conjunct extensions from synethic-foo
 //pointRef stitches sim-point to 'real'-point
-def:^synthetic-point
+def: ^synthetic-point
 doc: See `docHaystack::Synthetics` chapter.
-is:[^point]
+is: ^point
 --------------------------------------------------------------------------
-def:^sim-point
+def: ^sim-point
 doc: See `docHaystack::Synthetics` chapter.
-is:[^point]
+is: ^synthetic-point
 --------------------------------------------------------------------------
-def:^computed-point
+def: ^computed-point
 doc: See `docHaystack::Synthetics` chapter.
-is:[^point]
+is: ^synthetic-point
 --------------------------------------------------------------------------
-def:^ml-point
+def: ^ml-point
 doc: See `docHaystack::Synthetics` chapter.
-is:[^point]
+is: ^synthetic-point
 --------------------------------------------------------------------------
-def:^pointRef
+def: ^pointRef
 doc: See `docHaystack::Synthetics#structure` chapter.
-is:[^ref]
-of:^point
-tagOn:[^sim-point]
+is: ^ref
+of: ^point
+tagOn: ^sim-point
 --------------------------------------------------------------------------
 
 //model definitions and ref structure
-def:^syntheticModel
+def: ^syntheticModel
 doc: See `docHaystack::Synthetics` chapter.
-is:[^entity]
+is: ^entity
 mandatory
 --------------------------------------------------------------------------
-def:^syntheticModelRef
+def: ^syntheticModelRef
 doc: See `docHaystack::Synthetics` chapter.
-is:[^ref]
-of:^syntheticModel
-tagOn:[^synthetic-point]
+is: ^ref
+of: ^syntheticModel
+tagOn: ^synthetic-point
 --------------------------------------------------------------------------
-def:^simModel
+def: ^simModel
 doc: See `docHaystack::Synthetics` chapter.
-is:[^syntheticModel]
+is: ^syntheticModel
 --------------------------------------------------------------------------
-def:^mlModel
+def: ^mlModel
 doc: See `docHaystack::Synthetics` chapter.
-is:[^syntheticModel]
+is: ^syntheticModel
 --------------------------------------------------------------------------
-def:^computedModel
+def: ^computedModel
 doc: See `docHaystack::Synthetics` chapter.
-is:[^syntheticModel]
+is: ^syntheticModel
 --------------------------------------------------------------------------
 
 //simulation scenario tags
-def:^simScenario
+def: ^simScenario
 doc: See `docHaystack::Synthetics#sims` chapter.
-is:[^choice]
-tagOn:[^sim-point]
+is: ^choice
+tagOn: ^sim-point
 --------------------------------------------------------------------------
-dis:Operation
+def: ^simOperation
+dis: Operation
 doc: See `docHaystack::Synthetics#sims` chapter.
-def:^simOperation
-is:[^simScenario]
+is: ^simScenario
 --------------------------------------------------------------------------
-dis:Baseline
+def: ^simBaseline
+dis: Baseline
 doc: See `docHaystack::Synthetics#sims` chapter.
-def:^simBaseline
-is:[^simScenario]
+is: ^simScenario
 --------------------------------------------------------------------------
-dis:Optimum
+def: ^simOptimum
+dis: Optimum
 doc: See `docHaystack::Synthetics#sims` chapter.
-def:^simOptimum
-is:[^simScenario]
+is: ^simScenario
 --------------------------------------------------------------------------
 
 //machine learning specific defs
