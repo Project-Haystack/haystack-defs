@@ -21,7 +21,7 @@ other than the local entities within a physical space, e.g., an energy model or
 machine learning algorithm.
 
 Tags [#tags]
-********************
+************
 
 Synthetic is an abstract `pointFunction` for any synthetic data. In practice, any
 `synthetic-point` should be specifically defined based on the methodology
@@ -37,7 +37,7 @@ Each synthetic type can further prescribe necessary tags based on use case
 and that methodology's requirements to model other parameters.
 
 Structure [#structure]
-********************
+**********************
 
 Any `synthetic-point` should define a `pointRef` tag identifying the `sensor` it models.
 The default structure is assumed to be an `equip` containing both `sensor` and `synthetic` points.
@@ -83,9 +83,9 @@ An example structure is provided below:
 
 
 Synthetic Models [#syntheticModels]
-********************
+***********************************
 
-The concept of a `syntheticModel` is also introduced with this ontology. 
+The concept of a `syntheticModel` is also introduced with this ontology.
 The `syntheticModel` is a first-class entity to identify the collection of algorithm,
 application, parameters, and other settings used to generate a set of data for one or
 more `synthetic-point`s.
@@ -109,7 +109,7 @@ Current `syntheticModel` subtypes incldue:
 - `computedModel`
 
 Simulation Overview [#sims]
-********************
+***************************
 Simulation points are generated from a physics based model, typically some form of
 black or gray box energy model.
 
@@ -151,8 +151,8 @@ In this example, both the `sim-point` and the `point` are nested under the same 
 This is not necessary, but is suggested as a convention. This documentation may be
 updated in the future to reflect the community's adoption/implementation of this schema.
 
-simScenario
-======
+simScenario [#simScenario]
+==========================
 
 `simScenario` is used as a choice to identify different simulation options, tagged on the `simModel`.
 
@@ -176,7 +176,7 @@ Computed [#computed]
 Computed is a stub out for simple computational data (be it 'curVal' or 'his' data).
 
 Machine Learning Overview [#mlOverview]
-********************
+***************************************
 A machine learning model (ML) is a synthetic construct whose parameters are derived from
 historical data. Machine learning, a branch of artificial intelligence, offers a wide range
 of algorithms to choose from. This ontology specifically addresses supervised learning and
@@ -186,8 +186,8 @@ Key details, such as the specific type of machine learning algorithm or its hype
 are deliberately left out to allow for user-specific customization. This ontology captures
 only the essential and most general characteristics.
 
-mlModel
-=======
+mlModel [#mlModel]
+==================
 The `mlModel` entity represents a machine learning model and encapsulates all relevant
 information, including:
 
@@ -201,4 +201,5 @@ Additionally, `mlModel` includes references to both input and output variables t
 The `mlVar` entity serves as a reference for the model's input variables (also known as
 independent variables) and the model's output variable (also known as the dependent variable
 or target). Each `mlVar` is linked to a specific point via `mlVarPoint` tag.
-Alternatively `mlVarFilter` can be used for referencing a point. 
+Alternatively `mlVarFilter` can be used for referencing a point.
+

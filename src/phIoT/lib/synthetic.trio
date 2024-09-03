@@ -15,7 +15,6 @@ doc:
 mandatory
 is:[^pointFunction]
 tagOn:[^point]
-uiInput:"ui::ChoiceInput"
 --------------------------------------------------------------------------
 def:^sim
 doc:
@@ -132,7 +131,6 @@ doc:
 --------------------------------------------------------------------------
 def:^mlModelParameters
 is:^dict
-ro
 tagOn:^mlModel
 doc:
   Result of model identification, which may appear as a list of
@@ -141,7 +139,6 @@ doc:
 --------------------------------------------------------------------------
 def:^mlModelMetrics
 is:^dict
-ro
 tagOn:^mlModel
 doc:
   Goodness-of-fit metrics provided in the form of a simple dictionary.
@@ -173,3 +170,4 @@ is:^ref
 of:^mlVar
 doc: Reference to a machine learning variable.
 --------------------------------------------------------------------------
+
