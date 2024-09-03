@@ -17,7 +17,7 @@ e.g., energy simulation, machine learning, etc.
 The tag `synthetic` extends from `pointFunction`. This means that any `synthetic`,
 or child of that type, is **not** also a `sensor`, `sp`, or `cmd`.
 Conceptually, the data modeled by synthetics is introduced via some *external* source
-other than the local entities within a physical space, e.g., a black box energy model or
+other than the local entities within a physical space, e.g., an energy model or
 machine learning algorithm.
 
 Tags [#tags]
@@ -194,6 +194,7 @@ information, including:
  - `mlIdentificationPeriod`: Time span defining the training period.
  - `mlModelParameters`: Result of model identification.
  - `mlModelMetrics`: Goodness-of-fit metrics provided in the form of a simple dictionary.
+
 Additionally, `mlModel` includes references to both input and output variables through
 `mlInputVarRefs` and `mlOutputVarRef`, respectively. These utilize `mlVar` tag.
 
