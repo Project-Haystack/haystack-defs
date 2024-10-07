@@ -137,7 +137,7 @@ def: ^siteRef
 is: ^ref
 of: ^site
 containedBy: ^site
-tagOn: [^space, ^equip, ^point]
+tagOn: [^system, ^space, ^equip, ^point]
 doc: "Reference to site which contains the entity"
 --------------------------------------------------------------------------
 
