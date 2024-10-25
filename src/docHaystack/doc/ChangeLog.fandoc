@@ -6,7 +6,7 @@
 ** license:    Licensed under the Academic Free License version 3.0
 **************************************************************************
 
-**Version 3.9.15 (working)**
+**Version 3.9.15 (25 Oct 2024)**
 - Rework of EVSE design from WG
 - #1109: rework elec phase modeling to use new suite of tags
 - #1056: batch hisRead and hisWrite API operations
@@ -15,6 +15,7 @@
 - Formalize Filter specify for comparison of Numbers with units
 - Add Xeto specs to Filter syntax
 - Rename computed to computedFromReciprocal for associations
+- Rework docHaystack Meters chapter
 
 **Version 3.9.14 (22 Mar 2023)**
 - New systems design
