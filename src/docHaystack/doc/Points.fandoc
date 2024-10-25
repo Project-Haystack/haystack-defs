@@ -25,6 +25,7 @@ marker tags:
   - `sensor`: input, AI/BI, sensor
   - `cmd`: output, AO/BO, actuator, command
   - `sp`: setpoint, internal control variable, schedule, soft point
+  - `synthetic`: computed data, such as machine learning or simulation
 
 Point Kinds [#pointKinds]
 ********************
@@ -176,6 +177,4 @@ Here are examples for the proper tagging of points:
   tz: "London"
   his
   hisStatus: "ok"
-
-
 

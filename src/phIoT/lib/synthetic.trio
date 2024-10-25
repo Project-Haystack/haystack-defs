@@ -10,7 +10,12 @@
 --------------------------------------------------------------------------
 def: ^synthetic
 doc:
-    Synthetic point which can be Sim, Ml, and Ch.
+    Synthetic point with computed operational data. The computed data
+    if classified as:
+      - `ml` for machine learning
+      - `sim` for simulation
+      - `computed` as catch all for other computations
+
     See `docHaystack::Synthetics` chapter.
 mandatory
 is: ^pointFunction
