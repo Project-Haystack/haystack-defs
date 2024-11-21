@@ -242,8 +242,12 @@ is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["pf"]
 doc:
-  Electrical power factor; unitless number between 0.0 and 1.0 which is ratio
-  of active to apparent power in an AC power system.
+  Electric power factor; which is the ratio of active power to apparent
+  power in an AC electric power system.  Measured with values in the range
+  of -1.0 to 1.0 or 0.0 to 1.0 without a unit.  When the range of -1.0 to
+  1.0 is applied, a negative value for power factor indicates the
+  electrical current leads the electrical voltage and a positive value
+  indicates the electrical current lags the electrical voltage.
 --------------------------------------------------------------------------
 def: ^pfScope
 is: ^choice
@@ -340,13 +344,13 @@ def: ^current-imbalance
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "Current phase imbalance in a multiphase AC system"
+doc: "AC current imbalance"
 --------------------------------------------------------------------------
 def: ^current-thd
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "Total harmonic current distortion"
+doc: "Total harmonic distortion (THD) of current"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -370,7 +374,13 @@ def: ^volt-imbalance
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "AC voltage phase imbalance"
+doc: "AC voltage imbalance"
+--------------------------------------------------------------------------
+def: ^volt-thd
+is: ^quantity
+quantityOf: ^ac-elec
+prefUnit: ["%"]
+doc: "Total harmonic distortion (THD) of voltage"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
