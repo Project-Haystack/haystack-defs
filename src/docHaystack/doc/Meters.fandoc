@@ -71,27 +71,32 @@ Primary Quantities for AC and DC measurements [#primaryQuantities]
 ==================================================================
 Both `ac-elec-meter` and `dc-elec-meter` support measurements of the
 following electrical primary quantities:
-  - `power`: Average electric power over one or several alternating current (AC) cycles
-  or instantaneous DC electric power. Measured in "kW", "kVAR", or "kVA" units for 'ac'
-  measurements depending on the characteristic `active`, `reactive`, or `apparent`,
-  respectively. Measured in "kW" units for 'dc' measurements.
-  - `demand`: Average electric power over a defined time interval (e.g., 5, 15, or 30
-  minutes).  Measured in the same units that are used for `power` measurements.
-  - `energy`: Integral of electric power over time. Measured in "kWh", "kVARh", or
-  "kVAh" units for 'ac' measurements depending on the characteristic `active`,
-  `reactive`, or `apparent`, respectively. Measured in "kWh" units for 'dc'
+  - `power`: Average of instantaneous electric power over one alternating current (AC)
+  cycle or instantaneous DC electric power. Measured in "kW", "kVAR", or "kVA" units
+  for 'ac' measurements depending on the characteristic `active`, `reactive`, or
+  `apparent`, respectively. Measured in "kW" units for 'dc' measurements.
+  - `demand`: Average of instantaneous electric power over a defined time interval
+  (e.g., 5, 15, or 30 minutes).  Measured in the same units that are used for `power`
   measurements.
-  - `volt`: Effective voltage. Root mean square (RMS) voltage is assumed for `ac`
-  measurements. Measured in "V" units.
-  - `current`: Effective current. Root mean square (RMS) current is assumed for `ac`
-  measurements. Measured in "A" units.
+  - `energy`: Integral of electric power over a defined time period based in hours.
+  Measured in "kWh", "kVARh", or "kVAh" units for 'ac' measurements depending on the
+  characteristic `active`, `reactive`, or `apparent`, respectively. Measured in "kWh"
+  units for 'dc' measurements.
+  - `volt`: Average of instantaneous electric voltage over one alternating current (AC)
+  cycle or instantaneous DC electric voltage. Measured in "V" units for both 'ac' and
+  'dc' measurements.
+  - `current`: Average of instantaneous electric current over one alternating current
+  (AC) cycle or instantaneous DC electric current.  Measured in "A" units for both 'ac'
+  and 'dc' measurements.
 
 The following primary quantities apply only to AC electrical measurements:
   - `freq`: The number of cycles per second in an alternating current (AC) sinusoidal
   waveform. Measured in "Hz" units.
-  - `pf`: The ratio of active power to apparent power. Measured with numbers in the
-  range of -1.0 to 1.0 or 0.0 to 1.0 with a special unit called 'pf', which is
-  effectively unitless and used for data visualization.
+  - `pf`: The ratio of active power to apparent power.  Measured with values in the
+  range of -1.0 to 1.0 or 0.0 to 1.0 without a unit.  When the range of -1.0 to 1.0 is
+  applied, a negative value for power factor indicates the electrical current leads the
+  electrical voltage and a positive value indicates the electrical current lags the
+  electrical voltage.
 
 Some electric meters log interval-based data, demand or energy, using a
 monotonically increasing value in time.  The difference of these values
