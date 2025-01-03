@@ -37,11 +37,12 @@ All meters must additionally define exactly one of these two tags:
 
 Electric Meters [#elecMeters]
 *****************************
-Haystack models AC and DC electric meters using `ac-elec-meter` and
-`dc-elec-meter`.  There is support to model these meters and their points
-for simple use cases (e.g., just a `demand` and `energy` point) and complex
-use cases (e.g., three-phase AC power quality meters).  For a common
-application involving electric utility data see the provided [example]`docHaystack::Meters#exampleUtilityApplication`.
+Haystack models alternating current (AC) and direct current (DC) electricity
+meters using `ac-elec-meter` and `dc-elec-meter`.  There is support to model
+these meters and their points for simple use cases (e.g., just a `demand`
+and `energy` point) and complex use cases (e.g., three-phase AC power
+quality meters).  For a common application involving electric utility data
+see the provided [example]`docHaystack::Meters#exampleUtilityApplication`.
 
 Electricity meter points are described by combining tags from the lists
 given below.  The tags in each set are mutually exclusive.  For example,
@@ -50,17 +51,19 @@ a point cannot have two primary quantities, or have both the `volt` and
 
 DC electrical measurements are described using a combination of the types
 of tags below:
+
  1. `elec` marker tag
- 2. Primary quantity
- 3. `dc` marker tag
+ 2. `dc` marker tag
+ 3. Primary quantity
  4. Direction (if applicable)
 
 AC electrical measurements are described using a combination of the types
 of tags below:
+
  1. `elec` marker tag
- 2. Primary quantity
- 3. `ac` marker tag
- 4. Characteristic of the primary quantity
+ 2. `ac` marker tag
+ 3. Primary quantity
+ 4. Measured characteristic of the primary quantity
  5. Direction (if applicable)
  6. Location
 
@@ -71,34 +74,50 @@ Primary Quantities for AC and DC measurements [#primaryQuantities]
 ==================================================================
 Both `ac-elec-meter` and `dc-elec-meter` support measurements of the
 following electrical primary quantities:
-  - `power`: Average of instantaneous electric power over one alternating current (AC)
-  cycle or instantaneous DC electric power. Measured in "kW", "kVAR", or "kVA" units
-  for 'ac' measurements depending on the characteristic `active`, `reactive`, or
-  `apparent`, respectively. Measured in "kW" units for 'dc' measurements.
-  - `demand`: Average of instantaneous electric power over a defined time interval
-  (e.g., 5, 15, or 30 minutes).  Measured in the same units that are used for `power`
-  measurements.
-  - `energy`: Integral of electric power over a defined time period based in hours.
-  Measured in "kWh", "kVARh", or "kVAh" units for 'ac' measurements depending on the
-  characteristic `active`, `reactive`, or `apparent`, respectively. Measured in "kWh"
-  units for 'dc' measurements.
-  - `volt`: Average of instantaneous electric voltage over one alternating current (AC)
-  cycle or instantaneous DC electric voltage. Measured in "V" units for both 'ac' and
-  'dc' measurements.
-  - `current`: Average of instantaneous electric current over one alternating current
-  (AC) cycle or instantaneous DC electric current.  Measured in "A" units for both 'ac'
-  and 'dc' measurements.
+
+  - `power`: Rate of transfer of electric energy (energy per unit time).
+    - For 'dc' measurements, defined as instantaneous voltage times
+      current, typically measured in "kW".
+    - For 'ac' measurements, defined as the average of the instantaneous
+      power over one or more whole AC cycles.  May be subdivided into
+      `active` power (measured in "kW"), `reactive` power (measured in 
+      "kVAR"), and `apparent` power (measured in "kVA").  Of these
+      quantities, `active-power` represents real work performed.
+  - `demand`: Average of instantaneous electric power over a defined time
+    interval (e.g., 5, 15, or 30 minutes).  Measured in the same units that
+    are used for `power` measurements.
+  - `energy`: Electric energy, equal to the integral of electric power with
+    respect to time.
+    - For 'dc' measurements, typically measured in "kWh".
+    - For 'ac' measurements, may be subdivided into `active` energy
+    (measured in "kWh"), `reactive` energy (measured in "kVARh"), and
+    `apparent` energy (measured in "kVAh").  Of these
+      quantities, `active-energy` represents real work performed.
+  - `volt`: Electric voltage (potential energy).  Typically measured in "V"
+    for both 'ac' and 'dc' electricity.
+    - For 'dc' measurements, represents an instantaneous voltage.
+    - For 'ac' measurements, represents an electrical phasor: a sinusoidal
+      voltage wave that can be described by a root-mean-square (RMS) average
+      voltage `magnitude` and a phase `angle` at a constant frequency.
+  - `current`: Electric current (flow of electroncs).  Typically measured
+    in "A" for both 'ac' and 'dc' electricity.
+    - For 'dc' measurements, represents an instantaneous current.
+    - For 'ac' measurements, represents an electrical phasor: a sinusoidal
+      current wave that can be described by a root-mean-square (RMS) average
+      current `magnitude` and a phase `angle` at a constant frequency.
 
 The following primary quantities apply only to AC electrical measurements:
-  - `freq`: The number of cycles per second in an alternating current (AC) sinusoidal
-  waveform. Measured in "Hz" units.
-  - `pf`: The ratio of active power to apparent power.  Measured with values in the
-  range of -1.0 to 1.0 or 0.0 to 1.0 without a unit.  When the range of -1.0 to 1.0 is
-  applied, a negative value for power factor indicates the electrical current leads the
-  electrical voltage and a positive value indicates the electrical current lags the
-  electrical voltage.
 
-Some electric meters log interval-based data, demand or energy, using a
+  - `freq`: The number of cycles per second in an AC sinusoidal waveform.
+    Measured in "Hz". In AC power systems, voltage, current, and power are
+    all synchronized at the same frequency.
+  - `pf`: The ratio of active power to apparent power. Power factor is a
+    unitless quantity but is represented in Haystack with the special "pf"
+    unit. Power factor may have values of 0.0 to 1.0 or -1.0 to 1.0.
+    The interpretation of negative power factor depends on whether the
+    measurement follows the IEEE or IEC power factor convention.
+
+Many electric meters log interval-based data, demand or energy, using a
 monotonically increasing value in time.  The difference of these values
 between two intervals is used to determine the actual value for an
 interval.  Haystack distinguishes data logged this way using the
@@ -108,14 +127,15 @@ Directions for AC and DC measurements [#directions]
 ===================================================
 Some electric meters track and report electricity imported from the
 electric grid separately from electricity exported to the electric grid.
-The tags `import` and `export` differentiate these phenomenons. More
+The tags `import` and `export` differentiate these quantities. More
 broadly, 'export' indicates electricity flowing toward the grid (in the
 direction of the `siteMeter`), and 'import' indicates electricity flowing
 toward the load.
 
-These measurements register electricity transfer, involving the primary
-quantities `current`, `power`, `demand`, and `energy` only, in their
-associated direction and always have positive values.
+As defined in Project Haystack, these measurements register electricity
+transfer, involving the primary quantities `current`, `power`, `demand`,
+and `energy` only, in their associated direction and always have positive
+values.
 
 - For instantaneous measurements (i.e., 'current' and 'power'),
   'import' and 'export' are mutually exclusive.  One will report a positive
@@ -132,39 +152,46 @@ The `net` tag indicates the difference between 'import' and 'export':
 
 Haystack uses the load convention for net electricity flow.
 
-- Positive net quantities indicates electricity consumed.
-- Negative net quantities indicates electricity produced.
+- Positive net quantities indicate electricity consumed (i.e. load).
+- Negative net quantities indicate electricity produced (i.e. generation).
 
-Note: Direction related tags do not apply to 'angle', 'imbalance', and 'thd'
-characteristics used to describe current and voltage.
+Note: Direction-related tags do not apply to 'voltage' or to the 'angle',
+'imbalance', and 'thd' characteristics used to describe current.
 
 Characteristics of AC Measurements [#acCharacteristics]
 =======================================================
 AC power, demand, and energy measurements are further qualified by
 characteristics:
-  - `active`: Describes real work being performed.  Haystack's standard
-  unit of active power and active demand is "kW".  Haystack's standard
-  unit of active energy is "kWh".
-  - `reactive`: Describes electricity circulated in an AC electrical
-  system that does not result in real work being performed.  Haystack's
-  standard unit of reactive power and reactive demand is "kVAR".
+  - `active`: Describes real work being performed (energy consumed).
+  Haystack's standard unit of active power and active demand is "kW".
+  Haystack's standard unit of active energy is "kWh".
+  - `reactive`: Describes electricity circulated within an AC electrical
+  system that does not result in real work being performed.
+  Haystack's standard unit of reactive power and reactive demand is "kVAR".
   Haystack's standard unit of reactive energy is "kVARh".
-  - `apparent`: Describes the overall magnitude of energy movement.
+  - `apparent`: Describes the overall magnitude of energy movement,
+  including both energy consumed and recirculated energy.
   Haystack's standard unit of apparent power and apparent demand is "kVA".
   Haystack's standard unit of apparent energy is "kVAh".
 
 AC voltage and current measurements are further qualified by the following
 characteristics:
-  - `magnitude`: magnitude (assumed as default)
+  - `magnitude`: RMS magnitude
   - `angle`: phase angle, typically measured in "deg"
   - `imbalance`: imbalance, measured in "%"
   - `thd`: total harmonic distortion, measured in "%"
 
+If a voltage or current characteristic tag is not specified, then `magnitude`
+is the assumed or default characteristic.
+
 Similarly AC power factor measurements are further qualified using a
-`pfScope` choice:
+`pfScope` characteristic choice:
   - `pfTrue`: True power factor
   - `pfDisplacement`: Displacement power factor
   - `pfDistortion`: Distortion power factor
+  
+If a power factor characteristic is not specified, then `pfTrue` 
+is the assumed or default characteristic.
 
 Note:  The primary quantity 'freq' does not have characteristic related tags.
 
@@ -172,6 +199,7 @@ Locations for AC Measurements [#acLocations]
 ============================================
 Generic tags are used to describe three types of 'ac' electrical measurements that do
 not involve aggregation of multiple measurements:
+
   - `elecLine`: for electrical line measurements "L1", "L2", and "L3"
   - `elecLineToLine`: for electrical line-to-line measurements "L1-L2", "L2-L3", and
   "L3-L1"
@@ -179,6 +207,7 @@ not involve aggregation of multiple measurements:
   and "L3-N"
 
 Non-aggregated 'ac' electrical measurement locations are qualified by:
+
   - `lineVolt`: 'elecLineToLine'
   - `phaseVolt`: 'elecLineToNeutral'
   - `lineCurrent`: 'elecLine'
@@ -194,43 +223,43 @@ Non-aggregated 'ac' electrical measurement locations are qualified by:
   - `neutral`: for electrical current measurement of the electrical neutral
   conductor
 
-Aggregated three-phase 'ac' electrical measurement locations are qualified by:
-  - `lineAvg`: When applied to a point entity with the 'current' tag, indicates the
-  average of the values for the 'current' primary quantity characteristic at all
-  locations defined in 'elecLine'. When applied to point entities with the 'volt',
-  'power', 'pf', or 'energy' tags, indicates the average of the values for the primary
-  quantity's characteristic at all locations defined in 'elecLineToLine'.
-  - `phaseAvg`: When applied to a point entity with the 'volt' tag, indicates the
-  average of the values for the 'volt' primary quantity characteristic at all locations
-  defined in 'elecLineToNeutral'. When applied to a point entity with the 'current'
-  tag, indicates the average of the values for the 'current' primary quantity
-  characteristic at all locations defined in 'elecLineToLine'. When applied to point
-  entities with the 'power', 'pf', or 'energy' tags, indicates the average of the
-  values for the primary quantity's characteristic at all locations defined in
-  'elecLine'.
-  - `total`: Applies only to point entities with 'power', 'demand', or 'energy' tags.
-  Indicates the sum of the values for the primary quantity's characteristic at all
-  locations defined in 'elecLine'.
+Aggregated three-phase or split-phase 'ac' electrical measurement locations
+are qualified by:
+  - `lineAvg`: Average of line quantities.
+    - When applied to a point entity with the 'current' tag, indicates the
+      average of the values for the 'current' primary quantity characteristic
+      at all available locations defined in 'elecLine'.
+    - When applied to point entities with the 'volt', 'power', 'pf', or
+      'energy' tags, indicates the average of the values for the primary
+      quantity's characteristic at all available locations defined in
+      'elecLineToLine'.
+  - `phaseAvg`: Average of phase quantities.
+    - When applied to a point entity with the 'volt' tag, indicates the
+      average of the values for the 'volt' primary quantity characteristic
+      at all available locations defined in 'elecLineToNeutral'.
+    - When applied to a point entity with the 'current' tag, indicates the
+      average of the values for the 'current' primary quantity characteristic
+      at all available locations defined in 'elecLineToLine'.
+    - When applied to point entities with the 'power', 'pf', or 'energy' tags,
+      indicates the average of the values for the primary quantity's
+      characteristic at all available locations defined in 'elecLine'.
+  - `total`: Applies only to point entities with 'power', 'demand', or
+    'energy' tags. Indicates the sum of the values for the primary quantity's
+    characteristic at all available locations defined in 'elecLine'.
 
-Aggregated split-phase 'ac' electrical measurement locations are qualified by:
-  - `lineAvg`: When applied to a point entity with the 'current' tag, indicates the
-  average of the values for the 'current' primary quantity characteristic at the "L1"
-  and "L2" locations defined in 'elecLine'.
-  - `phaseAvg`: When applied to a point entity with the 'volt' tag, indicates the
-  average of the values for the 'volt' primary quantity characteristic at the "L1-N"
-  and "L2-N" locations defined in 'elecLineToNeutral'. When applied to point entities
-  with the 'power', 'pf', or 'energy' tags, indicates the average of the values for the
-  primary quantity's characteristic at the "L1" and "L2" locations defined in
-  'elecLine'.
-  - `total`: Applies only to point entities with 'power', 'demand', or 'energy' tags.
-  Indicates the sum of the values for the primary quantity's characteristic at the "L1"
-  and "L2" locations defined in 'elecLine'.
+Only the available measurements are averaged or totaled. For example,
+'phaseAvg' voltage in a three-phase power system represents the average of
+the "L1-N", "L2-N", and "L3-N" phase voltage measurements, but 'phaseAvg'
+voltage in a split-phase power system represents the average of only the
+"L1-N" and "L2-N"  measurements (because an "L3-N" measurement is not
+available in a split-phase sytem).
 
-Only one tag indicating the location of a measurement should be applied to a point
-entity. The 'total' tag takes precedence when applicable to allow for common queries
-between three-phase and split-phase AC electrical systems. For example, in a
-split-phase 'ac' electrical system the 'total' tag should be applied to a point entity
-instead of 'linePower' to indicate the L1-L2 power measurement.
+Only one tag indicating the location of a measurement should be applied to
+a point entity. The 'total' tag takes precedence when applicable to allow
+for common queries between three-phase and split-phase AC electrical systems.
+For example, in a split-phase 'ac' electrical system the 'total' tag should
+be applied to a point entity instead of 'linePower' to indicate the
+L1-L2 power measurement.
 
 Note:  The primary quantity 'freq' does not have location related tags.
 

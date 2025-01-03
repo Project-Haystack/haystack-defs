@@ -168,13 +168,15 @@ def: ^elec-power
 is: ^power
 quantityOf: ^elec
 prefUnit: ["kW"]
-doc: "Electrical energy consumed per unit time"
+doc: "Rate of electrical energy transfer; energy transfer per unit time"
+wikipedia: `https://en.wikipedia.org/wiki/Electric_power`
 --------------------------------------------------------------------------
 def: ^elec-energy
 is: ^energy
 quantityOf: ^elec
 prefUnit: ["kWh"]
-doc: "Electrical energy consumed"
+doc: "Electrical energy; integral of electric power"
+wikipedia: `https://en.wikipedia.org/wiki/Electrical_energy`
 --------------------------------------------------------------------------
 def: ^elec-volt
 is: ^quantity

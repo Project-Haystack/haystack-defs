@@ -16,11 +16,11 @@
 --------------------------------------------------------------------------
 def: ^ac
 is: ^marker
-doc: "Relating to alternating current electricity"
+doc: "Relating to alternating current (AC) electricity"
 --------------------------------------------------------------------------
 def: ^dc
 is: ^marker
-doc: "Relating to direct current electricity"
+doc: "Relating to direct current (DC) electricity"
 --------------------------------------------------------------------------
 
 --------------------------------------------------------------------------
@@ -44,8 +44,8 @@ def: ^phase
 is: ^str
 wikipedia: `https://en.wikipedia.org/wiki/Three-phase_electric_power`
 doc:
-  Phase measurement in a three-phase electrical system.  Phase is
-  deprecated in favor of more explicit tags:
+  Phase measurement in a three-phase electrical system. This tag is
+  deprecated in favor of more precise tags:
   - `lineVolt`
   - `phaseVolt`
   - `lineCurrent`
@@ -72,8 +72,8 @@ enum:
 def: ^elecLine
 is: ^str
 doc:
-  Single-phase line measurement of an electric quantity in an AC electric
-  power system.
+  Single-phase line measurement of an electric quantity in a multi-phase
+  AC electric power system.
 enum:
   - L1: line 1 measurement
   - L2: line 2 measurement
@@ -82,8 +82,8 @@ enum:
 def: ^elecLineToLine
 is: ^str
 doc:
-  Single-phase electric quantity measured line-to-line in an AC electric
-  power system.
+  Single-phase electric quantity measured line-to-line in a multi-phase AC
+  electric power system.
 enum:
   - L1-L2: line 1 to line 2 measurement
   - L2-L3: line 2 to line 3 measurement
@@ -92,8 +92,8 @@ enum:
 def: ^elecLineToNeutral
 is: ^str
 doc:
-  Single-phase electric quantity measured line-to-neutral in an AC
-  electric power system.
+  Single-phase electric quantity measured line-to-neutral in a multi-phase
+  AC electric power system.
 enum:
   - L1-N: line 1 to neutral measurement
   - L2-N: line 2 to neutral measurement
@@ -132,7 +132,8 @@ def: ^phasePower
 is: ^elecLine
 doc:
   Single-phase power measured line-to-neutral in an AC electric power
-  system.  May also be referred to as a phase power measurement.
+  system.  May also be referred to as a phase power measurement.  Neutral
+  might not be referenced, but implied.
 --------------------------------------------------------------------------
 def: ^linePf
 is: ^elecLineToLine
@@ -165,19 +166,20 @@ doc:
   electric power system.
 
   When applied to a point entity that has the `elec` and `volt` tags,
-  indicates the average of all measurements defined in `lineVolt`.
+  indicates the average of all available `lineVolt` measurements.
 
   When applied to a point entity that has the `elec` and `current` tags,
-  indicates the average of all measurements defined in `lineCurrent`.
+  indicates the average of all available `lineCurrent` measurements.
 
   When applied to a point entity that has the `elec` and `power` tags,
-  indicates the average of all measurements defined in `linePower`.
+  indicates the average of all available `linePower` measurements.
 
   When applied to a point entity that has the `elec` and `pf` tags,
-  indicates the average of all measurements defined in `linePf`.
+  indicates the average of all available `linePf` measurements.
 
   When applied to a point entity that has the `elec` and `energy` tags,
-  indicates the average of all measurements defined in `lineEnergy`.
+  indicates the average of all available `lineEnergy` measurements.
+ 
 --------------------------------------------------------------------------
 def: ^phaseAvg
 is: ^marker
@@ -186,45 +188,69 @@ doc:
   electric power system.
 
   When applied to a point entity that has the `elec` and `volt` tags,
-  indicates the average of all measurements defined in `phaseVolt`.
+  indicates the average of all available `phaseVolt` measurements.
 
   When applied to a point entity that has the `elec` and `current` tags,
-  indicates the average of all measurements defined in `phaseCurrent`.
+  indicates the average of all available `phaseCurrent` measurements.
 
   When applied to a point entity that has the `elec` and `power` tags,
-  indicates the average of all measurements defined in `phasePower`.
+  indicates the average of all available `phasePower` measurements.
 
   When applied to a point entity that has the `elec` and `pf` tags,
-  indicates the average of all measurements defined in `phasePf`.
+  indicates the average of all available `phasePf` measurements.
 
   When applied to a point entity that has the `elec` and `energy` tags,
-  indicates the average of all measurements defined in `phaseEnergy`.
+  indicates the average of all available `phaseEnergy` measurements.
 --------------------------------------------------------------------------
 def: ^neutral
 is: ^marker
 doc:
-  Used to indicate electrical current being measured on an electrical
-  neutral conductor when applied to a point entity that has the `elec` and
-  `current` tags.
+  when applied to a point entity that has the `elec` and `current` tags,
+  indicates electrical current being measured on an electrical neutral
+  conductor.
 --------------------------------------------------------------------------
 def: ^phaseCount
 is: ^choice
 tagOn: [^ac-elec-meter, ^motor]
 doc:
   Number of phases for an AC electrical power system or
-  connected equipment: single-phase or three-phase.
+  connected equipment: single-phase, split-phase, two-phase, or
+  three-phase.
 --------------------------------------------------------------------------
 def: ^singlePhase
 is: ^phaseCount
 doc:
-  Single-phase AC electrical power. Power is provided by a
-  single AC voltage source.
+  Single-phase AC electricity. Power is provided by a
+  single AC voltage source with a 2-wire connection.
+wikipedia: `https://en.wikipedia.org/wiki/Single-phase_electric_power`
+--------------------------------------------------------------------------
+def: ^splitPhase
+is: ^phaseCount
+doc:
+  Split-phase AC electricity. Power is provided by a
+  single AC voltage source with a 3-wire connection, consisting of two hot
+  wires (phases), separated from each other by a 180-degree phase angle,
+  and one neutral wire.  Despite having two labeled phases, split-phase AC
+  electricity is not a true two-phase system.
+wikipedia: `https://en.wikipedia.org/wiki/Split-phase_electric_power`
+--------------------------------------------------------------------------
+def: ^twoPhase
+is: ^phaseCount
+doc:
+  Two-phase AC electricity. Power is provided by two AC voltage sources,
+  separated from each other by a 90-degree phase angle. Two-phase systems
+  are extremely rare in modern buildings; they have been replaced by
+  modern `threePhase` systems.
+wikipedia: `https://en.wikipedia.org/wiki/Two-phase_electric_power`
 --------------------------------------------------------------------------
 def: ^threePhase
 is: ^phaseCount
 doc:
-  Three-phase AC electrical power. Power is provided by three AC voltage
+  Three-phase AC electricity. Power is provided by three AC voltage
   sources, each separated from the others by a 120-degree phase angle.
+  May have a 4-wire connection with a neutral (Wye) or a 3-wire connection
+  without a neutral (Delta).
+wikipedia: `https://en.wikipedia.org/wiki/Three-phase_electric_power`
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -235,7 +261,7 @@ doc:
 def: ^ac-freq
 is: ^freq
 quantityOf: ^ac-elec
-doc: "Frequency of alternating current"
+doc: "Frequency of an alternating current waveform"
 --------------------------------------------------------------------------
 def: ^pf
 is: ^quantity
@@ -248,6 +274,7 @@ doc:
   1.0 is applied, a negative value for power factor indicates the
   electrical current leads the electrical voltage and a positive value
   indicates the electrical current lags the electrical voltage.
+wikipedia: `https://en.wikipedia.org/wiki/Power_factor`
 --------------------------------------------------------------------------
 def: ^pfScope
 is: ^choice
@@ -264,12 +291,16 @@ doc:
 def: ^pfDisplacement
 is: ^pfScope
 doc:
-  Displacement power factor, which excludes effects of harmonic
-  distortion.
+  Displacement power factor, which accounts for the phase angle between
+  voltage and current but excludes effects of nonlinear waveforms (
+  harmonic distortion).
 --------------------------------------------------------------------------
 def: ^pfDistortion
 is: ^pfScope
-doc: "Distortion power factor"
+doc:
+  Distortion power factor, which measures the component of power factor
+  attributable to harmonic distortion in voltage and current waveforms.
+wikipedia: `https://en.wikipedia.org/wiki/Power_factor#Distortion_power_factor`
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -280,25 +311,31 @@ doc: "Distortion power factor"
 def: ^active-power
 is: ^elec-power
 quantityOf: ^ac-elec
-doc: "Active power or real power; energy transfer that contributes useful work"
+doc:
+  Active power or real power; represents energy transfer that contributes
+  useful work.
 --------------------------------------------------------------------------
 def: ^reactive-power
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["kVAR"]
-doc: "Reactive power or imaginary power; energy transfer that contributes useful work"
+doc:
+  Reactive power or imaginary power; represents energy that recirculates
+  within an AC power system but does not contribute useful work.
 --------------------------------------------------------------------------
 def: ^apparent-power
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["kVA"]
-doc: "Apparent power is perceived magnitude of power due to the combination of active and reactive power"
+doc:
+  Apparent power; the perceived magnitude of electric power transfer in an
+  AC electric system due to the combination of active and reactive power.
 --------------------------------------------------------------------------
 def: ^elec-demand
 is: ^active-power
 quantityOf: ^ac-elec
 doc:
-  Active power averaged over a rolling interval.  For utility meters
+  Active power averaged over a regular interval.  For utility meters
   the demand interval is based on the billing period.
 --------------------------------------------------------------------------
 
@@ -310,17 +347,23 @@ doc:
 def: ^active-energy
 is: ^elec-energy
 quantityOf: ^ac-elec
-doc: "Integral of `active-power` over time"
+doc:
+  Active energy in an AC eletrical power system. Integral of
+  `active-power` over time.
 --------------------------------------------------------------------------
 def: ^reactive-energy
 is: ^quantity
 quantityOf: ^ac-elec
-doc: "Integral of `reactive-power` over time"
+doc:
+  Reactive energy in an AC eletrical power system. Integral of
+  `reactive-power` over time.
 --------------------------------------------------------------------------
 def: ^apparent-energy
 is: ^quantity
 quantityOf: ^ac-elec
-doc: "Integral of `apparent-power` over time"
+doc:
+  Apparent energy in an AC eletrical power system. Integral of
+  `apparent-power` over time.
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -332,7 +375,7 @@ def: ^current-magnitude
 is: ^elec-current
 quantityOf: ^ac-elec
 prefUnit: ["A"]
-doc: "Magnitude of electrical current"
+doc: "Root-mean-square (RMS) magnitude of AC electrical current"
 --------------------------------------------------------------------------
 def: ^current-angle
 is: ^quantity
@@ -344,13 +387,13 @@ def: ^current-imbalance
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "AC current imbalance"
+doc: "AC current phase imbalance. Also referred to as current unbalance."
 --------------------------------------------------------------------------
 def: ^current-thd
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "Total harmonic distortion (THD) of current"
+doc: "Total harmonic distortion (THD) of AC current"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
@@ -362,7 +405,7 @@ def: ^volt-magnitude
 is: ^elec-volt
 quantityOf: ^ac-elec
 prefUnit: ["A"]
-doc: "Magnitude of electrical voltage"
+doc: "Root-mean-square (RMS) magnitude of AC electrical voltage"
 --------------------------------------------------------------------------
 def: ^volt-angle
 is: ^quantity
@@ -374,13 +417,13 @@ def: ^volt-imbalance
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "AC voltage imbalance"
+doc: "AC voltage phase imbalance. Also referred to as voltage unbalance."
 --------------------------------------------------------------------------
 def: ^volt-thd
 is: ^quantity
 quantityOf: ^ac-elec
 prefUnit: ["%"]
-doc: "Total harmonic distortion (THD) of voltage"
+doc: "Total harmonic distortion (THD) of AC voltage"
 --------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
