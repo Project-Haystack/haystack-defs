@@ -41,6 +41,9 @@ without a '_kind' are, by definition, dicts.
 
 The following sections indicate how the various Haystack types are encoded as JSON objects.
 
+A JSON Schema for this encoding can be found on
+[GitHub]`https://raw.githubusercontent.com/j2inn/hayson/master/hayson-json-schema.json`.
+
 Number [#number]
 ================
 A JSON number. If the number is special or has a unit, it is encoded an object with
@@ -433,3 +436,4 @@ Here is another example with nested lists, dicts, and grids:
       {"type":"scalar", "val":"simple string"}
     ]
   }
+
