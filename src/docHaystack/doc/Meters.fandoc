@@ -155,6 +155,13 @@ Haystack uses the load convention for net electricity flow.
 - Positive net quantities indicate electricity consumed (i.e. load).
 - Negative net quantities indicate electricity produced (i.e. generation).
 
+The positive or negative sign for power factor is interpreted using IEC or IEEE
+convention specified with `pfIec` or `pfIeee` tags.
+
+- IEC convention defines the sign based on the direction of active power flow.
+- IEEE convention defines the sign based on whether the load is capacitive or
+  inductive.
+
 Note: Direction-related tags do not apply to 'voltage' or to the 'angle',
 'imbalance', and 'thd' characteristics used to describe current.
 

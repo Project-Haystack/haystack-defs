@@ -302,6 +302,27 @@ doc:
   attributable to harmonic distortion in voltage and current waveforms.
 wikipedia: `https://en.wikipedia.org/wiki/Power_factor#Distortion_power_factor`
 --------------------------------------------------------------------------
+def: ^pfStandard
+is: ^choice
+doc: "Standard for interpreting power factor's positive or negative sign"
+--------------------------------------------------------------------------
+def: ^pfIec
+is: ^pfStandard
+doc:
+  Power factor according to the IEC convention defines a positive or
+  negative sign based on the direction of active power flow.  Power factor
+  is positive when active power flows into a load.  Power factor is negative
+  when active power flows out of a load.
+--------------------------------------------------------------------------
+def: ^pfIeee
+is: ^pfStandard
+doc:
+  Power factor according to the IEEE convention defines a positive or
+  negative sign based on whether the load is capacitive or inductive.  Power
+  factor is positive when the load is capacitive, or when voltage lags behind
+  current.  Power factor is negative when the load is inductive, or when
+  current lags behind voltage.
+--------------------------------------------------------------------------
 
 //////////////////////////////////////////////////////////////////////////
 // AC Power Quantities
