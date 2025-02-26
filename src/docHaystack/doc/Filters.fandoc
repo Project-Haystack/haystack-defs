@@ -35,6 +35,7 @@ encoding (with a couple of exceptions noted below).
 
 You can combine filters using 'and', 'or', or 'not':
 
+  not point                 // missing the point tag
   site or equip             // has site or equip tag
   equip and hvac            // has equip and hvac tag
   equip and not ahu         // has equip tag, but not the ahu tag
