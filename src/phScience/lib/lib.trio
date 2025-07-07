@@ -9,7 +9,7 @@
 --------------------------------------------------------------------------
 def: ^lib:phScience
 doc: "Project Haystack scientific definitions"
-version: "3.9.15"
+version: "4.0.0"
 baseUri: `https://project-haystack.org/def/phScience/`
 depends: [^lib:ph]
-------------------------------------------------------------------------
+-----------------------------------------------------------------------
